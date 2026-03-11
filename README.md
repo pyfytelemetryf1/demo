@@ -15,7 +15,7 @@ Browse analysis charts, session comparisons, AI-engineered coaching insights, an
 
 PyFy Telemetry captures real-time telemetry for F1 sim racing and turns it into practical, lap-by-lap and turn-by-turn performance insights you can use to find more lap time. Currently compatible with EA Sports F1 25.
 
-- **[Get it on the Microsoft Store](https://apps.microsoft.com/detail/9P60JSFXGLG0)**
+- **[Get it from the Microsoft Store](https://apps.microsoft.com/detail/9P60JSFXGLG0)**
 - **[GitHub — Releases & Documentation](https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases)**
 
 ## License

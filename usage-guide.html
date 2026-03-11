@@ -1,0 +1,334 @@
+<nav class="guide-toc" id="guide-toc">
+<h2>Contents</h2>
+<ul>
+<li><a href="#1-quick-start">1. Quick Start</a></li>
+<li><a href="#2-setting-up-f1-25-and-your-sim-racing-software">2. Setting Up F1 25 and Your Sim Racing Software</a></li>
+<li class="toc-sub">  <a href="#in-game-setup-f1-25">In-game setup (F1 25)</a></li>
+<li class="toc-sub">  <a href="#sim-racing-software-setup">Sim racing software setup</a></li>
+<li class="toc-sub">  <a href="#if-you-dont-use-sim-racing-software">If you don&#x27;t use sim racing software</a></li>
+<li><a href="#3-capture-your-first-telemetry">3. Capture Your First Telemetry</a></li>
+<li class="toc-sub">  <a href="#raw-telemetry-capture-recommended">Raw telemetry capture (recommended)</a></li>
+<li><a href="#4-review-your-telemetry-data">4. Review Your Telemetry Data</a></li>
+<li class="toc-sub">  <a href="#what-to-look-for-in-the-laps-csv">What to look for in the laps CSV</a></li>
+<li class="toc-sub">  <a href="#the-turns-csv">The turns CSV</a></li>
+<li><a href="#5-generate-analysis-charts">5. Generate Analysis Charts</a></li>
+<li class="toc-sub">  <a href="#quick-start">Quick start</a></li>
+<li class="toc-sub">  <a href="#single-race-vs-comparison-mode">Single-race vs. comparison mode</a></li>
+<li class="toc-sub">  <a href="#menu-options-explained">Menu options explained</a></li>
+<li class="toc-sub">  <a href="#highest-value-charts">Highest-value charts</a></li>
+<li><a href="#6-generate-a-per-lap-telemetry-plot">6. Generate a Per-Lap Telemetry Plot</a></li>
+<li><a href="#7-generate-an-llm-analysis-request">7. Generate an LLM Analysis Request</a></li>
+<li class="toc-sub">  <a href="#quick-start">Quick start</a></li>
+<li class="toc-sub">  <a href="#how-to-use-the-zip">How to use the ZIP</a></li>
+<li class="toc-sub">  <a href="#providing-additional-context">Providing additional context</a></li>
+<li><a href="#8-replay-a-telemetry-file">8. Replay a Telemetry File</a></li>
+<li><a href="#9-changing-listener-settings">9. Changing Listener Settings</a></li>
+<li><a href="#10-calibration-files">10. Calibration Files</a></li>
+<li class="toc-sub">  <a href="#what-ships-with-the-app">What ships with the app</a></li>
+<li class="toc-sub">  <a href="#advanced-refine-existing-calibration-for-supported-tracks">Advanced: Refine existing calibration for supported tracks</a></li>
+<li class="toc-sub">  <a href="#advanced-create-calibration-data-for-new-tracks">Advanced: Create calibration data for new tracks</a></li>
+<li><a href="#11-output-files-reference">11. Output Files Reference</a></li>
+</ul>
+</nav>
+<h1 id="user-guide">User Guide</h1>
+
+<h2 id="1-quick-start">1. Quick Start</h2>
+
+<p>Install the app from the Microsoft Store and launch it. On first launch, a quick configuration wizard walks you through the essential settings (network ports, capture preferences). Accept the defaults to get started — you can change everything later from the Settings menu.</p>
+
+<p>Once configured, the app starts listening for telemetry automatically. Just start the game and start driving — the app detects each session, records your telemetry, and saves it when you're done.</p>
+
+<p>The main screen shows a status bar confirming the app is active. Press the indicated keys to open the menu for analysis, settings, and more.</p>
+
+<h2 id="2-setting-up-f1-25-and-your-sim-racing-software">2. Setting Up F1 25 and Your Sim Racing Software</h2>
+
+<p>The app sits between your game and your sim racing software (e.g., Simagic SimPro Manager, Simhub, or similar). The game sends telemetry data to the app, and the app forwards it to your sim software — so your wheel display, dashboard, and other peripherals continue to work normally.</p>
+
+<h3 id="in-game-setup-f1-25">In-game setup (F1 25)</h3>
+
+<ol>
+<li>Open the <strong>Settings</strong> menu in F1 25, then find the <strong>Telemetry</strong> settings</li>
+<li>Set <strong>UDP Telemetry</strong> to <strong>On</strong></li>
+<li>Set <strong>UDP Port</strong> to <strong>20774</strong> (the app's default listen port)</li>
+<li>Set <strong>UDP Send Rate</strong> to <strong>60Hz</strong> for best accuracy</li>
+<li>Set <strong>UDP Format</strong> to <strong>2025</strong> (the current telemetry format used by F1 25)</li>
+</ol>
+
+<h3 id="sim-racing-software-setup">Sim racing software setup</h3>
+
+<p>In your sim racing software, set the telemetry input port to <strong>20775</strong> (the app's default forward port). The app receives on 20774 and forwards to 20775 — your software reads from 20775 as if the game were sending directly.</p>
+
+<p>If your software already uses a different port, consider changing it to <code>20775</code> or change the app's forward port in Settings to match.</p>
+
+<h3 id="if-you-dont-use-sim-racing-software">If you don&#x27;t use sim racing software</h3>
+
+<p>The app works fine on its own — it captures and analyzes telemetry regardless of whether forwarding is active. The forward port setting can be left default.</p>
+
+<h2 id="3-capture-your-first-telemetry">3. Capture Your First Telemetry</h2>
+
+<p>Start the app before launching a session in F1 25. The app auto-detects when a session begins and starts recording. When the session ends (or you exit), it saves the data automatically.</p>
+
+<p>After your session, you'll find output files in your <code>telemetry_logs/</code> folder:</p>
+<ul>
+<li><strong><code>{Date}_{Track}_{Session}_laps.csv</code></strong> — one row per completed lap</li>
+<li><strong><code>{Date}_{Track}_{Session}_turns.csv</code></strong> — one row per turn per lap (requires calibration data for the track)</li>
+</ul>
+
+<p>The app refers to these files as processed telemetry files or CSV telemetry files.</p>
+
+<h3 id="raw-telemetry-capture-recommended">Raw telemetry capture (recommended)</h3>
+
+<p>By default, the app also saves a raw binary capture file in <code>telemetry_logs/raw_telemetry/</code>. This is the complete telemetry stream from your session.</p>
+
+<p><strong>Why keep raw captures:</strong> These let you generate a specific subset of high-resolution lap charts (5-panel telemetry charts with brake/throttle, steering and lateral G, speed, gear shifts),</p>
+<p>but more importantly allow you to replay sessions to re-process data (useful when track calibration data improves or new features are added), and create or refine track calibration files.</p>
+<p>Every other chart in the chart analysis will still work without these, including the feature to bundle the data for third-party LLM analysis.</p>
+
+<p><strong>Disk space:</strong> A raw capture is roughly 0.5 GB for a 15-lap race. If disk space is tight, you can disable raw capture in Settings — but you'll lose the ability to replay sessions later or to generate high-resolution lap charts.</p>
+
+<h2 id="4-review-your-telemetry-data">4. Review Your Telemetry Data</h2>
+
+<p>From the menu, select <strong>Open telemetry_logs folder</strong> to browse your output files.</p>
+
+<h3 id="what-to-look-for-in-the-laps-csv">What to look for in the laps CSV</h3>
+
+<p>Open a <code>_laps.csv</code> file in any spreadsheet app (Excel, Google Sheets) for a quick at-a-glance review of your session. The most useful columns to scan:</p>
+
+<ul>
+<li><strong>lap_time</strong> / <strong>sector times</strong> — your pace progression across the session</li>
+<li><strong>session type, track info</strong> — track and whether this was a FP/Quali/race session</li>
+<li><strong>ai_difficulty</strong> — the AI level you raced against</li>
+<li><strong>position</strong> — where you finished each lap</li>
+<li><strong>tyre_compound</strong> / <strong>tyre_age_laps</strong> — stint strategy and tyre age</li>
+<li><strong>assists_any</strong> — whether any assists were active (you can find the exact assists that were used in further columns)</li>
+<li><strong>damage_any</strong> — whether you picked up damage (you can find the exact damage and severity in further columns)</li>
+<li><strong>weather and time of day</strong> — session conditions</li>
+<li><strong>lap type</strong> — whether this was an inlap, outlap, safety car lap, standing start lap etc.</li>
+<li><strong>flashback used/enabled</strong> — whether flashbacks were enabled and whether they were actually used on a particular lap.</li>
+<li><strong>lockups_count</strong> / <strong>spins_count</strong> — how clean your driving was</li>
+<li><strong>traffic conditions</strong>: whether you were stuck in traffic for a particular lap, whether DRS was used, whether the car behind had DRS activated,</li>
+<li><strong>track_limits_violations</strong> — rule infringements</li>
+</ul>
+
+<p>See <a href="CSV_OUTPUT_FORMAT.md" target="_blank" rel="noopener">CSV_OUTPUT_FORMAT.md</a> for the complete field reference.</p>
+
+<h3 id="the-turns-csv">The turns CSV</h3>
+
+<p>The <code>_turns.csv</code> contains per-turn detail: braking points, apex speeds, throttle commitment, racing line coordinates, tyre temperatures, and more. This data is dense — it's most useful when consumed through the analysis charts rather than viewed directly.</p>
+
+<p>A few fields worth checking directly:</p>
+<ul>
+<li><strong>position_entry</strong> / <strong>position_exit</strong> — position changes through corners (useful for reviewing race battles)</li>
+<li><strong>time_at_entry_ms</strong> on the <strong>RaceStart</strong> row — your standing start reaction time in milliseconds</li>
+<li><strong>basic setup per turn</strong> - differential, brake bias.</li>
+<li><strong>max throttle,  max brake</strong> - throttle and brake profile through the turn.</li>
+<li><strong>lockups and spins severity per axle</strong> - lockup and wheelspin profile through the turn.</li>
+</ul>
+
+<h2 id="5-generate-analysis-charts">5. Generate Analysis Charts</h2>
+
+<p>From the menu, select <strong>Generate analysis charts</strong>. This creates a full set of performance charts from your session data.</p>
+
+<h3 id="quick-start">Quick start</h3>
+
+<ol>
+<li>The app shows your available tracks and sessions — pick one</li>
+<li>Optionally pick a second session on the same track for a comparison analysis (recommended)</li>
+<li>Press Enter to accept defaults for focus turns and lap range (the app auto-selects clean laps and the most insightful turns based on your driving style within that particular session)</li>
+<li>Charts are generated and saved to <code>telemetry_logs/analysis/</code></li>
+<li>Choose to open the output folder when prompted</li>
+</ol>
+
+<h3 id="single-race-vs-comparison-mode">Single-race vs. comparison mode</h3>
+
+<ul>
+<li><strong>Single race</strong>: Analyzes one session — pace consistency, technique per turn, tyre and energy management</li>
+<li><strong>Comparison</strong> (two sessions on the same track): Adds cross-race delta charts showing exactly where you gained or lost time between sessions. This is the most powerful mode for tracking your progression.</li>
+</ul>
+
+<h3 id="menu-options-explained">Menu options explained</h3>
+
+<ul>
+<li><strong>Highlighted focus turns</strong>: The turns that get detailed technique charts (brake traces, throttle traces, speed, racing lines). Auto-detection picks the turns where you lose the most time. Override with e.g. <code>1,5,6+7</code> to focus on specific turns (use <code>+</code> for chicanes treated as one complex).</li>
+<li><strong>Laps to include</strong>: Which laps to analyze. Auto-select excludes inlaps, outlaps, standing start laps, and safety car laps so only representative laps are analyzed.</li>
+</ul>
+<p>Override with e.g. <code>2-14</code> to include specific laps. Even when excluded, inlaps, outlaps, damage laps, standing start laps, safety car laps, are shown and analyzed in separate charts.</p>
+
+<h3 id="highest-value-charts">Highest-value charts</h3>
+
+<ul>
+<li><strong>Time left on table</strong> — Shows how much time you're losing per turn compared to your own best. The biggest bars are your highest-priority improvement areas.</li>
+<li><strong>Turn time delta</strong> (comparison mode) — Waterfall chart showing where you gained or lost time between two sessions, turn by turn.</li>
+<li><strong>Braking/throttle consistency</strong> — Scatter plots of your braking point and throttle commitment distances. Tight clusters mean consistent execution; wide spread means you're losing time to variability.</li>
+<li><strong>Standing start analysis</strong> (Race/Sprint) — Reaction time, traction, throttle application, and position changes off the line.</li>
+<li><strong>Lap time progression, lap times per stint, fuel-normalized lap time</strong> - shows your lap time medians, slowest/fastest per stint, and normalizes lap time with fuel load (especially useful when comparing raw pace between 2 sessions that had different number of total laps (e.g. Medium vs Long races)).</li>
+<li><strong>Racing line</strong> (per focus turn) — Spatial view of your line through the turn, with all clean laps overlaid. Shows apex consistency and exit trajectory.</li>
+<li><strong>Technique traces</strong> (per focus turn) — Overlaid brake, throttle, speed, and gear traces for all clean laps. Shows exactly how your inputs vary lap-to-lap.</li>
+<li><strong>Scorecard</strong> — A summary card with session context (AI difficulty, assists, weather, positions). Note: the technique and consistency scores on this chart are experimental and may not be accurate — use the dedicated technique charts to confirm. Can be used for an at-a-glance overview of your strengths and opportunities within the session.</li>
+</ul>
+
+<p>The full chart set also includes: tyre degradation vs. tyre age, ERS deployment patterns, battery lifecycle, tyre temperature window scoring, full-lap telemetry overlays (fastest vs. slowest), and advanced yaw rate / longitudinal G traces per turn.</p>
+
+<h2 id="6-generate-a-per-lap-telemetry-plot">6. Generate a Per-Lap Telemetry Plot</h2>
+
+<p>From the menu, select <strong>Generate a telemetry plot</strong>. This produces a high-resolution 6-panel chart for a specific lap, showing the full telemetry trace across the lap distance:</p>
+
+<ul>
+<li>Brake and throttle inputs</li>
+<li>Steering angle</li>
+<li>Lateral G-force</li>
+<li>Speed (km/h)</li>
+<li>Gear</li>
+<li>Turn zones (colored bands from calibration data)</li>
+</ul>
+
+<p>This is useful for studying a single lap in detail — examining braking points, throttle application, steering smoothness, and how each turn connects to the next.</p>
+
+<p><strong>Requires a raw capture file</strong> (<code>.bin</code>). The menu prompts you to select a capture file, then choose the car (your car or any AI position), lap number, chart theme (dark/light), and optionally a track map overlay.</p>
+
+<p>Charts are saved to <code>telemetry_logs/charts/</code>.</p>
+
+<h2 id="7-generate-an-llm-analysis-request">7. Generate an LLM Analysis Request</h2>
+
+<p>From the menu, select <strong>Prepare LLM analysis request</strong>. This generates all the analysis charts and bundles them with your CSV data and an analysis skill file into a single ZIP file, ready to upload to an AI for a coaching report. The skill file is specifically designed to extract repeatable, consistent, high-value insights and reports from the LLM, by providing it a precise framework for analysis and how to evaluate and explain it step by step, together with accurate, machine-consumable telemetry analysis (the app pre-generates and prepares the relevant telemetry analysis and charts, including metadata that helps LLMs precisely read the data).</p>
+<p>The embedded LLM skill is designed to ensure that the LLMs produce meaningful advice and analysis, with the most accurate in-depth understanding of the data as possible.</p>
+
+<p><strong>Note</strong> The app does not use any LLM and does not connect or send data to any LLM. The prepared zip file is a bundle that can be uploaded by users to their preferred LLM (or the LLMs suggested by the app, since those have been tested to work with the analysis skill). Interactions with the LLM happen outside the scope of the app and are subject to the particular LLM terms of service.</p>
+
+<h3 id="quick-start">Quick start</h3>
+
+<ol>
+<li>Pick your track and session(s) — same flow as chart generation</li>
+<li>Accept defaults or customize focus turns and lap range</li>
+<li>The app creates a ZIP in <code>telemetry_logs/llm_analysis_requests/</code></li>
+<li>Open the folder when prompted</li>
+</ol>
+
+<h3 id="how-to-use-the-zip">How to use the ZIP</h3>
+
+<ol>
+<li>Open <strong>Claude Opus 4.6</strong>, <strong>ChatGPT 5.4 Thinking</strong>, or your preferred web-based LLM</li>
+<li>Drag and drop the ZIP file into the chat</li>
+<li>Ask: <em>"Please follow the instructions in the zip file to help me analyze my F1 telemetry, thanks!"</em></li>
+<li>Review the analysis, then follow up with: <em>"Can you show me charts from the zip file that support the key priorities you've identified?"</em></li>
+</ol>
+
+<p><strong>Tip for ChatGPT users:</strong> Use stronger wording to get the full structured analysis: <em>"Please follow the instructions in the zip file to analyze my F1 telemetry. Please systematically go through the thinking phase and output phase exactly as instructed to produce the precise intended structure, thanks!"</em></p>
+
+<p>The ZIP contains:</p>
+<ul>
+<li><strong><code>llm_telemetry_analysis_request.md</code></strong> — the analysis prompt (the AI reads this first)</li>
+<li><strong><code>charts/</code></strong> — all generated chart PNGs plus summary and manifest</li>
+<li><strong><code>data/</code></strong> — laps and turns CSVs plus field documentation</li>
+</ul>
+
+<h3 id="providing-additional-context">Providing additional context</h3>
+
+<p>You can also provide the LLM additional context (e.g. <code>It was the first time I raced without assists at this track. Braking felt off at a few key corners.</code> or <code>In the first race, I was just getting oriented on this new track so I was using racing line, in the second race I disabled racing line and I was pushing hard to find the limits of grip, therefore I crashed out on Lap 19.</code>), or ask it for specific follow-ups: <code>I'm not comfortable with my braking point at turn T3, how does it look from the data, and what should I focus on to improve my confidence at that turn?</code>).</p>
+
+<h2 id="8-replay-a-telemetry-file">8. Replay a Telemetry File</h2>
+
+<p>The app refers to re-generating CSV data as <code>replaying a telemetry file</code>.</p>
+<p>From the menu, select <strong>Replay a telemetry session</strong>. This re-processes a raw capture file to regenerate the CSV output — useful when calibration data has been updated or after an app update adds new features or fixes.</p>
+
+<p>You can:</p>
+<ul>
+<li><strong>Replay all files missing output</strong> — the app finds capture files that don't have corresponding CSVs and replays them in batch</li>
+<li><strong>Select an individual file</strong> — pick a specific capture to replay</li>
+</ul>
+
+<p>Replayed output files are prefixed with <code>replay_</code> (e.g., <code>replay_2026_01_Jan_30_AbuDhabi_Race_laps.csv</code>).</p>
+
+<h2 id="9-changing-listener-settings">9. Changing Listener Settings</h2>
+
+<p>From the menu, select <strong>Listener settings</strong> to adjust:</p>
+
+<ul>
+<li><strong>Listen port</strong> — the port the game sends telemetry to (default: 20774). Change this if the game is configured to send on a different port.</li>
+<li><strong>Forward port</strong> — the port your sim software reads from (default: 20775). Match this to your software's input port.</li>
+<li><strong>Enable telemetry capture</strong> — toggle raw binary capture on/off. On by default (recommended).</li>
+<li><strong>Enable dashboard patching</strong> — replaces the in-game fuel display with gap-behind data and brake temps with tyre wear on your wheel display. Off by default.</li>
+<li><strong>Allow broadcast IP</strong> — enable if you run the game on a different machine than the app. Off by default (localhost only).</li>
+<li><strong>Desktop shortcut</strong> — create a desktop shortcut for quick access.</li>
+</ul>
+
+<p>After saving, the app restarts automatically with the new settings.</p>
+
+<h2 id="10-calibration-files">10. Calibration Files</h2>
+
+<p>Calibration files define the turn zones for each track — where each turn starts, where the apex is, and where it ends. The app uses these to break down your laps into per-turn telemetry.</p>
+
+<h3 id="what-ships-with-the-app">What ships with the app</h3>
+
+<p>The app includes calibration data for the following tracks:</p>
+
+<ul>
+<li><strong>Melbourne</strong> (Australia)</li>
+<li><strong>Shanghai</strong> (China)</li>
+<li><strong>Suzuka</strong> (Japan)</li>
+<li><strong>Sakhir</strong> (Bahrain)</li>
+<li><strong>Yas Marina</strong> (Abu Dhabi)</li>
+</ul>
+
+<p>More tracks are added with each release. These files should work out of the box — no setup needed.</p>
+
+<p>For tracks without calibration data, the app still records lap-level telemetry (lap times, tyre data, etc.) but turn-by-turn analysis is not available.</p>
+
+<h3 id="advanced-refine-existing-calibration-for-supported-tracks">Advanced: Refine existing calibration for supported tracks</h3>
+
+<p>If you notice turn boundaries that feel slightly off (e.g., a turn zone that starts too early or too late), you can adjust them:</p>
+
+<p><strong>Prerequisite</strong> You will have to capture a default <code>Very short</code> 5-lap Race on that track using an AI level of between 90 and 100. Allow the AI to finish the race, or at the minimum to complete <strong>2 laps</strong>.</p>
+
+<ol>
+<li>From the menu, select <strong>Advanced options</strong> > <strong>Review/edit track calibration</strong></li>
+<li>Pick the track and the <code>AI 90</code> capture file.</li>
+<li>The review UI opens showing the track map with turn zones marked</li>
+<li>Click a turn to select it, drag boundary lines to adjust zone start/end</li>
+<li>Use the toolbar to remove turns, add new ones, or undo changes</li>
+<li>Confirm to save, or reject to discard</li>
+</ol>
+
+<p>A detailed calibration editing guide will be added in a future update.</p>
+
+<h3 id="advanced-create-calibration-data-for-new-tracks">Advanced: Create calibration data for new tracks</h3>
+
+<p>To create calibration for a track not yet supported:</p>
+
+<ol>
+<li>In F1 25, start a <code>very short</code> 5-lap <strong>Race</strong> session on the target track with <strong>AI at 90-100 difficulty</strong></li>
+<li>Make sure <strong>raw telemetry capture is enabled</strong> in the app's settings</li>
+<li>Let the AI in P1 complete 3-5 clean laps, then exit the session</li>
+<li>From the menu, select <strong>Advanced options</strong> > <strong>Create new track calibration</strong></li>
+<li>Pick the track and the capture file you just recorded</li>
+<li>The app analyzes the telemetry to detect turn zones automatically</li>
+<li>Review and adjust the detected turns in the calibration UI, starting from the track map and progressing to the detailed 6-panel high-resolution telemetry chart</li>
+<li>Turns can be selected by clicking, and edited by dragging their boundaries</li>
+<li>Confirm to save</li>
+</ol>
+
+<p>A detailed calibration creation guide will be added in a future update.</p>
+
+<p><strong>Community contributions welcome!</strong> If you create calibration data for a new track, consider submitting it as a Pull Request to the <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener">releases repository</a> in the <code>community/calibration/</code> folder. Your contribution helps all users.</p>
+
+<h2 id="11-output-files-reference">11. Output Files Reference</h2>
+
+<p>All output goes to your <code>telemetry_logs/</code> folder.</p>
+
+<table><thead>
+<tr><th>Location</th><th>Contents</th></tr>
+</thead><tbody>
+<tr><td><code>telemetry_logs/</code></td><td>Per-session <code>_laps.csv</code> and <code>_turns.csv</code> files</td></tr>
+<tr><td><code>telemetry_logs/raw_telemetry/</code></td><td>Raw binary capture files (<code>.bin</code>)</td></tr>
+<tr><td><code>telemetry_logs/analysis/</code></td><td>Analysis chart sets (one folder per analysis run)</td></tr>
+<tr><td><code>telemetry_logs/llm_analysis_requests/</code></td><td>LLM analysis ZIP bundles</td></tr>
+<tr><td><code>telemetry_logs/charts/</code></td><td>optional, high-resolution lap telemetry plots</td></tr>
+<tr><td><code>telemetry_logs/calibration/</code></td><td>Track calibration JSON files</td></tr>
+</tbody>
+</table>
+
+<p>File naming follows the pattern: <code>{YYYY}_{MM}_{Mon}_{DD}_{Track}_{Session}</code> (e.g., <code>2026_01_Jan_30_AbuDhabi_Race_laps.csv</code>).</p>
+
+<p>For complete CSV field documentation, see <a href="CSV_OUTPUT_FORMAT.md" target="_blank" rel="noopener">CSV_OUTPUT_FORMAT.md</a>.</p>
+
+<button class="guide-back-to-top" id="guide-back-to-top" title="Back to top">&uarr;</button>

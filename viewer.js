@@ -266,13 +266,19 @@
 
         switch (e.key) {
             case 'ArrowLeft':
-                if (helpOverlay.hidden && csvOverlay.hidden) {
+                if (!csvOverlay.hidden) {
+                    e.preventDefault();
+                    switchCsvTab(-1);
+                } else if (helpOverlay.hidden) {
                     e.preventDefault();
                     prevSlide();
                 }
                 break;
             case 'ArrowRight':
-                if (helpOverlay.hidden && csvOverlay.hidden) {
+                if (!csvOverlay.hidden) {
+                    e.preventDefault();
+                    switchCsvTab(1);
+                } else if (helpOverlay.hidden) {
                     e.preventDefault();
                     nextSlide();
                 }
@@ -422,8 +428,8 @@
     let csvCache = {};
     let activeCsvKey = 'feb22_laps';
 
-    const CSV_LAPS_DESC = 'Every lap records total time, sector times, gap behind, tyre compound, temperature windows, and age, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashback usage, DRS, traffic conditions, and more.';
-    const CSV_TURNS_DESC = 'Each turn of every lap: entry/apex/exit timings, distances, speeds, and gears. Race position at entry and exit, lockups and wheelspin by severity and axle, tyre temperatures, brake bias, differential, and spatial samples.';
+    const CSV_LAPS_DESC = 'Each lap records total time, sector times, gap behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashbacks, DRS, traffic conditions, and more.';
+    const CSV_TURNS_DESC = 'Each turn of every lap: entry/apex/exit timings, distances, speeds, and gears; race position at entry and exit, lockups and wheelspins by severity and axle, tyre temperatures, brake bias, differential, and spatial samples.';
 
     const CSV_FILES = {
         feb22_laps: { url: 'sample-data/csv/feb22_laps.csv', label: 'Feb 22 \u2014 Laps' },
@@ -448,9 +454,9 @@
 
     // Explicit header renames for long column names
     const HEADER_RENAME = {
-        'tyres_in_temp_window_score': 'tyre_in_temp_window',
-        'tyres_in_optimal_temp_window_score': 'tyre_in_optimal_window',
-        'tyres_in_optimal_carcass_temp_window': 'tyre_carcass_in_window'
+        'tyres_in_temp_window_score': 'tyres_in_temp_window',
+        'tyres_in_optimal_temp_window_score': 'tyres_in_optimal_window',
+        'tyres_in_optimal_carcass_temp_window': 'tyres_carcass_in_window'
     };
 
     function parseCSV(text, fileKey) {
@@ -641,6 +647,14 @@
         if (window.location.hash.slice(1) !== newHash) {
             history.replaceState(null, '', '#' + newHash);
         }
+    }
+
+    const csvKeyOrder = Object.keys(CSV_FILES);
+
+    function switchCsvTab(direction) {
+        const idx = csvKeyOrder.indexOf(activeCsvKey);
+        const next = ((idx + direction) % csvKeyOrder.length + csvKeyOrder.length) % csvKeyOrder.length;
+        loadCSV(csvKeyOrder[next]);
     }
 
     drawerCsvBtn.addEventListener('click', openCSV);

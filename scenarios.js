@@ -53,6 +53,12 @@ const SCENARIOS = {
                 group: 'COMPARISON'
             },
             {
+                image: 'images/highlights/scorecard.png',
+                title: 'Session Scorecard',
+                description: 'At-a-glance session summary: difficulty, assists, technique metrics, and consistency scores.',
+                group: 'SCORECARD'
+            },
+            {
                 image: 'images/highlights/llm_report.png',
                 title: 'LLM Performance Report (Optional)',
                 description: 'Export your CSV telemetry and charts, together with a purpose-built AI skill into a zip file that you drag-and-drop into your preferred LLM. The skill gives the LLM a precise step-by-step framework for evaluating your telemetry \u2014 producing consistent, structured coaching insights. The output focuses on the top 3 immediately actionable priorities to focus on in your next session in order to gain more lap time.',
@@ -60,10 +66,22 @@ const SCENARIOS = {
                 disclaimer: LLM_DISCLAIMER
             },
             {
-                image: 'images/highlights/scorecard.png',
-                title: 'Session Scorecard',
-                description: 'At-a-glance session summary: difficulty, assists, technique metrics, and consistency scores.',
-                group: 'SCORECARD'
+                image: 'images/highlights/racing_line_chicane.png',
+                title: 'Racing Line \u2014 T6+T7 Chicane',
+                description: 'Every lap\'s racing line through the T6-T7 chicane overlaid \u2014 one outlier lap is immediately visible.',
+                group: 'RACING LINES'
+            },
+            {
+                image: 'images/highlights/racing_line.png',
+                title: 'Racing Line \u2014 T12+T13+T14 Complex',
+                description: 'Racing line consistency through a flowing multi-corner complex. Colors distinguish individual laps.',
+                group: 'RACING LINES'
+            },
+            {
+                image: 'images/highlights/brake_traces_gear.png',
+                title: 'Brake Traces & Gear Overlay',
+                description: 'Per-turn brake application with gear selection \u2014 see your braking consistency lap by lap.',
+                group: 'TECHNIQUE'
             },
             {
                 image: 'images/highlights/lap_times_per_stint.png',
@@ -84,21 +102,9 @@ const SCENARIOS = {
                 group: 'STRATEGY'
             },
             {
-                image: 'images/highlights/racing_line.png',
-                title: 'Turn Racing Line Overlay',
-                description: 'Every lap\'s racing line overlaid \u2014 see how consistent your line is through each corner.',
-                group: 'RACING LINES'
-            },
-            {
-                image: 'images/highlights/brake_traces_gear.png',
-                title: 'Brake Traces & Gear Overlay',
-                description: 'Per-turn brake application with gear selection \u2014 see your braking consistency lap by lap.',
-                group: 'TECHNIQUE'
-            },
-            {
                 image: 'images/highlights/track_map_abudhabi.png',
-                title: 'Full Track Map \u2014 Speed Heatmap',
-                description: 'Your racing line colored by speed. See braking zones, apex speeds, and acceleration points at a glance.',
+                title: 'Track Map',
+                description: 'Full track layout colored by speed, with apex speeds annotated at each turn.',
                 group: 'TRACK MAP'
             }
         ]
@@ -140,7 +146,7 @@ const SCENARIOS = {
             // Technique — T12+T13+T14
             { image: 'images/full-reel/23_technique_T12_T13_T14_brake_traces_gear_overlay_race1.png', title: 'T12+T13+T14 Brake Traces & Gear \u2014 Race 1', description: 'Brake pressure and gear selection through the T12-T13-T14 complex across all laps.', group: 'TECHNIQUE' },
             { image: 'images/full-reel/24_technique_T12_T13_T14_brake_traces_gear_overlay_race2.png', title: 'T12+T13+T14 Brake Traces & Gear \u2014 Race 2', description: 'T12-T13-T14 braking from the reference session.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/25_technique_T12_T13_T14_throttle_traces_race1.png', title: 'T12+T13+T14 Throttle Traces \u2014 Race 1', description: 'Throttle application through the T12-T13-T14 complex across all laps, helps notice e.g. the large variation/hesitation on throttle, costing lap time. The turn complex is automatically being selected by the chart analysis feature as time is being lost here.', group: 'TECHNIQUE' },
+            { image: 'images/full-reel/25_technique_T12_T13_T14_throttle_traces_race1.png', title: 'T12+T13+T14 Throttle Traces \u2014 Race 1', description: 'Throttle application through the T12-T13-T14 complex across all laps, helps notice e.g. the large variation/hesitation on throttle, costing lap time.\nThe turn complex is automatically selected by the chart analysis feature as time is being lost here.', group: 'TECHNIQUE' },
             { image: 'images/full-reel/26_technique_T12_T13_T14_throttle_traces_race2.png', title: 'T12+T13+T14 Throttle Traces \u2014 Race 2', description: 'T12-T13-T14 throttle from the reference session.', group: 'TECHNIQUE' },
             { image: 'images/full-reel/27_technique_T12_T13_T14_speed_traces_race1.png', title: 'T12+T13+T14 Speed Traces \u2014 Race 1', description: 'Speed profile through the T12-T13-T14 complex across all laps.', group: 'TECHNIQUE' },
             { image: 'images/full-reel/28_technique_T12_T13_T14_speed_traces_race2.png', title: 'T12+T13+T14 Speed Traces \u2014 Race 2', description: 'T12-T13-T14 speed profiles from the reference session for comparison.', group: 'TECHNIQUE' },
@@ -199,13 +205,6 @@ const SCENARIOS = {
                 disclaimer: LLM_DISCLAIMER
             },
             {
-                image: 'images/llm/abudhabi_02_overview.png',
-                title: 'Session Overview & Pace Analysis',
-                description: 'High-level session comparison: overview, clean laps, median pace, tyre strategies, and key pace trends across both races.',
-                group: 'ABU DHABI',
-                disclaimer: LLM_DISCLAIMER
-            },
-            {
                 image: 'images/llm/abudhabi_03_turns.png',
                 title: 'Turn-by-Turn Analysis',
                 description: 'Deep dive into specific corners: braking points, apex speeds, throttle application, and what the data says you should change.',
@@ -235,13 +234,6 @@ const SCENARIOS = {
                 disclaimer: LLM_DISCLAIMER
             },
             {
-                image: 'images/llm/melbourne_02_overview.png',
-                title: 'Session Overview & Pace Analysis',
-                description: 'Melbourne session comparison: overview, pace deltas, tyre strategies, and consistency trends.',
-                group: 'MELBOURNE',
-                disclaimer: LLM_DISCLAIMER
-            },
-            {
                 image: 'images/llm/melbourne_03_turns.png',
                 title: 'Turn-by-Turn Analysis',
                 description: 'Corner-specific breakdown for Melbourne: braking zones, trail-braking opportunities, and throttle modulation through key corners.',
@@ -265,7 +257,7 @@ const SCENARIOS = {
             {
                 image: 'images/llm/melbourne_06_assessment.png',
                 title: 'Driver Assessment & Summary',
-                description: 'Overall driver level evaluation with specific strengths, areas for improvement, and the top insights to carry forward (see <a href="#llm/6" class="drawer-link">Top 3 Priorities</a>).',
+                description: 'Overall driver level evaluation with specific strengths, areas for improvement, and the top insights to carry forward (see <a href="#llm/5" class="drawer-link">Top 3 Priorities</a>).',
                 group: 'MELBOURNE',
                 disclaimer: LLM_DISCLAIMER
             }
@@ -282,51 +274,51 @@ const SCENARIOS = {
             },
             {
                 image: 'images/install/02_store_installing.png',
-                title: 'Installing',
-                description: 'The app downloads and installs automatically. No admin privileges required, no user accounts or in-app purchases, no usage metrics or data collected or transmitted \u2014 all data stays local.',
-                group: 'STEP 2'
+                title: 'Quick installation',
+                description: 'The app downloads and installs automatically. No admin privileges required, no user accounts or in-app purchases, no metrics or data collected or transmitted \u2014 all information stays local.',
+                group: 'STEP 1'
             },
             {
                 image: 'images/install/03_store_installed.png',
                 title: 'Installation Complete',
                 description: 'Once installed, click Open to launch the app for the first time.',
-                group: 'STEP 3'
+                group: 'STEP 1'
             },
             {
                 image: 'images/install/04_first_run_config.png',
                 title: 'First-Run Configuration',
                 description: 'On first launch, the app walks you through a first-run configuration. Press Enter to accept each default.',
-                group: 'STEP 4'
+                group: 'STEP 2'
             },
             {
                 image: 'images/install/05_first_run_settings.png',
                 title: 'Review Settings',
-                description: 'Defaults should work out-of-the-box. All settings can be changed later from the app menu.',
-                group: 'STEP 5'
+                description: 'Defaults should work out-of-the-box. All settings can be changed later from the app menu. It is highly recommended to enable raw telemetry capture. See User Guide on the side panel for details.',
+                group: 'STEP 2'
             },
             {
                 image: 'images/install/06_app_ready.png',
-                title: 'Ready to Go',
-                description: 'The app is now listening for telemetry. The status bar shows network ports and recording/processing status.',
-                group: 'STEP 6'
+                title: 'Ready to Start',
+                description: 'The app is now listening for telemetry. The status bar shows network ports and recording/processing status. Finally, confirm/adjust your game settings.',
+                group: 'STEP 3'
             },
             {
                 image: 'images/install/07_f1_settings_menu.png',
                 title: 'F1 25 \u2014 Telemetry Settings',
                 description: 'In F1 25, go to Settings and select "Telemetry Settings".',
-                group: 'STEP 7'
+                group: 'STEP 4'
             },
             {
                 image: 'images/install/08_f1_udp_settings.png',
                 title: 'F1 25 \u2014 UDP Configuration',
                 description: 'Set UDP Telemetry to On, IP Address to 127.0.0.1, Send rate to 60Hz, and the UDP Port to match the app\'s listening port (20774).',
-                group: 'STEP 8'
+                group: 'STEP 4'
             },
             {
                 image: 'images/install/09_simpro_manager.png',
                 title: 'SimPro Manager (Optional)',
-                description: 'If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775). \nThat\'s it, the one-time setup is complete.',
-                group: 'STEP 9'
+                description: 'If you use Simagic SimPro Manager, or another sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775). \nThat\'s it, the one-time setup is complete. You can start capturing your first session. See <a href="#capture/1" class="drawer-link">demo</a>.',
+                group: 'STEP 5'
             }
         ]
     },
@@ -348,7 +340,7 @@ const SCENARIOS = {
             {
                 image: 'images/capture/03_laps_csv.png',
                 title: 'Lap-by-Lap Data',
-                description: 'Every lap is recorded with lap times, gap behind, tyre compound, temperature windows, and age, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashback usage, DRS, traffic conditions, and more. Open in Excel or any spreadsheet viewer for quick review.',
+                description: 'Every lap is recorded with lap times, gap behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashback usage, DRS, traffic conditions, and more. Open in Excel or any spreadsheet viewer for quick review.',
                 group: 'STEP 3'
             },
             {

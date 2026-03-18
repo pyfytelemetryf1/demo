@@ -77,8 +77,12 @@
     sizeSlideImage();
     window.addEventListener('resize', () => { positionDrawer(); sizeSlideImage(); });
 
-    // Start open
-    openDrawer();
+    // Start open on desktop, closed on mobile
+    if (window.innerWidth <= 600) {
+        closeDrawer();
+    } else {
+        openDrawer();
+    }
 
     hamburgerBtn.addEventListener('click', toggleDrawer);
     drawerClose.addEventListener('click', closeDrawer);
@@ -252,6 +256,10 @@
     drawerItems.forEach(item => {
         item.addEventListener('click', () => {
             switchScenario(item.dataset.scenario);
+            // Close drawer after selection unless on large desktop screens
+            if (window.innerWidth <= 2000) {
+                closeDrawer();
+            }
         });
     });
 

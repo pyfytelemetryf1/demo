@@ -1002,7 +1002,7 @@ body.drawer-open .caption-bar {
 }
 
 @media (max-width: 600px) {
-    :root { --drawer-width: 85vw; }
+    :root { --drawer-width: 100vw; }
     .site-header { padding: 8px 12px; }
     .site-title { font-size: 0.9rem; }
     .site-subtitle { font-size: 0.7rem; }

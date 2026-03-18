@@ -712,11 +712,11 @@
                 item.classList.toggle('active', item.dataset.scenario === scenarioId);
             });
 
+            renderSlide();
+
             if (window.innerWidth <= 2000) {
                 closeDrawer();
             }
-
-            renderSlide();
         }
     }
 

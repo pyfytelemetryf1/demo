@@ -49,8 +49,10 @@
     }
 
     function toggleDrawer() {
-        if (drawerOpen) closeDrawer();
-        else openDrawer();
+        if (drawerOpen) 
+            closeDrawer();
+        else 
+            openDrawer();
     }
 
     // Position drawer between header and footer
@@ -77,7 +79,10 @@
     sizeSlideImage();
     window.addEventListener('resize', () => { positionDrawer(); sizeSlideImage(); });
 
-    if (drawerOpen) openDrawer();
+    if (drawerOpen) 
+        openDrawer();
+    else
+        closeDrawer();
 
     hamburgerBtn.addEventListener('click', toggleDrawer);
     drawerClose.addEventListener('click', closeDrawer);
@@ -706,6 +711,10 @@
             drawerItems.forEach(item => {
                 item.classList.toggle('active', item.dataset.scenario === scenarioId);
             });
+
+            if (window.innerWidth <= 2000) {
+                closeDrawer();
+            }
 
             renderSlide();
         }

@@ -34,7 +34,7 @@
     const welcomeWalkthroughLink = document.getElementById('welcome-walkthrough-link');
 
     // --- Drawer ---
-    let drawerOpen = true;
+    let drawerOpen = window.innerWidth > 900 ? true : false;
 
     function openDrawer() {
         drawerOpen = true;
@@ -77,12 +77,7 @@
     sizeSlideImage();
     window.addEventListener('resize', () => { positionDrawer(); sizeSlideImage(); });
 
-    // Start open on desktop, closed on mobile
-    if (window.innerWidth <= 600) {
-        closeDrawer();
-    } else {
-        openDrawer();
-    }
+    if (drawerOpen) openDrawer();
 
     hamburgerBtn.addEventListener('click', toggleDrawer);
     drawerClose.addEventListener('click', closeDrawer);
@@ -183,6 +178,7 @@
                 slideImage.src = img.src;
                 slideImage.classList.remove('loading');
                 slideImage.classList.add('loaded');
+                sizeSlideImage();
             };
             img.onerror = function () {
                 slideImage.style.display = 'none';
@@ -229,6 +225,11 @@
         drawerItems.forEach(item => {
             item.classList.toggle('active', item.dataset.scenario === scenarioId);
         });
+
+        // Close drawer on small screens after scenario switch
+        if (window.innerWidth < 900 && drawerOpen) {
+            closeDrawer();
+        }
 
         renderSlide();
     }

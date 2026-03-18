@@ -730,7 +730,10 @@
 
     document.getElementById('header-home').addEventListener('click', function () {
         showWelcome();
-        openDrawer();
+        if (window.innerWidth > 900)
+        {
+            openDrawer();
+        }
     });
 
     welcomeWalkthroughLink.addEventListener('click', function (e) {

@@ -234,6 +234,11 @@ body {
     flex-shrink: 0;
 }
 
+.drawer-menu-secondary {
+    flex: none;
+    overflow-y: visible;
+}
+
 .drawer-menu-secondary .drawer-item {
     text-decoration: none;
     color: var(--text-primary);

@@ -221,10 +221,10 @@
         sizeSlideImage();
     }
 
-    function switchScenario(scenarioId) {
+    function switchScenario(scenarioId, slideId = 0) {
         if (welcomeActive) hideWelcome();
         currentScenarioId = scenarioId;
-        currentSlideIndex = 0;
+        currentSlideIndex = slideId;
 
         // Update drawer active state
         drawerItems.forEach(item => {
@@ -232,8 +232,11 @@
         });
 
         // Close drawer on small screens after scenario switch
-        if (window.innerWidth < 900 && drawerOpen) {
-            closeDrawer();
+        if (drawerOpen)
+        {
+            if (window.innerWidth <= 2000) {
+                closeDrawer();
+            }
         }
 
         renderSlide();
@@ -262,10 +265,6 @@
     drawerItems.forEach(item => {
         item.addEventListener('click', () => {
             switchScenario(item.dataset.scenario);
-            // Close drawer after selection unless on large desktop screens
-            if (window.innerWidth <= 2000) {
-                closeDrawer();
-            }
         });
     });
 
@@ -705,18 +704,8 @@
 
         const scenario = getScenario(scenarioId);
         if (scenario) {
-            currentScenarioId = scenarioId;
             currentSlideIndex = Math.max(0, Math.min(slideIndex, scenario.slides.length - 1));
-
-            drawerItems.forEach(item => {
-                item.classList.toggle('active', item.dataset.scenario === scenarioId);
-            });
-
-            renderSlide();
-
-            if (window.innerWidth <= 2000) {
-                closeDrawer();
-            }
+            switchScenario(scenarioId, currentSlideIndex);
         }
     }
 

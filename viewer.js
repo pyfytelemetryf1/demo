@@ -24,6 +24,7 @@
     // --- State ---
     let currentScenarioId = null;
     let currentSlideIndex = 0;
+    let renderGeneration = 0;
     let touchStartX = 0;
     let touchStartY = 0;
     let welcomeActive = true;
@@ -87,7 +88,8 @@
     }
 
     // Caption bar: tap to expand, tap image to collapse
-    captionBar.addEventListener('click', function () {
+    captionBar.addEventListener('click', function (e) {
+        if (e.target.closest('a')) return;
         if (captionChevron.classList.contains('visible')) {
             toggleExpand(captionLeft, captionChevron);
             sizeSlideImage();
@@ -277,14 +279,18 @@
             slideImage.classList.add('loading');
             slideImage.alt = slide.title;
 
+            renderGeneration++;
+            var expectedGeneration = renderGeneration;
             const img = new Image();
             img.onload = function () {
+                if (expectedGeneration !== renderGeneration) return;
                 slideImage.src = img.src;
                 slideImage.classList.remove('loading');
                 slideImage.classList.add('loaded');
                 sizeSlideImage();
             };
             img.onerror = function () {
+                if (expectedGeneration !== renderGeneration) return;
                 slideImage.style.display = 'none';
                 const placeholder = document.createElement('div');
                 placeholder.className = 'slide-placeholder';
@@ -410,7 +416,7 @@
                 }
                 break;
             case 'End':
-                if (helpOverlay.hidden && csvOverlay.hidden) {
+                if (helpOverlay.hidden && csvOverlay.hidden && getCurrentScenario()) {
                     e.preventDefault();
                     goToSlide(getCurrentScenario().slides.length - 1);
                 }
@@ -798,6 +804,11 @@
         if (!hash) return;
         const parts = hash.split('/');
 
+        // Close CSV overlay when navigating to a non-CSV hash
+        if (parts[0] !== 'csv' && !csvOverlay.hidden) {
+            closeCSV();
+        }
+
         // Handle #csv/feb22_laps etc.
         if (parts[0] === 'csv') {
             const csvKey = parts[1];
@@ -866,7 +877,7 @@
         else if (href.indexOf('github.com') !== -1) registerEvent('click/github', 'GitHub');
     });
 
-    document.querySelectorAll('#welcome-store-link').forEach(function (el) {
+    document.querySelectorAll('.welcome-store-link').forEach(function (el) {
         el.addEventListener('click', function () { registerEvent('click/store', 'Microsoft Store (welcome)'); });
     });
 

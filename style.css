@@ -36,6 +36,7 @@ body {
     background: var(--bg-primary);
     color: var(--text-primary);
     height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -555,12 +556,13 @@ body.drawer-open .nav-prev {
 .slide-welcome {
     max-width: 1080px;
     width: 100%;
+    max-height: 100%;
     padding: 48px 36px;
     padding-bottom: 25vh;
     text-align: center;
     color: var(--text-secondary);
     line-height: 1.7;
-    overflow: auto;
+    overflow-y: auto;
 }
 .slide-welcome h2 {
     font-size: 1.4rem;
@@ -993,6 +995,7 @@ body.drawer-open .caption-bar {
     .site-header { padding: 10px 16px; }
     .site-title { font-size: 1rem; }
     .slide-area { padding: 8px 56px; }
+    .slide-welcome { padding: 36px 24px; padding-bottom: 16vh; }
     .nav-arrow { width: 40px; height: 40px; }
     .nav-arrow svg { width: 20px; height: 20px; }
     .nav-prev { left: 8px; }
@@ -1007,7 +1010,8 @@ body.drawer-open .caption-bar {
     .site-header { padding: 8px 12px; }
     .site-title { font-size: 0.9rem; }
     .site-subtitle { font-size: 0.7rem; }
-    .slide-area { padding: 4px 44px; }
+    .slide-area { padding: 4px 8px; }
+    .slide-welcome { padding: 24px 12px; padding-bottom: 8vh; }
     .nav-arrow { width: 36px; height: 36px; }
     .nav-prev { left: 4px; }
     .nav-next { right: 4px; }

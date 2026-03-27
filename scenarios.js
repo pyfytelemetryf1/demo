@@ -317,6 +317,18 @@ const SCENARIOS = {
                 title: 'SimPro Manager (Optional)',
                 description: 'If you use Simagic SimPro Manager, or another sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775). \nThat\'s it, the one-time setup is complete. You can start capturing your first session. See <a href="#capture/1" class="drawer-link">demo</a>.',
                 group: 'STEP 5'
+            },
+            {
+                image: 'images/install/10_console_app_settings.png',
+                title: 'Console Setup \u2014 App Settings',
+                description: 'Playing on console? Run the app on a Windows device on the same network (e.g. a laptop). During setup, enable [Advanced] Allow broadcast IP \u2014 this lets the app receive telemetry from your console over the local network. You\'ll be prompted to allow a Windows Firewall exception.',
+                group: 'CONSOLE SETUP'
+            },
+            {
+                image: 'images/install/11_console_f1_settings.png',
+                title: 'Console Setup \u2014 Game Settings',
+                description: 'In F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app. All other settings remain the same as the PC setup.',
+                group: 'CONSOLE SETUP'
             }
         ]
     },

@@ -4,6 +4,10 @@
 (function () {
     'use strict';
 
+    // --- Layout breakpoints ---
+    var DRAWER_AUTO_OPEN_MIN = 1480;    // drawer starts open above this width
+    var DRAWER_KEEP_OPEN_MIN = 2000;    // keep drawer open after scenario switch above this width
+
     // --- State ---
     let currentScenarioId = null;
     let currentSlideIndex = 0;
@@ -116,7 +120,7 @@
     }
 
     // --- Drawer ---
-    let drawerOpen = window.innerWidth > 1480 ? true : false;
+    let drawerOpen = window.innerWidth > DRAWER_AUTO_OPEN_MIN ? true : false;
 
     function openDrawer() {
         drawerOpen = true;
@@ -323,7 +327,7 @@
         // Close drawer on small screens after scenario switch
         if (drawerOpen)
         {
-            if (window.innerWidth <= 2000) {
+            if (window.innerWidth <= DRAWER_KEEP_OPEN_MIN) {
                 closeDrawer();
             }
         }
@@ -821,7 +825,7 @@
 
     document.getElementById('header-home').addEventListener('click', function () {
         showWelcome();
-        if (window.innerWidth > 1480)
+        if (window.innerWidth > DRAWER_AUTO_OPEN_MIN)
         {
             openDrawer();
         }
@@ -829,7 +833,7 @@
 
     welcomeWalkthroughLink.addEventListener('click', function (e) {
         e.preventDefault();
-        if (window.innerWidth <= 1480) {
+        if (window.innerWidth <= DRAWER_AUTO_OPEN_MIN) {
             openDrawer();
         } else {
             switchScenario(scenarioOrder[0]);

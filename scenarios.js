@@ -321,7 +321,7 @@ const SCENARIOS = {
             {
                 image: 'images/install/10_console_app_settings.png',
                 title: 'Console Setup \u2014 App Settings',
-                description: 'Playing on console? Run the app on a Windows device on the same network (e.g. a laptop). During setup, enable [Advanced] Allow broadcast IP \u2014 this lets the app receive telemetry from your console over the local network. You\'ll be prompted to allow a Windows Firewall exception.',
+                description: 'Playing on console? Run the app on a separate Windows device (e.g. on a laptop). During setup, enable [Advanced] Allow broadcast IP \u2014 this lets the app receive telemetry from your console. You\'ll be prompted to allow a Windows Firewall exception.',
                 group: 'CONSOLE SETUP'
             },
             {

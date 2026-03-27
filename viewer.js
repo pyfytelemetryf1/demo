@@ -302,10 +302,12 @@
         captionLeft.classList.remove('expanded');
         captionChevron.classList.remove('flipped');
 
-        // Update hash and sizing
+        // Update hash and sizing — defer to next frame so caption bar has reflowed
         updateHash();
-        sizeSlideImage();
-        updateOverflowIndicators();
+        requestAnimationFrame(function () {
+            sizeSlideImage();
+            updateOverflowIndicators();
+        });
     }
 
     function switchScenario(scenarioId, slideId = 0) {
@@ -634,10 +636,15 @@
         return '';
     }
 
-    function formatValue(val) {
+    function formatValue(val, header) {
+        // Trim lap_id to just the lap suffix
+        if (header === 'lap_id') {
+            var li = val.lastIndexOf('_L');
+            if (li !== -1) return '\u2026' + val.slice(li);
+        }
         // Trim floats to 3 decimal places
         if (val === '' || isNaN(val) || val.indexOf('|') !== -1 || val.indexOf(';') !== -1) return val;
-        const n = Number(val);
+        var n = Number(val);
         if (!isFinite(n)) return val;
         // Only trim if it actually has decimals beyond 3
         if (val.indexOf('.') !== -1 && val.split('.')[1].length > 3) {
@@ -666,7 +673,7 @@
                     html += '<td class="csv-val-summary">' + escapeHTML(val) + '</td>';
                 } else {
                     const cls = classifyValue(val);
-                    const display = formatValue(val);
+                    const display = formatValue(val, data.headers[c]);
                     html += '<td' + (cls ? ' class="' + cls + '"' : '') + '>' + escapeHTML(display) + '</td>';
                 }
             }

@@ -1043,6 +1043,7 @@ body.drawer-open .caption-bar {
     .drawer-menu-secondary.expanded { max-height: 150px; }
     .csv-tab { padding: 6px 10px; font-size: 0.78rem; }
     .csv-tabs { padding: 8px 16px 0; }
+    .drawer-menu { padding: 4px 0; }
     .nav-arrow { width: 40px; height: 40px; }
     .nav-arrow svg { width: 20px; height: 20px; }
     .nav-prev { left: 8px; }

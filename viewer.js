@@ -521,7 +521,6 @@
     const csvClose = document.querySelector('.csv-close');
     const csvTabs = document.querySelectorAll('.csv-tab');
     const csvTableWrap = document.getElementById('csv-table-wrap');
-    const csvRowCount = document.querySelector('.csv-row-count');
     const csvCaptionLabel = document.querySelector('.csv-caption-label');
     const csvCaptionText = document.querySelector('.csv-caption-text');
     const drawerCsvBtn = document.getElementById('drawer-csv-btn');
@@ -696,7 +695,6 @@
         }
 
         csvTableWrap.innerHTML = '<p class="csv-loading">Loading data...</p>';
-        csvRowCount.textContent = '';
 
         fetch(CSV_FILES[key].url)
             .then(function (r) {
@@ -720,7 +718,6 @@
     }
 
     function showCSVData(data) {
-        csvRowCount.textContent = data.rows.length + ' rows';
         csvTableWrap.innerHTML = renderCSVTable(data);
         csvTableWrap.scrollTop = 0;
         csvTableWrap.scrollLeft = 0;

@@ -937,9 +937,6 @@ body.drawer-open .caption-bar {
     white-space: nowrap;
 }
 
-.csv-row-count {
-    font-family: var(--font-mono);
-}
 
 .csv-caption-text {
     font-size: 0.8rem;
@@ -1044,6 +1041,8 @@ body.drawer-open .caption-bar {
     .footer-disclaimer.expanded { max-height: 10rem; }
     .drawer-menu-secondary { max-height: 70px; overflow: hidden; transition: max-height 0.25s ease; }
     .drawer-menu-secondary.expanded { max-height: 150px; }
+    .csv-tab { padding: 6px 10px; font-size: 0.78rem; }
+    .csv-tabs { padding: 8px 16px 0; }
     .nav-arrow { width: 40px; height: 40px; }
     .nav-arrow svg { width: 20px; height: 20px; }
     .nav-prev { left: 8px; }

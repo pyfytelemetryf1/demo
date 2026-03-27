@@ -670,6 +670,10 @@ body.drawer-open .caption-bar {
     flex-shrink: 0;
     text-align: right;
     padding-top: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
 }
 
 .slide-counter {
@@ -690,6 +694,37 @@ body.drawer-open .caption-bar {
     background: var(--accent);
     transition: width var(--transition-normal);
     border-radius: 0 3px 3px 0;
+}
+
+/* === Overflow Chevron (mobile/tablet) === */
+.overflow-chevron {
+    display: none;
+    color: var(--text-muted);
+    line-height: 1;
+    cursor: pointer;
+}
+
+.overflow-chevron.visible {
+    display: inline-flex;
+    align-items: center;
+}
+
+.overflow-chevron svg {
+    transition: transform 0.2s ease;
+}
+
+.overflow-chevron.flipped svg {
+    transform: rotate(180deg);
+}
+
+.drawer .overflow-chevron {
+    text-align: center;
+    padding: 2px 0;
+}
+
+.drawer .overflow-chevron.visible {
+    display: flex;
+    justify-content: center;
 }
 
 /* === Footer === */
@@ -902,9 +937,6 @@ body.drawer-open .caption-bar {
     white-space: nowrap;
 }
 
-.csv-row-count {
-    font-family: var(--font-mono);
-}
 
 .csv-caption-text {
     font-size: 0.8rem;
@@ -1003,7 +1035,15 @@ body.drawer-open .caption-bar {
     .site-title { font-size: 1rem; }
     .slide-area { padding: 8px 56px; }
     .slide-welcome { padding: 36px 24px; padding-bottom: 16vh; }
-    .footer-disclaimer { max-height: 1.7rem; overflow-y: auto; }
+    .caption-left { max-height: 6.5rem; overflow: hidden; transition: max-height 0.25s ease; }
+    .caption-left.expanded { max-height: 50vh; }
+    .footer-disclaimer { max-height: 1.7rem; overflow: hidden; transition: max-height 0.25s ease; cursor: pointer; }
+    .footer-disclaimer.expanded { max-height: 10rem; }
+    .drawer-menu-secondary { max-height: 70px; overflow: hidden; transition: max-height 0.25s ease; }
+    .drawer-menu-secondary.expanded { max-height: 150px; }
+    .csv-tab { padding: 6px 10px; font-size: 0.78rem; }
+    .csv-tabs { padding: 8px 16px 0; }
+    .drawer-menu { padding: 4px 0; }
     .nav-arrow { width: 40px; height: 40px; }
     .nav-arrow svg { width: 20px; height: 20px; }
     .nav-prev { left: 8px; }
@@ -1024,9 +1064,9 @@ body.drawer-open .caption-bar {
     .nav-prev { left: 4px; }
     .nav-next { right: 4px; }
     .slide-image { max-height: calc(100vh - 280px); border-radius: 4px; }
+    .caption-left { max-height: 5.5rem; }
     .caption-content { flex-direction: column; gap: 6px; }
-    .caption-right { text-align: left; }
-    .footer-disclaimer { max-height: 1.7rem; overflow-y: auto; }
+    .caption-right { text-align: left; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; }
 }
 
 /* === Keyboard focus indicators === */

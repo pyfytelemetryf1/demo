@@ -14,9 +14,7 @@
  *     markdown    - if set, renders markdown content instead of an image
  */
 
-const LLM_DISCLAIMER = 'LLM analysis is performed by a third-party service of your choice. ' +
-    'No data leaves your machine unless you choose to upload it. ' +
-    'The LLM service is not included in this application \u2014 their terms of service apply.';
+const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, only data you upload is sent to them. Their terms apply.';
 
 const SCENARIOS = {
     highlights: {
@@ -61,7 +59,7 @@ const SCENARIOS = {
             {
                 image: 'images/highlights/llm_report.png',
                 title: 'LLM Performance Report (Optional)',
-                description: 'Export your CSV telemetry and charts, together with a purpose-built AI skill into a zip file that you drag-and-drop into your preferred LLM. The skill gives the LLM a precise step-by-step framework for evaluating your telemetry \u2014 producing consistent, structured coaching insights. The output focuses on the top 3 immediately actionable priorities to focus on in your next session in order to gain more lap time.',
+                description: 'Export your CSV telemetry and charts as a single zip file that you can drag and drop into your preferred LLM. A purpose-built AI skill produces consistent, structured coaching, focused on 3 actionable priorities for your next session.',
                 group: 'LLM ANALYSIS',
                 disclaimer: LLM_DISCLAIMER
             },
@@ -200,7 +198,7 @@ const SCENARIOS = {
             {
                 image: 'images/llm/abudhabi_01_priorities.png',
                 title: 'Top 3 Priorities \u2014 Abu Dhabi',
-                description: 'Export your CSV telemetry and charts, together with a purpose-built AI skill into a zip file that you drag-and-drop into your preferred LLM. The skill gives the LLM a precise step-by-step framework for evaluating your telemetry \u2014 producing consistent, structured coaching insights. The output focuses on the top 3 immediately actionable priorities for your next session.',
+                description: 'Export your CSV telemetry and charts as a single zip file that you can drag and drop into your preferred LLM. A purpose-built AI skill produces consistent, structured coaching, focused on 3 actionable priorities for your next session.',
                 group: 'ABU DHABI',
                 disclaimer: LLM_DISCLAIMER
             },
@@ -319,6 +317,18 @@ const SCENARIOS = {
                 title: 'SimPro Manager (Optional)',
                 description: 'If you use Simagic SimPro Manager, or another sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775). \nThat\'s it, the one-time setup is complete. You can start capturing your first session. See <a href="#capture/1" class="drawer-link">demo</a>.',
                 group: 'STEP 5'
+            },
+            {
+                image: 'images/install/10_console_app_settings.png',
+                title: 'Console Setup \u2014 App Settings',
+                description: 'Playing on console? Run the app on a separate Windows device (e.g. on a laptop). During setup, enable [Advanced] Allow broadcast IP \u2014 this lets the app receive telemetry from your console. You\'ll be prompted to allow a Windows Firewall exception.',
+                group: 'CONSOLE SETUP'
+            },
+            {
+                image: 'images/install/11_console_f1_settings.png',
+                title: 'Console Setup \u2014 Game Settings',
+                description: 'In F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app. All other settings remain the same as the PC setup.',
+                group: 'CONSOLE SETUP'
             }
         ]
     },

@@ -4,6 +4,10 @@
 (function () {
     'use strict';
 
+    // --- Layout breakpoints ---
+    var DRAWER_AUTO_OPEN_MIN = 1480;    // drawer starts open above this width
+    var DRAWER_KEEP_OPEN_MIN = 2000;    // keep drawer open after scenario switch above this width
+
     // --- State ---
     let currentScenarioId = null;
     let currentSlideIndex = 0;
@@ -32,9 +36,91 @@
     const captionBar = document.querySelector('.caption-bar');
     const welcomeCsvLink = document.getElementById('welcome-csv-link');
     const welcomeWalkthroughLink = document.getElementById('welcome-walkthrough-link');
+    const captionLeft = document.querySelector('.caption-left');
+    const footerDisclaimer = document.querySelector('.footer-disclaimer');
+
+    // --- Overflow chevrons (mobile/tablet) ---
+    function createChevron() {
+        const span = document.createElement('span');
+        span.className = 'overflow-chevron';
+        span.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="12" height="12"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+        return span;
+    }
+
+    const captionChevron = createChevron();
+    document.querySelector('.caption-right').appendChild(captionChevron);
+
+    const footerChevron = createChevron();
+    footerDisclaimer.parentNode.appendChild(footerChevron);
+
+    const drawerSecondary = document.querySelector('.drawer-menu-secondary');
+    const drawerSecondaryChevron = createChevron();
+    drawerSecondary.parentNode.insertBefore(drawerSecondaryChevron, drawerSecondary.nextSibling);
+
+    function checkOverflow(el, chevron) {
+        if (el.scrollHeight > el.clientHeight + 2) {
+            chevron.classList.add('visible');
+        } else {
+            chevron.classList.remove('visible');
+            chevron.classList.remove('flipped');
+            el.classList.remove('expanded');
+        }
+    }
+
+    function toggleExpand(el, chevron) {
+        const expanding = !el.classList.contains('expanded');
+        el.classList.toggle('expanded');
+        chevron.classList.toggle('flipped', expanding);
+    }
+
+    // Caption bar: tap to expand, tap image to collapse
+    captionBar.addEventListener('click', function () {
+        if (captionChevron.classList.contains('visible')) {
+            toggleExpand(captionLeft, captionChevron);
+            sizeSlideImage();
+        }
+    });
+
+    slideArea.addEventListener('click', function () {
+        if (captionLeft.classList.contains('expanded')) {
+            captionLeft.classList.remove('expanded');
+            captionChevron.classList.remove('flipped');
+            sizeSlideImage();
+        }
+    });
+
+    // Footer disclaimer: tap to expand/collapse
+    footerDisclaimer.addEventListener('click', function () {
+        if (footerChevron.classList.contains('visible')) {
+            toggleExpand(footerDisclaimer, footerChevron);
+        }
+    });
+    footerChevron.addEventListener('click', function () {
+        if (footerChevron.classList.contains('visible')) {
+            toggleExpand(footerDisclaimer, footerChevron);
+        }
+    });
+
+    // Drawer secondary menu: tap to expand/collapse
+    drawerSecondary.addEventListener('click', function () {
+        if (drawerSecondaryChevron.classList.contains('visible')) {
+            toggleExpand(drawerSecondary, drawerSecondaryChevron);
+        }
+    });
+    drawerSecondaryChevron.addEventListener('click', function () {
+        if (drawerSecondaryChevron.classList.contains('visible')) {
+            toggleExpand(drawerSecondary, drawerSecondaryChevron);
+        }
+    });
+
+    function updateOverflowIndicators() {
+        checkOverflow(captionLeft, captionChevron);
+        checkOverflow(footerDisclaimer, footerChevron);
+        checkOverflow(drawerSecondary, drawerSecondaryChevron);
+    }
 
     // --- Drawer ---
-    let drawerOpen = window.innerWidth > 1480 ? true : false;
+    let drawerOpen = window.innerWidth > DRAWER_AUTO_OPEN_MIN ? true : false;
 
     function openDrawer() {
         drawerOpen = true;
@@ -77,7 +163,7 @@
 
     positionDrawer();
     sizeSlideImage();
-    window.addEventListener('resize', () => { positionDrawer(); sizeSlideImage(); });
+    window.addEventListener('resize', () => { positionDrawer(); sizeSlideImage(); updateOverflowIndicators(); });
 
     if (drawerOpen) 
         openDrawer();
@@ -216,9 +302,16 @@
         // Preload neighbors
         preloadAround(currentScenarioId, currentSlideIndex);
 
-        // Update hash and sizing
+        // Reset expanded state on slide change
+        captionLeft.classList.remove('expanded');
+        captionChevron.classList.remove('flipped');
+
+        // Update hash and sizing — defer to next frame so caption bar has reflowed
         updateHash();
-        sizeSlideImage();
+        requestAnimationFrame(function () {
+            sizeSlideImage();
+            updateOverflowIndicators();
+        });
     }
 
     function switchScenario(scenarioId, slideId = 0) {
@@ -234,7 +327,7 @@
         // Close drawer on small screens after scenario switch
         if (drawerOpen)
         {
-            if (window.innerWidth <= 2000) {
+            if (window.innerWidth <= DRAWER_KEEP_OPEN_MIN) {
                 closeDrawer();
             }
         }
@@ -434,7 +527,6 @@
     const csvClose = document.querySelector('.csv-close');
     const csvTabs = document.querySelectorAll('.csv-tab');
     const csvTableWrap = document.getElementById('csv-table-wrap');
-    const csvRowCount = document.querySelector('.csv-row-count');
     const csvCaptionLabel = document.querySelector('.csv-caption-label');
     const csvCaptionText = document.querySelector('.csv-caption-text');
     const drawerCsvBtn = document.getElementById('drawer-csv-btn');
@@ -548,10 +640,15 @@
         return '';
     }
 
-    function formatValue(val) {
+    function formatValue(val, header) {
+        // Trim lap_id to counter + lap suffix (e.g. _001_L2)
+        if (header === 'lap_id') {
+            var parts = val.split('_');
+            if (parts.length >= 2) return parts.slice(-2).join('_');
+        }
         // Trim floats to 3 decimal places
         if (val === '' || isNaN(val) || val.indexOf('|') !== -1 || val.indexOf(';') !== -1) return val;
-        const n = Number(val);
+        var n = Number(val);
         if (!isFinite(n)) return val;
         // Only trim if it actually has decimals beyond 3
         if (val.indexOf('.') !== -1 && val.split('.')[1].length > 3) {
@@ -580,7 +677,7 @@
                     html += '<td class="csv-val-summary">' + escapeHTML(val) + '</td>';
                 } else {
                     const cls = classifyValue(val);
-                    const display = formatValue(val);
+                    const display = formatValue(val, data.headers[c]);
                     html += '<td' + (cls ? ' class="' + cls + '"' : '') + '>' + escapeHTML(display) + '</td>';
                 }
             }
@@ -609,7 +706,6 @@
         }
 
         csvTableWrap.innerHTML = '<p class="csv-loading">Loading data...</p>';
-        csvRowCount.textContent = '';
 
         fetch(CSV_FILES[key].url)
             .then(function (r) {
@@ -633,7 +729,6 @@
     }
 
     function showCSVData(data) {
-        csvRowCount.textContent = data.rows.length + ' rows';
         csvTableWrap.innerHTML = renderCSVTable(data);
         csvTableWrap.scrollTop = 0;
         csvTableWrap.scrollLeft = 0;
@@ -730,7 +825,7 @@
 
     document.getElementById('header-home').addEventListener('click', function () {
         showWelcome();
-        if (window.innerWidth > 1480)
+        if (window.innerWidth > DRAWER_AUTO_OPEN_MIN)
         {
             openDrawer();
         }
@@ -738,7 +833,11 @@
 
     welcomeWalkthroughLink.addEventListener('click', function (e) {
         e.preventDefault();
-        switchScenario(scenarioOrder[0]);
+        if (window.innerWidth <= DRAWER_AUTO_OPEN_MIN) {
+            openDrawer();
+        } else {
+            switchScenario(scenarioOrder[0]);
+        }
     });
 
     if (window.location.hash) {
@@ -746,5 +845,7 @@
     } else {
         showWelcome();
     }
+
+    updateOverflowIndicators();
 
 })();

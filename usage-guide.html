@@ -6,6 +6,7 @@
 <li class="toc-sub">  <a href="#in-game-setup-f1-25">In-game setup (F1 25)</a></li>
 <li class="toc-sub">  <a href="#sim-racing-software-setup">Sim racing software setup</a></li>
 <li class="toc-sub">  <a href="#if-you-dont-use-sim-racing-software">If you don&#x27;t use sim racing software</a></li>
+<li class="toc-sub">  <a href="#console-setup">Console setup</a></li>
 <li><a href="#3-capture-your-first-telemetry">3. Capture Your First Telemetry</a></li>
 <li class="toc-sub">  <a href="#raw-telemetry-capture-recommended">Raw telemetry capture (recommended)</a></li>
 <li><a href="#4-review-your-telemetry-data">4. Review Your Telemetry Data</a></li>
@@ -63,6 +64,17 @@
 <h3 id="if-you-dont-use-sim-racing-software">If you don&#x27;t use sim racing software</h3>
 
 <p>The app works fine on its own — it captures and analyzes telemetry regardless of whether forwarding is active. The forward port setting can be left default.</p>
+
+<h3 id="console-setup">Console setup</h3>
+
+<p>If you play F1 25 on a console, run the app on a separate Windows device on the same local network (e.g. on a laptop). Two additional settings are required:</p>
+
+<ol>
+<li><strong>In the app</strong>: enable <strong>[Advanced] Allow broadcast IP</strong> during first-run setup or from the Settings menu. You'll be prompted to allow a Windows Firewall exception — accept it so the app can receive data from other devices on your network.</li>
+<li><strong>In F1 25</strong>: go to Telemetry Settings and set <strong>UDP Broadcast Mode</strong> to <strong>On</strong>. This broadcasts telemetry to all devices on your local network.</li>
+</ol>
+
+<p>All other settings (ports, capture preferences, etc.) remain the same as the PC setup above.</p>
 
 <h2 id="3-capture-your-first-telemetry">3. Capture Your First Telemetry</h2>
 

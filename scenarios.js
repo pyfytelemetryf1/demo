@@ -14,9 +14,7 @@
  *     markdown    - if set, renders markdown content instead of an image
  */
 
-const LLM_DISCLAIMER = 'LLM analysis is performed by a third-party service of your choice. ' +
-    'No data leaves your machine unless you choose to upload it. ' +
-    'The LLM service is not included in this application \u2014 their terms of service apply.';
+const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, only data you upload is sent to them. Their terms apply.';
 
 const SCENARIOS = {
     highlights: {
@@ -61,7 +59,7 @@ const SCENARIOS = {
             {
                 image: 'images/highlights/llm_report.png',
                 title: 'LLM Performance Report (Optional)',
-                description: 'Export your CSV telemetry and charts, together with a purpose-built AI skill into a zip file that you drag-and-drop into your preferred LLM. The skill gives the LLM a precise step-by-step framework for evaluating your telemetry \u2014 producing consistent, structured coaching insights. The output focuses on the top 3 immediately actionable priorities to focus on in your next session in order to gain more lap time.',
+                description: 'Export your CSV telemetry and charts as a single zip file that you can drag and drop into your preferred LLM. A purpose-built AI skill produces consistent, structured coaching, focused on 3 actionable priorities for your next session.',
                 group: 'LLM ANALYSIS',
                 disclaimer: LLM_DISCLAIMER
             },
@@ -200,7 +198,7 @@ const SCENARIOS = {
             {
                 image: 'images/llm/abudhabi_01_priorities.png',
                 title: 'Top 3 Priorities \u2014 Abu Dhabi',
-                description: 'Export your CSV telemetry and charts, together with a purpose-built AI skill into a zip file that you drag-and-drop into your preferred LLM. The skill gives the LLM a precise step-by-step framework for evaluating your telemetry \u2014 producing consistent, structured coaching insights. The output focuses on the top 3 immediately actionable priorities for your next session.',
+                description: 'Export your CSV telemetry and charts as a single zip file that you can drag and drop into your preferred LLM. A purpose-built AI skill produces consistent, structured coaching, focused on 3 actionable priorities for your next session.',
                 group: 'ABU DHABI',
                 disclaimer: LLM_DISCLAIMER
             },

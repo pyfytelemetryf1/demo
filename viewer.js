@@ -32,6 +32,71 @@
     const captionBar = document.querySelector('.caption-bar');
     const welcomeCsvLink = document.getElementById('welcome-csv-link');
     const welcomeWalkthroughLink = document.getElementById('welcome-walkthrough-link');
+    const captionLeft = document.querySelector('.caption-left');
+    const footerDisclaimer = document.querySelector('.footer-disclaimer');
+
+    // --- Overflow chevrons (mobile/tablet) ---
+    function createChevron() {
+        const span = document.createElement('span');
+        span.className = 'overflow-chevron';
+        span.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="12" height="12"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+        return span;
+    }
+
+    const captionChevron = createChevron();
+    document.querySelector('.caption-right').appendChild(captionChevron);
+
+    const footerChevron = createChevron();
+    footerDisclaimer.parentNode.appendChild(footerChevron);
+
+    function checkOverflow(el, chevron) {
+        if (el.scrollHeight > el.clientHeight + 2) {
+            chevron.classList.add('visible');
+        } else {
+            chevron.classList.remove('visible');
+            chevron.classList.remove('flipped');
+            el.classList.remove('expanded');
+        }
+    }
+
+    function toggleExpand(el, chevron) {
+        const expanding = !el.classList.contains('expanded');
+        el.classList.toggle('expanded');
+        chevron.classList.toggle('flipped', expanding);
+    }
+
+    // Caption bar: tap to expand, tap image to collapse
+    captionBar.addEventListener('click', function () {
+        if (captionChevron.classList.contains('visible')) {
+            toggleExpand(captionLeft, captionChevron);
+            sizeSlideImage();
+        }
+    });
+
+    slideArea.addEventListener('click', function () {
+        if (captionLeft.classList.contains('expanded')) {
+            captionLeft.classList.remove('expanded');
+            captionChevron.classList.remove('flipped');
+            sizeSlideImage();
+        }
+    });
+
+    // Footer disclaimer: tap to expand/collapse
+    footerDisclaimer.addEventListener('click', function () {
+        if (footerChevron.classList.contains('visible')) {
+            toggleExpand(footerDisclaimer, footerChevron);
+        }
+    });
+    footerChevron.addEventListener('click', function () {
+        if (footerChevron.classList.contains('visible')) {
+            toggleExpand(footerDisclaimer, footerChevron);
+        }
+    });
+
+    function updateOverflowIndicators() {
+        checkOverflow(captionLeft, captionChevron);
+        checkOverflow(footerDisclaimer, footerChevron);
+    }
 
     // --- Drawer ---
     let drawerOpen = window.innerWidth > 1480 ? true : false;
@@ -77,7 +142,7 @@
 
     positionDrawer();
     sizeSlideImage();
-    window.addEventListener('resize', () => { positionDrawer(); sizeSlideImage(); });
+    window.addEventListener('resize', () => { positionDrawer(); sizeSlideImage(); updateOverflowIndicators(); });
 
     if (drawerOpen) 
         openDrawer();
@@ -216,9 +281,14 @@
         // Preload neighbors
         preloadAround(currentScenarioId, currentSlideIndex);
 
+        // Reset expanded state on slide change
+        captionLeft.classList.remove('expanded');
+        captionChevron.classList.remove('flipped');
+
         // Update hash and sizing
         updateHash();
         sizeSlideImage();
+        updateOverflowIndicators();
     }
 
     function switchScenario(scenarioId, slideId = 0) {
@@ -746,5 +816,7 @@
     } else {
         showWelcome();
     }
+
+    updateOverflowIndicators();
 
 })();

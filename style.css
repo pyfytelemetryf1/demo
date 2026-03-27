@@ -578,6 +578,10 @@ body.drawer-open .nav-prev {
     color: var(--accent);
     font-weight: 600;
 }
+.slide-welcome .welcome-beta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
 .slide-welcome .welcome-cta {
     margin-top: 24px;
     color: var(--text-muted);
@@ -1060,6 +1064,7 @@ body.drawer-open .caption-bar {
     .site-subtitle { font-size: 0.7rem; }
     .slide-area { padding: 4px 8px; }
     .slide-welcome { padding: 24px 12px; padding-bottom: 8vh; }
+    .slide-welcome .welcome-beta { font-size: 0.7rem; }
     .nav-arrow { width: 36px; height: 36px; }
     .nav-prev { left: 4px; }
     .nav-next { right: 4px; }

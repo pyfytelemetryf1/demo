@@ -829,7 +829,11 @@
 
     welcomeWalkthroughLink.addEventListener('click', function (e) {
         e.preventDefault();
-        switchScenario(scenarioOrder[0]);
+        if (window.innerWidth <= 1080) {
+            openDrawer();
+        } else {
+            switchScenario(scenarioOrder[0]);
+        }
     });
 
     if (window.location.hash) {

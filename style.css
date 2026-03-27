@@ -1018,6 +1018,7 @@ body.drawer-open .caption-bar {
     .slide-image { max-height: calc(100vh - 280px); border-radius: 4px; }
     .caption-content { flex-direction: column; gap: 6px; }
     .caption-right { text-align: left; }
+    .footer-disclaimer { max-height: 1.7em; overflow-y: auto; }
 }
 
 /* === Keyboard focus indicators === */

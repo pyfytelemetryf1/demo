@@ -717,6 +717,16 @@ body.drawer-open .caption-bar {
     transform: rotate(180deg);
 }
 
+.drawer .overflow-chevron {
+    text-align: center;
+    padding: 2px 0;
+}
+
+.drawer .overflow-chevron.visible {
+    display: flex;
+    justify-content: center;
+}
+
 /* === Footer === */
 .site-footer {
     background: var(--bg-secondary);
@@ -1032,6 +1042,8 @@ body.drawer-open .caption-bar {
     .caption-left.expanded { max-height: 50vh; }
     .footer-disclaimer { max-height: 1.7rem; overflow: hidden; transition: max-height 0.25s ease; cursor: pointer; }
     .footer-disclaimer.expanded { max-height: 10rem; }
+    .drawer-menu-secondary { max-height: 70px; overflow: hidden; transition: max-height 0.25s ease; }
+    .drawer-menu-secondary.expanded { max-height: 150px; }
     .nav-arrow { width: 40px; height: 40px; }
     .nav-arrow svg { width: 20px; height: 20px; }
     .nav-prev { left: 8px; }

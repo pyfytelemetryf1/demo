@@ -49,6 +49,10 @@
     const footerChevron = createChevron();
     footerDisclaimer.parentNode.appendChild(footerChevron);
 
+    const drawerSecondary = document.querySelector('.drawer-menu-secondary');
+    const drawerSecondaryChevron = createChevron();
+    drawerSecondary.parentNode.insertBefore(drawerSecondaryChevron, drawerSecondary.nextSibling);
+
     function checkOverflow(el, chevron) {
         if (el.scrollHeight > el.clientHeight + 2) {
             chevron.classList.add('visible');
@@ -93,9 +97,22 @@
         }
     });
 
+    // Drawer secondary menu: tap to expand/collapse
+    drawerSecondary.addEventListener('click', function () {
+        if (drawerSecondaryChevron.classList.contains('visible')) {
+            toggleExpand(drawerSecondary, drawerSecondaryChevron);
+        }
+    });
+    drawerSecondaryChevron.addEventListener('click', function () {
+        if (drawerSecondaryChevron.classList.contains('visible')) {
+            toggleExpand(drawerSecondary, drawerSecondaryChevron);
+        }
+    });
+
     function updateOverflowIndicators() {
         checkOverflow(captionLeft, captionChevron);
         checkOverflow(footerDisclaimer, footerChevron);
+        checkOverflow(drawerSecondary, drawerSecondaryChevron);
     }
 
     // --- Drawer ---

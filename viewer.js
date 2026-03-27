@@ -829,7 +829,7 @@
 
     welcomeWalkthroughLink.addEventListener('click', function (e) {
         e.preventDefault();
-        if (window.innerWidth <= 1080) {
+        if (window.innerWidth <= 1480) {
             openDrawer();
         } else {
             switchScenario(scenarioOrder[0]);

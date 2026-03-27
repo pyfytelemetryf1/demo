@@ -34,7 +34,7 @@
     const welcomeWalkthroughLink = document.getElementById('welcome-walkthrough-link');
 
     // --- Drawer ---
-    let drawerOpen = window.innerWidth > 900 ? true : false;
+    let drawerOpen = window.innerWidth > 1480 ? true : false;
 
     function openDrawer() {
         drawerOpen = true;
@@ -730,7 +730,7 @@
 
     document.getElementById('header-home').addEventListener('click', function () {
         showWelcome();
-        if (window.innerWidth > 900)
+        if (window.innerWidth > 1480)
         {
             openDrawer();
         }

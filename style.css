@@ -553,13 +553,14 @@ body.drawer-open .nav-prev {
 
 /* === Welcome Screen === */
 .slide-welcome {
-    max-width: 960px;
+    max-width: 1080px;
     width: 100%;
     padding: 48px 36px;
     padding-bottom: 25vh;
     text-align: center;
     color: var(--text-secondary);
     line-height: 1.7;
+    overflow: auto;
 }
 .slide-welcome h2 {
     font-size: 1.4rem;

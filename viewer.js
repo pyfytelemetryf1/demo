@@ -8,6 +8,19 @@
     var DRAWER_AUTO_OPEN_MIN = 1480;    // drawer starts open above this width
     var DRAWER_KEEP_OPEN_MIN = 2000;    // keep drawer open after scenario switch above this width
 
+    // --- Analytics ---
+    function registerEvent(path, title) {
+        if (window.goatcounter && goatcounter.count) {
+            goatcounter.count({ path: path, title: title, event: true });
+        }
+    }
+
+    function registerPageView(path) {
+        if (window.goatcounter && goatcounter.count) {
+            goatcounter.count({ path: path });
+        }
+    }
+
     // --- State ---
     let currentScenarioId = null;
     let currentSlideIndex = 0;
@@ -357,6 +370,7 @@
     // Drawer item clicks
     drawerItems.forEach(item => {
         item.addEventListener('click', () => {
+            registerEvent('click/reel/' + item.dataset.scenario, item.dataset.scenario);
             switchScenario(item.dataset.scenario);
         });
     });
@@ -493,7 +507,7 @@
             });
     }
 
-    drawerHelpBtn.addEventListener('click', openHelp);
+    drawerHelpBtn.addEventListener('click', function () { registerEvent('click/user-guide', 'User Guide'); openHelp(); });
     helpClose.addEventListener('click', closeHelp);
     helpOverlay.addEventListener('click', (e) => {
         if (e.target === helpOverlay) closeHelp();
@@ -754,6 +768,7 @@
         const newHash = 'csv/' + activeCsvKey;
         if (window.location.hash.slice(1) !== newHash) {
             history.replaceState(null, '', '#' + newHash);
+            registerPageView('/' + newHash);
         }
     }
 
@@ -765,7 +780,7 @@
         loadCSV(csvKeyOrder[next]);
     }
 
-    drawerCsvBtn.addEventListener('click', openCSV);
+    drawerCsvBtn.addEventListener('click', function () { registerEvent('click/csv-viewer', 'Browse Example Data'); openCSV(); });
     csvClose.addEventListener('click', closeCSV);
     csvOverlay.addEventListener('click', function (e) {
         if (e.target === csvOverlay) closeCSV();
@@ -812,6 +827,7 @@
         const newHash = currentScenarioId + '/' + (currentSlideIndex + 1);
         if (window.location.hash.slice(1) !== newHash) {
             history.replaceState(null, '', '#' + newHash);
+            registerPageView('/' + newHash);
         }
     }
 
@@ -839,6 +855,22 @@
             switchScenario(scenarioOrder[0]);
         }
     });
+
+    // --- External link analytics ---
+    document.querySelector('.drawer-footer').addEventListener('click', function (e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+        var href = link.href || '';
+        if (href.indexOf('apps.microsoft.com') !== -1) registerEvent('click/store', 'Microsoft Store');
+        else if (href.indexOf('/issues/new') !== -1) registerEvent('click/file-issue', 'File an issue');
+        else if (href.indexOf('github.com') !== -1) registerEvent('click/github', 'GitHub');
+    });
+
+    document.querySelectorAll('#welcome-store-link').forEach(function (el) {
+        el.addEventListener('click', function () { registerEvent('click/store', 'Microsoft Store (welcome)'); });
+    });
+
+    welcomeCsvLink.addEventListener('click', function () { registerEvent('click/csv-viewer', 'Browse Example Data (welcome)'); });
 
     if (window.location.hash) {
         parseHash();

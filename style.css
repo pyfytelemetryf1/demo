@@ -714,7 +714,13 @@ body.drawer-open .caption-bar {
     max-width: 960px;
     margin: 0 auto;
     text-align: center;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-muted) transparent;
 }
+
+.footer-disclaimer::-webkit-scrollbar { -webkit-appearance: none; width: 4px; height: 4px; }
+.footer-disclaimer::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 2px; }
+.footer-disclaimer::-webkit-scrollbar-track { background: transparent; }
 
 /* === LLM Report Rendering === */
 .slide-markdown {

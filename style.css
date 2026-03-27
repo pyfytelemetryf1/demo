@@ -989,7 +989,7 @@ body.drawer-open .caption-bar {
 .csv-val-num { color: #d2a8ff; }
 
 /* === Responsive === */
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
     .site-header { padding: 10px 16px; }
     .site-title { font-size: 1rem; }
     .slide-area { padding: 8px 56px; }

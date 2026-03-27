@@ -637,10 +637,10 @@
     }
 
     function formatValue(val, header) {
-        // Trim lap_id to just the lap suffix
+        // Trim lap_id to counter + lap suffix (e.g. _001_L2)
         if (header === 'lap_id') {
-            var li = val.lastIndexOf('_L');
-            if (li !== -1) return '\u2026' + val.slice(li);
+            var parts = val.split('_');
+            if (parts.length >= 2) return parts.slice(-2).join('_');
         }
         // Trim floats to 3 decimal places
         if (val === '' || isNaN(val) || val.indexOf('|') !== -1 || val.indexOf(';') !== -1) return val;

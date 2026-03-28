@@ -279,13 +279,7 @@ const SCENARIOS = {
             {
                 image: 'images/install/01_store_listing.png',
                 title: 'Get the App \u2014 directly from the Microsoft Store',
-                description: 'Search for "PyFy Telemetry" in the Store, or use the direct link on the left-hand side of this page. Click Get to download.',
-                group: 'STEP 1'
-            },
-            {
-                image: 'images/install/02_store_installing.png',
-                title: 'Quick installation',
-                description: 'The app downloads and installs automatically. No admin privileges required, no user accounts or in-app purchases, no metrics or data collected or transmitted \u2014 all information stays local.',
+                description: 'Search for "PyFy Telemetry" in the Store, or use the direct link on the left-hand side of this page. Click Get to download. No admin privileges required, no user accounts or in-app purchases, no data collected or transmitted \u2014 all information stays local.',
                 group: 'STEP 1'
             },
             {

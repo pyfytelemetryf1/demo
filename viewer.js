@@ -130,18 +130,12 @@
         // Markdown slide chevron
         var mdDiv = slideContent.querySelector('.slide-markdown');
         var mdChev = slideContent.querySelector('.md-chevron');
-        console.log('[chevron] mdDiv:', !!mdDiv, 'mdChev:', !!mdChev);
         if (mdDiv && mdChev) {
-            console.log('[chevron] expanded:', mdDiv.classList.contains('expanded'));
-            console.log('[chevron] scrollH:', mdDiv.scrollHeight, 'clientH:', mdDiv.clientHeight, 'overflow:', mdDiv.scrollHeight > mdDiv.clientHeight + 2);
-            console.log('[chevron] maxHeight:', mdDiv.style.maxHeight, 'computedMaxH:', getComputedStyle(mdDiv).maxHeight);
-            console.log('[chevron] mdChev classes before:', mdChev.className);
             if (mdDiv.classList.contains('expanded')) {
                 mdChev.classList.add('visible');
             } else {
                 checkOverflow(mdDiv, mdChev);
             }
-            console.log('[chevron] mdChev classes after:', mdChev.className);
         }
     }
 
@@ -506,6 +500,11 @@
             e.preventDefault();
             registerEvent('click/csv-viewer', 'Browse Example Data (slide)');
             openCSV();
+            return;
+        }
+        var storeLink = e.target.closest('.welcome-store-link');
+        if (storeLink) {
+            registerEvent('click/store', 'Microsoft Store (welcome)');
             return;
         }
         var slideLink = e.target.closest('.slide-link');

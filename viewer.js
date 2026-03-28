@@ -342,6 +342,13 @@
         captionDescription.innerHTML = (slide.description || '').replace(/\n/g, '<br>');
         captionDisclaimer.textContent = slide.disclaimer || '';
 
+        // Dynamic page title and meta description for SEO
+        document.title = (slide.title || 'Demo') + ' \u2014 PyFy Telemetry';
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && slide.description) {
+            metaDesc.setAttribute('content', slide.description.replace(/<[^>]*>/g, '').slice(0, 200));
+        }
+
         // Counter
         slideCounter.textContent = (currentSlideIndex + 1) + ' / ' + total;
 
@@ -413,14 +420,15 @@
     // Drawer item clicks
     drawerItems.forEach(item => {
         item.addEventListener('click', () => {
+            arrivedViaQueryParam = false;
             registerEvent('click/reel/' + item.dataset.scenario, item.dataset.scenario);
             switchScenario(item.dataset.scenario);
         });
     });
 
     // Arrow clicks
-    navPrev.addEventListener('click', prevSlide);
-    navNext.addEventListener('click', nextSlide);
+    navPrev.addEventListener('click', function () { arrivedViaQueryParam = false; prevSlide(); });
+    navNext.addEventListener('click', function () { arrivedViaQueryParam = false; nextSlide(); });
 
     // Keyboard
     document.addEventListener('keydown', (e) => {
@@ -889,11 +897,15 @@
         }
     }
 
+    var arrivedViaQueryParam = false;
+
     function updateHash() {
         // Don't overwrite the CSV hash when the overlay is open
         if (!csvOverlay.hidden) return;
         // No hash when on the welcome screen
         if (!currentScenarioId) return;
+        // Don't append hash when arrived via ?s= (keep clean URL for crawlers)
+        if (arrivedViaQueryParam) return;
         const newHash = currentScenarioId + '/' + (currentSlideIndex + 1);
         if (window.location.hash.slice(1) !== newHash) {
             history.replaceState(null, '', '#' + newHash);
@@ -952,6 +964,7 @@
     // Parse ?s=scenario/slide query param (for SEO/sitemap URLs)
     var searchParam = new URLSearchParams(window.location.search).get('s');
     if (searchParam) {
+        arrivedViaQueryParam = true;
         var parts = searchParam.split('/');
         var scenario = getScenario(parts[0]);
         if (scenario) {

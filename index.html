@@ -8,8 +8,9 @@
     <link rel="icon" type="image/png" href="./favicon.png">
     <meta name="description" content="Interactive demo walkthrough of PyFy Telemetry — F1 Performance Analysis. Explore charts, telemetry data, and analysis features before installing.">
     <meta property="og:title" content="PyFy Telemetry — F1 Performance Analysis Demo">
-    <meta property="og:description" content="Explore real telemetry charts, scorecards, and analysis features. See what the tool can do for your sim racing.">
+    <meta property="og:description" content="Find more lap time, corner by corner, with top 3 insights you can actually use right away.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pyfytelemetryf1.github.io/demo/images/highlights/turn_time_delta.png">
 </head>
 <body>
     <header class="site-header">
@@ -22,7 +23,7 @@
         </button>
         <div class="header-content" id="header-home" style="cursor: pointer;">
             <h1 class="site-title"><span class="brand">PyFy Telemetry</span> — F1 Performance Analysis</h1>
-            <p class="site-subtitle">Guided Tour</p>
+            <p class="site-subtitle">See it in action before you install</p>
         </div>
     </header>
 
@@ -46,13 +47,13 @@
                 </button>
             </li>
             <li>
-                <button class="drawer-item" data-scenario="capture">
+                <button class="drawer-item" data-scenario="llm">
                     <span class="drawer-item-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                     </span>
                     <span class="drawer-item-text">
-                        <span class="drawer-item-label">Capture Your First Session</span>
-                        <span class="drawer-item-desc">How to record, review &amp; analyze</span>
+                        <span class="drawer-item-label">External LLM Insights</span>
+                        <span class="drawer-item-desc">AI-engineered coaching reports</span>
                     </span>
                 </button>
             </li>
@@ -68,17 +69,6 @@
                 </button>
             </li>
             <li>
-                <button class="drawer-item" data-scenario="llm">
-                    <span class="drawer-item-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                    </span>
-                    <span class="drawer-item-text">
-                        <span class="drawer-item-label">External LLM Insights</span>
-                        <span class="drawer-item-desc">AI-engineered coaching reports</span>
-                    </span>
-                </button>
-            </li>
-            <li>
                 <button class="drawer-item" data-scenario="install">
                     <span class="drawer-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -86,6 +76,17 @@
                     <span class="drawer-item-text">
                         <span class="drawer-item-label">Quick Setup</span>
                         <span class="drawer-item-desc">How to install &amp; run on PC or Console</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button class="drawer-item" data-scenario="capture">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Capture Your First Session</span>
+                        <span class="drawer-item-desc">How to record, review &amp; analyze</span>
                     </span>
                 </button>
             </li>
@@ -170,15 +171,6 @@
             </button>
 
             <div class="slide-area">
-                <div class="slide-welcome" id="slide-welcome">
-                    <h2>Welcome</h2>
-                    <p><strong>PyFy Telemetry</strong> captures real-time telemetry for F1 sim racing and turns it into practical, corner-by-corner performance insights you can actually use to gain lap time. Currently compatible with EA Sports F1 25*.</p>
-                    <p class="welcome-beta">Currently in Beta on Windows: 5 tracks supported (Abu Dhabi, Melbourne, Shanghai, Suzuka, Bahrain), more added regularly. Keyboard-friendly CLI with a built-in menu, no GUI yet.</p>
-                    <p>This guided tour walks you through the key features: analysis charts, session comparisons, external LLM-powered coaching insights, key telemetry data, and a quick setup demo.</p>
-                    <p class="welcome-cta">To get started, select a <a href="#" id="welcome-walkthrough-link">walkthrough</a> from the menu, or <a href="#" id="welcome-csv-link">browse the example data</a>.<br/>
-                    Looking for a download link? <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" class="welcome-store-link" target="_blank" rel="noopener">Get</a> the app for free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" class="welcome-store-link" target="_blank" rel="noopener">Microsoft Store</a>.</p>
-                    <p class="welcome-beta">(no ads or in-app purchases, no account or cloud services, no data collection)</p>
-                </div>
                 <div class="slide-content">
                     <img class="slide-image" src="" alt="" draggable="false">
                     <div class="slide-loading">Loading...</div>
@@ -211,6 +203,11 @@
     </main>
 
     <footer class="site-footer">
+        <p class="footer-links">
+            <span class="footer-ext-prefix">Get it free in the </span><a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="footer-ext-link">Microsoft Store</a>
+            <span class="footer-link-sep">&middot;</span>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener" class="footer-ext-link">GitHub</a>
+        </p>
         <p class="footer-copyright">&copy; 2026 @pyfytelemetryf1. All rights reserved.</p>
         <p class="footer-disclaimer">
             * - This project is not affiliated with, endorsed by, or sponsored by Electronic Arts, Codemasters,

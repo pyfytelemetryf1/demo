@@ -27,8 +27,6 @@
     let renderGeneration = 0;
     let touchStartX = 0;
     let touchStartY = 0;
-    let welcomeActive = true;
-
     // --- DOM refs ---
     const drawerItems = document.querySelectorAll('.drawer-item[data-scenario]');
     const drawer = document.getElementById('drawer');
@@ -46,10 +44,7 @@
     const progressFill = document.querySelector('.progress-fill');
     const navPrev = document.querySelector('.nav-prev');
     const navNext = document.querySelector('.nav-next');
-    const slideWelcome = document.getElementById('slide-welcome');
     const captionBar = document.querySelector('.caption-bar');
-    const welcomeCsvLink = document.getElementById('welcome-csv-link');
-    const welcomeWalkthroughLink = document.getElementById('welcome-walkthrough-link');
     const captionLeft = document.querySelector('.caption-left');
     const footerDisclaimer = document.querySelector('.footer-disclaimer');
 
@@ -132,6 +127,22 @@
         checkOverflow(captionLeft, captionChevron);
         checkOverflow(footerDisclaimer, footerChevron);
         checkOverflow(drawerSecondary, drawerSecondaryChevron);
+        // Markdown slide chevron
+        var mdDiv = slideContent.querySelector('.slide-markdown');
+        var mdChev = slideContent.querySelector('.md-chevron');
+        console.log('[chevron] mdDiv:', !!mdDiv, 'mdChev:', !!mdChev);
+        if (mdDiv && mdChev) {
+            console.log('[chevron] expanded:', mdDiv.classList.contains('expanded'));
+            console.log('[chevron] scrollH:', mdDiv.scrollHeight, 'clientH:', mdDiv.clientHeight, 'overflow:', mdDiv.scrollHeight > mdDiv.clientHeight + 2);
+            console.log('[chevron] maxHeight:', mdDiv.style.maxHeight, 'computedMaxH:', getComputedStyle(mdDiv).maxHeight);
+            console.log('[chevron] mdChev classes before:', mdChev.className);
+            if (mdDiv.classList.contains('expanded')) {
+                mdChev.classList.add('visible');
+            } else {
+                checkOverflow(mdDiv, mdChev);
+            }
+            console.log('[chevron] mdChev classes after:', mdChev.className);
+        }
     }
 
     // --- Drawer ---
@@ -170,7 +181,7 @@
         const footerH = document.querySelector('.site-footer').getBoundingClientRect().height;
         const available = window.innerHeight - headerH - captionH - footerH - 40;
         slideImage.style.maxHeight = available + 'px';
-        // Also size placeholders
+        // Also size placeholders and markdown
         document.querySelectorAll('.slide-placeholder, .slide-markdown').forEach(el => {
             el.style.maxHeight = available + 'px';
         });
@@ -225,40 +236,19 @@
         }
     }
 
-    // --- Welcome screen ---
-    function showWelcome() {
-        welcomeActive = true;
-        currentScenarioId = null;
-        slideWelcome.hidden = false;
-        slideContent.style.display = 'none';
-        navPrev.style.display = 'none';
-        navNext.style.display = 'none';
-        captionBar.style.display = 'none';
-        drawerItems.forEach(item => item.classList.remove('active'));
-        history.replaceState(null, '', window.location.pathname);
-    }
-
-    function hideWelcome() {
-        welcomeActive = false;
-        slideWelcome.hidden = true;
-        slideContent.style.display = '';
-        navPrev.style.display = '';
-        navNext.style.display = '';
-        captionBar.style.display = '';
-    }
-
     // --- Rendering ---
     function renderSlide() {
         const scenario = getCurrentScenario();
         const slide = getCurrentSlide();
         if (!scenario || !slide) return;
-        if (welcomeActive) hideWelcome();
 
         const total = scenario.slides.length;
 
-        // Clear existing placeholder/markdown
-        const existing = slideContent.querySelectorAll('.slide-placeholder, .slide-markdown');
+        // Clear existing placeholder/markdown/chevron and restore caption
+        const existing = slideContent.querySelectorAll('.slide-placeholder, .slide-markdown, .md-chevron');
         existing.forEach(el => el.remove());
+        slideContent.classList.remove('slide-content-column');
+        captionBar.style.display = '';
 
         if (slide.placeholder) {
             slideImage.style.display = 'none';
@@ -272,7 +262,24 @@
             const mdDiv = document.createElement('div');
             mdDiv.className = 'slide-markdown';
             mdDiv.innerHTML = slide.markdown;
+            slideContent.classList.add('slide-content-column');
             slideContent.appendChild(mdDiv);
+            // Chevron — sibling after markdown div
+            const mdChev = createChevron();
+            mdChev.className = 'overflow-chevron md-chevron';
+            slideContent.appendChild(mdChev);
+            mdChev.addEventListener('click', function () {
+                if (mdChev.classList.contains('visible')) {
+                    toggleExpand(mdDiv, mdChev);
+                    if (mdDiv.classList.contains('expanded')) {
+                        mdDiv.style.maxHeight = '';
+                        captionBar.style.display = 'none';
+                    } else {
+                        captionBar.style.display = '';
+                        sizeSlideImage();
+                    }
+                }
+            });
         } else {
             slideImage.style.display = '';
             slideImage.classList.remove('loaded');
@@ -307,6 +314,13 @@
         captionDescription.innerHTML = (slide.description || '').replace(/\n/g, '<br>');
         captionDisclaimer.textContent = slide.disclaimer || '';
 
+        // Dynamic page title and meta description for SEO
+        document.title = (slide.title || 'Demo') + ' \u2014 PyFy Telemetry';
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && slide.description) {
+            metaDesc.setAttribute('content', slide.description.replace(/<[^>]*>/g, '').slice(0, 200));
+        }
+
         // Counter
         slideCounter.textContent = (currentSlideIndex + 1) + ' / ' + total;
 
@@ -329,12 +343,13 @@
         updateHash();
         requestAnimationFrame(function () {
             sizeSlideImage();
+            // Force reflow before checking overflow so maxHeight is applied
+            void document.body.offsetHeight;
             updateOverflowIndicators();
         });
     }
 
     function switchScenario(scenarioId, slideId = 0) {
-        if (welcomeActive) hideWelcome();
         currentScenarioId = scenarioId;
         currentSlideIndex = slideId;
 
@@ -376,14 +391,15 @@
     // Drawer item clicks
     drawerItems.forEach(item => {
         item.addEventListener('click', () => {
+            arrivedViaQueryParam = false;
             registerEvent('click/reel/' + item.dataset.scenario, item.dataset.scenario);
             switchScenario(item.dataset.scenario);
         });
     });
 
     // Arrow clicks
-    navPrev.addEventListener('click', prevSlide);
-    navNext.addEventListener('click', nextSlide);
+    navPrev.addEventListener('click', function () { arrivedViaQueryParam = false; prevSlide(); });
+    navNext.addEventListener('click', function () { arrivedViaQueryParam = false; nextSlide(); });
 
     // Keyboard
     document.addEventListener('keydown', (e) => {
@@ -475,6 +491,28 @@
             else prevSlide();
         }
     }, { passive: true });
+
+    // Handle interactive links inside markdown slides
+    slideContent.addEventListener('click', function (e) {
+        var drawerLink = e.target.closest('.slide-open-drawer');
+        if (drawerLink) {
+            e.preventDefault();
+            registerEvent('click/open-drawer', 'Open drawer (slide)');
+            openDrawer();
+            return;
+        }
+        var csvLink = e.target.closest('.slide-open-csv');
+        if (csvLink) {
+            e.preventDefault();
+            registerEvent('click/csv-viewer', 'Browse Example Data (slide)');
+            openCSV();
+            return;
+        }
+        var slideLink = e.target.closest('.slide-link');
+        if (slideLink && slideLink.hash) {
+            registerEvent('click/slide-link' + slideLink.hash, 'Slide link: ' + slideLink.textContent);
+        }
+    });
 
     // Prevent image dragging
     slideImage.addEventListener('dragstart', (e) => e.preventDefault());
@@ -763,11 +801,7 @@
 
     function closeCSV() {
         csvOverlay.hidden = true;
-        if (welcomeActive) {
-            history.replaceState(null, '', window.location.pathname);
-        } else {
-            updateHash();
-        }
+        updateHash();
     }
 
     function updateCSVHash() {
@@ -830,11 +864,15 @@
         }
     }
 
+    var arrivedViaQueryParam = false;
+
     function updateHash() {
         // Don't overwrite the CSV hash when the overlay is open
         if (!csvOverlay.hidden) return;
         // No hash when on the welcome screen
         if (!currentScenarioId) return;
+        // Don't append hash when arrived via ?s= (keep clean URL for crawlers)
+        if (arrivedViaQueryParam) return;
         const newHash = currentScenarioId + '/' + (currentSlideIndex + 1);
         if (window.location.hash.slice(1) !== newHash) {
             history.replaceState(null, '', '#' + newHash);
@@ -845,25 +883,10 @@
     window.addEventListener('hashchange', parseHash);
 
     // --- Init ---
-    welcomeCsvLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        openCSV();
-    });
-
     document.getElementById('header-home').addEventListener('click', function () {
-        showWelcome();
-        if (window.innerWidth > DRAWER_AUTO_OPEN_MIN)
-        {
+        switchScenario('highlights', 0);
+        if (window.innerWidth > DRAWER_AUTO_OPEN_MIN) {
             openDrawer();
-        }
-    });
-
-    welcomeWalkthroughLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (window.innerWidth <= DRAWER_AUTO_OPEN_MIN) {
-            openDrawer();
-        } else {
-            switchScenario(scenarioOrder[0]);
         }
     });
 
@@ -877,16 +900,33 @@
         else if (href.indexOf('github.com') !== -1) registerEvent('click/github', 'GitHub');
     });
 
-    document.querySelectorAll('.welcome-store-link').forEach(function (el) {
-        el.addEventListener('click', function () { registerEvent('click/store', 'Microsoft Store (welcome)'); });
+    document.querySelector('.footer-links').addEventListener('click', function (e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+        var href = link.href || '';
+        if (href.indexOf('apps.microsoft.com') !== -1) registerEvent('click/store', 'Microsoft Store (footer)');
+        else if (href.indexOf('github.com') !== -1) registerEvent('click/github', 'GitHub (footer)');
     });
 
-    welcomeCsvLink.addEventListener('click', function () { registerEvent('click/csv-viewer', 'Browse Example Data (welcome)'); });
-
-    if (window.location.hash) {
+    // Parse ?s=scenario/slide query param (for SEO/sitemap URLs)
+    var searchParam = new URLSearchParams(window.location.search).get('s');
+    if (searchParam) {
+        arrivedViaQueryParam = true;
+        var parts = searchParam.split('/');
+        var scenario = getScenario(parts[0]);
+        if (scenario) {
+            var slideIdx = parts[1] ? parseInt(parts[1]) - 1 : 0;
+            switchScenario(parts[0], Math.max(0, Math.min(slideIdx, scenario.slides.length - 1)));
+        } else {
+            switchScenario('highlights');
+        }
+    } else if (window.location.hash) {
         parseHash();
     } else {
-        showWelcome();
+        switchScenario('highlights');
+        if (window.innerWidth > DRAWER_AUTO_OPEN_MIN) {
+            openDrawer();
+        }
     }
 
     updateOverflowIndicators();

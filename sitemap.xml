@@ -1,9 +1,1019 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://pyfytelemetryf1.github.io/demo/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://pyfytelemetryf1.github.io/demo/usage-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/turn_time_delta.png</image:loc>
+      <image:title>Time Left on Table</image:title>
+      <image:caption>PyFy Telemetry captures real-time F1 sim racing telemetry and turns it into corner-by-corner insights. This chart shows per-turn time variance: the gap between your best and median lap through each co...</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/2</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/braking_consistency.png</image:loc>
+      <image:title>Braking Consistency</image:title>
+      <image:caption>Compare braking points across turns between sessions. Find where you\</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/3</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/throttle_consistency.png</image:loc>
+      <image:title>Throttle Consistency</image:title>
+      <image:caption>Compare throttle application points across turns between sessions. Spot where you\</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/4</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/turn_time_delta_comparison.png</image:loc>
+      <image:title>Turn Time Delta \u2014 Session Comparison</image:title>
+      <image:caption>Where you gained or lost the most time between two races, sorted by impact. Red = slower, green = faster.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/5</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/racing_line_chicane.png</image:loc>
+      <image:title>Racing Line \u2014 T6+T7 Chicane</image:title>
+      <image:caption>Every lap\</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/6</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/standing_start.png</image:loc>
+      <image:title>Standing Start Analysis at Lights Out</image:title>
+      <image:caption>Reaction time, traction, throttle application, and wheel spin \u2014 compared across race starts.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/7</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/scorecard.png</image:loc>
+      <image:title>Session Scorecard</image:title>
+      <image:caption>At-a-glance session summary: difficulty, assists, technique metrics, and consistency scores.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/8</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/llm_report.png</image:loc>
+      <image:title>LLM Performance Report (Optional)</image:title>
+      <image:caption>Export your CSV telemetry and charts as a single zip file that you can drag and drop into your preferred LLM. A purpose-built AI skill produces consistent, structured coaching, focused on 3 actionable...</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/9</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/brake_traces_gear.png</image:loc>
+      <image:title>Brake Traces &amp; Gear Overlay</image:title>
+      <image:caption>Per-turn brake application with gear selection \u2014 see your braking consistency lap by lap.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/10</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/lap_times_per_stint.png</image:loc>
+      <image:title>Lap Times Per Stint</image:title>
+      <image:caption>See pace evolution within each tyre stint. Spot degradation and outlier laps.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/11</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/lap_times_progression.png</image:loc>
+      <image:title>Lap Times Progression</image:title>
+      <image:caption>Compare clean lap times across sessions. Outlier laps are automatically detected and annotated.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/12</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/tyre_degradation.png</image:loc>
+      <image:title>Tyre Wear &amp; Degradation</image:title>
+      <image:caption>Track tyre wear across stints. Plan your strategy with data.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/13</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/track_map_abudhabi.png</image:loc>
+      <image:title>Track Map</image:title>
+      <image:caption>Full track layout colored by speed, with apex speeds annotated at each turn.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/14</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/llm/abudhabi_01_priorities.png</image:loc>
+      <image:title>Top 3 Priorities \u2014 Abu Dhabi</image:title>
+      <image:caption>Export your CSV telemetry and charts as a single zip file that you can drag and drop into your preferred LLM. A purpose-built AI skill produces consistent, structured coaching, focused on 3 actionable...</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/2</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/llm/abudhabi_03_turns.png</image:loc>
+      <image:title>Turn-by-Turn Analysis</image:title>
+      <image:caption>Deep dive into specific corners: braking points, apex speeds, throttle application, and what the data says you should change.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/3</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/llm/abudhabi_04_race_mgmt.png</image:loc>
+      <image:title>Race Management</image:title>
+      <image:caption>ERS deployment strategy, battery lifecycle patterns, tyre temperature management, and fuel-adjusted pace analysis.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/4</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/llm/abudhabi_05_comparison.png</image:loc>
+      <image:title>Cross-Race Comparison &amp; Assessment</image:title>
+      <image:caption>Session-to-session progression: what improved, what regressed, and an overall driver level assessment with specific targets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/5</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/llm/melbourne_01_priorities.png</image:loc>
+      <image:title>Top 3 Priorities \u2014 Melbourne</image:title>
+      <image:caption>Same structured coaching framework, different track. The LLM adapts its analysis to Melbourne\</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/6</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/llm/melbourne_03_turns.png</image:loc>
+      <image:title>Turn-by-Turn Analysis</image:title>
+      <image:caption>Corner-specific breakdown for Melbourne: braking zones, trail-braking opportunities, and throttle modulation through key corners.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/7</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/llm/melbourne_04_race_mgmt.png</image:loc>
+      <image:title>Race Management</image:title>
+      <image:caption>ERS deployment, battery patterns, tyre temperatures, and surface management analysis.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/8</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/llm/melbourne_05_comparison.png</image:loc>
+      <image:title>Race Start &amp; Cross-Race Comparison</image:title>
+      <image:caption>Standing start analysis between sessions, plus a comparison of where time was gained or lost across the two races.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/9</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/llm/melbourne_06_assessment.png</image:loc>
+      <image:title>Driver Assessment &amp; Summary</image:title>
+      <image:caption>Overall driver level evaluation with specific strengths, areas for improvement, and the top insights to carry forward (see &lt;a href="#llm/5" class="drawer-link"&gt;Top 3 Priorities&lt;/a&gt;).</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/10</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/01_overview_lap_times_progression.png</image:loc>
+      <image:title>Clean Lap Times Comparison</image:title>
+      <image:caption>Lap-by-lap comparison of clean times across two race sessions, with median lines and outlier annotations.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/2</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/02_overview_lap_times_per_stint_race1.png</image:loc>
+      <image:title>Lap Times Per Stint \u2014 Race 1</image:title>
+      <image:caption>Pace evolution within each tyre stint. Outlier laps are automatically detected and annotated — e.g. an incident at T13+T14.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/3</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/03_overview_lap_times_per_stint_race2.png</image:loc>
+      <image:title>Lap Times Per Stint \u2014 Race 2</image:title>
+      <image:caption>Pace evolution within each tyre stint for the reference race session. Outlier laps are automatically detected and annotated.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/4</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/04_overview_lap_times_vs_tyre_age.png</image:loc>
+      <image:title>Lap Times vs Tyre Age</image:title>
+      <image:caption>How lap times evolve with tyre wear across both sessions.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/5</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/05_comparison_fuel_normalized_pace.png</image:loc>
+      <image:title>Fuel-Normalized Pace</image:title>
+      <image:caption>True pace comparison with fuel weight effects removed. Particularly useful when comparing race sessions of different lengths e.g. Medium (20 lap) race vs Short (15 lap) race.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/6</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/06_start_standing_start_analysis.png</image:loc>
+      <image:title>Standing Start Analysis</image:title>
+      <image:caption>Reaction time, speed build-up, traction, throttle modulation, and wheel spin compared between two race starts.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/7</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/07_turns_time_left_on_table_race1.png</image:loc>
+      <image:title>Time Left on Table \u2014 Race 1</image:title>
+      <image:caption>Per-turn time variance: the gap between your best and median performance. Sorted by potential gain.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/8</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/08_turns_time_left_on_table_race2.png</image:loc>
+      <image:title>Time Left on Table \u2014 Race 2</image:title>
+      <image:caption>Per-turn time variance for the reference race session.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/9</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/09_comparison_turn_time_delta.png</image:loc>
+      <image:title>Turn Time Delta</image:title>
+      <image:caption>Sorted by impact: where you gained or lost the most time between the two races.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/10</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/10_comparison_braking_consistency.png</image:loc>
+      <image:title>Braking Consistency Comparison</image:title>
+      <image:caption>Braking point variance per turn across both sessions. Lower spread means more consistent braking.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/11</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/11_comparison_throttle_consistency.png</image:loc>
+      <image:title>Throttle Consistency Comparison</image:title>
+      <image:caption>Throttle application point variance per turn across both sessions.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/12</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/12_experimental_scorecard.png</image:loc>
+      <image:title>Session Scorecard</image:title>
+      <image:caption>At-a-glance session summary: difficulty, assists, progression, technique, and consistency metrics.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/13</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/13_lines_T12_T13_T14_racing_line_race1.png</image:loc>
+      <image:title>Racing Line \u2014 T12+T13+T14 (Race 1)</image:title>
+      <image:caption>Every lap\</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/14</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/14_lines_T12_T13_T14_racing_line_race2.png</image:loc>
+      <image:title>Racing Line \u2014 T12+T13+T14 (Race 2)</image:title>
+      <image:caption>T12-T13-T14 racing lines from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/15</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/15_lines_T6_T7_racing_line_race1.png</image:loc>
+      <image:title>Racing Line \u2014 T6+T7 (Race 1)</image:title>
+      <image:caption>Connected corner complex \u2014 line consistency through the T6-T7 chicane.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/16</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/16_lines_T6_T7_racing_line_race2.png</image:loc>
+      <image:title>Racing Line \u2014 T6+T7 (Race 2)</image:title>
+      <image:caption>T6-T7 chicane lines from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/17</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/17_lines_T5_racing_line_race1.png</image:loc>
+      <image:title>Racing Line \u2014 T5 (Race 1)</image:title>
+      <image:caption>Racing line consistency through Turn 5.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/18</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/18_lines_T5_racing_line_race2.png</image:loc>
+      <image:title>Racing Line \u2014 T5 (Race 2)</image:title>
+      <image:caption>Turn 5 lines from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/19</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/19_lines_T9_racing_line_race1.png</image:loc>
+      <image:title>Racing Line \u2014 T9 (Race 1)</image:title>
+      <image:caption>Mid-circuit racing line overlay for Turn 9.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/20</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/20_lines_T9_racing_line_race2.png</image:loc>
+      <image:title>Racing Line \u2014 T9 (Race 2)</image:title>
+      <image:caption>Turn 9 lines from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/21</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/21_lines_T16_racing_line_race1.png</image:loc>
+      <image:title>Racing Line \u2014 T16 (Race 1)</image:title>
+      <image:caption>Line consistency through the final corner complex.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/22</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/22_lines_T16_racing_line_race2.png</image:loc>
+      <image:title>Racing Line \u2014 T16 (Race 2)</image:title>
+      <image:caption>Final corner lines from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/23</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/23_technique_T12_T13_T14_brake_traces_gear_overlay_race1.png</image:loc>
+      <image:title>T12+T13+T14 Brake Traces &amp; Gear \u2014 Race 1</image:title>
+      <image:caption>Brake pressure and gear selection through the T12-T13-T14 complex across all laps.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/24</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/24_technique_T12_T13_T14_brake_traces_gear_overlay_race2.png</image:loc>
+      <image:title>T12+T13+T14 Brake Traces &amp; Gear \u2014 Race 2</image:title>
+      <image:caption>T12-T13-T14 braking from the reference session.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/25</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/25_technique_T12_T13_T14_throttle_traces_race1.png</image:loc>
+      <image:title>T12+T13+T14 Throttle Traces \u2014 Race 1</image:title>
+      <image:caption>Throttle application through the T12-T13-T14 complex across all laps, helps notice e.g. the large variation/hesitation on throttle, costing lap time. The turn complex is automatically selected by the ...</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/26</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/26_technique_T12_T13_T14_throttle_traces_race2.png</image:loc>
+      <image:title>T12+T13+T14 Throttle Traces \u2014 Race 2</image:title>
+      <image:caption>T12-T13-T14 throttle from the reference session.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/27</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/27_technique_T12_T13_T14_speed_traces_race1.png</image:loc>
+      <image:title>T12+T13+T14 Speed Traces \u2014 Race 1</image:title>
+      <image:caption>Speed profile through the T12-T13-T14 complex across all laps.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/28</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/28_technique_T12_T13_T14_speed_traces_race2.png</image:loc>
+      <image:title>T12+T13+T14 Speed Traces \u2014 Race 2</image:title>
+      <image:caption>T12-T13-T14 speed profiles from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/29</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/29_technique_T6_T7_brake_traces_gear_overlay_race1.png</image:loc>
+      <image:title>T6+T7 Brake Traces &amp; Gear \u2014 Race 1</image:title>
+      <image:caption>Brake and gear through the chicane complex.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/30</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/30_technique_T6_T7_brake_traces_gear_overlay_race2.png</image:loc>
+      <image:title>T6+T7 Brake Traces &amp; Gear \u2014 Race 2</image:title>
+      <image:caption>Chicane braking from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/31</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/31_technique_T6_T7_throttle_traces_race1.png</image:loc>
+      <image:title>T6+T7 Throttle Traces \u2014 Race 1</image:title>
+      <image:caption>Throttle through the chicane complex.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/32</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/32_technique_T6_T7_throttle_traces_race2.png</image:loc>
+      <image:title>T6+T7 Throttle Traces \u2014 Race 2</image:title>
+      <image:caption>Chicane throttle from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/33</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/33_technique_T6_T7_speed_traces_race1.png</image:loc>
+      <image:title>T6+T7 Speed Traces \u2014 Race 1</image:title>
+      <image:caption>Speed through the chicane complex.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/34</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/34_technique_T6_T7_speed_traces_race2.png</image:loc>
+      <image:title>T6+T7 Speed Traces \u2014 Race 2</image:title>
+      <image:caption>Chicane speeds from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/35</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/35_technique_T5_brake_traces_gear_overlay_race1.png</image:loc>
+      <image:title>T5 Brake Traces &amp; Gear \u2014 Race 1</image:title>
+      <image:caption>Brake and gear analysis for Turn 5.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/36</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/36_technique_T5_brake_traces_gear_overlay_race2.png</image:loc>
+      <image:title>T5 Brake Traces &amp; Gear \u2014 Race 2</image:title>
+      <image:caption>Turn 5 braking from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/37</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/37_technique_T5_throttle_traces_race1.png</image:loc>
+      <image:title>T5 Throttle Traces \u2014 Race 1</image:title>
+      <image:caption>Throttle through Turn 5.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/38</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/38_technique_T5_throttle_traces_race2.png</image:loc>
+      <image:title>T5 Throttle Traces \u2014 Race 2</image:title>
+      <image:caption>Turn 5 throttle from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/39</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/39_technique_T5_speed_traces_race1.png</image:loc>
+      <image:title>T5 Speed Traces \u2014 Race 1</image:title>
+      <image:caption>Speed profile through Turn 5.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/40</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/40_technique_T5_speed_traces_race2.png</image:loc>
+      <image:title>T5 Speed Traces \u2014 Race 2</image:title>
+      <image:caption>Turn 5 speeds from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/41</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/41_technique_T9_brake_traces_gear_overlay_race1.png</image:loc>
+      <image:title>T9 Brake Traces &amp; Gear \u2014 Race 1</image:title>
+      <image:caption>Brake and gear analysis for Turn 9.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/42</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/42_technique_T9_brake_traces_gear_overlay_race2.png</image:loc>
+      <image:title>T9 Brake Traces &amp; Gear \u2014 Race 2</image:title>
+      <image:caption>Turn 9 braking from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/43</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/43_technique_T9_throttle_traces_race1.png</image:loc>
+      <image:title>T9 Throttle Traces \u2014 Race 1</image:title>
+      <image:caption>Throttle application through Turn 9.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/44</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/44_technique_T9_throttle_traces_race2.png</image:loc>
+      <image:title>T9 Throttle Traces \u2014 Race 2</image:title>
+      <image:caption>Turn 9 throttle from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/45</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/45_technique_T9_speed_traces_race1.png</image:loc>
+      <image:title>T9 Speed Traces \u2014 Race 1</image:title>
+      <image:caption>Speed profile through Turn 9.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/46</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/46_technique_T9_speed_traces_race2.png</image:loc>
+      <image:title>T9 Speed Traces \u2014 Race 2</image:title>
+      <image:caption>Turn 9 speeds from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/47</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/47_technique_T16_brake_traces_gear_overlay_race1.png</image:loc>
+      <image:title>T16 Brake Traces &amp; Gear \u2014 Race 1</image:title>
+      <image:caption>Brake and gear analysis for the final corner.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/48</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/48_technique_T16_brake_traces_gear_overlay_race2.png</image:loc>
+      <image:title>T16 Brake Traces &amp; Gear \u2014 Race 2</image:title>
+      <image:caption>Final corner braking from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/49</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/49_technique_T16_throttle_traces_race1.png</image:loc>
+      <image:title>T16 Throttle Traces \u2014 Race 1</image:title>
+      <image:caption>Throttle application through the final corner.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/50</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/50_technique_T16_throttle_traces_race2.png</image:loc>
+      <image:title>T16 Throttle Traces \u2014 Race 2</image:title>
+      <image:caption>Final corner throttle from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/51</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/51_technique_T16_speed_traces_race1.png</image:loc>
+      <image:title>T16 Speed Traces \u2014 Race 1</image:title>
+      <image:caption>Speed through the final corner complex.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/52</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/52_technique_T16_speed_traces_race2.png</image:loc>
+      <image:title>T16 Speed Traces \u2014 Race 2</image:title>
+      <image:caption>Final corner speeds from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/53</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/53_energy_ers_deployment_pattern_race1.png</image:loc>
+      <image:title>ERS Deployment Pattern \u2014 Race 1</image:title>
+      <image:caption>Energy recovery and deployment across the lap. Optimize your ERS strategy.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/54</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/54_energy_ers_deployment_pattern_race2.png</image:loc>
+      <image:title>ERS Deployment Pattern \u2014 Race 2</image:title>
+      <image:caption>ERS usage from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/55</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/55_energy_battery_lifecycle_race1.png</image:loc>
+      <image:title>Battery Lifecycle \u2014 Race 1</image:title>
+      <image:caption>Battery charge level throughout the race. See charge/discharge cycles.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/56</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/56_energy_battery_lifecycle_race2.png</image:loc>
+      <image:title>Battery Lifecycle \u2014 Race 2</image:title>
+      <image:caption>Battery patterns from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/57</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/57_overview_tyre_management_race1.png</image:loc>
+      <image:title>Tyre Management \u2014 Race 1</image:title>
+      <image:caption>Tyre temperature tracking across stints.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/58</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/58_overview_tyre_management_race2.png</image:loc>
+      <image:title>Tyre Management \u2014 Race 2</image:title>
+      <image:caption>Tyre temperature tracking across stints from the reference session.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/59</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/59_overview_excluded_lap_times.png</image:loc>
+      <image:title>Excluded Laps</image:title>
+      <image:caption>Standing start laps, in-laps, out-laps, safety car laps, and laps with damage are usually excluded from most charts focusing on race pace. This chart shows them for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/60</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/60_overview_fastest_lap_telemetry_race1.png</image:loc>
+      <image:title>Fastest Lap Telemetry \u2014 Race 1</image:title>
+      <image:caption>Full 6-panel telemetry dashboard for your fastest lap: brake, throttle, steering, speed, and gear shifts with turn zones overlaid for context.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/61</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/61_overview_fastest_lap_telemetry_race2.png</image:loc>
+      <image:title>Fastest Lap Telemetry \u2014 Race 2</image:title>
+      <image:caption>Fastest lap telemetry dashboard from the reference session for comparison.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/62</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/01_store_listing.png</image:loc>
+      <image:title>Get the App \u2014 directly from the Microsoft Store</image:title>
+      <image:caption>Search for "PyFy Telemetry" in the Store, or use the direct link on the left-hand side of this page. Click Get to download. No admin privileges required, no user accounts or in-app purchases, no data ...</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/2</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/03_store_installed.png</image:loc>
+      <image:title>Installation Complete</image:title>
+      <image:caption>Once installed, click Open to launch the app for the first time.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/3</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/04_first_run_config.png</image:loc>
+      <image:title>First-Run Configuration</image:title>
+      <image:caption>On first launch, the app walks you through a first-run configuration. Press Enter to accept each default.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/4</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/05_first_run_settings.png</image:loc>
+      <image:title>Review Settings</image:title>
+      <image:caption>Defaults should work out-of-the-box. All settings can be changed later from the app menu. It is highly recommended to enable raw telemetry capture. See User Guide on the side panel for details.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/5</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/06_app_ready.png</image:loc>
+      <image:title>Ready to Start</image:title>
+      <image:caption>The app is now listening for telemetry. The status bar shows network ports and recording/processing status. Finally, confirm/adjust your game settings.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/6</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/07_f1_settings_menu.png</image:loc>
+      <image:title>F1 25 \u2014 Telemetry Settings</image:title>
+      <image:caption>In F1 25, go to Settings and select "Telemetry Settings".</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/7</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/08_f1_udp_settings.png</image:loc>
+      <image:title>F1 25 \u2014 UDP Configuration</image:title>
+      <image:caption>Set UDP Telemetry to On, IP Address to 127.0.0.1, Send rate to 60Hz, and the UDP Port to match the app\</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/8</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/09_simpro_manager.png</image:loc>
+      <image:title>SimPro Manager (Optional)</image:title>
+      <image:caption>That\</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/9</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/10_console_app_settings.png</image:loc>
+      <image:title>Console Setup \u2014 App Settings</image:title>
+      <image:caption>Playing on console? Run the app on a separate Windows device (e.g. on a laptop). During setup, enable [Advanced] Allow broadcast IP \u2014 this lets the app receive telemetry from your console. You\</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/10</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/11_console_f1_settings.png</image:loc>
+      <image:title>Console Setup \u2014 Game Settings</image:title>
+      <image:caption>In F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app. All other settings remain the s...</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/11</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/capture/01_live_capture.png</image:loc>
+      <image:title>Live Capture</image:title>
+      <image:caption>Start the app. Then, start your F1 25 race. The app automatically detects the session and records telemetry in real time \u2014 track, session type, and lap count update live.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/2</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/capture/02_main_menu.png</image:loc>
+      <image:title>Session Complete</image:title>
+      <image:caption>After the race, open the menu. CSVs and raw capture files are saved automatically to your telemetry logs folder.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/3</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/capture/03_laps_csv.png</image:loc>
+      <image:title>Lap-by-Lap Data</image:title>
+      <image:caption>Every lap is recorded with lap times, gap behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashback usage, DRS, traffic...</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/4</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/capture/04_turns_csv.png</image:loc>
+      <image:title>Turn-by-Turn Data</image:title>
+      <image:caption>Each turn of every lap: entry/apex/exit timings, distances, speeds, gears, and more. Race position at entry/exit, lockups and wheelspin by severity and axle, tyre temperatures, brake bias, differentia...</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/5</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/capture/05_generate_charts.png</image:loc>
+      <image:title>Generate Analysis Charts</image:title>
+      <image:caption>Select "Generate analysis charts" from the menu. Pick one or two sessions and the app produces a complete analysis reel in seconds. See &lt;a href="#full-reel/1" class="drawer-link"&gt;demo&lt;/a&gt;....</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/6</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

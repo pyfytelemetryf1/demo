@@ -16,6 +16,17 @@
 
 const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, only data you upload is sent to them. Their terms apply.';
 
+const WELCOME_SLIDE = {
+    markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*.</p>' +
+        '<p class="welcome-slide-beta">Now in Beta on Win 10/11: supports 5 tracks (Abu Dhabi, Melbourne, Shanghai, Suzuka, Bahrain), more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
+        '<p class="welcome-slide-cta">Select another <a href="#" class="slide-open-drawer">walkthrough</a> from the menu,<br/>or get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>.</p>' +
+        '<p>See key features in action before installing: <a href="#full-reel/1" class="slide-link">analysis charts</a>, <a href="#full-reel/9" class="slide-link">session comparisons</a>, <a href="#llm/1" class="slide-link">third-party coaching insights</a>, <a href="#" class="slide-link slide-open-csv">key telemetry data</a>, or a <a href="#install/1" class="slide-link">quick setup demo</a> (PC or Console).</p>' +
+        '<p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
+    title: 'PyFy Telemetry \u2014 F1 Performance Analysis (Beta)',
+    description: 'Capture real-time sim racing telemetry and turn it into practical, corner-by-corner insights you can actually use to gain lap time.',
+    group: 'WELCOME'
+};
+
 const SCENARIOS = {
     highlights: {
         title: 'Chart Highlights',
@@ -23,14 +34,8 @@ const SCENARIOS = {
             {
                 image: 'images/highlights/turn_time_delta.png',
                 title: 'Time Left on Table',
-                description: 'Per-turn time variance: the gap between your best and median lap through each corner, sorted by potential gain.',
+                description: 'PyFy Telemetry captures real-time F1 sim racing telemetry and turns it into corner-by-corner insights. This chart shows per-turn time variance: the gap between your best and median lap through each corner, sorted by potential gain.',
                 group: 'TURN ANALYSIS'
-            },
-            {
-                image: 'images/highlights/standing_start.png',
-                title: 'Standing Start Analysis',
-                description: 'Reaction time, traction, throttle application, and wheel spin \u2014 compared across race starts.',
-                group: 'RACE START'
             },
             {
                 image: 'images/highlights/braking_consistency.png',
@@ -51,6 +56,18 @@ const SCENARIOS = {
                 group: 'COMPARISON'
             },
             {
+                image: 'images/highlights/racing_line_chicane.png',
+                title: 'Racing Line \u2014 T6+T7 Chicane',
+                description: 'Every lap\'s racing line through the T6-T7 chicane overlaid \u2014 one outlier lap is immediately visible.',
+                group: 'RACING LINES'
+            },
+            {
+                image: 'images/highlights/standing_start.png',
+                title: 'Standing Start Analysis at Lights Out',
+                description: 'Reaction time, traction, throttle application, and wheel spin \u2014 compared across race starts.',
+                group: 'RACE START'
+            },
+            {
                 image: 'images/highlights/scorecard.png',
                 title: 'Session Scorecard',
                 description: 'At-a-glance session summary: difficulty, assists, technique metrics, and consistency scores.',
@@ -62,18 +79,6 @@ const SCENARIOS = {
                 description: 'Export your CSV telemetry and charts as a single zip file that you can drag and drop into your preferred LLM. A purpose-built AI skill produces consistent, structured coaching, focused on 3 actionable priorities for your next session.',
                 group: 'LLM ANALYSIS',
                 disclaimer: LLM_DISCLAIMER
-            },
-            {
-                image: 'images/highlights/racing_line_chicane.png',
-                title: 'Racing Line \u2014 T6+T7 Chicane',
-                description: 'Every lap\'s racing line through the T6-T7 chicane overlaid \u2014 one outlier lap is immediately visible.',
-                group: 'RACING LINES'
-            },
-            {
-                image: 'images/highlights/racing_line.png',
-                title: 'Racing Line \u2014 T12+T13+T14 Complex',
-                description: 'Racing line consistency through a flowing multi-corner complex. Colors distinguish individual laps.',
-                group: 'RACING LINES'
             },
             {
                 image: 'images/highlights/brake_traces_gear.png',
@@ -104,7 +109,8 @@ const SCENARIOS = {
                 title: 'Track Map',
                 description: 'Full track layout colored by speed, with apex speeds annotated at each turn.',
                 group: 'TRACK MAP'
-            }
+            },
+            WELCOME_SLIDE
         ]
     },
     'full-reel': {
@@ -267,13 +273,7 @@ const SCENARIOS = {
             {
                 image: 'images/install/01_store_listing.png',
                 title: 'Get the App \u2014 directly from the Microsoft Store',
-                description: 'Search for "PyFy Telemetry" in the Store, or use the direct link on the left-hand side of this page. Click Get to download.',
-                group: 'STEP 1'
-            },
-            {
-                image: 'images/install/02_store_installing.png',
-                title: 'Quick installation',
-                description: 'The app downloads and installs automatically. No admin privileges required, no user accounts or in-app purchases, no metrics or data collected or transmitted \u2014 all information stays local.',
+                description: 'Search for "PyFy Telemetry" in the Store, or use the direct link on the left-hand side of this page. Click Get to download. No admin privileges required, no user accounts or in-app purchases, no data collected or transmitted \u2014 all information stays local.',
                 group: 'STEP 1'
             },
             {
@@ -315,7 +315,7 @@ const SCENARIOS = {
             {
                 image: 'images/install/09_simpro_manager.png',
                 title: 'SimPro Manager (Optional)',
-                description: 'If you use Simagic SimPro Manager, or another sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775). \nThat\'s it, the one-time setup is complete. You can start capturing your first session. See <a href="#capture/1" class="drawer-link">demo</a>.',
+                description: 'That\'s it, the one-time setup is complete. You can start capturing your first session: see <a href="#capture/1" class="drawer-link">demo</a>. If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775).',
                 group: 'STEP 5'
             },
             {
@@ -338,7 +338,7 @@ const SCENARIOS = {
             {
                 image: 'images/capture/01_live_capture.png',
                 title: 'Live Capture',
-                description: 'Start your F1 25 race. The app automatically detects the session and records telemetry in real time \u2014 track, session type, and lap count update live.',
+                description: 'Start the app. Then, start your F1 25 race. The app automatically detects the session and records telemetry in real time \u2014 track, session type, and lap count update live.',
                 group: 'STEP 1'
             },
             {
@@ -368,3 +368,11 @@ const SCENARIOS = {
         ]
     }
 };
+
+// Append the welcome/CTA slide to the end of every scenario
+Object.keys(SCENARIOS).forEach(function (id) {
+    var slides = SCENARIOS[id].slides;
+    if (slides[slides.length - 1] !== WELCOME_SLIDE) {
+        slides.push(WELCOME_SLIDE);
+    }
+});

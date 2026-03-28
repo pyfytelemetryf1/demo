@@ -556,50 +556,6 @@ body.drawer-open .nav-prev {
     opacity: 0.4;
 }
 
-/* === Welcome Screen === */
-.slide-welcome {
-    max-width: 1100px;
-    width: 100%;
-    max-height: 100%;
-    padding: 48px 36px;
-    padding-bottom: 25vh;
-    text-align: center;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    overflow-y: auto;
-}
-.slide-welcome h2 {
-    font-size: 1.4rem;
-    color: var(--text-primary);
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-.slide-welcome p {
-    margin-bottom: 16px;
-    font-size: 0.95rem;
-}
-.slide-welcome strong {
-    color: var(--accent);
-    font-weight: 600;
-}
-.slide-welcome .welcome-beta {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-.slide-welcome .welcome-cta {
-    margin-top: 24px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-.slide-welcome .welcome-cta a {
-    color: var(--accent);
-    text-decoration: none;
-}
-.slide-welcome .welcome-cta a:hover {
-    text-decoration: underline;
-}
-.slide-welcome[hidden] { display: none; }
-
 /* === Caption Bar === */
 .caption-bar {
     background: var(--bg-caption);
@@ -830,7 +786,7 @@ body.drawer-open .caption-bar {
 
 .welcome-slide-beta { font-size: 0.82em; color: var(--text-muted); }
 .welcome-slide-cta { margin-top: 24px; }
-.slide-markdown .slide-link { color: var(--text-secondary); text-decoration: none; }
+.slide-markdown .slide-link { color: #4a8abf; text-decoration: none; }
 .slide-markdown .slide-link:hover { color: var(--accent); text-decoration: underline; }
 .welcome-slide-cta .slide-link { color: var(--accent); }
 .welcome-slide-cta .slide-link:hover { color: var(--accent-hover); }
@@ -1088,7 +1044,6 @@ body.drawer-open .caption-bar {
     .site-header { padding: 10px 16px; }
     .site-title { font-size: 1rem; }
     .slide-area { padding: 8px 56px; }
-    .slide-welcome { padding: 36px 24px; padding-bottom: 16vh; }
     .caption-left { max-height: 6.5rem; overflow: hidden; transition: max-height 0.25s ease; }
     .caption-left.expanded { max-height: 50vh; }
     .footer-disclaimer { max-height: 1.7rem; overflow: hidden; transition: max-height 0.25s ease; cursor: pointer; }
@@ -1113,8 +1068,6 @@ body.drawer-open .caption-bar {
     .site-title { font-size: 0.9rem; }
     .site-subtitle { font-size: 0.7rem; }
     .slide-area { padding: 4px 8px; }
-    .slide-welcome { padding: 24px 12px; padding-bottom: 8vh; }
-    .slide-welcome .welcome-beta { font-size: 0.7rem; }
     .nav-arrow { width: 36px; height: 36px; }
     .nav-prev { left: 4px; }
     .nav-next { right: 4px; }

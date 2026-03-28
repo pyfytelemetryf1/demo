@@ -27,8 +27,6 @@
     let renderGeneration = 0;
     let touchStartX = 0;
     let touchStartY = 0;
-    let welcomeActive = true;
-
     // --- DOM refs ---
     const drawerItems = document.querySelectorAll('.drawer-item[data-scenario]');
     const drawer = document.getElementById('drawer');
@@ -46,10 +44,7 @@
     const progressFill = document.querySelector('.progress-fill');
     const navPrev = document.querySelector('.nav-prev');
     const navNext = document.querySelector('.nav-next');
-    const slideWelcome = document.getElementById('slide-welcome');
     const captionBar = document.querySelector('.caption-bar');
-    const welcomeCsvLink = document.getElementById('welcome-csv-link');
-    const welcomeWalkthroughLink = document.getElementById('welcome-walkthrough-link');
     const captionLeft = document.querySelector('.caption-left');
     const footerDisclaimer = document.querySelector('.footer-disclaimer');
 
@@ -241,34 +236,11 @@
         }
     }
 
-    // --- Welcome screen ---
-    function showWelcome() {
-        welcomeActive = true;
-        currentScenarioId = null;
-        slideWelcome.hidden = false;
-        slideContent.style.display = 'none';
-        navPrev.style.display = 'none';
-        navNext.style.display = 'none';
-        captionBar.style.display = 'none';
-        drawerItems.forEach(item => item.classList.remove('active'));
-        history.replaceState(null, '', window.location.pathname);
-    }
-
-    function hideWelcome() {
-        welcomeActive = false;
-        slideWelcome.hidden = true;
-        slideContent.style.display = '';
-        navPrev.style.display = '';
-        navNext.style.display = '';
-        captionBar.style.display = '';
-    }
-
     // --- Rendering ---
     function renderSlide() {
         const scenario = getCurrentScenario();
         const slide = getCurrentSlide();
         if (!scenario || !slide) return;
-        if (welcomeActive) hideWelcome();
 
         const total = scenario.slides.length;
 
@@ -378,7 +350,6 @@
     }
 
     function switchScenario(scenarioId, slideId = 0) {
-        if (welcomeActive) hideWelcome();
         currentScenarioId = scenarioId;
         currentSlideIndex = slideId;
 
@@ -830,11 +801,7 @@
 
     function closeCSV() {
         csvOverlay.hidden = true;
-        if (welcomeActive) {
-            history.replaceState(null, '', window.location.pathname);
-        } else {
-            updateHash();
-        }
+        updateHash();
     }
 
     function updateCSVHash() {
@@ -916,24 +883,10 @@
     window.addEventListener('hashchange', parseHash);
 
     // --- Init ---
-    welcomeCsvLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        openCSV();
-    });
-
     document.getElementById('header-home').addEventListener('click', function () {
         switchScenario('highlights', 0);
         if (window.innerWidth > DRAWER_AUTO_OPEN_MIN) {
             openDrawer();
-        }
-    });
-
-    welcomeWalkthroughLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (window.innerWidth <= DRAWER_AUTO_OPEN_MIN) {
-            openDrawer();
-        } else {
-            switchScenario(scenarioOrder[0]);
         }
     });
 
@@ -947,10 +900,6 @@
         else if (href.indexOf('github.com') !== -1) registerEvent('click/github', 'GitHub');
     });
 
-    document.querySelectorAll('.welcome-store-link').forEach(function (el) {
-        el.addEventListener('click', function () { registerEvent('click/store', 'Microsoft Store (welcome)'); });
-    });
-
     document.querySelector('.footer-links').addEventListener('click', function (e) {
         var link = e.target.closest('a');
         if (!link) return;
@@ -958,8 +907,6 @@
         if (href.indexOf('apps.microsoft.com') !== -1) registerEvent('click/store', 'Microsoft Store (footer)');
         else if (href.indexOf('github.com') !== -1) registerEvent('click/github', 'GitHub (footer)');
     });
-
-    welcomeCsvLink.addEventListener('click', function () { registerEvent('click/csv-viewer', 'Browse Example Data (welcome)'); });
 
     // Parse ?s=scenario/slide query param (for SEO/sitemap URLs)
     var searchParam = new URLSearchParams(window.location.search).get('s');

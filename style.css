@@ -791,7 +791,7 @@ body.drawer-open .caption-bar {
     max-width: 800px;
     width: 100%;
     max-height: calc(100vh - 220px);
-    overflow-y: auto;
+    overflow: hidden;
     padding: 32px 40px;
     background: var(--bg-secondary);
     border-radius: 8px;
@@ -812,17 +812,20 @@ body.drawer-open .caption-bar {
 .slide-markdown code { font-family: var(--font-mono); font-size: 0.85em; background: var(--bg-tertiary); padding: 2px 6px; border-radius: 3px; }
 .slide-markdown strong { color: var(--accent); font-weight: 600; }
 .slide-markdown em { color: var(--text-secondary); }
-.slide-markdown .md-chevron {
-    position: sticky;
-    bottom: 0;
-    display: block;
+.md-chevron {
     text-align: center;
-    padding: 6px 0;
-    background: linear-gradient(transparent, var(--bg-secondary) 40%);
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.md-chevron.visible {
+    display: flex;
+    justify-content: center;
 }
 
 .slide-markdown.expanded {
-    max-height: none;
+    max-height: none !important;
+    overflow-y: auto;
 }
 
 .welcome-slide-beta { font-size: 0.82em; color: var(--text-muted); }

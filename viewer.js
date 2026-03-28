@@ -128,10 +128,33 @@
         }
     });
 
+    // Markdown slide chevron — recheck after each render
+    const mdChevron = createChevron();
+    mdChevron.className = 'overflow-chevron md-chevron';
+    slideContent.appendChild(mdChevron);
+
+    mdChevron.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var mdDiv = slideContent.querySelector('.slide-markdown');
+        if (mdDiv) {
+            toggleExpand(mdDiv, mdChevron);
+            // Hide/show caption bar to make room
+            captionBar.style.display = mdDiv.classList.contains('expanded') ? 'none' : '';
+            sizeSlideImage();
+        }
+    });
+
     function updateOverflowIndicators() {
         checkOverflow(captionLeft, captionChevron);
         checkOverflow(footerDisclaimer, footerChevron);
         checkOverflow(drawerSecondary, drawerSecondaryChevron);
+        // Check markdown slide overflow
+        var mdDiv = slideContent.querySelector('.slide-markdown');
+        if (mdDiv) {
+            checkOverflow(mdDiv, mdChevron);
+        } else {
+            mdChevron.classList.remove('visible');
+        }
     }
 
     // --- Drawer ---
@@ -272,22 +295,7 @@
             const mdDiv = document.createElement('div');
             mdDiv.className = 'slide-markdown';
             mdDiv.innerHTML = slide.markdown;
-            const mdChevron = createChevron();
-            mdChevron.className = 'overflow-chevron md-chevron';
-            mdDiv.appendChild(mdChevron);
             slideContent.appendChild(mdDiv);
-            requestAnimationFrame(function () {
-                sizeSlideImage();
-                if (mdDiv.scrollHeight > mdDiv.clientHeight + 2) {
-                    mdChevron.classList.add('visible');
-                }
-            });
-            mdChevron.addEventListener('click', function (e) {
-                e.stopPropagation();
-                var expanding = !mdDiv.classList.contains('expanded');
-                mdDiv.classList.toggle('expanded');
-                mdChevron.classList.toggle('flipped', expanding);
-            });
         } else {
             slideImage.style.display = '';
             slideImage.classList.remove('loaded');

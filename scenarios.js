@@ -87,12 +87,6 @@ const SCENARIOS = {
                 group: 'TECHNIQUE'
             },
             {
-                image: 'images/highlights/racing_line.png',
-                title: 'Racing Line \u2014 T12+T13+T14 Complex',
-                description: 'Racing line consistency through a flowing multi-corner complex. Colors distinguish individual laps.',
-                group: 'RACING LINES'
-            },
-            {
                 image: 'images/highlights/lap_times_per_stint.png',
                 title: 'Lap Times Per Stint',
                 description: 'See pace evolution within each tyre stint. Spot degradation and outlier laps.',

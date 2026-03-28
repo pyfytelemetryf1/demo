@@ -106,23 +106,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/racing_line.png</image:loc>
-      <image:title>Racing Line \u2014 T12+T13+T14 Complex</image:title>
-      <image:caption>Racing line consistency through a flowing multi-corner complex. Colors distinguish individual laps.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/11</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/lap_times_per_stint.png</image:loc>
       <image:title>Lap Times Per Stint</image:title>
       <image:caption>See pace evolution within each tyre stint. Spot degradation and outlier laps.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/12</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/11</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -132,7 +122,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/13</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/12</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -142,7 +132,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/14</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/13</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -152,7 +142,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/15</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/14</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>

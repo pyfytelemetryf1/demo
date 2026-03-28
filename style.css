@@ -830,8 +830,10 @@ body.drawer-open .caption-bar {
 
 .welcome-slide-beta { font-size: 0.82em; color: var(--text-muted); }
 .welcome-slide-cta { margin-top: 24px; }
-.slide-markdown .slide-link { color: var(--accent); text-decoration: none; }
-.slide-markdown .slide-link:hover { text-decoration: underline; }
+.slide-markdown .slide-link { color: var(--text-secondary); text-decoration: none; }
+.slide-markdown .slide-link:hover { color: var(--accent); text-decoration: underline; }
+.welcome-slide-cta .slide-link { color: var(--accent); }
+.welcome-slide-cta .slide-link:hover { color: var(--accent-hover); }
 .welcome-slide-cta a { color: var(--accent); text-decoration: none; }
 .welcome-slide-cta a:hover { text-decoration: underline; }
 .welcome-slide-fine-print { font-size: 0.78em; color: var(--text-muted); margin-top: 16px; }

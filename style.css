@@ -756,6 +756,10 @@ body.drawer-open .caption-bar {
     text-decoration: underline;
 }
 
+.footer-ext-prefix {
+    color: var(--text-secondary);
+}
+
 .footer-link-sep {
     color: var(--text-muted);
     margin: 0 6px;

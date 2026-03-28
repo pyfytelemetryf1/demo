@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script>
+        // GitHub Pages SPA redirect: convert /demo/highlights/3 -> /demo/#highlights/3
+        var path = location.pathname;
+        var prefix = '/demo/';
+        if (path.indexOf(prefix) === 0) {
+            var route = path.slice(prefix.length).replace(/\/$/, '');
+            if (route) {
+                location.replace(prefix + '#' + route);
+            } else {
+                location.replace(prefix);
+            }
+        } else {
+            location.replace(prefix);
+        }
+    </script>
+</head>
+<body></body>
+</html>

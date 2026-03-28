@@ -350,7 +350,7 @@ const SCENARIOS = {
             {
                 image: 'images/capture/01_live_capture.png',
                 title: 'Live Capture',
-                description: 'Start your F1 25 race. The app automatically detects the session and records telemetry in real time \u2014 track, session type, and lap count update live.',
+                description: 'Start the app. Then, start your F1 25 race. The app automatically detects the session and records telemetry in real time \u2014 track, session type, and lap count update live.',
                 group: 'STEP 1'
             },
             {

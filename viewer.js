@@ -508,6 +508,11 @@
             openCSV();
             return;
         }
+        var storeLink = e.target.closest('.welcome-store-link');
+        if (storeLink) {
+            registerEvent('click/store', 'Microsoft Store (welcome)');
+            return;
+        }
         var slideLink = e.target.closest('.slide-link');
         if (slideLink && slideLink.hash) {
             registerEvent('click/slide-link' + slideLink.hash, 'Slide link: ' + slideLink.textContent);

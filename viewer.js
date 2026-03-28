@@ -949,7 +949,18 @@
 
     welcomeCsvLink.addEventListener('click', function () { registerEvent('click/csv-viewer', 'Browse Example Data (welcome)'); });
 
-    if (window.location.hash) {
+    // Parse ?s=scenario/slide query param (for SEO/sitemap URLs)
+    var searchParam = new URLSearchParams(window.location.search).get('s');
+    if (searchParam) {
+        var parts = searchParam.split('/');
+        var scenario = getScenario(parts[0]);
+        if (scenario) {
+            var slideIdx = parts[1] ? parseInt(parts[1]) - 1 : 0;
+            switchScenario(parts[0], Math.max(0, Math.min(slideIdx, scenario.slides.length - 1)));
+        } else {
+            switchScenario('highlights');
+        }
+    } else if (window.location.hash) {
         parseHash();
     } else {
         switchScenario('highlights');

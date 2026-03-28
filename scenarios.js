@@ -38,12 +38,6 @@ const SCENARIOS = {
                 group: 'TURN ANALYSIS'
             },
             {
-                image: 'images/highlights/standing_start.png',
-                title: 'Standing Start Analysis',
-                description: 'Reaction time, traction, throttle application, and wheel spin \u2014 compared across race starts.',
-                group: 'RACE START'
-            },
-            {
                 image: 'images/highlights/braking_consistency.png',
                 title: 'Braking Consistency',
                 description: 'Compare braking points across turns between sessions. Find where you\'re inconsistent.',
@@ -62,6 +56,18 @@ const SCENARIOS = {
                 group: 'COMPARISON'
             },
             {
+                image: 'images/highlights/racing_line_chicane.png',
+                title: 'Racing Line \u2014 T6+T7 Chicane',
+                description: 'Every lap\'s racing line through the T6-T7 chicane overlaid \u2014 one outlier lap is immediately visible.',
+                group: 'RACING LINES'
+            },
+            {
+                image: 'images/highlights/standing_start.png',
+                title: 'Standing Start Analysis at Lights Out',
+                description: 'Reaction time, traction, throttle application, and wheel spin \u2014 compared across race starts.',
+                group: 'RACE START'
+            },
+            {
                 image: 'images/highlights/scorecard.png',
                 title: 'Session Scorecard',
                 description: 'At-a-glance session summary: difficulty, assists, technique metrics, and consistency scores.',
@@ -75,22 +81,16 @@ const SCENARIOS = {
                 disclaimer: LLM_DISCLAIMER
             },
             {
-                image: 'images/highlights/racing_line_chicane.png',
-                title: 'Racing Line \u2014 T6+T7 Chicane',
-                description: 'Every lap\'s racing line through the T6-T7 chicane overlaid \u2014 one outlier lap is immediately visible.',
-                group: 'RACING LINES'
+                image: 'images/highlights/brake_traces_gear.png',
+                title: 'Brake Traces & Gear Overlay',
+                description: 'Per-turn brake application with gear selection \u2014 see your braking consistency lap by lap.',
+                group: 'TECHNIQUE'
             },
             {
                 image: 'images/highlights/racing_line.png',
                 title: 'Racing Line \u2014 T12+T13+T14 Complex',
                 description: 'Racing line consistency through a flowing multi-corner complex. Colors distinguish individual laps.',
                 group: 'RACING LINES'
-            },
-            {
-                image: 'images/highlights/brake_traces_gear.png',
-                title: 'Brake Traces & Gear Overlay',
-                description: 'Per-turn brake application with gear selection \u2014 see your braking consistency lap by lap.',
-                group: 'TECHNIQUE'
             },
             {
                 image: 'images/highlights/lap_times_per_stint.png',

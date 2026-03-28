@@ -128,33 +128,43 @@
         }
     });
 
-    // Markdown slide chevron — recheck after each render
+    // Markdown slide chevron — placed after slideContent, recheck after each render
     const mdChevron = createChevron();
     mdChevron.className = 'overflow-chevron md-chevron';
-    slideContent.appendChild(mdChevron);
+    slideContent.parentNode.insertBefore(mdChevron, slideContent.nextSibling);
 
     mdChevron.addEventListener('click', function (e) {
         e.stopPropagation();
         var mdDiv = slideContent.querySelector('.slide-markdown');
-        if (mdDiv) {
-            toggleExpand(mdDiv, mdChevron);
-            // Hide/show caption bar to make room
-            captionBar.style.display = mdDiv.classList.contains('expanded') ? 'none' : '';
+        if (!mdDiv) return;
+        var expanding = !mdDiv.classList.contains('expanded');
+        mdDiv.classList.toggle('expanded');
+        mdChevron.classList.toggle('flipped', expanding);
+        if (expanding) {
+            // Remove inline maxHeight so CSS !important can take effect
+            mdDiv.style.maxHeight = '';
+            captionBar.style.display = 'none';
+        } else {
+            captionBar.style.display = '';
             sizeSlideImage();
         }
     });
+
+    function checkMdOverflow() {
+        var mdDiv = slideContent.querySelector('.slide-markdown');
+        if (mdDiv && !mdDiv.classList.contains('expanded')) {
+            checkOverflow(mdDiv, mdChevron);
+        } else if (!mdDiv) {
+            mdChevron.classList.remove('visible');
+            mdChevron.classList.remove('flipped');
+        }
+    }
 
     function updateOverflowIndicators() {
         checkOverflow(captionLeft, captionChevron);
         checkOverflow(footerDisclaimer, footerChevron);
         checkOverflow(drawerSecondary, drawerSecondaryChevron);
-        // Check markdown slide overflow
-        var mdDiv = slideContent.querySelector('.slide-markdown');
-        if (mdDiv) {
-            checkOverflow(mdDiv, mdChevron);
-        } else {
-            mdChevron.classList.remove('visible');
-        }
+        checkMdOverflow();
     }
 
     // --- Drawer ---
@@ -279,9 +289,11 @@
 
         const total = scenario.slides.length;
 
-        // Clear existing placeholder/markdown
+        // Clear existing placeholder/markdown and reset expanded state
         const existing = slideContent.querySelectorAll('.slide-placeholder, .slide-markdown');
         existing.forEach(el => el.remove());
+        mdChevron.classList.remove('visible', 'flipped');
+        captionBar.style.display = '';
 
         if (slide.placeholder) {
             slideImage.style.display = 'none';

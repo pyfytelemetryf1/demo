@@ -814,7 +814,7 @@ body.drawer-open .caption-bar {
 .slide-markdown em { color: var(--text-secondary); }
 .md-chevron {
     text-align: center;
-    padding: 4px 0;
+    padding: 2px 0;
     cursor: pointer;
 }
 
@@ -825,7 +825,7 @@ body.drawer-open .caption-bar {
 
 .slide-markdown.expanded {
     max-height: none !important;
-    overflow-y: auto;
+    overflow-y: auto !important;
 }
 
 .welcome-slide-beta { font-size: 0.82em; color: var(--text-muted); }

@@ -8,8 +8,9 @@
     <link rel="icon" type="image/png" href="./favicon.png">
     <meta name="description" content="Interactive demo walkthrough of PyFy Telemetry — F1 Performance Analysis. Explore charts, telemetry data, and analysis features before installing.">
     <meta property="og:title" content="PyFy Telemetry — F1 Performance Analysis Demo">
-    <meta property="og:description" content="Explore real telemetry charts, scorecards, and analysis features. See what the tool can do for your sim racing.">
+    <meta property="og:description" content="Find more lap time, corner by corner, with top 3 insights you can actually use right away.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pyfytelemetryf1.github.io/demo/images/highlights/turn_time_delta.png">
 </head>
 <body>
     <header class="site-header">
@@ -46,13 +47,13 @@
                 </button>
             </li>
             <li>
-                <button class="drawer-item" data-scenario="capture">
+                <button class="drawer-item" data-scenario="llm">
                     <span class="drawer-item-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                     </span>
                     <span class="drawer-item-text">
-                        <span class="drawer-item-label">Capture Your First Session</span>
-                        <span class="drawer-item-desc">How to record, review &amp; analyze</span>
+                        <span class="drawer-item-label">External LLM Insights</span>
+                        <span class="drawer-item-desc">AI-engineered coaching reports</span>
                     </span>
                 </button>
             </li>
@@ -68,17 +69,6 @@
                 </button>
             </li>
             <li>
-                <button class="drawer-item" data-scenario="llm">
-                    <span class="drawer-item-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                    </span>
-                    <span class="drawer-item-text">
-                        <span class="drawer-item-label">External LLM Insights</span>
-                        <span class="drawer-item-desc">AI-engineered coaching reports</span>
-                    </span>
-                </button>
-            </li>
-            <li>
                 <button class="drawer-item" data-scenario="install">
                     <span class="drawer-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -86,6 +76,17 @@
                     <span class="drawer-item-text">
                         <span class="drawer-item-label">Quick Setup</span>
                         <span class="drawer-item-desc">How to install &amp; run on PC or Console</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button class="drawer-item" data-scenario="capture">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Capture Your First Session</span>
+                        <span class="drawer-item-desc">How to record, review &amp; analyze</span>
                     </span>
                 </button>
             </li>
@@ -211,6 +212,11 @@
     </main>
 
     <footer class="site-footer">
+        <p class="footer-links">
+            <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="footer-ext-link">Microsoft Store</a>
+            <span class="footer-link-sep">&middot;</span>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener" class="footer-ext-link">GitHub</a>
+        </p>
         <p class="footer-copyright">&copy; 2026 @pyfytelemetryf1. All rights reserved.</p>
         <p class="footer-disclaimer">
             * - This project is not affiliated with, endorsed by, or sponsored by Electronic Arts, Codemasters,

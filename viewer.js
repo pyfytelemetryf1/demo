@@ -476,6 +476,28 @@
         }
     }, { passive: true });
 
+    // Handle interactive links inside markdown slides
+    slideContent.addEventListener('click', function (e) {
+        var drawerLink = e.target.closest('.slide-open-drawer');
+        if (drawerLink) {
+            e.preventDefault();
+            registerEvent('click/open-drawer', 'Open drawer (slide)');
+            openDrawer();
+            return;
+        }
+        var csvLink = e.target.closest('.slide-open-csv');
+        if (csvLink) {
+            e.preventDefault();
+            registerEvent('click/csv-viewer', 'Browse Example Data (slide)');
+            openCSV();
+            return;
+        }
+        var slideLink = e.target.closest('.slide-link');
+        if (slideLink && slideLink.hash) {
+            registerEvent('click/slide-link' + slideLink.hash, 'Slide link: ' + slideLink.textContent);
+        }
+    });
+
     // Prevent image dragging
     slideImage.addEventListener('dragstart', (e) => e.preventDefault());
 
@@ -851,9 +873,8 @@
     });
 
     document.getElementById('header-home').addEventListener('click', function () {
-        showWelcome();
-        if (window.innerWidth > DRAWER_AUTO_OPEN_MIN)
-        {
+        switchScenario('highlights', 0);
+        if (window.innerWidth > DRAWER_AUTO_OPEN_MIN) {
             openDrawer();
         }
     });
@@ -881,12 +902,23 @@
         el.addEventListener('click', function () { registerEvent('click/store', 'Microsoft Store (welcome)'); });
     });
 
+    document.querySelector('.footer-links').addEventListener('click', function (e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+        var href = link.href || '';
+        if (href.indexOf('apps.microsoft.com') !== -1) registerEvent('click/store', 'Microsoft Store (footer)');
+        else if (href.indexOf('github.com') !== -1) registerEvent('click/github', 'GitHub (footer)');
+    });
+
     welcomeCsvLink.addEventListener('click', function () { registerEvent('click/csv-viewer', 'Browse Example Data (welcome)'); });
 
     if (window.location.hash) {
         parseHash();
     } else {
-        showWelcome();
+        switchScenario('highlights');
+        if (window.innerWidth > DRAWER_AUTO_OPEN_MIN) {
+            openDrawer();
+        }
     }
 
     updateOverflowIndicators();

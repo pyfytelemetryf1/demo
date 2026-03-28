@@ -23,7 +23,7 @@ const SCENARIOS = {
             {
                 image: 'images/highlights/turn_time_delta.png',
                 title: 'Time Left on Table',
-                description: 'Per-turn time variance: the gap between your best and median lap through each corner, sorted by potential gain.',
+                description: 'PyFy Telemetry captures real-time F1 sim racing telemetry and turns it into corner-by-corner insights. This chart shows per-turn time variance: the gap between your best and median lap through each corner, sorted by potential gain.',
                 group: 'TURN ANALYSIS'
             },
             {
@@ -104,6 +104,16 @@ const SCENARIOS = {
                 title: 'Track Map',
                 description: 'Full track layout colored by speed, with apex speeds annotated at each turn.',
                 group: 'TRACK MAP'
+            },
+            {
+                markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*.</p>' +
+                    '<p class="welcome-slide-beta">In Beta on Windows: supports 5 tracks (Abu Dhabi, Melbourne, Shanghai, Suzuka, Bahrain), more added regularly! Keyboard-friendly CLI with a built-in menu.</p>' +
+                    '<p>This tour walks you through the key features: <a href="#full-reel/1" class="slide-link">analysis charts</a>, <a href="#full-reel/9" class="slide-link">session comparisons</a>, <a href="#llm/1" class="slide-link">third-party coaching insights</a>, <a href="#" class="slide-link slide-open-csv">key telemetry data</a>, and a <a href="#install/1" class="slide-link">quick setup demo</a>.</p>' +
+                    '<p class="welcome-slide-cta">\u2026or select another <a href="#" class="slide-open-drawer">walkthrough</a> from the menu.</p>' +
+                    '<p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
+                title: 'PyFy Telemetry \u2014 F1 Performance Analysis (Beta)',
+                description: 'Capture real-time sim racing telemetry and turn it into practical, corner-by-corner insights you can actually use to gain lap time.',
+                group: 'WELCOME'
             }
         ]
     },

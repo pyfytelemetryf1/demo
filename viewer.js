@@ -128,43 +128,26 @@
         }
     });
 
-    // Markdown slide chevron — placed after slideContent, recheck after each render
-    const mdChevron = createChevron();
-    mdChevron.className = 'overflow-chevron md-chevron';
-    slideContent.parentNode.insertBefore(mdChevron, slideContent.nextSibling);
-
-    mdChevron.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var mdDiv = slideContent.querySelector('.slide-markdown');
-        if (!mdDiv) return;
-        var expanding = !mdDiv.classList.contains('expanded');
-        mdDiv.classList.toggle('expanded');
-        mdChevron.classList.toggle('flipped', expanding);
-        if (expanding) {
-            // Remove inline maxHeight so CSS !important can take effect
-            mdDiv.style.maxHeight = '';
-            captionBar.style.display = 'none';
-        } else {
-            captionBar.style.display = '';
-            sizeSlideImage();
-        }
-    });
-
-    function checkMdOverflow() {
-        var mdDiv = slideContent.querySelector('.slide-markdown');
-        if (mdDiv && !mdDiv.classList.contains('expanded')) {
-            checkOverflow(mdDiv, mdChevron);
-        } else if (!mdDiv) {
-            mdChevron.classList.remove('visible');
-            mdChevron.classList.remove('flipped');
-        }
-    }
-
     function updateOverflowIndicators() {
         checkOverflow(captionLeft, captionChevron);
         checkOverflow(footerDisclaimer, footerChevron);
         checkOverflow(drawerSecondary, drawerSecondaryChevron);
-        checkMdOverflow();
+        // Markdown slide chevron
+        var mdDiv = slideContent.querySelector('.slide-markdown');
+        var mdChev = slideContent.querySelector('.md-chevron');
+        console.log('[chevron] mdDiv:', !!mdDiv, 'mdChev:', !!mdChev);
+        if (mdDiv && mdChev) {
+            console.log('[chevron] expanded:', mdDiv.classList.contains('expanded'));
+            console.log('[chevron] scrollH:', mdDiv.scrollHeight, 'clientH:', mdDiv.clientHeight, 'overflow:', mdDiv.scrollHeight > mdDiv.clientHeight + 2);
+            console.log('[chevron] maxHeight:', mdDiv.style.maxHeight, 'computedMaxH:', getComputedStyle(mdDiv).maxHeight);
+            console.log('[chevron] mdChev classes before:', mdChev.className);
+            if (mdDiv.classList.contains('expanded')) {
+                mdChev.classList.add('visible');
+            } else {
+                checkOverflow(mdDiv, mdChev);
+            }
+            console.log('[chevron] mdChev classes after:', mdChev.className);
+        }
     }
 
     // --- Drawer ---
@@ -203,7 +186,7 @@
         const footerH = document.querySelector('.site-footer').getBoundingClientRect().height;
         const available = window.innerHeight - headerH - captionH - footerH - 40;
         slideImage.style.maxHeight = available + 'px';
-        // Also size placeholders
+        // Also size placeholders and markdown
         document.querySelectorAll('.slide-placeholder, .slide-markdown').forEach(el => {
             el.style.maxHeight = available + 'px';
         });
@@ -289,10 +272,10 @@
 
         const total = scenario.slides.length;
 
-        // Clear existing placeholder/markdown and reset expanded state
-        const existing = slideContent.querySelectorAll('.slide-placeholder, .slide-markdown');
+        // Clear existing placeholder/markdown/chevron and restore caption
+        const existing = slideContent.querySelectorAll('.slide-placeholder, .slide-markdown, .md-chevron');
         existing.forEach(el => el.remove());
-        mdChevron.classList.remove('visible', 'flipped');
+        slideContent.classList.remove('slide-content-column');
         captionBar.style.display = '';
 
         if (slide.placeholder) {
@@ -307,7 +290,24 @@
             const mdDiv = document.createElement('div');
             mdDiv.className = 'slide-markdown';
             mdDiv.innerHTML = slide.markdown;
+            slideContent.classList.add('slide-content-column');
             slideContent.appendChild(mdDiv);
+            // Chevron — sibling after markdown div
+            const mdChev = createChevron();
+            mdChev.className = 'overflow-chevron md-chevron';
+            slideContent.appendChild(mdChev);
+            mdChev.addEventListener('click', function () {
+                if (mdChev.classList.contains('visible')) {
+                    toggleExpand(mdDiv, mdChev);
+                    if (mdDiv.classList.contains('expanded')) {
+                        mdDiv.style.maxHeight = '';
+                        captionBar.style.display = 'none';
+                    } else {
+                        captionBar.style.display = '';
+                        sizeSlideImage();
+                    }
+                }
+            });
         } else {
             slideImage.style.display = '';
             slideImage.classList.remove('loaded');
@@ -364,6 +364,8 @@
         updateHash();
         requestAnimationFrame(function () {
             sizeSlideImage();
+            // Force reflow before checking overflow so maxHeight is applied
+            void document.body.offsetHeight;
             updateOverflowIndicators();
         });
     }

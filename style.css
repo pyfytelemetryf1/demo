@@ -503,6 +503,10 @@ body.drawer-open .nav-prev {
     justify-content: center;
 }
 
+.slide-content-column {
+    flex-direction: column;
+}
+
 .slide-image {
     max-width: 100%;
     max-height: calc(100vh - 250px);
@@ -812,15 +816,11 @@ body.drawer-open .caption-bar {
 .slide-markdown code { font-family: var(--font-mono); font-size: 0.85em; background: var(--bg-tertiary); padding: 2px 6px; border-radius: 3px; }
 .slide-markdown strong { color: var(--accent); font-weight: 600; }
 .slide-markdown em { color: var(--text-secondary); }
-.md-chevron {
-    text-align: center;
-    padding: 2px 0;
-    cursor: pointer;
-}
-
 .md-chevron.visible {
-    display: flex;
-    justify-content: center;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 4px 0;
 }
 
 .slide-markdown.expanded {

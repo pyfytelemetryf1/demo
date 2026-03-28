@@ -272,7 +272,22 @@
             const mdDiv = document.createElement('div');
             mdDiv.className = 'slide-markdown';
             mdDiv.innerHTML = slide.markdown;
+            const mdChevron = createChevron();
+            mdChevron.className = 'overflow-chevron md-chevron';
+            mdDiv.appendChild(mdChevron);
             slideContent.appendChild(mdDiv);
+            requestAnimationFrame(function () {
+                sizeSlideImage();
+                if (mdDiv.scrollHeight > mdDiv.clientHeight + 2) {
+                    mdChevron.classList.add('visible');
+                }
+            });
+            mdChevron.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var expanding = !mdDiv.classList.contains('expanded');
+                mdDiv.classList.toggle('expanded');
+                mdChevron.classList.toggle('flipped', expanding);
+            });
         } else {
             slideImage.style.display = '';
             slideImage.classList.remove('loaded');

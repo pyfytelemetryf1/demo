@@ -18,9 +18,9 @@ const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, 
 
 const WELCOME_SLIDE = {
     markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*.</p>' +
-        '<p class="welcome-slide-beta">Now in Beta on Win 10/11: <a href="#supported-tracks/1" class="slide-link">supports 18 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
+        '<p class="welcome-slide-beta">Now in Beta on Win 10/11: <a href="?s=supported-tracks/1" class="slide-link">supports 18 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
         '<p class="welcome-slide-cta">Select another <a href="#" class="slide-open-drawer">walkthrough</a> from the menu,<br/>or get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>.</p>' +
-        '<p>See key features in action before installing: <a href="#full-reel/1" class="slide-link">analysis charts</a>, <a href="#full-reel/9" class="slide-link">session comparisons</a>, <a href="#llm/1" class="slide-link">third-party coaching insights</a>, <a href="#" class="slide-link slide-open-csv">key telemetry data</a>, or a <a href="#install/1" class="slide-link">quick setup demo</a> (PC or Console).</p>' +
+        '<p>See key features in action before installing: <a href="?s=full-reel/1" class="slide-link">analysis charts</a>, <a href="?s=full-reel/9" class="slide-link">session comparisons</a>, <a href="?s=llm/1" class="slide-link">third-party coaching insights</a>, <a href="#" class="slide-link slide-open-csv">key telemetry data</a>, or a <a href="?s=install/1" class="slide-link">quick setup demo</a> (PC or Console).</p>' +
         '<p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
     title: 'PyFy Telemetry \u2014 F1 Performance Analysis (Beta)',
     description: 'Capture real-time sim racing telemetry and turn it into practical, corner-by-corner insights you can actually use to gain lap time.',
@@ -261,7 +261,7 @@ const SCENARIOS = {
             {
                 image: 'images/llm/melbourne_06_assessment.png',
                 title: 'Driver Assessment & Summary',
-                description: 'Overall driver level evaluation with specific strengths, areas for improvement, and the top insights to carry forward (see <a href="#llm/5" class="drawer-link">Top 3 Priorities</a>).',
+                description: 'Overall driver level evaluation with specific strengths, areas for improvement, and the top insights to carry forward (see <a href="?s=llm/5" class="drawer-link">Top 3 Priorities</a>).',
                 group: 'MELBOURNE',
                 disclaimer: LLM_DISCLAIMER
             }
@@ -273,24 +273,24 @@ const SCENARIOS = {
             {
                 markdown: '<p>PyFy Telemetry F1 currently supports <strong>18 tracks</strong>:</p>' +
                     '<ul class="supported-tracks-list">' +
-                    '<li><a href="#supported-tracks/2" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li>' +
-                    '<li><a href="#supported-tracks/3" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li>' +
-                    '<li><a href="#supported-tracks/4" class="slide-link"><strong>Bahrain</strong></a> - Bahrain International Circuit</li>' +
-                    '<li><a href="#supported-tracks/5" class="slide-link"><strong>Azerbaijan</strong></a> - Baku City Circuit</li>' +
-                    '<li><a href="#supported-tracks/6" class="slide-link"><strong>Spain</strong></a> - Circuit de Barcelona-Catalunya</li>' +
-                    '<li><a href="#supported-tracks/7" class="slide-link"><strong>Hungary</strong></a> - Hungaroring</li>' +
-                    '<li><a href="#supported-tracks/8" class="slide-link"><strong>Qatar</strong></a> - Lusail International Circuit</li>' +
-                    '<li><a href="#supported-tracks/9" class="slide-link"><strong>Melbourne</strong></a> - Albert Park Circuit</li>' +
-                    '<li><a href="#supported-tracks/10" class="slide-link"><strong>Florida</strong></a> - Miami International Autodrome</li>' +
-                    '<li><a href="#supported-tracks/11" class="slide-link"><strong>Monte Carlo</strong></a> - Circuit de Monaco</li>' +
-                    '<li><a href="#supported-tracks/12" class="slide-link"><strong>Montreal</strong></a> - Circuit Gilles Villeneuve</li>' +
-                    '<li><a href="#supported-tracks/13" class="slide-link"><strong>Italy</strong></a> - Autodromo Nazionale di Monza</li>' +
-                    '<li><a href="#supported-tracks/14" class="slide-link"><strong>China</strong></a> - Shanghai International Circuit</li>' +
-                    '<li><a href="#supported-tracks/15" class="slide-link"><strong>Great Britain</strong></a> - Silverstone Circuit</li>' +
-                    '<li><a href="#supported-tracks/16" class="slide-link"><strong>Singapore</strong></a> - Marina Bay Street Circuit</li>' +
-                    '<li><a href="#supported-tracks/17" class="slide-link"><strong>Belgium</strong></a> - Circuit de Spa-Francorchamps</li>' +
-                    '<li><a href="#supported-tracks/18" class="slide-link"><strong>Japan</strong></a> - Suzuka International Racing Course</li>' +
-                    '<li><a href="#supported-tracks/19" class="slide-link"><strong>Netherlands</strong></a> - Circuit Zandvoort</li>' +
+                    '<li><a href="?s=supported-tracks/2" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li>' +
+                    '<li><a href="?s=supported-tracks/3" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li>' +
+                    '<li><a href="?s=supported-tracks/4" class="slide-link"><strong>Bahrain</strong></a> - Bahrain International Circuit</li>' +
+                    '<li><a href="?s=supported-tracks/5" class="slide-link"><strong>Azerbaijan</strong></a> - Baku City Circuit</li>' +
+                    '<li><a href="?s=supported-tracks/6" class="slide-link"><strong>Spain</strong></a> - Circuit de Barcelona-Catalunya</li>' +
+                    '<li><a href="?s=supported-tracks/7" class="slide-link"><strong>Hungary</strong></a> - Hungaroring</li>' +
+                    '<li><a href="?s=supported-tracks/8" class="slide-link"><strong>Qatar</strong></a> - Lusail International Circuit</li>' +
+                    '<li><a href="?s=supported-tracks/9" class="slide-link"><strong>Melbourne</strong></a> - Albert Park Circuit</li>' +
+                    '<li><a href="?s=supported-tracks/10" class="slide-link"><strong>Florida</strong></a> - Miami International Autodrome</li>' +
+                    '<li><a href="?s=supported-tracks/11" class="slide-link"><strong>Monte Carlo</strong></a> - Circuit de Monaco</li>' +
+                    '<li><a href="?s=supported-tracks/12" class="slide-link"><strong>Montreal</strong></a> - Circuit Gilles Villeneuve</li>' +
+                    '<li><a href="?s=supported-tracks/13" class="slide-link"><strong>Italy</strong></a> - Autodromo Nazionale di Monza</li>' +
+                    '<li><a href="?s=supported-tracks/14" class="slide-link"><strong>China</strong></a> - Shanghai International Circuit</li>' +
+                    '<li><a href="?s=supported-tracks/15" class="slide-link"><strong>Great Britain</strong></a> - Silverstone Circuit</li>' +
+                    '<li><a href="?s=supported-tracks/16" class="slide-link"><strong>Singapore</strong></a> - Marina Bay Street Circuit</li>' +
+                    '<li><a href="?s=supported-tracks/17" class="slide-link"><strong>Belgium</strong></a> - Circuit de Spa-Francorchamps</li>' +
+                    '<li><a href="?s=supported-tracks/18" class="slide-link"><strong>Japan</strong></a> - Suzuka International Racing Course</li>' +
+                    '<li><a href="?s=supported-tracks/19" class="slide-link"><strong>Netherlands</strong></a> - Circuit Zandvoort</li>' +
                     '</ul>',
                 title: 'Supported Tracks',
                 description: '',
@@ -364,7 +364,7 @@ const SCENARIOS = {
             {
                 image: 'images/install/09_simpro_manager.png',
                 title: 'SimPro Manager (Optional)',
-                description: 'That\'s it, the one-time setup is complete. You can start capturing your first session: see <a href="#capture/1" class="drawer-link">demo</a>. If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775).',
+                description: 'That\'s it, the one-time setup is complete. You can start capturing your first session: see <a href="?s=capture/1" class="drawer-link">demo</a>. If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775).',
                 group: 'STEP 5'
             },
             {
@@ -411,7 +411,7 @@ const SCENARIOS = {
             {
                 image: 'images/capture/05_generate_charts.png',
                 title: 'Generate Analysis Charts',
-                description: 'Select "Generate analysis charts" from the menu. Pick one or two sessions and the app produces a complete analysis reel in seconds. See <a href="#full-reel/1" class="drawer-link">demo</a>.\nSimilarly, select "Prepare LLM analysis request" to get a bundled zip file that you can directly drag & drop into an external LLM for analysis. See <a href="#llm/1" class="drawer-link">demo</a>.',
+                description: 'Select "Generate analysis charts" from the menu. Pick one or two sessions and the app produces a complete analysis reel in seconds. See <a href="?s=full-reel/1" class="drawer-link">demo</a>.\nSimilarly, select "Prepare LLM analysis request" to get a bundled zip file that you can directly drag & drop into an external LLM for analysis. See <a href="?s=llm/1" class="drawer-link">demo</a>.',
                 group: 'STEP 5'
             }
         ]

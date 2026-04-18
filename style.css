@@ -182,6 +182,7 @@ body {
     gap: 14px;
     transition: all var(--transition-fast);
     text-align: left;
+    text-decoration: none;
     border-left: 3px solid transparent;
 }
 
@@ -460,6 +461,7 @@ body.drawer-open .nav-prev {
     align-items: center;
     justify-content: center;
     transition: all var(--transition-fast);
+    text-decoration: none;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }

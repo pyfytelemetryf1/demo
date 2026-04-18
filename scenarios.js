@@ -273,24 +273,24 @@ const SCENARIOS = {
             {
                 markdown: '<p>PyFy Telemetry F1 currently supports <strong>18 tracks</strong>:</p>' +
                     '<ul class="supported-tracks-list">' +
-                    '<li><strong>Abu Dhabi</strong> \u2014 Yas Marina Circuit</li>' +
-                    '<li><strong>Austria</strong> \u2014 Red Bull Ring</li>' +
-                    '<li><strong>Bahrain</strong> \u2014 Bahrain International Circuit</li>' +
-                    '<li><strong>Baku</strong> \u2014 Baku City Circuit</li>' +
-                    '<li><strong>Catalunya</strong> \u2014 Circuit de Barcelona-Catalunya</li>' +
-                    '<li><strong>Hungaroring</strong> \u2014 Hungaroring</li>' +
-                    '<li><strong>Losail</strong> \u2014 Lusail International Circuit</li>' +
-                    '<li><strong>Melbourne</strong> \u2014 Albert Park Circuit</li>' +
-                    '<li><strong>Miami</strong> \u2014 Miami International Autodrome</li>' +
-                    '<li><strong>Monaco</strong> \u2014 Circuit de Monaco</li>' +
-                    '<li><strong>Montreal</strong> \u2014 Circuit Gilles Villeneuve</li>' +
-                    '<li><strong>Monza</strong> \u2014 Autodromo Nazionale di Monza</li>' +
-                    '<li><strong>Shanghai</strong> \u2014 Shanghai International Circuit</li>' +
-                    '<li><strong>Silverstone</strong> \u2014 Silverstone Circuit</li>' +
-                    '<li><strong>Singapore</strong> \u2014 Marina Bay Street Circuit</li>' +
-                    '<li><strong>Spa</strong> \u2014 Circuit de Spa-Francorchamps</li>' +
-                    '<li><strong>Suzuka</strong> \u2014 Suzuka International Racing Course</li>' +
-                    '<li><strong>Zandvoort</strong> \u2014 Circuit Zandvoort</li>' +
+                    '<li><strong>Abu Dhabi</strong> - Yas Marina Circuit</li>' +
+                    '<li><strong>Austria</strong> - Red Bull Ring</li>' +
+                    '<li><strong>Bahrain</strong> - Bahrain International Circuit</li>' +
+                    '<li><strong>Baku</strong> - Baku City Circuit</li>' +
+                    '<li><strong>Catalunya</strong> - Circuit de Barcelona-Catalunya</li>' +
+                    '<li><strong>Hungaroring</strong> - Hungaroring</li>' +
+                    '<li><strong>Losail</strong> - Lusail International Circuit</li>' +
+                    '<li><strong>Melbourne</strong> - Albert Park Circuit</li>' +
+                    '<li><strong>Miami</strong> - Miami International Autodrome</li>' +
+                    '<li><strong>Monaco</strong> - Circuit de Monaco</li>' +
+                    '<li><strong>Montreal</strong> - Circuit Gilles Villeneuve</li>' +
+                    '<li><strong>Monza</strong> - Autodromo Nazionale di Monza</li>' +
+                    '<li><strong>Shanghai</strong> - Shanghai International Circuit</li>' +
+                    '<li><strong>Silverstone</strong> - Silverstone Circuit</li>' +
+                    '<li><strong>Singapore</strong> - Marina Bay Street Circuit</li>' +
+                    '<li><strong>Spa</strong> - Circuit de Spa-Francorchamps</li>' +
+                    '<li><strong>Suzuka</strong> - Suzuka International Racing Course</li>' +
+                    '<li><strong>Zandvoort</strong> - Circuit Zandvoort</li>' +
                     '</ul>',
                 title: 'Supported Tracks',
                 description: '',

@@ -273,24 +273,24 @@ const SCENARIOS = {
             {
                 markdown: '<p>PyFy Telemetry F1 currently supports <strong>18 tracks</strong>:</p>' +
                     '<ul class="supported-tracks-list">' +
-                    '<li><strong>Abu Dhabi</strong> - Yas Marina Circuit</li>' +
-                    '<li><strong>Austria</strong> - Red Bull Ring</li>' +
-                    '<li><strong>Bahrain</strong> - Bahrain International Circuit</li>' +
-                    '<li><strong>Azerbaijan</strong> - Baku City Circuit</li>' +
-                    '<li><strong>Spain</strong> - Circuit de Barcelona-Catalunya</li>' +
-                    '<li><strong>Hungary</strong> - Hungaroring</li>' +
-                    '<li><strong>Qatar</strong> - Lusail International Circuit</li>' +
-                    '<li><strong>Melbourne</strong> - Albert Park Circuit</li>' +
-                    '<li><strong>Florida</strong> - Miami International Autodrome</li>' +
-                    '<li><strong>Monte Carlo</strong> - Circuit de Monaco</li>' +
-                    '<li><strong>Montreal</strong> - Circuit Gilles Villeneuve</li>' +
-                    '<li><strong>Italy</strong> - Autodromo Nazionale di Monza</li>' +
-                    '<li><strong>China</strong> - Shanghai International Circuit</li>' +
-                    '<li><strong>Great Britain</strong> - Silverstone Circuit</li>' +
-                    '<li><strong>Singapore</strong> - Marina Bay Street Circuit</li>' +
-                    '<li><strong>Belgium</strong> - Circuit de Spa-Francorchamps</li>' +
-                    '<li><strong>Japan</strong> - Suzuka International Racing Course</li>' +
-                    '<li><strong>Netherlands</strong> - Circuit Zandvoort</li>' +
+                    '<li><a href="#supported-tracks/2" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li>' +
+                    '<li><a href="#supported-tracks/3" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li>' +
+                    '<li><a href="#supported-tracks/4" class="slide-link"><strong>Bahrain</strong></a> - Bahrain International Circuit</li>' +
+                    '<li><a href="#supported-tracks/5" class="slide-link"><strong>Azerbaijan</strong></a> - Baku City Circuit</li>' +
+                    '<li><a href="#supported-tracks/6" class="slide-link"><strong>Spain</strong></a> - Circuit de Barcelona-Catalunya</li>' +
+                    '<li><a href="#supported-tracks/7" class="slide-link"><strong>Hungary</strong></a> - Hungaroring</li>' +
+                    '<li><a href="#supported-tracks/8" class="slide-link"><strong>Qatar</strong></a> - Lusail International Circuit</li>' +
+                    '<li><a href="#supported-tracks/9" class="slide-link"><strong>Melbourne</strong></a> - Albert Park Circuit</li>' +
+                    '<li><a href="#supported-tracks/10" class="slide-link"><strong>Florida</strong></a> - Miami International Autodrome</li>' +
+                    '<li><a href="#supported-tracks/11" class="slide-link"><strong>Monte Carlo</strong></a> - Circuit de Monaco</li>' +
+                    '<li><a href="#supported-tracks/12" class="slide-link"><strong>Montreal</strong></a> - Circuit Gilles Villeneuve</li>' +
+                    '<li><a href="#supported-tracks/13" class="slide-link"><strong>Italy</strong></a> - Autodromo Nazionale di Monza</li>' +
+                    '<li><a href="#supported-tracks/14" class="slide-link"><strong>China</strong></a> - Shanghai International Circuit</li>' +
+                    '<li><a href="#supported-tracks/15" class="slide-link"><strong>Great Britain</strong></a> - Silverstone Circuit</li>' +
+                    '<li><a href="#supported-tracks/16" class="slide-link"><strong>Singapore</strong></a> - Marina Bay Street Circuit</li>' +
+                    '<li><a href="#supported-tracks/17" class="slide-link"><strong>Belgium</strong></a> - Circuit de Spa-Francorchamps</li>' +
+                    '<li><a href="#supported-tracks/18" class="slide-link"><strong>Japan</strong></a> - Suzuka International Racing Course</li>' +
+                    '<li><a href="#supported-tracks/19" class="slide-link"><strong>Netherlands</strong></a> - Circuit Zandvoort</li>' +
                     '</ul>',
                 title: 'Supported Tracks',
                 description: '',

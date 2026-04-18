@@ -524,10 +524,11 @@
     });
 
     // Delegated handler for any in-page <a href="?s=..."> link (welcome slide, caption copy, etc.).
-    // Drawer items have their own handler with specific event names and are skipped here.
+    // Drawer items and nav arrows have their own handlers — skip them here to avoid double-firing.
     document.addEventListener('click', function (e) {
         var link = e.target.closest('a');
-        if (!link || link.classList.contains('drawer-item')) return;
+        if (!link) return;
+        if (link.classList.contains('drawer-item') || link.classList.contains('nav-arrow')) return;
         var href = link.getAttribute('href') || '';
         if (href.indexOf('?s=') !== 0) return;
         var stateParam = href.slice(3);
@@ -1006,10 +1007,14 @@
         else if (href.indexOf('github.com') !== -1) registerEvent('click/github', 'GitHub (footer)');
     });
 
-    // Initialize from URL. Always render highlights first as background state so closing the
-    // CSV overlay has somewhere to return to when the URL was ?s=data/...
-    switchScenario('highlights');
+    // Initialize from URL first, so the original ?s=... (or legacy #...) isn't overwritten by a
+    // premature updateURL(). Then, if no scenario ended up loaded (e.g. URL opened only an
+    // overlay like ?s=guide / ?s=data/..., or had no state at all), fall back to highlights
+    // as the background scenario.
     const urlHandled = parseURL();
+    if (!currentScenarioId) {
+        switchScenario('highlights');
+    }
     if (!urlHandled && window.innerWidth > DRAWER_AUTO_OPEN_MIN) {
         openDrawer();
     }

@@ -308,13 +308,6 @@
         captionDescription.innerHTML = (slide.description || '').replace(/\n/g, '<br>');
         captionDisclaimer.textContent = slide.disclaimer || '';
 
-        // Dynamic page title and meta description for SEO
-        document.title = (slide.title || 'Demo') + ' \u2014 PyFy Telemetry';
-        var metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc && slide.description) {
-            metaDesc.setAttribute('content', slide.description.replace(/<[^>]*>/g, '').slice(0, 200));
-        }
-
         // Counter
         slideCounter.textContent = (currentSlideIndex + 1) + ' / ' + total;
 
@@ -322,7 +315,12 @@
         const pct = total > 1 ? (currentSlideIndex / (total - 1)) * 100 : 100;
         progressFill.style.width = pct + '%';
 
-        // Arrows — always enabled (wrap around)
+        // Arrows — always enabled (wrap around). Set real hrefs so Googlebot sees an internal
+        // link from every slide to its neighbours (enables deep indexing of all slides in a reel).
+        const prevIdx = (currentSlideIndex - 1 + total) % total;
+        const nextIdx = (currentSlideIndex + 1) % total;
+        navPrev.setAttribute('href', '?s=' + currentScenarioId + '/' + (prevIdx + 1));
+        navNext.setAttribute('href', '?s=' + currentScenarioId + '/' + (nextIdx + 1));
         navPrev.classList.remove('disabled');
         navNext.classList.remove('disabled');
 
@@ -333,8 +331,9 @@
         captionLeft.classList.remove('expanded');
         captionChevron.classList.remove('flipped');
 
-        // Update hash and sizing — defer to next frame so caption bar has reflowed
-        updateHash();
+        // Update URL, canonical, meta tags, and sizing — defer sizing to next frame so caption bar has reflowed
+        updateURL();
+        updateMetaTags();
         requestAnimationFrame(function () {
             sizeSlideImage();
             // Force reflow before checking overflow so maxHeight is applied
@@ -382,18 +381,33 @@
 
     // --- Event Handlers ---
 
+    // Let ctrl/cmd/shift/middle-click fall through so users can open links in new tabs.
+    function isPlainLeftClick(e) {
+        return !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0;
+    }
+
     // Drawer item clicks
     drawerItems.forEach(item => {
-        item.addEventListener('click', () => {
-            arrivedViaQueryParam = false;
+        item.addEventListener('click', (e) => {
+            if (!isPlainLeftClick(e)) return;
+            e.preventDefault();
             registerEvent('click/reel/' + item.dataset.scenario, item.dataset.scenario);
             switchScenario(item.dataset.scenario);
         });
     });
 
-    // Arrow clicks
-    navPrev.addEventListener('click', function () { arrivedViaQueryParam = false; prevSlide(); });
-    navNext.addEventListener('click', function () { arrivedViaQueryParam = false; nextSlide(); });
+    // Arrow clicks — preventDefault on plain left-click so we stay in SPA mode. ctrl/cmd/shift/
+    // middle-click fall through so the adjacent-slide link opens in a new tab.
+    navPrev.addEventListener('click', function (e) {
+        if (!isPlainLeftClick(e)) return;
+        e.preventDefault();
+        prevSlide();
+    });
+    navNext.addEventListener('click', function (e) {
+        if (!isPlainLeftClick(e)) return;
+        e.preventDefault();
+        nextSlide();
+    });
 
     // Keyboard
     document.addEventListener('keydown', (e) => {
@@ -507,9 +521,21 @@
             registerEvent('click/store', 'Microsoft Store (welcome)');
             return;
         }
-        var slideLink = e.target.closest('.slide-link');
-        if (slideLink && slideLink.hash) {
-            registerEvent('click/slide-link' + slideLink.hash, 'Slide link: ' + slideLink.textContent);
+    });
+
+    // Delegated handler for any in-page <a href="?s=..."> link (welcome slide, caption copy, etc.).
+    // Drawer items and nav arrows have their own handlers — skip them here to avoid double-firing.
+    document.addEventListener('click', function (e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+        if (link.classList.contains('drawer-item') || link.classList.contains('nav-arrow')) return;
+        var href = link.getAttribute('href') || '';
+        if (href.indexOf('?s=') !== 0) return;
+        var stateParam = href.slice(3);
+        registerEvent('click/link?s=' + stateParam, link.textContent);
+        if (isPlainLeftClick(e)) {
+            e.preventDefault();
+            applyState(stateParam);
         }
     });
 
@@ -526,10 +552,14 @@
     function openHelp() {
         if (!helpLoaded) loadHelp();
         helpOverlay.hidden = false;
+        updateURL();
+        updateMetaTags();
     }
 
     function closeHelp() {
         helpOverlay.hidden = true;
+        updateURL();
+        updateMetaTags();
     }
 
     function loadHelp() {
@@ -550,7 +580,12 @@
             });
     }
 
-    drawerHelpBtn.addEventListener('click', function () { registerEvent('click/user-guide', 'User Guide'); openHelp(); });
+    drawerHelpBtn.addEventListener('click', function (e) {
+        if (!isPlainLeftClick(e)) return;
+        e.preventDefault();
+        registerEvent('click/user-guide', 'User Guide');
+        openHelp();
+    });
     helpClose.addEventListener('click', closeHelp);
     helpOverlay.addEventListener('click', (e) => {
         if (e.target === helpOverlay) closeHelp();
@@ -755,7 +790,10 @@
             tab.classList.toggle('active', isActive);
             tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
         });
-        if (!csvOverlay.hidden) updateCSVHash();
+        if (!csvOverlay.hidden) {
+            updateURL();
+            updateMetaTags();
+        }
 
         if (csvCache[key]) {
             showCSVData(csvCache[key]);
@@ -795,20 +833,14 @@
     function openCSV() {
         csvOverlay.hidden = false;
         if (!csvCache[activeCsvKey]) loadCSV(activeCsvKey);
-        updateCSVHash();
+        updateURL();
+        updateMetaTags();
     }
 
     function closeCSV() {
         csvOverlay.hidden = true;
-        updateHash();
-    }
-
-    function updateCSVHash() {
-        const newHash = 'csv/' + activeCsvKey;
-        if (window.location.hash.slice(1) !== newHash) {
-            history.replaceState(null, '', '#' + newHash);
-            registerPageView('/' + newHash);
-        }
+        updateURL();
+        updateMetaTags();
     }
 
     const csvKeyOrder = Object.keys(CSV_FILES);
@@ -819,7 +851,12 @@
         loadCSV(csvKeyOrder[next]);
     }
 
-    drawerCsvBtn.addEventListener('click', function () { registerEvent('click/csv-viewer', 'Browse Example Data'); openCSV(); });
+    drawerCsvBtn.addEventListener('click', function (e) {
+        if (!isPlainLeftClick(e)) return;
+        e.preventDefault();
+        registerEvent('click/csv-viewer', 'Browse Example Data');
+        openCSV();
+    });
     csvClose.addEventListener('click', closeCSV);
     csvOverlay.addEventListener('click', function (e) {
         if (e.target === csvOverlay) closeCSV();
@@ -831,55 +868,118 @@
         });
     });
 
-    // --- URL hash routing ---
-    function parseHash() {
-        const hash = window.location.hash.slice(1);
-        if (!hash) return;
-        const parts = hash.split('/');
+    // --- URL state routing (?s=scenario/slide or ?s=data/csvKey) ---
+    const DEFAULT_STATE = 'highlights/1';
+    const CANONICAL_ROOT = 'https://pyfytelemetryf1.github.io/demo/';
 
-        // Close CSV overlay when navigating to a non-CSV hash
-        if (parts[0] !== 'csv' && !csvOverlay.hidden) {
-            closeCSV();
+    function currentStateParam() {
+        if (!helpOverlay.hidden) return 'guide';
+        if (!csvOverlay.hidden) return 'data/' + activeCsvKey;
+        if (currentScenarioId) return currentScenarioId + '/' + (currentSlideIndex + 1);
+        return null;
+    }
+
+    function buildCanonical(s) {
+        if (!s || (s === DEFAULT_STATE && !window.location.search)) return CANONICAL_ROOT;
+        return CANONICAL_ROOT + '?s=' + s;
+    }
+
+    function updateURL() {
+        const s = currentStateParam();
+        if (!s) return;
+        const currentSearch = window.location.search;
+        // Don't pollute the root URL with ?s=highlights/1 on initial load
+        if (!currentSearch && s === DEFAULT_STATE) return;
+        const newSearch = '?s=' + s;
+        if (currentSearch !== newSearch) {
+            history.replaceState(null, '', newSearch);
+            registerPageView('/?s=' + s);
+        }
+    }
+
+    function updateMetaTags() {
+        const s = currentStateParam();
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', buildCanonical(s));
+        const ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) ogUrl.setAttribute('content', buildCanonical(s));
+
+        // Overlays: generic titles, not slide-specific
+        if (!helpOverlay.hidden) {
+            const guideDesc = 'How to install, capture telemetry, review CSV output, generate analysis charts, and prepare LLM analysis requests with PyFy Telemetry F1.';
+            document.title = 'User Guide \u2014 PyFy Telemetry';
+            setMeta('description', guideDesc);
+            setMeta('og:title', 'User Guide — PyFy Telemetry');
+            setMeta('og:description', guideDesc);
+            return;
+        }
+        if (!csvOverlay.hidden) {
+            const isLaps = activeCsvKey.indexOf('_laps') !== -1;
+            const label = isLaps ? 'Lap Data' : 'Turn Data';
+            const desc = isLaps ? CSV_LAPS_DESC : CSV_TURNS_DESC;
+            document.title = 'Example ' + label + ' \u2014 PyFy Telemetry';
+            setMeta('description', desc.slice(0, 200));
+            setMeta('og:title', 'Example ' + label + ' — PyFy Telemetry');
+            setMeta('og:description', desc.slice(0, 200));
+            return;
         }
 
-        // Handle #csv/feb22_laps etc.
-        if (parts[0] === 'csv') {
+        const slide = getCurrentSlide();
+        if (!slide) return;
+        const title = (slide.title || 'Demo') + ' \u2014 PyFy Telemetry';
+        document.title = title;
+        if (slide.description) {
+            const plainDesc = slide.description.replace(/<[^>]*>/g, '').slice(0, 200);
+            setMeta('description', plainDesc);
+            setMeta('og:title', title.replace(/\u2014/g, '—'));
+            setMeta('og:description', plainDesc);
+        }
+    }
+
+    function setMeta(name, content) {
+        const selector = name.indexOf(':') === -1
+            ? 'meta[name="' + name + '"]'
+            : 'meta[property="' + name + '"]';
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute('content', content);
+    }
+
+    function applyState(stateParam) {
+        const parts = stateParam.split('/');
+        if (parts[0] === 'guide') {
+            openHelp();
+            return true;
+        }
+        if (parts[0] === 'data') {
             const csvKey = parts[1];
             if (csvKey && CSV_FILES[csvKey]) {
                 activeCsvKey = csvKey;
                 loadCSV(csvKey);
                 openCSV();
             }
-            return;
+            return true;
         }
-
-        const scenarioId = parts[0];
-        const slideIndex = parts[1] ? parseInt(parts[1]) - 1 : 0;
-
-        const scenario = getScenario(scenarioId);
-        if (scenario) {
-            currentSlideIndex = Math.max(0, Math.min(slideIndex, scenario.slides.length - 1));
-            switchScenario(scenarioId, currentSlideIndex);
-        }
+        const scenario = getScenario(parts[0]);
+        if (!scenario) return false;
+        if (!helpOverlay.hidden) helpOverlay.hidden = true;
+        if (!csvOverlay.hidden) csvOverlay.hidden = true;
+        const slideIdx = parts[1] ? parseInt(parts[1]) - 1 : 0;
+        switchScenario(parts[0], Math.max(0, Math.min(slideIdx, scenario.slides.length - 1)));
+        return true;
     }
 
-    var arrivedViaQueryParam = false;
-
-    function updateHash() {
-        // Don't overwrite the CSV hash when the overlay is open
-        if (!csvOverlay.hidden) return;
-        // No hash when on the welcome screen
-        if (!currentScenarioId) return;
-        // Don't append hash when arrived via ?s= (keep clean URL for crawlers)
-        if (arrivedViaQueryParam) return;
-        const newHash = currentScenarioId + '/' + (currentSlideIndex + 1);
-        if (window.location.hash.slice(1) !== newHash) {
-            history.replaceState(null, '', '#' + newHash);
-            registerPageView('/' + newHash);
-        }
+    function parseURL() {
+        const s = new URLSearchParams(window.location.search).get('s');
+        if (s) return applyState(s);
+        // Legacy hash fallback (#scenario/slide or #csv/key) — redirects to ?s= via applyState
+        const hash = window.location.hash.slice(1);
+        if (!hash) return false;
+        if (hash.indexOf('csv/') === 0) return applyState('data/' + hash.slice(4));
+        return applyState(hash);
     }
 
-    window.addEventListener('hashchange', parseHash);
+    // back/forward within the same document (in case of external links)
+    window.addEventListener('popstate', parseURL);
 
     // --- Init ---
     document.getElementById('header-home').addEventListener('click', function () {
@@ -907,25 +1007,16 @@
         else if (href.indexOf('github.com') !== -1) registerEvent('click/github', 'GitHub (footer)');
     });
 
-    // Parse ?s=scenario/slide query param (for SEO/sitemap URLs)
-    var searchParam = new URLSearchParams(window.location.search).get('s');
-    if (searchParam) {
-        arrivedViaQueryParam = true;
-        var parts = searchParam.split('/');
-        var scenario = getScenario(parts[0]);
-        if (scenario) {
-            var slideIdx = parts[1] ? parseInt(parts[1]) - 1 : 0;
-            switchScenario(parts[0], Math.max(0, Math.min(slideIdx, scenario.slides.length - 1)));
-        } else {
-            switchScenario('highlights');
-        }
-    } else if (window.location.hash) {
-        parseHash();
-    } else {
+    // Initialize from URL first, so the original ?s=... (or legacy #...) isn't overwritten by a
+    // premature updateURL(). Then, if no scenario ended up loaded (e.g. URL opened only an
+    // overlay like ?s=guide / ?s=data/..., or had no state at all), fall back to highlights
+    // as the background scenario.
+    const urlHandled = parseURL();
+    if (!currentScenarioId) {
         switchScenario('highlights');
-        if (window.innerWidth > DRAWER_AUTO_OPEN_MIN) {
-            openDrawer();
-        }
+    }
+    if (!urlHandled && window.innerWidth > DRAWER_AUTO_OPEN_MIN) {
+        openDrawer();
     }
 
     updateOverflowIndicators();

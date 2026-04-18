@@ -7,9 +7,9 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/usage-guide.html</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=guide</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/1</loc>
@@ -1182,5 +1182,25 @@
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Zandvoort.png</image:loc>
       <image:title>Circuit Zandvoort - Netherlands</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=data/feb22_laps</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=data/feb22_turns</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=data/feb01_laps</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=data/feb01_turns</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

@@ -24,11 +24,7 @@
 <li class="toc-sub">  <a href="#providing-additional-context">Providing additional context</a></li>
 <li><a href="#8-replay-a-telemetry-file">8. Replay a Telemetry File</a></li>
 <li><a href="#9-changing-listener-settings">9. Changing Listener Settings</a></li>
-<li><a href="#10-calibration-files">10. Calibration Files</a></li>
-<li class="toc-sub">  <a href="#what-ships-with-the-app">What ships with the app</a></li>
-<li class="toc-sub">  <a href="#advanced-refine-existing-calibration-for-supported-tracks">Advanced: Refine existing calibration for supported tracks</a></li>
-<li class="toc-sub">  <a href="#advanced-create-calibration-data-for-new-tracks">Advanced: Create calibration data for new tracks</a></li>
-<li><a href="#11-output-files-reference">11. Output Files Reference</a></li>
+<li><a href="#10-output-files-reference">10. Output Files Reference</a></li>
 </ul>
 </nav>
 <h1 id="user-guide">User Guide</h1>
@@ -93,7 +89,7 @@
 <p>By default, the app also saves a raw binary capture file in <code>telemetry_logs/raw_telemetry/</code>. This is the complete telemetry stream from your session.</p>
 
 <p><strong>Why keep raw captures:</strong> These let you generate a specific subset of high-resolution lap charts (5-panel telemetry charts with brake/throttle, steering and lateral G, speed, gear shifts),</p>
-<p>but more importantly allow you to replay sessions to re-process data (useful when track calibration data improves or new features are added), and create or refine track calibration files.</p>
+<p>but more importantly allow you to replay sessions to re-process data (useful when track calibration data improves or new features are added).</p>
 <p>Every other chart in the chart analysis will still work without these, including the feature to bundle the data for third-party LLM analysis.</p>
 
 <p><strong>Disk space:</strong> A raw capture is roughly 0.5 GB for a 15-lap race. If disk space is tight, you can disable raw capture in Settings — but you'll lose the ability to replay sessions later or to generate high-resolution lap charts.</p>
@@ -266,64 +262,7 @@
 
 <p>After saving, the app restarts automatically with the new settings.</p>
 
-<h2 id="10-calibration-files">10. Calibration Files</h2>
-
-<p>Calibration files define the turn zones for each track — where each turn starts, where the apex is, and where it ends. The app uses these to break down your laps into per-turn telemetry.</p>
-
-<h3 id="what-ships-with-the-app">What ships with the app</h3>
-
-<p>The app includes calibration data for the following tracks:</p>
-
-<ul>
-<li><strong>Melbourne</strong> (Australia)</li>
-<li><strong>Shanghai</strong> (China)</li>
-<li><strong>Suzuka</strong> (Japan)</li>
-<li><strong>Sakhir</strong> (Bahrain)</li>
-<li><strong>Yas Marina</strong> (Abu Dhabi)</li>
-</ul>
-
-<p>More tracks are added with each release. These files should work out of the box — no setup needed.</p>
-
-<p>For tracks without calibration data, the app still records lap-level telemetry (lap times, tyre data, etc.) but turn-by-turn analysis is not available.</p>
-
-<h3 id="advanced-refine-existing-calibration-for-supported-tracks">Advanced: Refine existing calibration for supported tracks</h3>
-
-<p>If you notice turn boundaries that feel slightly off (e.g., a turn zone that starts too early or too late), you can adjust them:</p>
-
-<p><strong>Prerequisite</strong> You will have to capture a default <code>Very short</code> 5-lap Race on that track using an AI level of between 90 and 100. Allow the AI to finish the race, or at the minimum to complete <strong>2 laps</strong>.</p>
-
-<ol>
-<li>From the menu, select <strong>Advanced options</strong> > <strong>Review/edit track calibration</strong></li>
-<li>Pick the track and the <code>AI 90</code> capture file.</li>
-<li>The review UI opens showing the track map with turn zones marked</li>
-<li>Click a turn to select it, drag boundary lines to adjust zone start/end</li>
-<li>Use the toolbar to remove turns, add new ones, or undo changes</li>
-<li>Confirm to save, or reject to discard</li>
-</ol>
-
-<p>A detailed calibration editing guide will be added in a future update.</p>
-
-<h3 id="advanced-create-calibration-data-for-new-tracks">Advanced: Create calibration data for new tracks</h3>
-
-<p>To create calibration for a track not yet supported:</p>
-
-<ol>
-<li>In F1 25, start a <code>very short</code> 5-lap <strong>Race</strong> session on the target track with <strong>AI at 90-100 difficulty</strong></li>
-<li>Make sure <strong>raw telemetry capture is enabled</strong> in the app's settings</li>
-<li>Let the AI in P1 complete 3-5 clean laps, then exit the session</li>
-<li>From the menu, select <strong>Advanced options</strong> > <strong>Create new track calibration</strong></li>
-<li>Pick the track and the capture file you just recorded</li>
-<li>The app analyzes the telemetry to detect turn zones automatically</li>
-<li>Review and adjust the detected turns in the calibration UI, starting from the track map and progressing to the detailed 6-panel high-resolution telemetry chart</li>
-<li>Turns can be selected by clicking, and edited by dragging their boundaries</li>
-<li>Confirm to save</li>
-</ol>
-
-<p>A detailed calibration creation guide will be added in a future update.</p>
-
-<p><strong>Community contributions welcome!</strong> If you create calibration data for a new track, consider submitting it as a Pull Request to the <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener">releases repository</a> in the <code>community/calibration/</code> folder. Your contribution helps all users.</p>
-
-<h2 id="11-output-files-reference">11. Output Files Reference</h2>
+<h2 id="10-output-files-reference">10. Output Files Reference</h2>
 
 <p>All output goes to your <code>telemetry_logs/</code> folder.</p>
 
@@ -335,7 +274,6 @@
 <tr><td><code>telemetry_logs/analysis/</code></td><td>Analysis chart sets (one folder per analysis run)</td></tr>
 <tr><td><code>telemetry_logs/llm_analysis_requests/</code></td><td>LLM analysis ZIP bundles</td></tr>
 <tr><td><code>telemetry_logs/charts/</code></td><td>optional, high-resolution lap telemetry plots</td></tr>
-<tr><td><code>telemetry_logs/calibration/</code></td><td>Track calibration JSON files</td></tr>
 </tbody>
 </table>
 

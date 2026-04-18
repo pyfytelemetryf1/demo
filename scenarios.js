@@ -18,7 +18,7 @@ const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, 
 
 const WELCOME_SLIDE = {
     markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*.</p>' +
-        '<p class="welcome-slide-beta">Now in Beta on Win 10/11: supports 5 tracks (Abu Dhabi, Melbourne, Shanghai, Suzuka, Bahrain), more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
+        '<p class="welcome-slide-beta">Now in Beta on Win 10/11: <a href="#supported-tracks/1" class="slide-link">supports 18 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
         '<p class="welcome-slide-cta">Select another <a href="#" class="slide-open-drawer">walkthrough</a> from the menu,<br/>or get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>.</p>' +
         '<p>See key features in action before installing: <a href="#full-reel/1" class="slide-link">analysis charts</a>, <a href="#full-reel/9" class="slide-link">session comparisons</a>, <a href="#llm/1" class="slide-link">third-party coaching insights</a>, <a href="#" class="slide-link slide-open-csv">key telemetry data</a>, or a <a href="#install/1" class="slide-link">quick setup demo</a> (PC or Console).</p>' +
         '<p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
@@ -265,6 +265,55 @@ const SCENARIOS = {
                 group: 'MELBOURNE',
                 disclaimer: LLM_DISCLAIMER
             }
+        ]
+    },
+    'supported-tracks': {
+        title: 'Supported Tracks',
+        slides: [
+            {
+                markdown: '<p>PyFy Telemetry F1 currently supports <strong>18 tracks</strong>:</p>' +
+                    '<ul class="supported-tracks-list">' +
+                    '<li><a href="#supported-tracks/2" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li>' +
+                    '<li><a href="#supported-tracks/3" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li>' +
+                    '<li><a href="#supported-tracks/4" class="slide-link"><strong>Bahrain</strong></a> - Bahrain International Circuit</li>' +
+                    '<li><a href="#supported-tracks/5" class="slide-link"><strong>Azerbaijan</strong></a> - Baku City Circuit</li>' +
+                    '<li><a href="#supported-tracks/6" class="slide-link"><strong>Spain</strong></a> - Circuit de Barcelona-Catalunya</li>' +
+                    '<li><a href="#supported-tracks/7" class="slide-link"><strong>Hungary</strong></a> - Hungaroring</li>' +
+                    '<li><a href="#supported-tracks/8" class="slide-link"><strong>Qatar</strong></a> - Lusail International Circuit</li>' +
+                    '<li><a href="#supported-tracks/9" class="slide-link"><strong>Melbourne</strong></a> - Albert Park Circuit</li>' +
+                    '<li><a href="#supported-tracks/10" class="slide-link"><strong>Florida</strong></a> - Miami International Autodrome</li>' +
+                    '<li><a href="#supported-tracks/11" class="slide-link"><strong>Monte Carlo</strong></a> - Circuit de Monaco</li>' +
+                    '<li><a href="#supported-tracks/12" class="slide-link"><strong>Montreal</strong></a> - Circuit Gilles Villeneuve</li>' +
+                    '<li><a href="#supported-tracks/13" class="slide-link"><strong>Italy</strong></a> - Autodromo Nazionale di Monza</li>' +
+                    '<li><a href="#supported-tracks/14" class="slide-link"><strong>China</strong></a> - Shanghai International Circuit</li>' +
+                    '<li><a href="#supported-tracks/15" class="slide-link"><strong>Great Britain</strong></a> - Silverstone Circuit</li>' +
+                    '<li><a href="#supported-tracks/16" class="slide-link"><strong>Singapore</strong></a> - Marina Bay Street Circuit</li>' +
+                    '<li><a href="#supported-tracks/17" class="slide-link"><strong>Belgium</strong></a> - Circuit de Spa-Francorchamps</li>' +
+                    '<li><a href="#supported-tracks/18" class="slide-link"><strong>Japan</strong></a> - Suzuka International Racing Course</li>' +
+                    '<li><a href="#supported-tracks/19" class="slide-link"><strong>Netherlands</strong></a> - Circuit Zandvoort</li>' +
+                    '</ul>',
+                title: 'Supported Tracks',
+                description: '',
+                group: 'OVERVIEW'
+            },
+            { image: 'images/tracks/AbuDhabi.png', title: 'Yas Marina Circuit', description: 'Abu Dhabi', group: 'TRACK MAP' },
+            { image: 'images/tracks/Austria.png', title: 'Red Bull Ring', description: 'Austria', group: 'TRACK MAP' },
+            { image: 'images/tracks/Bahrain.png', title: 'Bahrain International Circuit', description: 'Bahrain', group: 'TRACK MAP' },
+            { image: 'images/tracks/Baku.png', title: 'Baku City Circuit', description: 'Azerbaijan', group: 'TRACK MAP' },
+            { image: 'images/tracks/Catalunya.png', title: 'Circuit de Barcelona-Catalunya', description: 'Spain', group: 'TRACK MAP' },
+            { image: 'images/tracks/Hungaroring.png', title: 'Hungaroring', description: 'Hungary', group: 'TRACK MAP' },
+            { image: 'images/tracks/Losail.png', title: 'Lusail International Circuit', description: 'Qatar', group: 'TRACK MAP' },
+            { image: 'images/tracks/Melbourne.png', title: 'Albert Park Circuit', description: 'Melbourne', group: 'TRACK MAP' },
+            { image: 'images/tracks/Miami.png', title: 'Miami International Autodrome', description: 'Florida', group: 'TRACK MAP' },
+            { image: 'images/tracks/Monaco.png', title: 'Circuit de Monaco', description: 'Monte Carlo', group: 'TRACK MAP' },
+            { image: 'images/tracks/Montreal.png', title: 'Circuit Gilles Villeneuve', description: 'Montreal', group: 'TRACK MAP' },
+            { image: 'images/tracks/Monza.png', title: 'Autodromo Nazionale di Monza', description: 'Italy', group: 'TRACK MAP' },
+            { image: 'images/tracks/Shanghai.png', title: 'Shanghai International Circuit', description: 'China', group: 'TRACK MAP' },
+            { image: 'images/tracks/Silverstone.png', title: 'Silverstone Circuit', description: 'Great Britain', group: 'TRACK MAP' },
+            { image: 'images/tracks/Singapore.png', title: 'Marina Bay Street Circuit', description: 'Singapore', group: 'TRACK MAP' },
+            { image: 'images/tracks/Spa.png', title: 'Circuit de Spa-Francorchamps', description: 'Belgium', group: 'TRACK MAP' },
+            { image: 'images/tracks/Suzuka.png', title: 'Suzuka International Racing Course', description: 'Japan', group: 'TRACK MAP' },
+            { image: 'images/tracks/Zandvoort.png', title: 'Circuit Zandvoort', description: 'Netherlands', group: 'TRACK MAP' }
         ]
     },
     install: {

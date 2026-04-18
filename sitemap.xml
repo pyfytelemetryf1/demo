@@ -1054,7 +1054,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Baku.png</image:loc>
-      <image:title>Baku City Circuit - Baku</image:title>
+      <image:title>Baku City Circuit - Azerbaijan</image:title>
     </image:image>
   </url>
   <url>
@@ -1063,7 +1063,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Catalunya.png</image:loc>
-      <image:title>Circuit de Barcelona-Catalunya - Catalunya</image:title>
+      <image:title>Circuit de Barcelona-Catalunya - Spain</image:title>
     </image:image>
   </url>
   <url>
@@ -1072,7 +1072,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Hungaroring.png</image:loc>
-      <image:title>Hungaroring - Hungaroring</image:title>
+      <image:title>Hungaroring - Hungary</image:title>
     </image:image>
   </url>
   <url>
@@ -1081,7 +1081,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Losail.png</image:loc>
-      <image:title>Lusail International Circuit - Losail</image:title>
+      <image:title>Lusail International Circuit - Qatar</image:title>
     </image:image>
   </url>
   <url>
@@ -1099,7 +1099,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Miami.png</image:loc>
-      <image:title>Miami International Autodrome - Miami</image:title>
+      <image:title>Miami International Autodrome - Florida</image:title>
     </image:image>
   </url>
   <url>
@@ -1108,7 +1108,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Monaco.png</image:loc>
-      <image:title>Circuit de Monaco - Monaco</image:title>
+      <image:title>Circuit de Monaco - Monte Carlo</image:title>
     </image:image>
   </url>
   <url>
@@ -1126,7 +1126,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Monza.png</image:loc>
-      <image:title>Autodromo Nazionale di Monza - Monza</image:title>
+      <image:title>Autodromo Nazionale di Monza - Italy</image:title>
     </image:image>
   </url>
   <url>
@@ -1135,7 +1135,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Shanghai.png</image:loc>
-      <image:title>Shanghai International Circuit - Shanghai</image:title>
+      <image:title>Shanghai International Circuit - China</image:title>
     </image:image>
   </url>
   <url>
@@ -1144,7 +1144,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Silverstone.png</image:loc>
-      <image:title>Silverstone Circuit - Silverstone</image:title>
+      <image:title>Silverstone Circuit - Great Britain</image:title>
     </image:image>
   </url>
   <url>
@@ -1162,7 +1162,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Spa.png</image:loc>
-      <image:title>Circuit de Spa-Francorchamps - Spa</image:title>
+      <image:title>Circuit de Spa-Francorchamps - Belgium</image:title>
     </image:image>
   </url>
   <url>
@@ -1171,7 +1171,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Suzuka.png</image:loc>
-      <image:title>Suzuka International Racing Course - Suzuka</image:title>
+      <image:title>Suzuka International Racing Course - Japan</image:title>
     </image:image>
   </url>
   <url>
@@ -1180,7 +1180,7 @@
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Zandvoort.png</image:loc>
-      <image:title>Circuit Zandvoort - Zandvoort</image:title>
+      <image:title>Circuit Zandvoort - Netherlands</image:title>
     </image:image>
   </url>
 </urlset>

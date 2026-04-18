@@ -276,21 +276,21 @@ const SCENARIOS = {
                     '<li><strong>Abu Dhabi</strong> - Yas Marina Circuit</li>' +
                     '<li><strong>Austria</strong> - Red Bull Ring</li>' +
                     '<li><strong>Bahrain</strong> - Bahrain International Circuit</li>' +
-                    '<li><strong>Baku</strong> - Baku City Circuit</li>' +
-                    '<li><strong>Catalunya</strong> - Circuit de Barcelona-Catalunya</li>' +
-                    '<li><strong>Hungaroring</strong> - Hungaroring</li>' +
-                    '<li><strong>Losail</strong> - Lusail International Circuit</li>' +
+                    '<li><strong>Azerbaijan</strong> - Baku City Circuit</li>' +
+                    '<li><strong>Spain</strong> - Circuit de Barcelona-Catalunya</li>' +
+                    '<li><strong>Hungary</strong> - Hungaroring</li>' +
+                    '<li><strong>Qatar</strong> - Lusail International Circuit</li>' +
                     '<li><strong>Melbourne</strong> - Albert Park Circuit</li>' +
-                    '<li><strong>Miami</strong> - Miami International Autodrome</li>' +
-                    '<li><strong>Monaco</strong> - Circuit de Monaco</li>' +
+                    '<li><strong>Florida</strong> - Miami International Autodrome</li>' +
+                    '<li><strong>Monte Carlo</strong> - Circuit de Monaco</li>' +
                     '<li><strong>Montreal</strong> - Circuit Gilles Villeneuve</li>' +
-                    '<li><strong>Monza</strong> - Autodromo Nazionale di Monza</li>' +
-                    '<li><strong>Shanghai</strong> - Shanghai International Circuit</li>' +
-                    '<li><strong>Silverstone</strong> - Silverstone Circuit</li>' +
+                    '<li><strong>Italy</strong> - Autodromo Nazionale di Monza</li>' +
+                    '<li><strong>China</strong> - Shanghai International Circuit</li>' +
+                    '<li><strong>Great Britain</strong> - Silverstone Circuit</li>' +
                     '<li><strong>Singapore</strong> - Marina Bay Street Circuit</li>' +
-                    '<li><strong>Spa</strong> - Circuit de Spa-Francorchamps</li>' +
-                    '<li><strong>Suzuka</strong> - Suzuka International Racing Course</li>' +
-                    '<li><strong>Zandvoort</strong> - Circuit Zandvoort</li>' +
+                    '<li><strong>Belgium</strong> - Circuit de Spa-Francorchamps</li>' +
+                    '<li><strong>Japan</strong> - Suzuka International Racing Course</li>' +
+                    '<li><strong>Netherlands</strong> - Circuit Zandvoort</li>' +
                     '</ul>',
                 title: 'Supported Tracks',
                 description: '',
@@ -299,21 +299,21 @@ const SCENARIOS = {
             { image: 'images/tracks/AbuDhabi.png', title: 'Yas Marina Circuit', description: 'Abu Dhabi', group: 'TRACK MAP' },
             { image: 'images/tracks/Austria.png', title: 'Red Bull Ring', description: 'Austria', group: 'TRACK MAP' },
             { image: 'images/tracks/Bahrain.png', title: 'Bahrain International Circuit', description: 'Bahrain', group: 'TRACK MAP' },
-            { image: 'images/tracks/Baku.png', title: 'Baku City Circuit', description: 'Baku', group: 'TRACK MAP' },
-            { image: 'images/tracks/Catalunya.png', title: 'Circuit de Barcelona-Catalunya', description: 'Catalunya', group: 'TRACK MAP' },
-            { image: 'images/tracks/Hungaroring.png', title: 'Hungaroring', description: 'Hungaroring', group: 'TRACK MAP' },
-            { image: 'images/tracks/Losail.png', title: 'Lusail International Circuit', description: 'Losail', group: 'TRACK MAP' },
+            { image: 'images/tracks/Baku.png', title: 'Baku City Circuit', description: 'Azerbaijan', group: 'TRACK MAP' },
+            { image: 'images/tracks/Catalunya.png', title: 'Circuit de Barcelona-Catalunya', description: 'Spain', group: 'TRACK MAP' },
+            { image: 'images/tracks/Hungaroring.png', title: 'Hungaroring', description: 'Hungary', group: 'TRACK MAP' },
+            { image: 'images/tracks/Losail.png', title: 'Lusail International Circuit', description: 'Qatar', group: 'TRACK MAP' },
             { image: 'images/tracks/Melbourne.png', title: 'Albert Park Circuit', description: 'Melbourne', group: 'TRACK MAP' },
-            { image: 'images/tracks/Miami.png', title: 'Miami International Autodrome', description: 'Miami', group: 'TRACK MAP' },
-            { image: 'images/tracks/Monaco.png', title: 'Circuit de Monaco', description: 'Monaco', group: 'TRACK MAP' },
+            { image: 'images/tracks/Miami.png', title: 'Miami International Autodrome', description: 'Florida', group: 'TRACK MAP' },
+            { image: 'images/tracks/Monaco.png', title: 'Circuit de Monaco', description: 'Monte Carlo', group: 'TRACK MAP' },
             { image: 'images/tracks/Montreal.png', title: 'Circuit Gilles Villeneuve', description: 'Montreal', group: 'TRACK MAP' },
-            { image: 'images/tracks/Monza.png', title: 'Autodromo Nazionale di Monza', description: 'Monza', group: 'TRACK MAP' },
-            { image: 'images/tracks/Shanghai.png', title: 'Shanghai International Circuit', description: 'Shanghai', group: 'TRACK MAP' },
-            { image: 'images/tracks/Silverstone.png', title: 'Silverstone Circuit', description: 'Silverstone', group: 'TRACK MAP' },
+            { image: 'images/tracks/Monza.png', title: 'Autodromo Nazionale di Monza', description: 'Italy', group: 'TRACK MAP' },
+            { image: 'images/tracks/Shanghai.png', title: 'Shanghai International Circuit', description: 'China', group: 'TRACK MAP' },
+            { image: 'images/tracks/Silverstone.png', title: 'Silverstone Circuit', description: 'Great Britain', group: 'TRACK MAP' },
             { image: 'images/tracks/Singapore.png', title: 'Marina Bay Street Circuit', description: 'Singapore', group: 'TRACK MAP' },
-            { image: 'images/tracks/Spa.png', title: 'Circuit de Spa-Francorchamps', description: 'Spa', group: 'TRACK MAP' },
-            { image: 'images/tracks/Suzuka.png', title: 'Suzuka International Racing Course', description: 'Suzuka', group: 'TRACK MAP' },
-            { image: 'images/tracks/Zandvoort.png', title: 'Circuit Zandvoort', description: 'Zandvoort', group: 'TRACK MAP' }
+            { image: 'images/tracks/Spa.png', title: 'Circuit de Spa-Francorchamps', description: 'Belgium', group: 'TRACK MAP' },
+            { image: 'images/tracks/Suzuka.png', title: 'Suzuka International Racing Course', description: 'Japan', group: 'TRACK MAP' },
+            { image: 'images/tracks/Zandvoort.png', title: 'Circuit Zandvoort', description: 'Netherlands', group: 'TRACK MAP' }
         ]
     },
     install: {

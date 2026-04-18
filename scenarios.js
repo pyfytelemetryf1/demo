@@ -18,7 +18,7 @@ const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, 
 
 const WELCOME_SLIDE = {
     markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*.</p>' +
-        '<p class="welcome-slide-beta">Now in Beta on Win 10/11: supports 5 tracks (Abu Dhabi, Melbourne, Shanghai, Suzuka, Bahrain), more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
+        '<p class="welcome-slide-beta">Now in Beta on Win 10/11: <a href="#supported-tracks/1" class="slide-link">supports 18 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
         '<p class="welcome-slide-cta">Select another <a href="#" class="slide-open-drawer">walkthrough</a> from the menu,<br/>or get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>.</p>' +
         '<p>See key features in action before installing: <a href="#full-reel/1" class="slide-link">analysis charts</a>, <a href="#full-reel/9" class="slide-link">session comparisons</a>, <a href="#llm/1" class="slide-link">third-party coaching insights</a>, <a href="#" class="slide-link slide-open-csv">key telemetry data</a>, or a <a href="#install/1" class="slide-link">quick setup demo</a> (PC or Console).</p>' +
         '<p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',

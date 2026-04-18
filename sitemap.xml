@@ -1016,4 +1016,171 @@
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/2</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/AbuDhabi.png</image:loc>
+      <image:title>Yas Marina Circuit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/3</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Austria.png</image:loc>
+      <image:title>Red Bull Ring</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/4</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Bahrain.png</image:loc>
+      <image:title>Bahrain International Circuit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/5</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Baku.png</image:loc>
+      <image:title>Baku City Circuit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/6</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Catalunya.png</image:loc>
+      <image:title>Circuit de Barcelona-Catalunya</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/7</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Hungaroring.png</image:loc>
+      <image:title>Hungaroring</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/8</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Losail.png</image:loc>
+      <image:title>Lusail International Circuit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/9</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Melbourne.png</image:loc>
+      <image:title>Albert Park Circuit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/10</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Miami.png</image:loc>
+      <image:title>Miami International Autodrome</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/11</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Monaco.png</image:loc>
+      <image:title>Circuit de Monaco</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/12</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Montreal.png</image:loc>
+      <image:title>Circuit Gilles Villeneuve</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/13</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Monza.png</image:loc>
+      <image:title>Autodromo Nazionale di Monza</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/14</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Shanghai.png</image:loc>
+      <image:title>Shanghai International Circuit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/15</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Silverstone.png</image:loc>
+      <image:title>Silverstone Circuit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/16</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Singapore.png</image:loc>
+      <image:title>Marina Bay Street Circuit</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/17</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Spa.png</image:loc>
+      <image:title>Circuit de Spa-Francorchamps</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/18</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Suzuka.png</image:loc>
+      <image:title>Suzuka International Racing Course</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/19</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Zandvoort.png</image:loc>
+      <image:title>Circuit Zandvoort</image:title>
+    </image:image>
+  </url>
 </urlset>

@@ -17,7 +17,7 @@
 const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, only data you upload is sent to them. Their terms apply.';
 
 const WELCOME_SLIDE = {
-    markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*.</p>' +
+    markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC) — captured using the 2025 UDP format.</p>' +
         '<p class="welcome-slide-beta">Now in Beta on Win 10/11: <a href="?s=supported-tracks/1" class="slide-link">supports 18 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
         '<p class="welcome-slide-cta">Select another <a href="#" class="slide-open-drawer">walkthrough</a> from the menu,<br/>or get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>.</p>' +
         '<p>See key features in action before installing: <a href="?s=full-reel/1" class="slide-link">analysis charts</a>, <a href="?s=full-reel/9" class="slide-link">session comparisons</a>, <a href="?s=llm/1" class="slide-link">third-party coaching insights</a>, <a href="#" class="slide-link slide-open-csv">key telemetry data</a>, or a <a href="?s=install/1" class="slide-link">quick setup demo</a> (PC or Console).</p>' +
@@ -358,7 +358,7 @@ const SCENARIOS = {
             {
                 image: 'images/install/08_f1_udp_settings.png',
                 title: 'F1 25 \u2014 UDP Configuration',
-                description: 'Set UDP Telemetry to On, IP Address to 127.0.0.1, Send rate to 60Hz, and the UDP Port to match the app\'s listening port (20774).',
+                description: 'Set UDP Telemetry to On, IP Address to 127.0.0.1, Send rate to 60Hz, the UDP Port to match the app\'s listening port (20774), and <strong>UDP Format to 2025</strong>. Keep the format on 2025 also for the 2026 Season Pack (F1 26 DLC) — the 2026 format isn\'t supported yet.',
                 group: 'STEP 4'
             },
             {

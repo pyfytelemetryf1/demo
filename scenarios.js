@@ -17,7 +17,7 @@
 const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, only data you upload is sent to them. Their terms apply.';
 
 const WELCOME_SLIDE = {
-    markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC) — captured using the 2025 UDP format.</p>' +
+    markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC).</p>' +
         '<p class="welcome-slide-beta">Now in Beta on Win 10/11: <a href="?s=supported-tracks/1" class="slide-link">supports 18 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
         '<p class="welcome-slide-cta">Select another <a href="#" class="slide-open-drawer">walkthrough</a> from the menu,<br/>or get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>.</p>' +
         '<p>See key features in action before installing: <a href="?s=full-reel/1" class="slide-link">analysis charts</a>, <a href="?s=full-reel/9" class="slide-link">session comparisons</a>, <a href="?s=llm/1" class="slide-link">third-party coaching insights</a>, <a href="#" class="slide-link slide-open-csv">key telemetry data</a>, or a <a href="?s=install/1" class="slide-link">quick setup demo</a> (PC or Console).</p>' +
@@ -34,7 +34,7 @@ const SCENARIOS = {
             {
                 image: 'images/highlights/turn_time_delta.png',
                 title: 'Time Left on Table',
-                description: 'PyFy Telemetry captures real-time F1 sim racing telemetry and turns it into corner-by-corner insights. This chart shows per-turn time variance: the gap between your best and median lap through each corner, sorted by potential gain.',
+                description: 'PyFyTelemetry captures real-time F1 sim racing telemetry and turns it into corner-by-corner insights. This chart shows per-turn time variance: the gap between your best and median lap through each corner, sorted by potential gain.',
                 group: 'TURN ANALYSIS'
             },
             {
@@ -271,7 +271,7 @@ const SCENARIOS = {
         title: 'Supported Tracks',
         slides: [
             {
-                markdown: '<p>PyFy Telemetry F1 currently supports <strong>18 tracks</strong>:</p>' +
+                markdown: '<p>PyFyTelemetry F1 currently supports <strong>18 tracks</strong>:</p>' +
                     '<ul class="supported-tracks-list">' +
                     '<li><a href="?s=supported-tracks/2" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li>' +
                     '<li><a href="?s=supported-tracks/3" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li>' +

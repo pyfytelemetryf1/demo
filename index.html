@@ -24,7 +24,7 @@
     }
     </script>
 </head>
-<body>
+<body data-page="landing">
     <header class="site-header">
         <button class="hamburger-btn" aria-label="Open menu" title="Menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22">
@@ -40,10 +40,10 @@
     </header>
 
     <nav class="topic-strip" id="topic-strip" aria-label="Topics">
-        <a class="topic-chip" href="?s=highlights/1" data-topic="highlights">Top Features</a>
-        <a class="topic-chip" href="?s=full-reel/1" data-topic="full-reel">Single Race v. Reference</a>
-        <a class="topic-chip" href="?s=install/1" data-topic="install">Quick Setup Guide</a>
-        <a class="topic-chip" href="?s=supported-tracks/1" data-topic="supported-tracks">Supported Tracks</a>
+        <a class="topic-chip" href="highlights/1/" data-topic="highlights">Top Features</a>
+        <a class="topic-chip" href="full-reel/1/" data-topic="full-reel">Single Race v. Reference</a>
+        <a class="topic-chip" href="install/1/" data-topic="install">Quick Setup Guide</a>
+        <a class="topic-chip" href="supported-tracks/1/" data-topic="supported-tracks">Supported Tracks</a>
         <a class="topic-chip" href="#" data-topic="more" role="button">More</a>
     </nav>
 
@@ -54,14 +54,14 @@
 
     <!-- Side drawer menu -->
     <div class="drawer-overlay" id="drawer-overlay" hidden></div>
-    <nav class="drawer" id="drawer" aria-label="Demo scenarios">
+    <nav class="drawer closed" id="drawer" aria-label="Demo scenarios">
         <div class="drawer-header">
             <span class="drawer-title">Walkthroughs</span>
             <button class="drawer-close" aria-label="Close menu">&times;</button>
         </div>
         <ul class="drawer-menu">
             <li>
-                <a class="drawer-item" href="?s=highlights/1" data-scenario="highlights">
+                <a class="drawer-item" href="highlights/1/" data-scenario="highlights">
                     <span class="drawer-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     </span>
@@ -72,18 +72,18 @@
                 </a>
             </li>
             <li>
-                <a class="drawer-item" href="?s=full-reel/1" data-scenario="full-reel">
+                <a class="drawer-item" href="full-reel/1/" data-scenario="full-reel">
                     <span class="drawer-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="2" y1="9" x2="22" y2="9"></line><line x1="2" y1="15" x2="22" y2="15"></line></svg>
                     </span>
                     <span class="drawer-item-text">
                         <span class="drawer-item-label">Single Race vs Reference</span>
-                        <span class="drawer-item-desc">Compare your race with the built-in reference</span>
+                        <span class="drawer-item-desc">Compare your race vs. the built-in reference</span>
                     </span>
                 </a>
             </li>
             <li>
-                <a class="drawer-item" href="?s=llm/1" data-scenario="llm">
+                <a class="drawer-item" href="llm/1/" data-scenario="llm">
                     <span class="drawer-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                     </span>
@@ -94,7 +94,7 @@
                 </a>
             </li>
             <li>
-                <a class="drawer-item" href="?s=supported-tracks/1" data-scenario="supported-tracks">
+                <a class="drawer-item" href="supported-tracks/1/" data-scenario="supported-tracks">
                     <span class="drawer-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
                     </span>
@@ -105,7 +105,7 @@
                 </a>
             </li>
             <li>
-                <a class="drawer-item" href="?s=install/1" data-scenario="install">
+                <a class="drawer-item" href="install/1/" data-scenario="install">
                     <span class="drawer-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                     </span>
@@ -116,7 +116,7 @@
                 </a>
             </li>
             <li>
-                <a class="drawer-item" href="?s=capture/1" data-scenario="capture">
+                <a class="drawer-item" href="capture/1/" data-scenario="capture">
                     <span class="drawer-item-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                     </span>
@@ -136,7 +136,7 @@
                     </span>
                     <span class="drawer-item-text">
                         <span class="drawer-item-label">Browse Example Data</span>
-                        <span class="drawer-item-desc">Laps &amp; turns CSV viewer</span>
+                        <span class="drawer-item-desc">See captured telemetry in detail.</span>
                     </span>
                 </a>
             </li>
@@ -198,7 +198,51 @@
         </div>
     </div>
 
-    <main class="viewer">
+<main class="page-doc help-panel-body landing-page">
+<div class="landing-welcome"><p><strong>PyFy Telemetry F1</strong> captures sim racing telemetry and turns it into practical, corner-by-corner coaching you can act on right away: the top 3 turns where you lose time against a reference, and how to fix your consistency, technique, racing lines and ERS management to find lap time.</p>
+<p>Fully compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC), for both 2026 and 2025 regulations and telemetry formats.</p>
+<p class="welcome-slide-beta">Available for Windows 10/11, supports turn-level analysis at <a href="supported-tracks/1/" class="slide-link">19 tracks</a>, both for offline sessions and online multiplayer races.<br/>
+    Keyboard-friendly CLI with a built-in menu and a polished UX.</p>
+<p class="welcome-slide-cta">Get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>, or start with the <a href="highlights/1/" class="slide-link">top features</a> below and the <a href="install/1/" class="slide-link">quick setup guide</a> (PC or Console).</p>
+<p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection, no impact on gaming performance)</p>
+</div>
+<h2 class="landing-reels-title">Demos &amp; Quick Guides</h2>
+<div class="reel-cards">
+<div class="reel-tile"><a class="reel-card" href="highlights/1/"><img src="images/highlights/turn_time_delta.png" alt="Time Left on Table" loading="lazy">
+<span class="reel-card-title">Top Features</span>
+<span class="reel-card-desc">Find lap time, improve your technique.</span></a>
+<a class="reel-card-index" href="highlights/">all slides</a></div>
+<div class="reel-tile"><a class="reel-card" href="full-reel/1/"><img src="images/full-reel/01_comparison_turn_time_delta.png" alt="Time Gained / Lost per Turn vs Reference" loading="lazy">
+<span class="reel-card-title">Single Race vs Reference</span>
+<span class="reel-card-desc">Compare your race vs. the built-in reference</span></a>
+<a class="reel-card-index" href="full-reel/">all slides</a></div>
+<div class="reel-tile"><a class="reel-card" href="llm/1/"><img src="images/llm/abudhabi_01_priorities.png" alt="Top 3 Priorities - Abu Dhabi" loading="lazy">
+<span class="reel-card-title">External AI Coaching (Optional)</span>
+<span class="reel-card-desc">A plain-English debrief from your own AI/LLM</span></a>
+<a class="reel-card-index" href="llm/">all slides</a></div>
+<div class="reel-tile"><a class="reel-card" href="supported-tracks/1/"><img src="images/text-slides/supported-tracks-1.png" alt="Supported Tracks" loading="lazy">
+<span class="reel-card-title">Supported Tracks</span>
+<span class="reel-card-desc">19 tracks with per-corner analysis</span></a>
+<a class="reel-card-index" href="supported-tracks/">all slides</a></div>
+<div class="reel-tile"><a class="reel-card" href="install/1/"><img src="images/install/01_store_listing.png" alt="Get the App - Directly from the Microsoft Store" loading="lazy">
+<span class="reel-card-title">Quick Setup</span>
+<span class="reel-card-desc">How to install &amp; run on PC or Console</span></a>
+<a class="reel-card-index" href="install/">all slides</a></div>
+<div class="reel-tile"><a class="reel-card" href="capture/1/"><img src="images/capture/01_live_capture.png" alt="Live Capture" loading="lazy">
+<span class="reel-card-title">Capture Your First Session</span>
+<span class="reel-card-desc">How to record, review &amp; analyze</span></a>
+<a class="reel-card-index" href="capture/">all slides</a></div>
+<div class="reel-tile"><a class="reel-card" href="sample-data/"><img src="images/pages/browse-example-data.png" alt="Browse Example Data" loading="lazy">
+<span class="reel-card-title">Browse Example Data</span>
+<span class="reel-card-desc">See captured telemetry in detail.</span></a>
+<a class="reel-card-index" href="sample-data/">view csv data</a></div>
+<div class="reel-tile"><a class="reel-card" href="guide/"><img src="images/pages/user-guide.png" alt="Complete User Guide" loading="lazy">
+<span class="reel-card-title">Complete User Guide</span>
+<span class="reel-card-desc">Use the quick guides above, or read in detail.</span></a>
+<a class="reel-card-index" href="guide/">view doc</a></div>
+</div>
+</main>
+    <main class="viewer" hidden>
         <div class="viewer-container">
             <a class="nav-arrow nav-prev" href="#" aria-label="Previous slide" title="Previous (Left Arrow)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -229,7 +273,7 @@
                     <p class="caption-disclaimer"></p>
                 </div>
                 <div class="caption-right">
-                    <span class="slide-counter"></span>
+                    <a class="slide-counter" href="#"></a>
                 </div>
             </div>
             <div class="progress-bar">

@@ -1164,10 +1164,131 @@ body.drawer-open .caption-bar {
     .csv-caption-text { max-height: calc(2 * 1.5 * 0.8rem); overflow: hidden; }
     .csv-caption-text.expanded { max-height: none; }
     .csv-caption-chevron.visible { display: flex; justify-content: center; padding: 2px 0; }
-    .csv-table .csv-col-ts { max-width: 14ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     /* The whole drawer scrolls as one, so every entry is reachable by scrolling. */
     .drawer { overflow-y: auto; }
     .drawer-menu { flex: 0 0 auto; overflow-y: visible; }
+}
+
+/* === Landing page and reel pages: the site's static faces === */
+
+.landing-intro {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.landing-welcome {
+    padding: 20px 24px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+.landing-welcome p { margin-bottom: 10px; }
+.landing-welcome p:last-child { margin-bottom: 0; }
+.landing-welcome .welcome-slide-beta { font-size: 0.74rem; color: var(--text-muted); }
+.landing-welcome .welcome-slide-fine-print { color: var(--text-muted); font-size: 0.8rem; }
+.landing-welcome .slide-link { color: var(--accent); }
+
+.landing-reels-title { margin-bottom: 14px; }
+
+.reel-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+/* A tile is one link over its whole face, plus a small link to the page beneath it. */
+.reel-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color var(--transition-fast);
+}
+
+.reel-tile:hover { border-color: var(--accent); }
+
+.reel-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 12px 4px;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.reel-card::after { content: ''; position: absolute; inset: 0; }
+.reel-card:hover { text-decoration: none; }
+.reel-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; border-radius: 4px; background: var(--bg-primary); }
+.reel-card-title { font-weight: 600; font-size: 1rem; color: var(--accent); }
+.reel-card-desc { font-size: 0.88rem; color: var(--text-secondary); }
+.landing-page .reel-card-index {
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+    padding: 2px 12px 12px;
+    font-size: 0.75rem;
+    color: #3d444d;
+    text-decoration: none;
+}
+.landing-page .reel-tile:hover .reel-card-index, .landing-page .reel-card-index:hover { color: #3d444d; text-decoration: none; }
+.slide-counter { text-decoration: none; color: inherit; }
+.slide-counter:hover { color: var(--text-secondary); }
+
+.reel-intro { color: var(--text-secondary); margin-bottom: 20px; }
+
+.slide-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.slide-list-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.slide-list-item img { width: 100%; border-radius: 4px; background: var(--bg-primary); }
+.slide-list-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+    border-radius: 4px;
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+.slide-list-group {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.slide-list-item h2 { margin: 4px 0 6px; font-size: 1.05rem; color: var(--text-primary); }
+.slide-list-item h2 a { color: inherit; text-decoration: none; }
+.slide-list-item h2 a:hover { color: var(--accent); }
+.slide-list-item p { font-size: 0.88rem; color: var(--text-secondary); margin: 0; }
+
+@media (max-width: 600px) {
+    .slide-list-item { grid-template-columns: 1fr; }
+    .reel-cards { grid-template-columns: 1fr; }
 }
 
 /* === Keyboard focus indicators === */
@@ -1204,9 +1325,18 @@ body[data-page] main.viewer[hidden] { display: none; }
 .page-doc .data-set { margin-top: 32px; }
 .page-doc .data-set-desc { color: var(--text-secondary); }
 .page-doc .data-set-note { font-size: 0.85rem; color: var(--text-muted); }
+.page-doc .data-outro { margin-top: 28px; }
+.help-panel-body .guide-intro { color: var(--text-secondary); margin-bottom: 20px; }
+.page-doc .data-outro a { color: var(--text-muted); text-decoration: underline; }
 .page-doc .data-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 8px; }
 .page-doc .data-table-wrap .csv-table th, .page-doc .data-table-wrap .csv-table td { white-space: nowrap; }
 .page-doc .data-table-wrap .csv-table th:first-child, .page-doc .data-table-wrap .csv-table td:first-child { position: static; }
 @media (max-width: 600px) {
     .page-doc { padding: 16px 12px 32px; }
 }
+
+/* The landing and reel pages keep the viewer's frame: header, strip and footer stay put and
+   the drawer spans between them; the page's own content scrolls inside. */
+html:has(body[data-page="landing"]), html:has(body[data-page="reel"]) { height: 100%; overflow: hidden; }
+body[data-page="landing"], body[data-page="reel"] { height: 100vh; min-height: 0; overflow: hidden; }
+body[data-page="landing"] main.page-doc, body[data-page="reel"] main.page-doc { flex: 1; min-height: 0; overflow-y: auto; }

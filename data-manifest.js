@@ -7,7 +7,7 @@ window.SAMPLE_DATA = {
       "url": "sample-data/csv/abudhabi_laps.csv",
       "tab": "Abu Dhabi (offline) Laps",
       "label": "Abu Dhabi Laps",
-      "description": "Each lap records total time, sector times, gaps ahead and behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashbacks, DRS or S-Mode, penalties, battery deployed and recovered, and more. Additionally, whether the session was online or offline (and whether the grid was human or AI)."
+      "description": "Each lap records total time, sector times, gap ahead and gap behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashbacks, DRS or S-Mode, penalties, battery deployed and harvested, and more. Additionally, whether the session was online or offline (and whether the grid was human or AI)."
     },
     {
       "key": "abudhabi_turns",
@@ -23,7 +23,7 @@ window.SAMPLE_DATA = {
       "url": "sample-data/csv/baku_laps.csv",
       "tab": "Baku (online) Laps",
       "label": "Baku Laps",
-      "description": "Each lap records total time, sector times, gaps ahead and behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashbacks, DRS or S-Mode, penalties, battery deployed and recovered, and more. Additionally, whether the session was online or offline (and whether the grid was human or AI)."
+      "description": "Each lap records total time, sector times, gap ahead and gap behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashbacks, DRS or S-Mode, penalties, battery deployed and harvested, and more. Additionally, whether the session was online or offline (and whether the grid was human or AI)."
     },
     {
       "key": "baku_turns",
@@ -67,7 +67,16 @@ window.SAMPLE_DATA = {
     "rename": {
       "tyres_in_temp_window_score": "tyres_in_temp_window",
       "tyres_in_optimal_temp_window_score": "tyres_in_optimal_window",
-      "tyres_in_optimal_carcass_temp_window": "tyres_carcass_in_window"
-    }
+      "tyres_in_optimal_carcass_temp_window": "tyres_carcass_in_window",
+      "timestamp_utc": "time"
+    },
+    "elided": [
+      "timestamp_utc"
+    ],
+    "abbreviated": [
+      "total_participants",
+      "ai_participants",
+      "player_participants"
+    ]
   }
 };

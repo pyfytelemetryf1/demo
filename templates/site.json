@@ -1,0 +1,7 @@
+{
+  "title": "PyFy Telemetry: F1 Performance Analysis Demo",
+  "description": "Interactive demo of PyFy Telemetry - F1 Performance Analysis for EA Sports F1 25 and the 2026 Season Pack (F1 26 DLC): one race against the track's reference lap, corner by corner, before you install.",
+  "og_image": "images/highlights/turn_time_delta.png",
+  "guide_description": "How to install, capture telemetry, generate analysis charts against the track's reference lap, review CSV output, and prepare an AI coaching request with PyFy Telemetry F1.",
+  "csv_format_description": "The CSV output format of PyFy Telemetry F1: every column of the per-lap and per-turn telemetry files, what it measures, its unit and how it is derived."
+}

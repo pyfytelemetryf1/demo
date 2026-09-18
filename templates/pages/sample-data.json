@@ -1,0 +1,77 @@
+{
+  "page": {
+    "title": "Example Telemetry Data",
+    "description": "Example lap and turn/corner CSVs recorded by PyFy Telemetry F1: one offline race and one online race, every lap and every corner.",
+    "intro_html": "Two example sessions: an offline race against AI at Abu Dhabi and an online race on a 14-car human grid at Baku. The laps file holds one row per lap, the turns file one row per corner of every lap. Open the interactive viewer for the full tables."
+  },
+  "files": [
+    {
+      "key": "abudhabi_laps",
+      "kind": "laps",
+      "url": "sample-data/csv/abudhabi_laps.csv",
+      "tab": "Abu Dhabi (offline) Laps",
+      "label": "Abu Dhabi Laps",
+      "description": "Each lap records total time, sector times, gaps ahead and behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashbacks, DRS or S-Mode, penalties, battery deployed and recovered, and more. Additionally, whether the session was online or offline (and whether the grid was human or AI)."
+    },
+    {
+      "key": "abudhabi_turns",
+      "kind": "turns",
+      "url": "sample-data/csv/abudhabi_turns.csv",
+      "tab": "Abu Dhabi (offline) Turns",
+      "label": "Abu Dhabi Turns",
+      "description": "Each turn of every lap: entry, apex and exit timings, distances, speeds and gears; race position and gaps ahead and behind at entry and exit; lockups and wheelspins by severity and axle; tyre temperatures, brake bias, differential; battery deployed and recovered; collisions, corner cuts and penalties; and the spatial samples for technique charts."
+    },
+    {
+      "key": "baku_laps",
+      "kind": "laps",
+      "url": "sample-data/csv/baku_laps.csv",
+      "tab": "Baku (online) Laps",
+      "label": "Baku Laps",
+      "description": "Each lap records total time, sector times, gaps ahead and behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashbacks, DRS or S-Mode, penalties, battery deployed and recovered, and more. Additionally, whether the session was online or offline (and whether the grid was human or AI)."
+    },
+    {
+      "key": "baku_turns",
+      "kind": "turns",
+      "url": "sample-data/csv/baku_turns.csv",
+      "tab": "Baku (online) Turns",
+      "label": "Baku Turns",
+      "description": "Each turn of every lap: entry, apex and exit timings, distances, speeds and gears; race position and gaps ahead and behind at entry and exit; lockups and wheelspins by severity and axle; tyre temperatures, brake bias, differential; battery deployed and recovered; collisions, corner cuts and penalties; and the spatial samples for technique charts."
+    }
+  ],
+  "columns": {
+    "hidden": {
+      "laps": [
+        "session_id",
+        "lap_id",
+        "lap_time_ms",
+        "sector1_ms",
+        "sector2_ms",
+        "sector3_ms"
+      ],
+      "turns": [
+        "turn_series_distances",
+        "turn_series_times",
+        "turn_positions",
+        "turn_speeds",
+        "turn_brakes",
+        "turn_throttles",
+        "turn_gears",
+        "turn_wheel_angles",
+        "turn_slip_ratios",
+        "turn_yaw_rates",
+        "turn_longitudinal_g"
+      ]
+    },
+    "summary_source": "turn_positions",
+    "summary_label": "spatial & technique samples…",
+    "trim_suffixes": [
+      "_ms",
+      "_sec"
+    ],
+    "rename": {
+      "tyres_in_temp_window_score": "tyres_in_temp_window",
+      "tyres_in_optimal_temp_window_score": "tyres_in_optimal_window",
+      "tyres_in_optimal_carcass_temp_window": "tyres_carcass_in_window"
+    }
+  }
+}

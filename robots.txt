@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pyfytelemetryf1.github.io/demo/sitemap.xml

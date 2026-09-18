@@ -1,0 +1,1659 @@
+<!-- Generated from templates/shell.html by the site build. Edit the template, not this file. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Telemetry CSV Output Format - PyFy Telemetry</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="canonical" href="https://pyfytelemetryf1.github.io/demo/csv-format/">
+    <meta name="description" content="The CSV output format of PyFy Telemetry F1: every column of the per-lap and per-turn telemetry files, what it measures, its unit and how it is derived.">
+    <meta property="og:title" content="F1 Telemetry CSV Output Format - PyFy Telemetry">
+    <meta property="og:description" content="The CSV output format of PyFy Telemetry F1: every column of the per-lap and per-turn telemetry files, what it measures, its unit and how it is derived.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pyfytelemetryf1.github.io/demo/csv-format/">
+    <meta property="og:image" content="https://pyfytelemetryf1.github.io/demo/images/highlights/turn_time_delta.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PyFy Telemetry - F1 Performance Analysis",
+        "alternateName": ["PyFyTelemetry", "PyFyTelemetryF1", "PyFy Telemetry", "PyFy Telemetry F1"],
+        "url": "https://pyfytelemetryf1.github.io/demo/"
+    }
+    </script>
+</head>
+<body data-page="csv-format">
+    <header class="site-header">
+        <button class="hamburger-btn" aria-label="Open menu" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <div class="header-content" id="header-home" style="cursor: pointer;">
+            <h1 class="site-title"><span class="brand">PyFy Telemetry:</span> F1 Performance Analysis</h1>
+            <p class="site-subtitle">interactive demo: find lap time, corner by corner</p>
+        </div>
+    </header>
+
+    <nav class="topic-strip" id="topic-strip" aria-label="Topics">
+        <a class="topic-chip" href="../?s=highlights/1" data-topic="highlights">Top Features</a>
+        <a class="topic-chip" href="../?s=full-reel/1" data-topic="full-reel">Single Race v. Reference</a>
+        <a class="topic-chip" href="../?s=install/1" data-topic="install">Quick Setup Guide</a>
+        <a class="topic-chip" href="../?s=supported-tracks/1" data-topic="supported-tracks">Supported Tracks</a>
+        <a class="topic-chip" href="#" data-topic="more" role="button">More</a>
+    </nav>
+
+    <div class="mobile-notice" id="mobile-notice" hidden>
+        <span>charts render best on a large screen. pinch to zoom.</span>
+        <button class="mobile-notice-close" aria-label="Dismiss">&times;</button>
+    </div>
+
+    <!-- Side drawer menu -->
+    <div class="drawer-overlay" id="drawer-overlay" hidden></div>
+    <nav class="drawer" id="drawer" aria-label="Demo scenarios">
+        <div class="drawer-header">
+            <span class="drawer-title">Walkthroughs</span>
+            <button class="drawer-close" aria-label="Close menu">&times;</button>
+        </div>
+        <ul class="drawer-menu">
+            <li>
+                <a class="drawer-item" href="../?s=highlights/1" data-scenario="highlights">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Top Features</span>
+                        <span class="drawer-item-desc">Find lap time, improve your technique.</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../?s=full-reel/1" data-scenario="full-reel">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="2" y1="9" x2="22" y2="9"></line><line x1="2" y1="15" x2="22" y2="15"></line></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Single Race vs Reference</span>
+                        <span class="drawer-item-desc">Compare your race with the built-in reference</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../?s=llm/1" data-scenario="llm">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">External AI Coaching (Optional)</span>
+                        <span class="drawer-item-desc">A plain-English debrief from your own AI/LLM</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../?s=supported-tracks/1" data-scenario="supported-tracks">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Supported Tracks</span>
+                        <span class="drawer-item-desc">19 tracks with per-corner analysis</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../?s=install/1" data-scenario="install">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Quick Setup</span>
+                        <span class="drawer-item-desc">How to install &amp; run on PC or Console</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../?s=capture/1" data-scenario="capture">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Capture Your First Session</span>
+                        <span class="drawer-item-desc">How to record, review &amp; analyze</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <div class="drawer-separator"></div>
+        <ul class="drawer-menu drawer-menu-secondary">
+            <li>
+                <a class="drawer-item" href="../sample-data/" id="drawer-csv-btn">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Browse Example Data</span>
+                        <span class="drawer-item-desc">Laps &amp; turns CSV viewer</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item drawer-help-btn" href="../guide/" id="drawer-help-btn">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><circle cx="12" cy="17" r=".5" fill="currentColor"></circle></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Complete User Guide</span>
+                        <span class="drawer-item-desc">Use the quick guides above, or read in detail.</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <div class="drawer-footer">
+            <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="drawer-link">Microsoft Store</a>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener" class="drawer-link">GitHub</a>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases/issues/new" target="_blank" rel="noopener" class="drawer-link drawer-link-sub">File an issue<span class="drawer-link-hint"> (GitHub login required)</span></a>
+        </div>
+    </nav>
+
+    <!-- Help panel (USAGE.md rendered) -->
+    <div class="help-overlay" id="help-overlay" hidden>
+        <div class="help-panel">
+            <div class="help-panel-header">
+                <h2>User Guide</h2>
+                <button class="help-close" aria-label="Close help">&times;</button>
+            </div>
+            <div class="help-panel-body" id="help-body">
+                <p class="help-loading">Loading usage guide...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSV spreadsheet viewer -->
+    <div class="csv-overlay" id="csv-overlay" hidden>
+        <div class="csv-panel">
+            <div class="csv-panel-header">
+                <h2>Example Telemetry Data</h2>
+                <button class="csv-close" aria-label="Close viewer">&times;</button>
+            </div>
+            <div class="csv-tabs" role="tablist">
+                <button class="csv-tab active" data-csv="abudhabi_laps" role="tab" aria-selected="true">Abu Dhabi (offline) Laps</button>
+                <button class="csv-tab" data-csv="abudhabi_turns" role="tab" aria-selected="false">Abu Dhabi (offline) Turns</button>
+                <button class="csv-tab" data-csv="baku_laps" role="tab" aria-selected="false">Baku (online) Laps</button>
+                <button class="csv-tab" data-csv="baku_turns" role="tab" aria-selected="false">Baku (online) Turns</button>
+            </div>
+            <div class="csv-table-wrap" id="csv-table-wrap">
+                <p class="csv-loading">Loading data...</p>
+            </div>
+            <div class="csv-caption" id="csv-caption">
+                <div class="csv-caption-top">
+                    <span class="csv-caption-label"></span>
+                    <span class="csv-caption-hint">Scroll horizontally to see more columns.</span>
+                </div>
+                <p class="csv-caption-text"></p>
+            </div>
+        </div>
+    </div>
+
+<main class="page-doc help-panel-body" id="help-body">
+<nav class="guide-toc" id="guide-toc">
+<h2>Contents</h2>
+<ul>
+<li><a href="#output-files">Output Files</a></li>
+<li><a href="#laps-csv-82-fields">Laps CSV (82 fields)</a></li>
+<li class="toc-sub"><a href="#identity-fields">Identity Fields</a></li>
+<li class="toc-sub"><a href="#tyre-fields">Tyre Fields</a></li>
+<li class="toc-sub"><a href="#context-fields">Context Fields</a></li>
+<li class="toc-sub"><a href="#drs-fields">DRS Fields</a></li>
+<li class="toc-sub"><a href="#energy-fields">Energy Fields</a></li>
+<li class="toc-sub"><a href="#performance-fields">Performance Fields</a></li>
+<li class="toc-sub"><a href="#lap-type-flags">Lap Type Flags</a></li>
+<li class="toc-sub"><a href="#penalties-and-issues">Penalties and Issues</a></li>
+<li class="toc-sub"><a href="#lockupspin-events">Lockup/Spin Events</a></li>
+<li class="toc-sub"><a href="#damage-fields">Damage Fields</a></li>
+<li class="toc-sub"><a href="#wear-fields">Wear Fields</a></li>
+<li class="toc-sub"><a href="#detailed-assists">Detailed Assists</a></li>
+<li class="toc-sub"><a href="#validity-fields">Validity Fields</a></li>
+<li class="toc-sub"><a href="#status-fields">Status Fields</a></li>
+<li><a href="#turns-csv-72-fields">Turns CSV (72 fields)</a></li>
+<li class="toc-sub"><a href="#identity-fields_1">Identity Fields</a></li>
+<li class="toc-sub"><a href="#position-fields">Position Fields</a></li>
+<li class="toc-sub"><a href="#braking-fields">Braking Fields</a></li>
+<li class="toc-sub"><a href="#entry-fields">Entry Fields</a></li>
+<li class="toc-sub"><a href="#apex-fields">Apex Fields</a></li>
+<li class="toc-sub"><a href="#exit-fields">Exit Fields</a></li>
+<li class="toc-sub"><a href="#throttle-commitment-fields">Throttle Commitment Fields</a></li>
+<li class="toc-sub"><a href="#turn-metrics">Turn Metrics</a></li>
+<li class="toc-sub"><a href="#battery-fields">Battery Fields</a></li>
+<li class="toc-sub"><a href="#events-in-turn">Events in Turn</a></li>
+<li class="toc-sub"><a href="#tyre-temperatures">Tyre Temperatures</a></li>
+<li class="toc-sub"><a href="#setup-fields">Setup Fields</a></li>
+<li class="toc-sub"><a href="#turn-sampling">Turn Sampling</a></li>
+<li class="toc-sub"><a href="#metadata-fields">Metadata Fields</a></li>
+<li class="toc-sub"><a href="#racestart-turn">RaceStart Turn</a></li>
+<li><a href="#errors-csv-9-fields-errorscsv">Errors CSV (9 fields, errors.csv)</a></li>
+<li><a href="#performance-csv-10-fields-listener_perf_metricscsv">Performance CSV (10 fields, listener_perf_metrics.csv)</a></li>
+<li><a href="#notes">Notes</a></li>
+<li class="toc-sub"><a href="#session-id-format">Session ID Format</a></li>
+<li class="toc-sub"><a href="#lap-id-format">Lap ID Format</a></li>
+<li class="toc-sub"><a href="#artifact-lap-filtering">Artifact Lap Filtering</a></li>
+<li class="toc-sub"><a href="#calibration-data">Calibration Data</a></li>
+<li class="toc-sub"><a href="#data-types">Data Types</a></li>
+<li class="toc-sub"><a href="#csv-format">CSV Format</a></li>
+</ul>
+</nav>
+<h1 id="f1-telemetry-csv-output-format">F1 Telemetry CSV Output Format</h1>
+<p><em>Last updated: 2026-03-25T18:00:00Z - schema version: 0.3.0</em></p>
+<p>This document describes the CSV output format produced by the F1 Telemetry Logger.</p>
+<h2 id="output-files">Output Files</h2>
+<p>The logger produces date-based CSV files in the <code>telemetry_logs/</code> directory:</p>
+<ul>
+<li><code>{YYYY}_{MM}_{Mon}_{DD}_{Track}_{Session}_laps.csv</code> - Lap-level telemetry (e.g., <code>2026_01_Jan_30_AbuDhabi_Race_laps.csv</code>)</li>
+<li><code>{YYYY}_{MM}_{Mon}_{DD}_{Track}_{Session}_turns.csv</code> - Turn-level telemetry (e.g., <code>2026_01_Jan_30_AbuDhabi_Race_turns.csv</code>)</li>
+<li><code>errors.csv</code> - Error log, single append-only file (only created when errors occur)</li>
+<li><code>listener_perf_metrics.csv</code> - System performance metrics</li>
+</ul>
+<p>Each game session produces a separate pair of CSV files. Replay mode prefixes with <code>replay_</code>.</p>
+<hr />
+<h2 id="laps-csv-82-fields">Laps CSV (82 fields)</h2>
+<p>Each row represents one completed lap.</p>
+<h3 id="identity-fields">Identity Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>session_id</code></td>
+<td>string</td>
+<td>Unique session identifier (e.g., <code>AbuDhabi_FP_Jan30_001</code>)</td>
+</tr>
+<tr>
+<td><code>lap_id</code></td>
+<td>string</td>
+<td>Unique lap identifier (e.g., <code>AbuDhabi_FP_Jan30_001_L2</code>)</td>
+</tr>
+<tr>
+<td><code>timestamp_utc</code></td>
+<td>string</td>
+<td>ISO 8601 timestamp when lap was recorded</td>
+</tr>
+<tr>
+<td><code>track</code></td>
+<td>string</td>
+<td>Track name (e.g., <code>AbuDhabi</code>, <code>Monaco</code>, <code>Silverstone</code>)</td>
+</tr>
+<tr>
+<td><code>session_type</code></td>
+<td>string</td>
+<td>Session type: <code>FP1</code>, <code>FP2</code>, <code>FP3</code>, <code>Q1</code>, <code>Q2</code>, <code>Q3</code>, <code>Race</code>, <code>TT</code></td>
+</tr>
+<tr>
+<td><code>session_mode</code></td>
+<td>string</td>
+<td><code>ONLINE</code> or <code>LOCAL</code>. Empty values, or sessions recorded before this column existed, should be interpreted as <code>unknown</code></td>
+</tr>
+<tr>
+<td><code>lap_number</code></td>
+<td>int</td>
+<td>Lap number within the session</td>
+</tr>
+<tr>
+<td><code>total_race_laps</code></td>
+<td>int</td>
+<td>Total laps in the race (from session packet, 0 for non-race sessions)</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td>int</td>
+<td>Race position (1-22)</td>
+</tr>
+<tr>
+<td><code>total_participants</code></td>
+<td>int</td>
+<td>Number of cars on the grid at the start of the session (the denominator for <code>position</code>)</td>
+</tr>
+<tr>
+<td><code>ai_participants</code></td>
+<td>int</td>
+<td>Number of AI participants at the start of the session (out of the <code>total_participants</code>)</td>
+</tr>
+<tr>
+<td><code>player_participants</code></td>
+<td>int</td>
+<td>Number of human/player participants (out of the <code>total_participants</code>) at the start of the session</td>
+</tr>
+<tr>
+<td><code>lap_time</code></td>
+<td>string</td>
+<td>Human-readable lap time (e.g., <code>1:30.252</code>)</td>
+</tr>
+<tr>
+<td><code>sector1_time</code></td>
+<td>string</td>
+<td>Human-readable sector 1 time (e.g., <code>18.712</code>)</td>
+</tr>
+<tr>
+<td><code>sector2_time</code></td>
+<td>string</td>
+<td>Human-readable sector 2 time</td>
+</tr>
+<tr>
+<td><code>sector3_time</code></td>
+<td>string</td>
+<td>Human-readable sector 3 time</td>
+</tr>
+<tr>
+<td><code>gap_behind_sec</code></td>
+<td>float</td>
+<td>Gap to car behind in seconds (0 when last)</td>
+</tr>
+<tr>
+<td><code>gap_ahead_sec</code></td>
+<td>float</td>
+<td>Gap to car ahead in seconds (0 when leading)</td>
+</tr>
+<tr>
+<td><code>lap_time_ms</code></td>
+<td>int</td>
+<td>Lap time in milliseconds</td>
+</tr>
+<tr>
+<td><code>sector1_ms</code></td>
+<td>int</td>
+<td>Sector 1 time in milliseconds</td>
+</tr>
+<tr>
+<td><code>sector2_ms</code></td>
+<td>int</td>
+<td>Sector 2 time in milliseconds</td>
+</tr>
+<tr>
+<td><code>sector3_ms</code></td>
+<td>int</td>
+<td>Sector 3 time in milliseconds</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tyre-fields">Tyre Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tyre_compound</code></td>
+<td>string</td>
+<td>Visual compound: <code>Soft</code>, <code>Medium</code>, <code>Hard</code>, <code>Inter</code>, <code>Wet</code></td>
+</tr>
+<tr>
+<td><code>tyre_age_laps</code></td>
+<td>int</td>
+<td>Laps on current tyre set</td>
+</tr>
+<tr>
+<td><code>tyre_wear</code></td>
+<td>string</td>
+<td>Wear percentages as <code>FL\|FR\|RL\|RR</code> (e.g., <code>10\|10\|12\|12</code>)</td>
+</tr>
+<tr>
+<td><code>tyres_in_temp_window_score</code></td>
+<td>int</td>
+<td>Tyre temperature window score (0-100). Asymmetric ranges: entry/exit surface temps vs <code>[core_min, core_max + 10]</code>, apex surface temps vs <code>[core_min - 7, core_max + 10]</code>. Formula: <code>round((samples_in_window / total_samples) * 100)</code>. 0 if no turn data or compound unknown.</td>
+</tr>
+<tr>
+<td><code>tyres_in_optimal_temp_window_score</code></td>
+<td>int</td>
+<td>Optimal surface temperature score (0-100). Computes <code>surface_optimal = core_optimal + 10</code>, then checks entry/exit/apex surface temps against <code>[surface_optimal * 0.9, surface_optimal * 1.1]</code>, with apex lower bound relaxed by 7°C. 0 if no turn data or compound unknown.</td>
+</tr>
+<tr>
+<td><code>tyres_in_optimal_carcass_temp_window</code></td>
+<td>int</td>
+<td>Optimal carcass temperature score (0-100). Checks 4 tyre carcass (inner) temps at apex of each turn against <code>core_optimal ± 10%</code>. Formula: <code>round((samples_in_optimal / total_samples) * 100)</code>. 0 if no turn data or compound unknown.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="context-fields">Context Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ai_difficulty</code></td>
+<td>int</td>
+<td>AI difficulty setting (0-110)</td>
+</tr>
+<tr>
+<td><code>assists_any</code></td>
+<td>bool</td>
+<td>True if any driving assist is enabled (including simulation settings)</td>
+</tr>
+<tr>
+<td><code>damage_any</code></td>
+<td>bool</td>
+<td>True if the car took damage beyond light contact (summary flag). Laps with it set are excluded from analysis</td>
+</tr>
+<tr>
+<td><code>weather</code></td>
+<td>string</td>
+<td><code>Clear</code>, <code>LightCloud</code>, <code>Overcast</code>, <code>LightRain</code>, <code>HeavyRain</code>, <code>Storm</code></td>
+</tr>
+<tr>
+<td><code>time_of_day</code></td>
+<td>string</td>
+<td>Time of day: <code>Night</code> (0-5h), <code>Morning</code> (6-11h), <code>Afternoon</code> (12-17h), <code>Evening</code> (18-23h). Empty if not reported.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drs-fields">DRS Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>drs_or_sm_activated_count</code></td>
+<td>int</td>
+<td>Times DRS (2025) or S-Mode (2026) was activated during the lap</td>
+</tr>
+<tr>
+<td><code>drs_or_sm_behind_activations</code></td>
+<td>int</td>
+<td>Times car behind activated DRS (2025) or S-Mode (2026)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="energy-fields">Energy Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fuel_load</code></td>
+<td>float</td>
+<td>Fuel remaining at end of lap (kg)</td>
+</tr>
+<tr>
+<td><code>battery_deployed_total</code></td>
+<td>float</td>
+<td>Total ERS battery energy used (0-100%+)</td>
+</tr>
+<tr>
+<td><code>battery_deployed_overtake</code></td>
+<td>float</td>
+<td>Total ERS battery energy used with the overtake button held (0-100%+)</td>
+</tr>
+<tr>
+<td><code>battery_deployed_boost</code></td>
+<td>float</td>
+<td>Total ERS battery energy used while boost was active (0-100%+). 2026 regulations only; 0 otherwise. Boost lasts one lap and is available only to a car within 1s of the car ahead at the boost measurement marker before that lap begins</td>
+</tr>
+<tr>
+<td><code>battery_recharged_total</code></td>
+<td>float</td>
+<td>ERS battery level recharged during the lap (0-100%+)</td>
+</tr>
+<tr>
+<td><code>battery_start</code></td>
+<td>float</td>
+<td>Remaining ERS battery at lap start (0-100%)</td>
+</tr>
+<tr>
+<td><code>battery_end</code></td>
+<td>float</td>
+<td>Remaining ERS battery at lap end (0-100%)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance-fields">Performance Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_speed_kph</code></td>
+<td>int</td>
+<td>Maximum speed reached during the lap (km/h)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lap-type-flags">Lap Type Flags</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>is_first_lap</code></td>
+<td>bool</td>
+<td>True if lap 1 of a race (standing start)</td>
+</tr>
+<tr>
+<td><code>is_inlap</code></td>
+<td>bool</td>
+<td>True if car pitted during this lap</td>
+</tr>
+<tr>
+<td><code>is_outlap</code></td>
+<td>bool</td>
+<td>True if previous lap was an inlap</td>
+</tr>
+<tr>
+<td><code>is_safety_car</code></td>
+<td>bool</td>
+<td>True if safety car was active</td>
+</tr>
+<tr>
+<td><code>time_in_pits_ms</code></td>
+<td>int</td>
+<td>Total time spent in pit lane (ms), from pit entry to pit exit. 0 if car did not pit.</td>
+</tr>
+<tr>
+<td><code>pit_stop_time_ms</code></td>
+<td>int</td>
+<td>Time spent stationary in pit box (ms), from arriving at box to being released. 0 if car did not pit.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="penalties-and-issues">Penalties and Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>track_limits_violations</code></td>
+<td>int</td>
+<td>Number of track limit violations</td>
+</tr>
+<tr>
+<td><code>corner_cutting_warnings</code></td>
+<td>int</td>
+<td>Number of corner cutting warnings incurred on this lap</td>
+</tr>
+<tr>
+<td><code>time_penalties_received_sec</code></td>
+<td>int</td>
+<td>Time penalties awarded during this lap, in seconds (collisions, corner cuts, false start, pit-lane speeding, unserved drive-through/stop-go converted by the game)</td>
+</tr>
+<tr>
+<td><code>stuck_in_traffic_turn_count</code></td>
+<td>int</td>
+<td>Number of turns with traffic interference ahead</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lockupspin-events">Lockup/Spin Events</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lockups_count</code></td>
+<td>int</td>
+<td>Total lockup events</td>
+</tr>
+<tr>
+<td><code>lockups_minor</code></td>
+<td>int</td>
+<td>Minor lockups (brief, shallow)</td>
+</tr>
+<tr>
+<td><code>lockups_medium</code></td>
+<td>int</td>
+<td>Medium lockups</td>
+</tr>
+<tr>
+<td><code>lockups_severe</code></td>
+<td>int</td>
+<td>Severe lockups (long, deep)</td>
+</tr>
+<tr>
+<td><code>spins_count</code></td>
+<td>int</td>
+<td>Total wheelspin events</td>
+</tr>
+<tr>
+<td><code>spins_minor</code></td>
+<td>int</td>
+<td>Minor wheelspins</td>
+</tr>
+<tr>
+<td><code>spins_medium</code></td>
+<td>int</td>
+<td>Medium wheelspins</td>
+</tr>
+<tr>
+<td><code>spins_severe</code></td>
+<td>int</td>
+<td>Severe wheelspins</td>
+</tr>
+</tbody>
+</table>
+<h3 id="damage-fields">Damage Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>damage_fl_wing</code></td>
+<td>int</td>
+<td>Front-left wing damage (0-100%)</td>
+</tr>
+<tr>
+<td><code>damage_fr_wing</code></td>
+<td>int</td>
+<td>Front-right wing damage (0-100%)</td>
+</tr>
+<tr>
+<td><code>damage_rear_wing</code></td>
+<td>int</td>
+<td>Rear wing damage (0-100%)</td>
+</tr>
+<tr>
+<td><code>damage_body</code></td>
+<td>bool</td>
+<td>True if floor, diffuser or sidepod damage is at least 10%. Lighter contact is reported in <code>wear_levels</code></td>
+</tr>
+<tr>
+<td><code>damage_wheels</code></td>
+<td>bool</td>
+<td>True if any brake damage &gt; 0</td>
+</tr>
+<tr>
+<td><code>damage_terminal</code></td>
+<td>bool</td>
+<td>True if engine blown/seized or terminal damage</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wear-fields">Wear Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wear_levels</code></td>
+<td>string</td>
+<td>Engine and gearbox wear, plus any contact too light to mark the lap damaged, as <code>engine:N\|floor:M</code>. Only non-zero components appear; empty if there are none</td>
+</tr>
+</tbody>
+</table>
+<h3 id="detailed-assists">Detailed Assists</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assists_tc</code></td>
+<td>int</td>
+<td>Traction control: 0=off, 1=medium, 2=full</td>
+</tr>
+<tr>
+<td><code>assists_abs</code></td>
+<td>int</td>
+<td>Anti-lock brakes: 0=off, 1=on</td>
+</tr>
+<tr>
+<td><code>assists_gearbox</code></td>
+<td>int</td>
+<td>Gearbox: 0=manual, 1=suggested, 2=auto</td>
+</tr>
+<tr>
+<td><code>assists_racing_line</code></td>
+<td>int</td>
+<td>Racing line: 0=off, 1=corners, 2=full</td>
+</tr>
+<tr>
+<td><code>assists_others</code></td>
+<td>bool</td>
+<td>True if any of: steering/braking/pit/ERS/DRS assists on, or any simulation setting is non-default</td>
+</tr>
+<tr>
+<td><code>other_assists</code></td>
+<td>string</td>
+<td>Pipe-delimited enabled assists. Only enabled assists are listed. Example: <code>steering:On\|braking:High\|ers:On</code>. Mapping: <code>steering_assist</code>: 0=skip, 1=<code>steering:On</code>; <code>braking_assist</code>: 0=skip, 1=<code>braking:Low</code>, 2=<code>braking:Medium</code>, 3=<code>braking:High</code>; <code>pit_assist</code>: 0=skip, 1=<code>pit_assist:On</code>; <code>pit_release_assist</code>: 0=skip, 1=<code>pit_release:On</code>; <code>ers_assist</code>: 0=skip, 1=<code>ers:On</code>; <code>drs_or_sm_assist</code>: 0=skip, 1=<code>drs_or_sm:On</code>.</td>
+</tr>
+<tr>
+<td><code>assists_simulation_settings</code></td>
+<td>string</td>
+<td>Non-default simulation settings. Empty if all defaults (unassisted). Format: <code>assisted_race_start:TRUE\|assisted_car_damage:Low\|assisted_collisions:Reduced</code>. Mapping: <code>race_starts</code> 0(Manual)=omitted, 1(Assisted)=<code>assisted_race_start:TRUE</code>; <code>car_damage</code> 3(Simulation)=omitted, 2(Standard)=<code>assisted_car_damage:Low</code>, 1(Reduced)=<code>assisted_car_damage:Medium</code>, 0(Off)=<code>assisted_car_damage:On</code>; <code>collisions</code> 2(On)=omitted, 1(P2P Off)=<code>assisted_collisions:Reduced</code>, 0(Off)=<code>assisted_collisions:On</code>.</td>
+</tr>
+<tr>
+<td><code>flashback_enabled</code></td>
+<td>int</td>
+<td>Recovery mode: 0=None, 1=Flashbacks, 2=Auto-recovery</td>
+</tr>
+<tr>
+<td><code>flashback_occurred</code></td>
+<td>bool</td>
+<td>True if flashback was used during lap</td>
+</tr>
+</tbody>
+</table>
+<h3 id="validity-fields">Validity Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lap_valid</code></td>
+<td>bool</td>
+<td>True if lap time is valid</td>
+</tr>
+<tr>
+<td><code>sectors_invalid</code></td>
+<td>string</td>
+<td>Pipe-delimited invalid sector numbers. Empty if all valid. Example: <code>1\|3</code> means sectors 1 and 3 are invalid.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="status-fields">Status Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>is_complete</code></td>
+<td>bool</td>
+<td>True if lap was fully completed (all 3 sectors posted)</td>
+</tr>
+<tr>
+<td><code>car_reg_year</code></td>
+<td>int</td>
+<td>Season regulations the cars ran under: <code>2025</code> or <code>2026</code></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>string</td>
+<td>App version that produced this row (e.g., <code>0.2.7</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="turns-csv-72-fields">Turns CSV (72 fields)</h2>
+<p>Each row represents one turn within a lap. Requires calibration data for the track.</p>
+<h3 id="identity-fields_1">Identity Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lap_id</code></td>
+<td>string</td>
+<td>Links to laps.csv (e.g., <code>AbuDhabi_FP_Jan30_001_L2</code>)</td>
+</tr>
+<tr>
+<td><code>turn_number</code></td>
+<td>int/string</td>
+<td>Turn number (1-based), or <code>"RaceStart"</code> for the standing start (see below)</td>
+</tr>
+<tr>
+<td><code>flat_out</code></td>
+<td>bool</td>
+<td>True if turn is taken flat-out (no braking)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="position-fields">Position Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>position_entry</code></td>
+<td>int</td>
+<td>Race position when entering the turn (1-20)</td>
+</tr>
+<tr>
+<td><code>position_exit</code></td>
+<td>int</td>
+<td>Race position when exiting the turn (1-20)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="braking-fields">Braking Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>braking_start_dist</code></td>
+<td>float</td>
+<td>Distance in lap (m) where braking started</td>
+</tr>
+<tr>
+<td><code>braking_start_speed</code></td>
+<td>float</td>
+<td>Speed (km/h) at braking start</td>
+</tr>
+<tr>
+<td><code>braking_start_gear</code></td>
+<td>int</td>
+<td>Gear at braking start</td>
+</tr>
+<tr>
+<td><code>time_at_braking_ms</code></td>
+<td>int</td>
+<td>Lap time (ms) at braking start</td>
+</tr>
+<tr>
+<td><code>gap_behind_at_entry</code></td>
+<td>float</td>
+<td>Gap to car behind at turn entry (0 when last)</td>
+</tr>
+<tr>
+<td><code>gap_ahead_at_entry</code></td>
+<td>float</td>
+<td>Gap to car ahead at turn entry (0 when leading)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="entry-fields">Entry Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>entry_dist</code></td>
+<td>float</td>
+<td>Distance in lap (m) at turn entry (calibrated zone_start)</td>
+</tr>
+<tr>
+<td><code>entry_speed</code></td>
+<td>float</td>
+<td>Speed (km/h) at turn entry</td>
+</tr>
+<tr>
+<td><code>entry_gear</code></td>
+<td>int</td>
+<td>Gear at turn entry</td>
+</tr>
+<tr>
+<td><code>time_at_entry_ms</code></td>
+<td>int</td>
+<td>Lap time (ms) at turn entry</td>
+</tr>
+</tbody>
+</table>
+<h3 id="apex-fields">Apex Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apex_dist</code></td>
+<td>float</td>
+<td>Distance in lap (m) at apex</td>
+</tr>
+<tr>
+<td><code>apex_speed</code></td>
+<td>float</td>
+<td>Speed (km/h) at apex</td>
+</tr>
+<tr>
+<td><code>apex_gear</code></td>
+<td>int</td>
+<td>Gear at apex</td>
+</tr>
+<tr>
+<td><code>time_at_apex_ms</code></td>
+<td>int</td>
+<td>Lap time (ms) at apex</td>
+</tr>
+</tbody>
+</table>
+<h3 id="exit-fields">Exit Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exit_dist</code></td>
+<td>float</td>
+<td>Distance in lap (m) at turn exit</td>
+</tr>
+<tr>
+<td><code>exit_speed</code></td>
+<td>float</td>
+<td>Speed (km/h) at exit</td>
+</tr>
+<tr>
+<td><code>exit_gear</code></td>
+<td>int</td>
+<td>Gear at exit</td>
+</tr>
+<tr>
+<td><code>time_at_exit_ms</code></td>
+<td>int</td>
+<td>Lap time (ms) at exit</td>
+</tr>
+<tr>
+<td><code>gap_behind_at_exit</code></td>
+<td>float</td>
+<td>Gap to car behind at exit</td>
+</tr>
+<tr>
+<td><code>gap_ahead_at_exit</code></td>
+<td>float</td>
+<td>Gap to car ahead at exit (0 when leading)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="throttle-commitment-fields">Throttle Commitment Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>throttle_committed_dist</code></td>
+<td>float</td>
+<td>Distance in lap (m) where throttle committed (&gt;= 65%) after apex</td>
+</tr>
+<tr>
+<td><code>throttle_committed_speed</code></td>
+<td>float</td>
+<td>Speed (km/h) at throttle commitment</td>
+</tr>
+<tr>
+<td><code>throttle_committed_gear</code></td>
+<td>int</td>
+<td>Gear at throttle commitment</td>
+</tr>
+<tr>
+<td><code>time_at_throttle_committed_ms</code></td>
+<td>int</td>
+<td>Lap time (ms) at throttle commitment</td>
+</tr>
+</tbody>
+</table>
+<h3 id="turn-metrics">Turn Metrics</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time_in_turn_ms</code></td>
+<td>int</td>
+<td>Total time spent in turn (ms)</td>
+</tr>
+<tr>
+<td><code>max_brake_before_apex</code></td>
+<td>int</td>
+<td>Maximum brake pressure (0-100%) before calibrated apex</td>
+</tr>
+<tr>
+<td><code>max_throttle_after_apex</code></td>
+<td>int</td>
+<td>Maximum throttle (0-100%) after calibrated apex</td>
+</tr>
+</tbody>
+</table>
+<h3 id="battery-fields">Battery Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>battery_deployed_prev_straight</code></td>
+<td>float</td>
+<td>ERS battery energy used between the previous turn's apex and this turn's apex (0 - 100%)</td>
+</tr>
+<tr>
+<td><code>battery_overtake_deployed_prev_straight</code></td>
+<td>float</td>
+<td>ERS battery energy used with the overtake button held, between the previous turn's apex and this turn's apex (0 - 100%)</td>
+</tr>
+<tr>
+<td><code>battery_boost_deployed_prev_straight</code></td>
+<td>float</td>
+<td>ERS battery energy used while boost was active, between the previous turn's apex and this turn's apex (0 - 100%). 2026 regulations only; 0 otherwise. See <code>battery_deployed_boost</code> for when boost is available</td>
+</tr>
+<tr>
+<td><code>battery_recharged_prev_straight</code></td>
+<td>float</td>
+<td>ERS battery level recharged between the previous turn's apex and this turn's apex, covering the lift and the braking into the corner (0 - 100%)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-in-turn">Events in Turn</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lockups</code></td>
+<td>int</td>
+<td>Total lockups in this turn</td>
+</tr>
+<tr>
+<td><code>spins</code></td>
+<td>int</td>
+<td>Total wheelspins in this turn</td>
+</tr>
+<tr>
+<td><code>lockups_front_minor</code></td>
+<td>int</td>
+<td>Minor front axle lockups in turn</td>
+</tr>
+<tr>
+<td><code>lockups_front_medium</code></td>
+<td>int</td>
+<td>Medium front axle lockups in turn</td>
+</tr>
+<tr>
+<td><code>lockups_front_severe</code></td>
+<td>int</td>
+<td>Severe front axle lockups in turn</td>
+</tr>
+<tr>
+<td><code>lockups_rear_minor</code></td>
+<td>int</td>
+<td>Minor rear axle lockups in turn</td>
+</tr>
+<tr>
+<td><code>lockups_rear_medium</code></td>
+<td>int</td>
+<td>Medium rear axle lockups in turn</td>
+</tr>
+<tr>
+<td><code>lockups_rear_severe</code></td>
+<td>int</td>
+<td>Severe rear axle lockups in turn</td>
+</tr>
+<tr>
+<td><code>spins_minor</code></td>
+<td>int</td>
+<td>Minor wheelspins in turn</td>
+</tr>
+<tr>
+<td><code>spins_medium</code></td>
+<td>int</td>
+<td>Medium wheelspins in turn</td>
+</tr>
+<tr>
+<td><code>spins_severe</code></td>
+<td>int</td>
+<td>Severe wheelspins in turn</td>
+</tr>
+<tr>
+<td><code>in_traffic</code></td>
+<td>bool</td>
+<td>True if traffic affected this turn</td>
+</tr>
+<tr>
+<td><code>collision_events</code></td>
+<td>int</td>
+<td>Number of collision events that this car was involved in during this turn</td>
+</tr>
+<tr>
+<td><code>corner_cutting_events</code></td>
+<td>int</td>
+<td>Corner-cutting warnings issued during the turn</td>
+</tr>
+<tr>
+<td><code>time_penalties_received_sec</code></td>
+<td>int</td>
+<td>Time penalties that ticked while the car was in this turn's zone. Collision and corner-cut penalties are earned where they tick; a false start or pit-lane penalty lands where the game announced it, so the lap column is the reliable total</td>
+</tr>
+<tr>
+<td><code>retried_with_flashback</code></td>
+<td>bool</td>
+<td>True if this turn was re-executed after a flashback rewind</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tyre-temperatures">Tyre Temperatures</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tyre_temps_entry</code></td>
+<td>string</td>
+<td>Tyre surface temps at turn entry: <code>FL\|FR\|RL\|RR</code> (e.g., <code>90\|91\|98\|99</code>)</td>
+</tr>
+<tr>
+<td><code>tyre_temps_apex</code></td>
+<td>string</td>
+<td>Tyre surface temps at apex: <code>FL\|FR\|RL\|RR</code> (e.g., <code>92\|93\|100\|101</code>)</td>
+</tr>
+<tr>
+<td><code>tyre_temps_exit</code></td>
+<td>string</td>
+<td>Tyre surface temps at turn exit: <code>FL\|FR\|RL\|RR</code> (e.g., <code>93\|94\|101\|102</code>)</td>
+</tr>
+<tr>
+<td><code>tyre_carcass_temps</code></td>
+<td>string</td>
+<td>Tyre carcass (inner) temps at apex: <code>FL\|FR\|RL\|RR</code> (e.g., <code>85\|86\|88\|89</code>). Captured at apex only since carcass temps change slowly.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="setup-fields">Setup Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>brake_bias</code></td>
+<td>int</td>
+<td>Front brake bias percentage at turn entry (live value from MFD)</td>
+</tr>
+<tr>
+<td><code>differential</code></td>
+<td>int</td>
+<td>On-throttle differential percentage at turn entry (live value)</td>
+</tr>
+<tr>
+<td><code>off_throttle_diff</code></td>
+<td>int</td>
+<td>Off-throttle differential percentage at turn entry</td>
+</tr>
+<tr>
+<td><code>engine_braking</code></td>
+<td>int</td>
+<td>Engine braking percentage at turn entry</td>
+</tr>
+</tbody>
+</table>
+<h3 id="turn-sampling">Turn Sampling</h3>
+<p>These fields capture telemetry at evenly-spaced distances through each turn, from zone entry to exit. Regular turns use 20 sample points. The RaceStart turn uses variable density (~1 sample per 10m, minimum 20), resulting in more samples for longer acceleration zones. Samples are equidistant in <strong>space</strong>, not time.</p>
+<h4 id="reference-fields">Reference Fields</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>turn_series_distances</code></td>
+<td>string</td>
+<td>N distances in meters: <code>290\|295\|300\|...</code> (N=20 for regular turns, variable for RaceStart). Use as reference for sampling series fields.</td>
+</tr>
+<tr>
+<td><code>turn_series_times</code></td>
+<td>string</td>
+<td>N lap times in ms: <code>18500\|18620\|18750\|...</code>. Use as reference for sampling series fields.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="car-telemetry-sampling-fields-within-turn">Car telemetry sampling Fields within turn</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>turn_positions</code></td>
+<td>string</td>
+<td>N X;Z world positions: <code>X1;Z1\|X2;Z2\|...</code></td>
+</tr>
+<tr>
+<td><code>turn_speeds</code></td>
+<td>string</td>
+<td>N speeds in km/h: <code>293\|280\|250\|...</code></td>
+</tr>
+<tr>
+<td><code>turn_brakes</code></td>
+<td>string</td>
+<td>N brake percentages: <code>0\|15\|80\|...</code></td>
+</tr>
+<tr>
+<td><code>turn_throttles</code></td>
+<td>string</td>
+<td>N throttle percentages: <code>0\|0\|10\|...</code></td>
+</tr>
+<tr>
+<td><code>turn_gears</code></td>
+<td>string</td>
+<td>N gear numbers: <code>8\|8\|7\|6\|5\|4\|3\|...</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>turn_series_distances</code> and <code>turn_series_times</code> as reference axes when analyzing the other fields.</p>
+<h4 id="vehicle-dynamics-fields-within-turn">Vehicle Dynamics Fields within turn</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>turn_wheel_angles</code></td>
+<td>string</td>
+<td>N front wheel steering angles in radians (4 decimal places): <code>0.0234\|0.0456\|...</code></td>
+</tr>
+<tr>
+<td><code>turn_slip_ratios</code></td>
+<td>string</td>
+<td>N wheel slip ratios (RL;RR;FL;FR per sample, 3 decimal places): <code>0.001;0.002;0.003;0.004\|...</code></td>
+</tr>
+<tr>
+<td><code>turn_yaw_rates</code></td>
+<td>string</td>
+<td>N yaw rates in rad/s (3 decimal places): <code>0.123\|0.456\|...</code></td>
+</tr>
+<tr>
+<td><code>turn_longitudinal_g</code></td>
+<td>string</td>
+<td>N longitudinal G-force values (2 decimal places): <code>0.12\|-0.45\|...</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>turn_series_distances</code> and <code>turn_series_times</code> as reference axes when analyzing the other fields.</p>
+<h3 id="metadata-fields">Metadata Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>version</code></td>
+<td>string</td>
+<td>App version that produced this row (e.g., <code>0.2.7</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="racestart-turn">RaceStart Turn</h3>
+<p>In Race sessions, Lap 1 includes a special <code>turn_number="RaceStart"</code> row that tracks the standing start phase from first car movement to T1's braking zone. This only appears on standing starts (not Safety Car restarts).</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>RaceStart Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time_at_entry_ms</code></td>
+<td>Driver reaction time: milliseconds from lights-out to first car movement (±16ms precision)</td>
+</tr>
+<tr>
+<td><code>entry_dist/speed/gear</code></td>
+<td>First car movement off the grid line (speed near 0, Gear 1)</td>
+</tr>
+<tr>
+<td><code>apex_dist/speed/gear</code></td>
+<td>First upshift to Gear 3 (end of traction phase)</td>
+</tr>
+<tr>
+<td><code>exit_dist/speed/gear</code></td>
+<td>Approach to T1 braking zone (high speed, Gear 4-5)</td>
+</tr>
+<tr>
+<td><code>braking_start_dist</code></td>
+<td>Typically 0 (no braking during launch)</td>
+</tr>
+<tr>
+<td><code>max_brake_before_apex</code></td>
+<td>Typically 0</td>
+</tr>
+<tr>
+<td><code>throttle_committed_dist</code></td>
+<td>First point after Gear 3 where throttle &gt;= 65% (usually immediate)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="errors-csv-9-fields-errorscsv">Errors CSV (9 fields, <code>errors.csv</code>)</h2>
+<p>Single append-only error log, created lazily (only when errors occur). Each row records a processing error.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td>string</td>
+<td>Session time or ISO timestamp</td>
+</tr>
+<tr>
+<td><code>session_id</code></td>
+<td>string</td>
+<td>Human-readable session ID</td>
+</tr>
+<tr>
+<td><code>lap_id</code></td>
+<td>string</td>
+<td>Lap ID if available</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>string</td>
+<td>App version</td>
+</tr>
+<tr>
+<td><code>listener_context</code></td>
+<td>string</td>
+<td>CLI flags/config summary</td>
+</tr>
+<tr>
+<td><code>error_area</code></td>
+<td>string</td>
+<td>Component where error occurred (e.g., <code>CarStatus</code>, <code>LapData</code>)</td>
+</tr>
+<tr>
+<td><code>error_message</code></td>
+<td>string</td>
+<td>Error description</td>
+</tr>
+<tr>
+<td><code>error_traceback</code></td>
+<td>string</td>
+<td>Full Python traceback</td>
+</tr>
+<tr>
+<td><code>raw_packet_hex</code></td>
+<td>string</td>
+<td>Hex dump of the packet that triggered the error</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="performance-csv-10-fields-listener_perf_metricscsv">Performance CSV (10 fields, <code>listener_perf_metrics.csv</code>)</h2>
+<p>System performance metrics for debugging latency issues. Sampled every ~5 seconds (300 packets at 60Hz).</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td>string</td>
+<td>ISO 8601 timestamp</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>string</td>
+<td>App version that produced this row (e.g., <code>0.2.7</code>)</td>
+</tr>
+<tr>
+<td><code>packet_id</code></td>
+<td>int</td>
+<td>F1 25 packet type ID</td>
+</tr>
+<tr>
+<td><code>socket_read_ms</code></td>
+<td>float</td>
+<td>Time to read from socket (ms)</td>
+</tr>
+<tr>
+<td><code>forward_ms</code></td>
+<td>float</td>
+<td>Time to forward packet (ms)</td>
+</tr>
+<tr>
+<td><code>capture_write_ms</code></td>
+<td>float</td>
+<td>Time to write raw bin capture (ms, 0 if capture off)</td>
+</tr>
+<tr>
+<td><code>processing_ms</code></td>
+<td>float</td>
+<td>Total processing time (ms)</td>
+</tr>
+<tr>
+<td><code>laps_processing_ms</code></td>
+<td>float</td>
+<td>Lap-related processing time (ms)</td>
+</tr>
+<tr>
+<td><code>turns_processing_ms</code></td>
+<td>float</td>
+<td>Turn-related processing time (ms)</td>
+</tr>
+<tr>
+<td><code>writer_ms</code></td>
+<td>float</td>
+<td>CSV write time (ms)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="notes">Notes</h2>
+<h3 id="session-id-format">Session ID Format</h3>
+<pre><code>{Track}_{SessionType}_{MonthDay}_{Counter}
+</code></pre>
+<p>Example: <code>AbuDhabi_FP_Jan30_001</code></p>
+<h3 id="lap-id-format">Lap ID Format</h3>
+<pre><code>{SessionID}_L{LapNumber}
+</code></pre>
+<p>Example: <code>AbuDhabi_FP_Jan30_001_L2</code></p>
+<h3 id="artifact-lap-filtering">Artifact Lap Filtering</h3>
+<p>Artifact laps are automatically filtered out based on <code>driver_status</code>:
+- <code>IN_GARAGE</code> (driver_status=0): Car is in garage
+- <code>FLYING_LAP</code> (driver_status=1): AI-driven flying lap in FP/Quali
+- Incomplete L1: Lap 1 with no sector 1 time (restarted before completing)</p>
+<h3 id="calibration-data">Calibration Data</h3>
+<p>Turn-level data requires calibration files in <code>telemetry_logs/calibration/{track}/{session_type}_turns.json</code>. Run calibration mode with AI cars to generate these files.</p>
+<h3 id="data-types">Data Types</h3>
+<ul>
+<li><code>string</code>: Text values (may be empty)</li>
+<li><code>int</code>: Integer values</li>
+<li><code>float</code>: Decimal values</li>
+<li><code>bool</code>: <code>True</code> or <code>False</code></li>
+</ul>
+<h3 id="csv-format">CSV Format</h3>
+<ul>
+<li>Standard CSV with comma delimiters</li>
+<li>UTF-8 encoding</li>
+<li>Header row on first line</li>
+<li>Boolean values as Python literals (<code>True</code>/<code>False</code>)</li>
+</ul>
+<button class="guide-back-to-top" id="guide-back-to-top" aria-label="Back to top">↑</button>
+</main>
+    <main class="viewer" hidden>
+        <div class="viewer-container">
+            <a class="nav-arrow nav-prev" href="#" aria-label="Previous slide" title="Previous (Left Arrow)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </a>
+
+            <div class="slide-area">
+                <div class="slide-content">
+                    <img class="slide-image" src="" alt="" draggable="false">
+                    <div class="slide-loading">Loading...</div>
+                </div>
+            </div>
+
+            <a class="nav-arrow nav-next" href="#" aria-label="Next slide" title="Next (Right Arrow)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <div class="caption-bar">
+            <div class="caption-content">
+                <div class="caption-left">
+                    <span class="caption-group"></span>
+                    <h2 class="caption-title"></h2>
+                    <p class="caption-description"></p>
+                    <p class="caption-disclaimer"></p>
+                </div>
+                <div class="caption-right">
+                    <span class="slide-counter"></span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-links">
+            <span class="footer-ext-prefix">Get it free in the </span><a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="footer-ext-link">Microsoft Store</a>
+            <span class="footer-link-sep">&middot;</span>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener" class="footer-ext-link">GitHub</a>
+        </p>
+        <p class="footer-copyright">&copy; 2026 @pyfytelemetryf1. All rights reserved.</p>
+        <p class="footer-disclaimer">
+            * - This project is not affiliated with, endorsed by, or sponsored by Electronic Arts, Codemasters,
+            Formula One World Championship Limited, Liberty Media Corporation, F1 25 and its 2026 Season Pack, Simagic, or any related
+            trademarks or hardware manufacturers. All product names, trademarks, and registered trademarks
+            are the property of their respective owners.
+        </p>
+    </footer>
+
+    <script>window.SITE_ROOT = '../';</script>
+    <script src="../data-manifest.js"></script>
+    <script src="../scenarios.js"></script>
+    <script src="../viewer.js"></script>
+    <script data-goatcounter="https://pyfytelemetryf1.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

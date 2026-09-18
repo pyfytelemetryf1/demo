@@ -2,267 +2,284 @@
  * Scenario metadata for the demo walkthrough.
  *
  * Each scenario has:
- *   id        - matches the tab data-scenario attribute
- *   title     - scenario display name
- *   slides[]  - ordered array of slide objects:
- *     image       - path to image (relative to demo/)
- *     title       - caption title
+ *   id - matches the tab data-scenario attribute
+ *   title - scenario display name
+ *   slides[] - ordered array of slide objects:
+ *     image - path to image (relative to demo/)
+ *     title - caption title
  *     description - caption description text
- *     group       - optional group tag (e.g., "OVERVIEW", "TECHNIQUE")
- *     disclaimer  - optional disclaimer text (for LLM slides)
+ *     group - optional group tag (e.g., "OVERVIEW", "TECHNIQUE")
+ *     disclaimer - optional disclaimer text (for LLM slides)
  *     placeholder - if true, shows a placeholder instead of an image
- *     markdown    - if set, renders markdown content instead of an image
+ *     markdown - if set, renders markdown content instead of an image
  */
 
 const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, only data you upload is sent to them. Their terms apply.';
 
 const WELCOME_SLIDE = {
-    markdown: '<p><strong>PyFy Telemetry F1</strong> is currently compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC).</p>' +
-        '<p class="welcome-slide-beta">Now in Beta on Win 10/11: <a href="?s=supported-tracks/1" class="slide-link">supports 18 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu.</p>' +
-        '<p class="welcome-slide-cta">Select another <a href="#" class="slide-open-drawer">walkthrough</a> from the menu,<br/>or get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>.</p>' +
-        '<p>See key features in action before installing: <a href="?s=full-reel/1" class="slide-link">analysis charts</a>, <a href="?s=full-reel/9" class="slide-link">session comparisons</a>, <a href="?s=llm/1" class="slide-link">third-party coaching insights</a>, <a href="#" class="slide-link slide-open-csv">key telemetry data</a>, or a <a href="?s=install/1" class="slide-link">quick setup demo</a> (PC or Console).</p>' +
-        '<p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
-    title: 'PyFy Telemetry \u2014 F1 Performance Analysis (Beta)',
-    description: 'Capture real-time sim racing telemetry and turn it into practical, corner-by-corner insights you can actually use to gain lap time.',
+    markdown: '<p><strong>PyFy Telemetry F1</strong> is compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC).<br/>Capture sim racing telemetry and turn it into practical, corner-by-corner coaching insights you can use right away to find lap time.</p><p class="welcome-slide-beta">Now in Beta on Win 10/11: <a href="?s=supported-tracks/1" class="slide-link">supports 19 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu and a polished UX.</p><p class="welcome-slide-cta">Get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>, or see <a href="?s=highlights/1" class="slide-link">key features</a> in the <a href="#" class="slide-open-drawer">menu</a>, including a <a href="?s=install/1" class="slide-link">quick setup guide</a> (PC or Console).</p><p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
+    title: 'PyFy Telemetry: F1 Performance Analysis',
+    description: 'Capture sim racing telemetry and turn it into practical, turn-by-turn/corner-by-corner insights you can use right away to gain lap time.',
     group: 'WELCOME'
 };
 
 const SCENARIOS = {
     highlights: {
-        title: 'Chart Highlights',
+        title: 'Top Features',
         slides: [
             {
                 image: 'images/highlights/turn_time_delta.png',
                 title: 'Time Left on Table',
-                description: 'PyFyTelemetry captures real-time F1 sim racing telemetry and turns it into corner-by-corner insights. This chart shows per-turn time variance: the gap between your best and median lap through each corner, sorted by potential gain.',
-                group: 'TURN ANALYSIS'
+                description: 'Four steps to faster lap times: get time back right now, find extra pace against a target reference, fix your technique, optimize ERS.\nFirst, time back now: execute closer to your best, consistently, in the top three turns/corners or complexes named here.',
+                group: 'FIND LAP TIME / TURN ANALYSIS'
+            },
+            {
+                image: 'images/highlights/turn_time_delta_reference.png',
+                title: 'Time Gained / Lost per Turn vs Reference',
+                description: 'Then, find more pace: turn by turn against the track’s built-in reference.\nRed is where you’re slower, green is where you’re faster. Focus on the named corners that are worth the most.',
+                group: 'FIND MORE PACE / TURN ANALYSIS'
             },
             {
                 image: 'images/highlights/braking_consistency.png',
                 title: 'Braking Consistency',
-                description: 'Compare braking points across turns between sessions. Find where you\'re inconsistent.',
-                group: 'COMPARISON'
+                description: 'Your braking point at every priority corner, lap by lap, comparing your median (in orange) to the reference (dashed purple).\nA wide spread away from the reference means you’re leaving lap time on the table.',
+                group: 'TECHNIQUE / CONSISTENCY'
             },
             {
                 image: 'images/highlights/throttle_consistency.png',
                 title: 'Throttle Consistency',
-                description: 'Compare throttle application points across turns between sessions. Spot where you\'re leaving speed on the table.',
-                group: 'COMPARISON'
+                description: 'Where you commit to throttle on exit, lap by lap. The purple dash is the reference.\nLate or scattered commitment is exit speed left on the table.',
+                group: 'TECHNIQUE / CONSISTENCY'
             },
             {
-                image: 'images/highlights/turn_time_delta_comparison.png',
-                title: 'Turn Time Delta \u2014 Session Comparison',
-                description: 'Where you gained or lost the most time between two races, sorted by impact. Red = slower, green = faster.',
-                group: 'COMPARISON'
+                image: 'images/highlights/racing_line_t1.png',
+                title: 'Racing Line - T1',
+                description: 'Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
+                group: 'TECHNIQUE / RACING LINE'
             },
             {
-                image: 'images/highlights/racing_line_chicane.png',
-                title: 'Racing Line \u2014 T6+T7 Chicane',
-                description: 'Every lap\'s racing line through the T6-T7 chicane overlaid \u2014 one outlier lap is immediately visible.',
-                group: 'RACING LINES'
+                image: 'images/highlights/brake_traces_gear.png',
+                title: 'Brake Traces & Gear Overlay - T6',
+                description: 'Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Highest-yield turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re correctly trail braking to the apex.',
+                group: 'TECHNIQUE / TRAIL BRAKING'
+            },
+            {
+                image: 'images/highlights/throttle_traces_t6.png',
+                title: 'Throttle Traces - T6',
+                description: 'Throttle application and modulation past the apex of a specific turn/corner. Highest-yield turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re getting back on throttle early enough.',
+                group: 'TECHNIQUE / THROTTLE APPLICATION'
             },
             {
                 image: 'images/highlights/standing_start.png',
                 title: 'Standing Start Analysis at Lights Out',
-                description: 'Reaction time, traction, throttle application, and wheel spin \u2014 compared across race starts.',
-                group: 'RACE START'
+                description: 'Reaction time, traction, throttle application and wheel spin off the line, two races side by side, plus places gained or lost into Turn 1.',
+                group: 'TECHNIQUE / RACE START'
             },
             {
-                image: 'images/highlights/scorecard.png',
-                title: 'Session Scorecard',
-                description: 'At-a-glance session summary: difficulty, assists, technique metrics, and consistency scores.',
-                group: 'SCORECARD'
+                image: 'images/highlights/ers_deployment.png',
+                title: 'ERS Deployment Pattern',
+                description: 'Finally, optimize ERS. How much battery you deploy on the run to each corner, lap by lap, against the reference pattern (dashed purple).\nThe straights where the reference spends more are the straights where you leave time on the table.',
+                group: 'ENERGY / ERS MANAGEMENT'
+            },
+            {
+                image: 'images/highlights/ers_harvesting.png',
+                title: 'ERS Harvesting Pattern',
+                description: 'The other half of ERS: battery recovered into each corner, lap by lap, against the reference (dashed purple).\nOver-harvesting where the reference does not is speed scrubbed on entry.',
+                group: 'ENERGY / ERS MANAGEMENT'
             },
             {
                 image: 'images/highlights/llm_report.png',
-                title: 'LLM Performance Report (Optional)',
-                description: 'Export your CSV telemetry and charts as a single zip file that you can drag and drop into your preferred LLM. A purpose-built AI skill produces consistent, structured coaching, focused on 3 actionable priorities for your next session.',
-                group: 'LLM ANALYSIS',
+                title: 'External AI Coaching (Optional)',
+                description: 'The built-in chart analysis already tells you exactly what to fix and where to find pace. But for a plain-English debrief in the style of a Race Engineer,\ndrag and drop the analysis ZIP into your preferred external LLM, or open your browser-based AI/LLM straight from the app’s menu.',
+                group: 'EXTERNAL AI COACHING',
                 disclaimer: LLM_DISCLAIMER
-            },
-            {
-                image: 'images/highlights/brake_traces_gear.png',
-                title: 'Brake Traces & Gear Overlay',
-                description: 'Per-turn brake application with gear selection \u2014 see your braking consistency lap by lap.',
-                group: 'TECHNIQUE'
-            },
-            {
-                image: 'images/highlights/lap_times_per_stint.png',
-                title: 'Lap Times Per Stint',
-                description: 'See pace evolution within each tyre stint. Spot degradation and outlier laps.',
-                group: 'STRATEGY'
             },
             {
                 image: 'images/highlights/lap_times_progression.png',
                 title: 'Lap Times Progression',
-                description: 'Compare clean lap times across sessions. Outlier laps are automatically detected and annotated.',
-                group: 'OVERVIEW'
+                description: 'Every clean lap in order, with median vs the reference. Outlier laps are detected and annotated.',
+                group: 'RACE PACE'
             },
             {
-                image: 'images/highlights/tyre_degradation.png',
-                title: 'Tyre Wear & Degradation',
-                description: 'Track tyre wear across stints. Plan your strategy with data.',
-                group: 'STRATEGY'
+                image: 'images/highlights/scorecard.png',
+                title: 'Session Scorecard',
+                description: 'The whole session on one card: context, race start, technique scores, consistency scores, plus the two\nbiggest opportunities (identified per turn/corner) to gain lap time or find extra pace right now.',
+                group: 'SESSION OVERVIEW'
             },
             {
-                image: 'images/highlights/track_map_abudhabi.png',
-                title: 'Track Map',
-                description: 'Full track layout colored by speed, with apex speeds annotated at each turn.',
+                image: 'images/highlights/fastest_lap_track_map.png',
+                title: 'Lap Heat Map vs Reference',
+                description: 'Your fastest lap drawn on the circuit, comparing speed deltas vs. the reference through each turn. For example: T5 is faster in, slower out; the reverse should be true.\nShows where to find more speed next, at a glance.',
                 group: 'TRACK MAP'
-            },
-            WELCOME_SLIDE
+            }
         ]
     },
     'full-reel': {
-        title: 'Full Analysis Reel',
+        title: 'Single Race vs Reference',
         slides: [
-            // Overview
-            { image: 'images/full-reel/01_overview_lap_times_progression.png', title: 'Clean Lap Times Comparison', description: 'Lap-by-lap comparison of clean times across two race sessions, with median lines and outlier annotations.', group: 'OVERVIEW' },
-            { image: 'images/full-reel/02_overview_lap_times_per_stint_race1.png', title: 'Lap Times Per Stint \u2014 Race 1', description: 'Pace evolution within each tyre stint. Outlier laps are automatically detected and annotated — e.g. an incident at T13+T14.', group: 'OVERVIEW' },
-            { image: 'images/full-reel/03_overview_lap_times_per_stint_race2.png', title: 'Lap Times Per Stint \u2014 Race 2', description: 'Pace evolution within each tyre stint for the reference race session. Outlier laps are automatically detected and annotated.', group: 'OVERVIEW' },
-            { image: 'images/full-reel/04_overview_lap_times_vs_tyre_age.png', title: 'Lap Times vs Tyre Age', description: 'How lap times evolve with tyre wear across both sessions.', group: 'OVERVIEW' },
-            { image: 'images/full-reel/05_comparison_fuel_normalized_pace.png', title: 'Fuel-Normalized Pace', description: 'True pace comparison with fuel weight effects removed. Particularly useful when comparing race sessions of different lengths e.g. Medium (20 lap) race vs Short (15 lap) race.', group: 'OVERVIEW' },
-            // Race Start
-            { image: 'images/full-reel/06_start_standing_start_analysis.png', title: 'Standing Start Analysis', description: 'Reaction time, speed build-up, traction, throttle modulation, and wheel spin compared between two race starts.', group: 'RACE START' },
-            // Turn Analysis
-            { image: 'images/full-reel/07_turns_time_left_on_table_race1.png', title: 'Time Left on Table \u2014 Race 1', description: 'Per-turn time variance: the gap between your best and median performance. Sorted by potential gain.', group: 'TURN ANALYSIS' },
-            { image: 'images/full-reel/08_turns_time_left_on_table_race2.png', title: 'Time Left on Table \u2014 Race 2', description: 'Per-turn time variance for the reference race session.', group: 'TURN ANALYSIS' },
-            { image: 'images/full-reel/09_comparison_turn_time_delta.png', title: 'Turn Time Delta', description: 'Sorted by impact: where you gained or lost the most time between the two races.', group: 'TURN ANALYSIS' },
-            { image: 'images/full-reel/10_comparison_braking_consistency.png', title: 'Braking Consistency Comparison', description: 'Braking point variance per turn across both sessions. Lower spread means more consistent braking.', group: 'TURN ANALYSIS' },
-            { image: 'images/full-reel/11_comparison_throttle_consistency.png', title: 'Throttle Consistency Comparison', description: 'Throttle application point variance per turn across both sessions.', group: 'TURN ANALYSIS' },
-            // Scorecard
-            { image: 'images/full-reel/12_experimental_scorecard.png', title: 'Session Scorecard', description: 'At-a-glance session summary: difficulty, assists, progression, technique, and consistency metrics.', group: 'SCORECARD' },
-            // Racing Lines — T12+T13+T14
-            { image: 'images/full-reel/13_lines_T12_T13_T14_racing_line_race1.png', title: 'Racing Line \u2014 T12+T13+T14 (Race 1)', description: 'Every lap\'s line through the T12-T13-T14 complex overlaid. Colors distinguish individual laps.', group: 'RACING LINES' },
-            { image: 'images/full-reel/14_lines_T12_T13_T14_racing_line_race2.png', title: 'Racing Line \u2014 T12+T13+T14 (Race 2)', description: 'T12-T13-T14 racing lines from the reference session for comparison.', group: 'RACING LINES' },
-            // Racing Lines — T6+T7
-            { image: 'images/full-reel/15_lines_T6_T7_racing_line_race1.png', title: 'Racing Line \u2014 T6+T7 (Race 1)', description: 'Connected corner complex \u2014 line consistency through the T6-T7 chicane.', group: 'RACING LINES' },
-            { image: 'images/full-reel/16_lines_T6_T7_racing_line_race2.png', title: 'Racing Line \u2014 T6+T7 (Race 2)', description: 'T6-T7 chicane lines from the reference session for comparison.', group: 'RACING LINES' },
-            // Racing Lines — T5
-            { image: 'images/full-reel/17_lines_T5_racing_line_race1.png', title: 'Racing Line \u2014 T5 (Race 1)', description: 'Racing line consistency through Turn 5.', group: 'RACING LINES' },
-            { image: 'images/full-reel/18_lines_T5_racing_line_race2.png', title: 'Racing Line \u2014 T5 (Race 2)', description: 'Turn 5 lines from the reference session for comparison.', group: 'RACING LINES' },
-            // Racing Lines — T9
-            { image: 'images/full-reel/19_lines_T9_racing_line_race1.png', title: 'Racing Line \u2014 T9 (Race 1)', description: 'Mid-circuit racing line overlay for Turn 9.', group: 'RACING LINES' },
-            { image: 'images/full-reel/20_lines_T9_racing_line_race2.png', title: 'Racing Line \u2014 T9 (Race 2)', description: 'Turn 9 lines from the reference session for comparison.', group: 'RACING LINES' },
-            // Racing Lines — T16
-            { image: 'images/full-reel/21_lines_T16_racing_line_race1.png', title: 'Racing Line \u2014 T16 (Race 1)', description: 'Line consistency through the final corner complex.', group: 'RACING LINES' },
-            { image: 'images/full-reel/22_lines_T16_racing_line_race2.png', title: 'Racing Line \u2014 T16 (Race 2)', description: 'Final corner lines from the reference session for comparison.', group: 'RACING LINES' },
-            // Technique — T12+T13+T14
-            { image: 'images/full-reel/23_technique_T12_T13_T14_brake_traces_gear_overlay_race1.png', title: 'T12+T13+T14 Brake Traces & Gear \u2014 Race 1', description: 'Brake pressure and gear selection through the T12-T13-T14 complex across all laps.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/24_technique_T12_T13_T14_brake_traces_gear_overlay_race2.png', title: 'T12+T13+T14 Brake Traces & Gear \u2014 Race 2', description: 'T12-T13-T14 braking from the reference session.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/25_technique_T12_T13_T14_throttle_traces_race1.png', title: 'T12+T13+T14 Throttle Traces \u2014 Race 1', description: 'Throttle application through the T12-T13-T14 complex across all laps, helps notice e.g. the large variation/hesitation on throttle, costing lap time.\nThe turn complex is automatically selected by the chart analysis feature as time is being lost here.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/26_technique_T12_T13_T14_throttle_traces_race2.png', title: 'T12+T13+T14 Throttle Traces \u2014 Race 2', description: 'T12-T13-T14 throttle from the reference session.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/27_technique_T12_T13_T14_speed_traces_race1.png', title: 'T12+T13+T14 Speed Traces \u2014 Race 1', description: 'Speed profile through the T12-T13-T14 complex across all laps.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/28_technique_T12_T13_T14_speed_traces_race2.png', title: 'T12+T13+T14 Speed Traces \u2014 Race 2', description: 'T12-T13-T14 speed profiles from the reference session for comparison.', group: 'TECHNIQUE' },
-            // Technique — T6+T7
-            { image: 'images/full-reel/29_technique_T6_T7_brake_traces_gear_overlay_race1.png', title: 'T6+T7 Brake Traces & Gear \u2014 Race 1', description: 'Brake and gear through the chicane complex.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/30_technique_T6_T7_brake_traces_gear_overlay_race2.png', title: 'T6+T7 Brake Traces & Gear \u2014 Race 2', description: 'Chicane braking from the reference session for comparison.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/31_technique_T6_T7_throttle_traces_race1.png', title: 'T6+T7 Throttle Traces \u2014 Race 1', description: 'Throttle through the chicane complex.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/32_technique_T6_T7_throttle_traces_race2.png', title: 'T6+T7 Throttle Traces \u2014 Race 2', description: 'Chicane throttle from the reference session for comparison.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/33_technique_T6_T7_speed_traces_race1.png', title: 'T6+T7 Speed Traces \u2014 Race 1', description: 'Speed through the chicane complex.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/34_technique_T6_T7_speed_traces_race2.png', title: 'T6+T7 Speed Traces \u2014 Race 2', description: 'Chicane speeds from the reference session for comparison.', group: 'TECHNIQUE' },
-            // Technique — T5
-            { image: 'images/full-reel/35_technique_T5_brake_traces_gear_overlay_race1.png', title: 'T5 Brake Traces & Gear \u2014 Race 1', description: 'Brake and gear analysis for Turn 5.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/36_technique_T5_brake_traces_gear_overlay_race2.png', title: 'T5 Brake Traces & Gear \u2014 Race 2', description: 'Turn 5 braking from the reference session for comparison.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/37_technique_T5_throttle_traces_race1.png', title: 'T5 Throttle Traces \u2014 Race 1', description: 'Throttle through Turn 5.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/38_technique_T5_throttle_traces_race2.png', title: 'T5 Throttle Traces \u2014 Race 2', description: 'Turn 5 throttle from the reference session for comparison.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/39_technique_T5_speed_traces_race1.png', title: 'T5 Speed Traces \u2014 Race 1', description: 'Speed profile through Turn 5.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/40_technique_T5_speed_traces_race2.png', title: 'T5 Speed Traces \u2014 Race 2', description: 'Turn 5 speeds from the reference session for comparison.', group: 'TECHNIQUE' },
-            // Technique — T9
-            { image: 'images/full-reel/41_technique_T9_brake_traces_gear_overlay_race1.png', title: 'T9 Brake Traces & Gear \u2014 Race 1', description: 'Brake and gear analysis for Turn 9.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/42_technique_T9_brake_traces_gear_overlay_race2.png', title: 'T9 Brake Traces & Gear \u2014 Race 2', description: 'Turn 9 braking from the reference session for comparison.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/43_technique_T9_throttle_traces_race1.png', title: 'T9 Throttle Traces \u2014 Race 1', description: 'Throttle application through Turn 9.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/44_technique_T9_throttle_traces_race2.png', title: 'T9 Throttle Traces \u2014 Race 2', description: 'Turn 9 throttle from the reference session for comparison.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/45_technique_T9_speed_traces_race1.png', title: 'T9 Speed Traces \u2014 Race 1', description: 'Speed profile through Turn 9.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/46_technique_T9_speed_traces_race2.png', title: 'T9 Speed Traces \u2014 Race 2', description: 'Turn 9 speeds from the reference session for comparison.', group: 'TECHNIQUE' },
-            // Technique — T16
-            { image: 'images/full-reel/47_technique_T16_brake_traces_gear_overlay_race1.png', title: 'T16 Brake Traces & Gear \u2014 Race 1', description: 'Brake and gear analysis for the final corner.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/48_technique_T16_brake_traces_gear_overlay_race2.png', title: 'T16 Brake Traces & Gear \u2014 Race 2', description: 'Final corner braking from the reference session for comparison.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/49_technique_T16_throttle_traces_race1.png', title: 'T16 Throttle Traces \u2014 Race 1', description: 'Throttle application through the final corner.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/50_technique_T16_throttle_traces_race2.png', title: 'T16 Throttle Traces \u2014 Race 2', description: 'Final corner throttle from the reference session for comparison.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/51_technique_T16_speed_traces_race1.png', title: 'T16 Speed Traces \u2014 Race 1', description: 'Speed through the final corner complex.', group: 'TECHNIQUE' },
-            { image: 'images/full-reel/52_technique_T16_speed_traces_race2.png', title: 'T16 Speed Traces \u2014 Race 2', description: 'Final corner speeds from the reference session for comparison.', group: 'TECHNIQUE' },
-            // Energy
-            { image: 'images/full-reel/53_energy_ers_deployment_pattern_race1.png', title: 'ERS Deployment Pattern \u2014 Race 1', description: 'Energy recovery and deployment across the lap. Optimize your ERS strategy.', group: 'ENERGY' },
-            { image: 'images/full-reel/54_energy_ers_deployment_pattern_race2.png', title: 'ERS Deployment Pattern \u2014 Race 2', description: 'ERS usage from the reference session for comparison.', group: 'ENERGY' },
-            { image: 'images/full-reel/55_energy_battery_lifecycle_race1.png', title: 'Battery Lifecycle \u2014 Race 1', description: 'Battery charge level throughout the race. See charge/discharge cycles.', group: 'ENERGY' },
-            { image: 'images/full-reel/56_energy_battery_lifecycle_race2.png', title: 'Battery Lifecycle \u2014 Race 2', description: 'Battery patterns from the reference session for comparison.', group: 'ENERGY' },
-            // Tyre Management
-            { image: 'images/full-reel/57_overview_tyre_management_race1.png', title: 'Tyre Management \u2014 Race 1', description: 'Tyre temperature tracking across stints.', group: 'TYRE MANAGEMENT' },
-            { image: 'images/full-reel/58_overview_tyre_management_race2.png', title: 'Tyre Management \u2014 Race 2', description: 'Tyre temperature tracking across stints from the reference session.', group: 'TYRE MANAGEMENT' },
-            // Outliers
-            { image: 'images/full-reel/59_overview_excluded_lap_times.png', title: 'Excluded Laps', description: 'Standing start laps, in-laps, out-laps, safety car laps, and laps with damage are usually excluded from most charts focusing on race pace. This chart shows them for comparison.', group: 'OVERVIEW' },
-            // Fastest Lap Telemetry
-            { image: 'images/full-reel/60_overview_fastest_lap_telemetry_race1.png', title: 'Fastest Lap Telemetry \u2014 Race 1', description: 'Full 6-panel telemetry dashboard for your fastest lap: brake, throttle, steering, speed, and gear shifts with turn zones overlaid for context.', group: 'TELEMETRY' },
-            { image: 'images/full-reel/61_overview_fastest_lap_telemetry_race2.png', title: 'Fastest Lap Telemetry \u2014 Race 2', description: 'Fastest lap telemetry dashboard from the reference session for comparison.', group: 'TELEMETRY' }
+            {
+                image: 'images/full-reel/01_comparison_turn_time_delta.png',
+                title: 'Time Gained / Lost per Turn vs Reference',
+                description: 'Find more pace: turn by turn against the track’s built-in reference.\nRed is where you’re slower, green is where you’re faster. The footnote names the corners worth the most.',
+                group: 'FIND MORE PACE / TURN ANALYSIS'
+            },
+            {
+                image: 'images/full-reel/02_turns_time_left_on_table.png',
+                title: 'Time Left on Table',
+                description: 'Get time back right now: the gap between your median and your best through each corner is pace you already have.\nExecute closer to your best, consistently, in the three turns/corners named here.',
+                group: 'FIND LAP TIME / TURN ANALYSIS'
+            },
+            {
+                image: 'images/full-reel/03_technique_braking_point_consistency.png',
+                title: 'Braking Point Consistency',
+                description: 'Your braking point at every priority corner, lap by lap, comparing your median (in orange) to the reference (dashed purple).\nA wide spread away from the reference means you’re leaving lap time on the table.',
+                group: 'TECHNIQUE / CONSISTENCY'
+            },
+            {
+                image: 'images/full-reel/04_technique_throttle_committed_consistency.png',
+                title: 'Throttle Committed Consistency',
+                description: 'Where you commit to throttle on exit, lap by lap. The purple dash is the reference.\nLate or scattered commitment is exit speed left on the table.',
+                group: 'TECHNIQUE / CONSISTENCY'
+            },
+            {
+                image: 'images/full-reel/05_start_standing_start_analysis.png',
+                title: 'Standing Start Analysis',
+                description: 'Reaction time, traction, throttle application and wheel spin off the line, plus places gained or lost into Turn 1.',
+                group: 'TECHNIQUE / RACE START'
+            },
+            {
+                image: 'images/full-reel/06_lines_T6_racing_line.png',
+                title: 'Racing Line - T6',
+                description: 'Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
+                group: 'TECHNIQUE / RACING LINE'
+            },
+            {
+                image: 'images/full-reel/07_technique_T6_brake_traces_gear_overlay.png',
+                title: 'Brake Traces & Gear Overlay - T6',
+                description: 'Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Highest-yield turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re correctly trail braking to the apex.',
+                group: 'TECHNIQUE / TRAIL BRAKING'
+            },
+            {
+                image: 'images/full-reel/08_technique_T6_throttle_traces.png',
+                title: 'Throttle Traces - T6',
+                description: 'Throttle application and modulation past the apex of a specific turn/corner. Highest-yield turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re getting back on throttle early enough.',
+                group: 'TECHNIQUE / THROTTLE APPLICATION'
+            },
+            {
+                image: 'images/full-reel/09_technique_T6_speed_traces.png',
+                title: 'Speed Traces - T6',
+                description: 'Entry, minimum and exit speed through T6, lap by lap, vs the dashed purple reference.',
+                group: 'TECHNIQUE / SPEED TRACES'
+            },
+            {
+                image: 'images/full-reel/10_lines_T12_T13_T14_racing_line.png',
+                title: 'Racing Line - T12+T13+T14',
+                description: 'Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
+                group: 'TECHNIQUE / RACING LINE'
+            },
+            {
+                image: 'images/full-reel/11_technique_T12_T13_T14_brake_traces_gear_overlay.png',
+                title: 'Brake Traces & Gear Overlay - T12+T13+T14',
+                description: 'Brake pressure, pedal release, and gear downshifts through the T12-T13-T14 complex. Corner boundaries and the reference apex are marked.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re correctly trail braking to each apex.',
+                group: 'TECHNIQUE / TRAIL BRAKING'
+            },
+            {
+                image: 'images/full-reel/12_technique_T12_T13_T14_speed_traces.png',
+                title: 'Speed Traces - T12+T13+T14',
+                description: 'Speed through the T12-T13-T14 complex, lap by lap, vs the dashed purple reference.\nSee where your minimum speed sits, and how much speed you carry out of each corner.',
+                group: 'TECHNIQUE / SPEED TRACES'
+            },
+            {
+                image: 'images/full-reel/13_energy_ers_deployment_pattern.png',
+                title: 'ERS Deployment Pattern',
+                description: 'Finally, optimize ERS. How much battery you deploy on the run to each corner, lap by lap, against the reference pattern (dashed purple).\nThe straights where the reference spends more are the straights where you leave time on the table.',
+                group: 'ENERGY / ERS MANAGEMENT'
+            },
+            {
+                image: 'images/full-reel/14_energy_ers_harvesting_pattern.png',
+                title: 'ERS Harvesting Pattern',
+                description: 'The other half of ERS: battery recovered into each corner, lap by lap, against the reference (dashed purple).\nOver-harvesting where the reference does not is speed scrubbed on entry.',
+                group: 'ENERGY / ERS MANAGEMENT'
+            },
+            {
+                image: 'images/full-reel/15_overview_scorecard.png',
+                title: 'Session Scorecard',
+                description: 'The whole session on one card: context, race start, technique scores, consistency scores, plus the two\nbiggest opportunities (identified per turn/corner) to gain lap time or find extra pace right now.',
+                group: 'SESSION OVERVIEW'
+            },
+            {
+                image: 'images/full-reel/16_comparison_turn_time_delta_two_races.png',
+                title: 'Time Gained / Lost per Turn vs Another Selected Race',
+                description: 'The reference lap is the target to chase, but you can also compare two of your own races, turn by turn, and see what improved or regressed.\nPick your strongest session as the baseline, or the one you want to learn from.',
+                group: 'PROGRESSION / RACE VS RACE'
+            },
+            {
+                image: 'images/full-reel/17_overview_lap_times_progression.png',
+                title: 'Clean Lap Times Progression',
+                description: 'Every clean lap in order, with median vs the reference. Outlier laps are detected and annotated.',
+                group: 'RACE PACE'
+            },
+            {
+                image: 'images/full-reel/18_overview_lap_times_per_stint.png',
+                title: 'Clean Lap Times Per Stint',
+                description: 'Pace within each tyre stint: fastest, slowest and the trend.\nSee whether you’re extracting performance from each tyre compound you used.',
+                group: 'RACE PACE'
+            },
+            {
+                image: 'images/full-reel/19_overview_lap_times_vs_tyre_age.png',
+                title: 'Tyre Degradation',
+                description: 'Added cost per lap as tyres age: fuel-normalized lap times per stint, with compound degradation in ms/lap.\nSteeper than expected means you\'re overdriving the tyre or not handling loss of grip efficiently.',
+                group: 'RACE PACE'
+            },
+            {
+                image: 'images/full-reel/20_overview_tyre_management.png',
+                title: 'Tyre Management',
+                description: 'Tyre surface and carcass temperatures versus their optimal windows, lap by lap and stint by stint.',
+                group: 'TYRE MANAGEMENT'
+            },
+            {
+                image: 'images/full-reel/21_overview_fastest_lap_telemetry.png',
+                title: 'Fastest Lap Telemetry',
+                description: 'Your fastest lap plotted at high resolution: brake, throttle, steering, lateral G, speed and gear with the turn zones marked.',
+                group: 'ADVANCED / FULL LAP TELEMETRY'
+            },
+            {
+                image: 'images/full-reel/22_overview_fastest_lap_track_map.png',
+                title: 'Lap Heat Map vs Reference',
+                description: 'Your fastest lap drawn on the circuit, comparing speed deltas vs. the reference through each turn. For example: T5 is faster in, slower out; the reverse should be true.\nShows where to find more speed next, at a glance.',
+                group: 'ADVANCED / FULL LAP TELEMETRY'
+            }
         ]
     },
     llm: {
-        title: 'External LLM Insights',
+        title: 'External AI Coaching (Optional)',
         slides: [
-            // Abu Dhabi Race — Feb 22 vs Feb 01
             {
                 image: 'images/llm/abudhabi_01_priorities.png',
-                title: 'Top 3 Priorities \u2014 Abu Dhabi',
-                description: 'Export your CSV telemetry and charts as a single zip file that you can drag and drop into your preferred LLM. A purpose-built AI skill produces consistent, structured coaching, focused on 3 actionable priorities for your next session.',
-                group: 'ABU DHABI',
+                title: 'Top 3 Priorities - Abu Dhabi',
+                description: 'The built-in chart analysis already tells you exactly what to fix and where to find pace, but for a plain-English debrief in the style of a Race Engineer, drag and drop the analysis ZIP into your preferred AI/LLM, or open your browser-based LLM straight from the app’s menu. The LLM will explain your Top 3 Priorities for improving, what\'s going wrong, the estimated time you could claw back, and what to fix.',
+                group: 'TOP 3 PRIORITIES',
                 disclaimer: LLM_DISCLAIMER
             },
             {
                 image: 'images/llm/abudhabi_03_turns.png',
-                title: 'Turn-by-Turn Analysis',
-                description: 'Deep dive into specific corners: braking points, apex speeds, throttle application, and what the data says you should change.',
-                group: 'ABU DHABI',
+                title: 'Technique Analysis for Priority Corners',
+                description: 'Zoom in on exactly what to fix for priority corners: racing line, braking point, trail brake, lockups, apex speed, throttle application, or strategically sacrificing speed through one corner of a complex, to win the exit to the next one. Estimates how much time you\'d get back.',
+                group: 'TECHNIQUE / DEEP DIVE',
                 disclaimer: LLM_DISCLAIMER
             },
             {
                 image: 'images/llm/abudhabi_04_race_mgmt.png',
-                title: 'Race Management',
-                description: 'ERS deployment strategy, battery lifecycle patterns, tyre temperature management, and fuel-adjusted pace analysis.',
-                group: 'ABU DHABI',
+                title: 'ERS and Tyre Management',
+                description: 'ERS deployment and harvesting tips, tyre temperature management, and race start analysis.',
+                group: 'ERS / RACE MANAGEMENT',
                 disclaimer: LLM_DISCLAIMER
             },
             {
-                image: 'images/llm/abudhabi_05_comparison.png',
-                title: 'Cross-Race Comparison & Assessment',
-                description: 'Session-to-session progression: what improved, what regressed, and an overall driver level assessment with specific targets.',
-                group: 'ABU DHABI',
-                disclaimer: LLM_DISCLAIMER
-            },
-            // Melbourne Race — Mar 08 vs Mar 05
-            {
-                image: 'images/llm/melbourne_01_priorities.png',
-                title: 'Top 3 Priorities \u2014 Melbourne',
-                description: 'Same structured coaching framework, different track. The LLM adapts its analysis to Melbourne\'s specific layout and challenges.',
-                group: 'MELBOURNE',
-                disclaimer: LLM_DISCLAIMER
-            },
-            {
-                image: 'images/llm/melbourne_03_turns.png',
-                title: 'Turn-by-Turn Analysis',
-                description: 'Corner-specific breakdown for Melbourne: braking zones, trail-braking opportunities, and throttle modulation through key corners.',
-                group: 'MELBOURNE',
-                disclaimer: LLM_DISCLAIMER
-            },
-            {
-                image: 'images/llm/melbourne_04_race_mgmt.png',
-                title: 'Race Management',
-                description: 'ERS deployment, battery patterns, tyre temperatures, and surface management analysis.',
-                group: 'MELBOURNE',
-                disclaimer: LLM_DISCLAIMER
-            },
-            {
-                image: 'images/llm/melbourne_05_comparison.png',
-                title: 'Race Start & Cross-Race Comparison',
-                description: 'Standing start analysis between sessions, plus a comparison of where time was gained or lost across the two races.',
-                group: 'MELBOURNE',
-                disclaimer: LLM_DISCLAIMER
-            },
-            {
-                image: 'images/llm/melbourne_06_assessment.png',
+                image: 'images/llm/abudhabi_06_assessment.png',
                 title: 'Driver Assessment & Summary',
-                description: 'Overall driver level evaluation with specific strengths, areas for improvement, and the top insights to carry forward (see <a href="?s=llm/5" class="drawer-link">Top 3 Priorities</a>).',
-                group: 'MELBOURNE',
+                description: 'For offline races, assess driver progression toward a new AI level target, and potential assists to remove.\nFor online races, assess racecraft in wheel-to-wheel action, avoiding incidents, and pure pace against the human field.',
+                group: 'DRIVER LEVEL ASSESSMENT',
                 disclaimer: LLM_DISCLAIMER
             }
         ]
@@ -271,49 +288,131 @@ const SCENARIOS = {
         title: 'Supported Tracks',
         slides: [
             {
-                markdown: '<p>PyFyTelemetry F1 currently supports <strong>18 tracks</strong>:</p>' +
-                    '<ul class="supported-tracks-list">' +
-                    '<li><a href="?s=supported-tracks/2" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li>' +
-                    '<li><a href="?s=supported-tracks/3" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li>' +
-                    '<li><a href="?s=supported-tracks/4" class="slide-link"><strong>Bahrain</strong></a> - Bahrain International Circuit</li>' +
-                    '<li><a href="?s=supported-tracks/5" class="slide-link"><strong>Azerbaijan</strong></a> - Baku City Circuit</li>' +
-                    '<li><a href="?s=supported-tracks/6" class="slide-link"><strong>Spain</strong></a> - Circuit de Barcelona-Catalunya</li>' +
-                    '<li><a href="?s=supported-tracks/7" class="slide-link"><strong>Hungary</strong></a> - Hungaroring</li>' +
-                    '<li><a href="?s=supported-tracks/8" class="slide-link"><strong>Qatar</strong></a> - Lusail International Circuit</li>' +
-                    '<li><a href="?s=supported-tracks/9" class="slide-link"><strong>Melbourne</strong></a> - Albert Park Circuit</li>' +
-                    '<li><a href="?s=supported-tracks/10" class="slide-link"><strong>Florida</strong></a> - Miami International Autodrome</li>' +
-                    '<li><a href="?s=supported-tracks/11" class="slide-link"><strong>Monte Carlo</strong></a> - Circuit de Monaco</li>' +
-                    '<li><a href="?s=supported-tracks/12" class="slide-link"><strong>Montreal</strong></a> - Circuit Gilles Villeneuve</li>' +
-                    '<li><a href="?s=supported-tracks/13" class="slide-link"><strong>Italy</strong></a> - Autodromo Nazionale di Monza</li>' +
-                    '<li><a href="?s=supported-tracks/14" class="slide-link"><strong>China</strong></a> - Shanghai International Circuit</li>' +
-                    '<li><a href="?s=supported-tracks/15" class="slide-link"><strong>Great Britain</strong></a> - Silverstone Circuit</li>' +
-                    '<li><a href="?s=supported-tracks/16" class="slide-link"><strong>Singapore</strong></a> - Marina Bay Street Circuit</li>' +
-                    '<li><a href="?s=supported-tracks/17" class="slide-link"><strong>Belgium</strong></a> - Circuit de Spa-Francorchamps</li>' +
-                    '<li><a href="?s=supported-tracks/18" class="slide-link"><strong>Japan</strong></a> - Suzuka International Racing Course</li>' +
-                    '<li><a href="?s=supported-tracks/19" class="slide-link"><strong>Netherlands</strong></a> - Circuit Zandvoort</li>' +
-                    '</ul>',
+                markdown: '<p>PyFyTelemetry F1 currently supports detailed turn-level/corner-level analysis at <strong>19 tracks</strong>:</p><ul class="supported-tracks-list"><li><a href="?s=supported-tracks/2" class="slide-link"><strong>Madrid</strong></a> - Madring <strong>NEW</strong></li><li><a href="?s=supported-tracks/3" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li><li><a href="?s=supported-tracks/4" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li><li><a href="?s=supported-tracks/5" class="slide-link"><strong>Bahrain</strong></a> - Bahrain International Circuit</li><li><a href="?s=supported-tracks/6" class="slide-link"><strong>Azerbaijan</strong></a> - Baku City Circuit</li><li><a href="?s=supported-tracks/7" class="slide-link"><strong>Spain</strong></a> - Circuit de Barcelona-Catalunya</li><li><a href="?s=supported-tracks/8" class="slide-link"><strong>Hungary</strong></a> - Hungaroring</li><li><a href="?s=supported-tracks/9" class="slide-link"><strong>Qatar</strong></a> - Lusail International Circuit</li><li><a href="?s=supported-tracks/10" class="slide-link"><strong>Melbourne</strong></a> - Albert Park Circuit</li><li><a href="?s=supported-tracks/11" class="slide-link"><strong>Florida</strong></a> - Miami International Autodrome</li><li><a href="?s=supported-tracks/12" class="slide-link"><strong>Monte Carlo</strong></a> - Circuit de Monaco</li><li><a href="?s=supported-tracks/13" class="slide-link"><strong>Montreal</strong></a> - Circuit Gilles Villeneuve</li><li><a href="?s=supported-tracks/14" class="slide-link"><strong>Italy</strong></a> - Autodromo Nazionale di Monza</li><li><a href="?s=supported-tracks/15" class="slide-link"><strong>China</strong></a> - Shanghai International Circuit</li><li><a href="?s=supported-tracks/16" class="slide-link"><strong>Great Britain</strong></a> - Silverstone Circuit</li><li><a href="?s=supported-tracks/17" class="slide-link"><strong>Singapore</strong></a> - Marina Bay Street Circuit</li><li><a href="?s=supported-tracks/18" class="slide-link"><strong>Belgium</strong></a> - Circuit de Spa-Francorchamps</li><li><a href="?s=supported-tracks/19" class="slide-link"><strong>Japan</strong></a> - Suzuka International Racing Course</li><li><a href="?s=supported-tracks/20" class="slide-link"><strong>Netherlands</strong></a> - Circuit Zandvoort</li></ul>',
                 title: 'Supported Tracks',
                 description: '',
                 group: 'OVERVIEW'
             },
-            { image: 'images/tracks/AbuDhabi.png', title: 'Yas Marina Circuit', description: 'Abu Dhabi', group: 'TRACK MAP' },
-            { image: 'images/tracks/Austria.png', title: 'Red Bull Ring', description: 'Austria', group: 'TRACK MAP' },
-            { image: 'images/tracks/Bahrain.png', title: 'Bahrain International Circuit', description: 'Bahrain', group: 'TRACK MAP' },
-            { image: 'images/tracks/Baku.png', title: 'Baku City Circuit', description: 'Azerbaijan', group: 'TRACK MAP' },
-            { image: 'images/tracks/Catalunya.png', title: 'Circuit de Barcelona-Catalunya', description: 'Spain', group: 'TRACK MAP' },
-            { image: 'images/tracks/Hungaroring.png', title: 'Hungaroring', description: 'Hungary', group: 'TRACK MAP' },
-            { image: 'images/tracks/Losail.png', title: 'Lusail International Circuit', description: 'Qatar', group: 'TRACK MAP' },
-            { image: 'images/tracks/Melbourne.png', title: 'Albert Park Circuit', description: 'Melbourne', group: 'TRACK MAP' },
-            { image: 'images/tracks/Miami.png', title: 'Miami International Autodrome', description: 'Florida', group: 'TRACK MAP' },
-            { image: 'images/tracks/Monaco.png', title: 'Circuit de Monaco', description: 'Monte Carlo', group: 'TRACK MAP' },
-            { image: 'images/tracks/Montreal.png', title: 'Circuit Gilles Villeneuve', description: 'Montreal', group: 'TRACK MAP' },
-            { image: 'images/tracks/Monza.png', title: 'Autodromo Nazionale di Monza', description: 'Italy', group: 'TRACK MAP' },
-            { image: 'images/tracks/Shanghai.png', title: 'Shanghai International Circuit', description: 'China', group: 'TRACK MAP' },
-            { image: 'images/tracks/Silverstone.png', title: 'Silverstone Circuit', description: 'Great Britain', group: 'TRACK MAP' },
-            { image: 'images/tracks/Singapore.png', title: 'Marina Bay Street Circuit', description: 'Singapore', group: 'TRACK MAP' },
-            { image: 'images/tracks/Spa.png', title: 'Circuit de Spa-Francorchamps', description: 'Belgium', group: 'TRACK MAP' },
-            { image: 'images/tracks/Suzuka.png', title: 'Suzuka International Racing Course', description: 'Japan', group: 'TRACK MAP' },
-            { image: 'images/tracks/Zandvoort.png', title: 'Circuit Zandvoort', description: 'Netherlands', group: 'TRACK MAP' }
+            {
+                image: 'images/tracks/Madrid.png',
+                title: 'Madrid - NEW in 0.3.0',
+                description: 'Madring',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/AbuDhabi.png',
+                title: 'Abu Dhabi',
+                description: 'Yas Marina Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Austria.png',
+                title: 'Austria',
+                description: 'Red Bull Ring',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Bahrain.png',
+                title: 'Bahrain',
+                description: 'Bahrain International Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Baku.png',
+                title: 'Azerbaijan',
+                description: 'Baku City Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Catalunya.png',
+                title: 'Spain',
+                description: 'Circuit de Barcelona-Catalunya',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Hungaroring.png',
+                title: 'Hungary',
+                description: 'Hungaroring',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Losail.png',
+                title: 'Qatar',
+                description: 'Lusail International Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Melbourne.png',
+                title: 'Melbourne',
+                description: 'Albert Park Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Miami.png',
+                title: 'Florida',
+                description: 'Miami International Autodrome',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Monaco.png',
+                title: 'Monte Carlo',
+                description: 'Circuit de Monaco',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Montreal.png',
+                title: 'Montreal',
+                description: 'Circuit Gilles Villeneuve',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Monza.png',
+                title: 'Italy',
+                description: 'Autodromo Nazionale di Monza',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Shanghai.png',
+                title: 'China',
+                description: 'Shanghai International Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Silverstone.png',
+                title: 'Great Britain',
+                description: 'Silverstone Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Singapore.png',
+                title: 'Singapore',
+                description: 'Marina Bay Street Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Spa.png',
+                title: 'Belgium',
+                description: 'Circuit de Spa-Francorchamps',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Suzuka.png',
+                title: 'Japan',
+                description: 'Suzuka International Racing Course',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Zandvoort.png',
+                title: 'Netherlands',
+                description: 'Circuit Zandvoort',
+                group: 'TRACK MAP'
+            },
+            {
+                markdown: '<p><strong>PyFy Telemetry F1 version 0.3.0</strong> adds multiple new features:</p><ul class="whats-new-list"><li>2026-regulations support: S-Mode (Active Aero), Boost, 24-car grids, etc.</li><li>2026 UDP telemetry format</li><li>Support for Madrid - newest 2026 track (19 tracks supported in total)</li><li>Reference laps on all eligible charts to aim for an achievable target</li><li>Circuit mini-map on each chart for clear spatial orientation</li><li>Online races support (coaching pace reproducibility and racecraft) in addition to offline races</li><li>Significant UX improvements in the CLI menus - one keypress analysis, charts open as a reel immediately with set defaults, etc.</li><li>Major performance improvements in chart rendering and analysis</li><li>Battery harvesting chart and analysis against reference</li><li>Racing-line analysis directly on the chart</li><li>Scorecard redesigned for high-level overview and coaching</li></ul>',
+                title: 'New in 0.3.0',
+                description: 'PyFy Telemetry F1 0.3.0 adds new key features: support for 2026 regulations and 2026 UDP telemetry format, support for the new Madrid track, reference laps and minimap on every chart, online race analysis, redesigned scorecard, significant performance boost, and more.',
+                group: 'NEW IN 0.3.0'
+            }
         ]
     },
     install: {
@@ -321,8 +420,8 @@ const SCENARIOS = {
         slides: [
             {
                 image: 'images/install/01_store_listing.png',
-                title: 'Get the App \u2014 directly from the Microsoft Store',
-                description: 'Search for "PyFy Telemetry" in the Store, or use the direct link on the left-hand side of this page. Click Get to download. No admin privileges required, no user accounts or in-app purchases, no data collected or transmitted \u2014 all information stays local.',
+                title: 'Get the App - Directly from the Microsoft Store',
+                description: 'Search for "PyFy Telemetry" in the Store, or use the direct link at the bottom of this page. Click "Get" to download.\nNo admin privileges required, no user accounts or in-app purchases, no data collected or transmitted: all information stays local.',
                 group: 'STEP 1'
             },
             {
@@ -332,52 +431,52 @@ const SCENARIOS = {
                 group: 'STEP 1'
             },
             {
-                image: 'images/install/04_first_run_config.png',
-                title: 'First-Run Configuration',
-                description: 'On first launch, the app walks you through a first-run configuration. Press Enter to accept each default.',
+                image: 'images/install/04_first_start.png',
+                title: 'First Start',
+                description: 'On first launch, the app creates a default configuration and starts listening right away.\nAn installation note points to "Telemetry & Settings > Listener settings", where you can change ports and capture options or add a Desktop shortcut.',
                 group: 'STEP 2'
             },
             {
                 image: 'images/install/05_first_run_settings.png',
-                title: 'Review Settings',
-                description: 'Defaults should work out-of-the-box. All settings can be changed later from the app menu. It is highly recommended to enable raw telemetry capture. See User Guide on the side panel for details.',
+                title: 'Listener Settings (Optional)',
+                description: 'Defaults should work out-of-the-box. To change them, open "Telemetry & Settings > Listener settings" in the app.\nIt is recommended to keep "Enable raw telemetry capture" on.',
                 group: 'STEP 2'
             },
             {
                 image: 'images/install/06_app_ready.png',
                 title: 'Ready to Start',
-                description: 'The app is now listening for telemetry. The status bar shows network ports and recording/processing status. Finally, confirm/adjust your game settings.',
+                description: 'The app is now listening for telemetry. The status bar shows network ports and recording/processing status.',
                 group: 'STEP 3'
             },
             {
                 image: 'images/install/07_f1_settings_menu.png',
-                title: 'F1 25 \u2014 Telemetry Settings',
-                description: 'In F1 25, go to Settings and select "Telemetry Settings".',
+                title: 'F1 25 - Telemetry Settings',
+                description: 'Then, confirm/adjust your game settings. In F1 25, go to Settings and select "Telemetry Settings".',
                 group: 'STEP 4'
             },
             {
                 image: 'images/install/08_f1_udp_settings.png',
-                title: 'F1 25 \u2014 UDP Configuration',
-                description: 'Set UDP Telemetry to On, IP Address to 127.0.0.1, Send rate to 60Hz, the UDP Port to match the app\'s listening port (20774), and <strong>UDP Format to 2025</strong>. Keep the format on 2025 also for the 2026 Season Pack (F1 26 DLC) — the 2026 format isn\'t supported yet.',
+                title: 'F1 25 - UDP Configuration',
+                description: 'Set UDP Telemetry to On, IP Address to 127.0.0.1, Send rate to 60Hz, and the UDP Port to match the app\'s listen port (<strong>20774</strong> by default). Set UDP Format to <strong>2026</strong> if you\'ve purchased the DLC, or 2025 otherwise.',
                 group: 'STEP 4'
             },
             {
                 image: 'images/install/09_simpro_manager.png',
                 title: 'SimPro Manager (Optional)',
-                description: 'That\'s it, the one-time setup is complete. You can start capturing your first session: see <a href="?s=capture/1" class="drawer-link">demo</a>. If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775).',
+                description: 'That\'s it, the one-time setup is complete. You can start capturing your first session: see <a href="?s=capture/1" class="drawer-link">demo</a>.\nIf you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775).',
                 group: 'STEP 5'
             },
             {
                 image: 'images/install/10_console_app_settings.png',
-                title: 'Console Setup \u2014 App Settings',
-                description: 'Playing on console? Run the app on a separate Windows device (e.g. on a laptop). During setup, enable [Advanced] Allow broadcast IP \u2014 this lets the app receive telemetry from your console. You\'ll be prompted to allow a Windows Firewall exception.',
-                group: 'CONSOLE SETUP'
+                title: 'Console Setup - App Settings',
+                description: 'Playing on console? Run the app on a separate Windows device (e.g. on a laptop). In "Telemetry & Settings > Listener settings",\nenable [Advanced] Allow broadcast IP - this lets the app receive telemetry from your console. You\'ll be prompted to allow a Windows Firewall exception.',
+                group: 'CONSOLE SETUP (Step 1)'
             },
             {
                 image: 'images/install/11_console_f1_settings.png',
-                title: 'Console Setup \u2014 Game Settings',
-                description: 'In F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app. All other settings remain the same as the PC setup.',
-                group: 'CONSOLE SETUP'
+                title: 'Console Setup - Game Settings',
+                description: 'In F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app.\nAll other settings remain the same as the PC setup.',
+                group: 'CONSOLE SETUP (Step 2)'
             }
         ]
     },
@@ -387,32 +486,20 @@ const SCENARIOS = {
             {
                 image: 'images/capture/01_live_capture.png',
                 title: 'Live Capture',
-                description: 'Start the app. Then, start your F1 25 race. The app automatically detects the session and records telemetry in real time \u2014 track, session type, and lap count update live.',
+                description: 'Start the app. Then, start your F1 25 race. The companion app runs in the background; it automatically detects sessions and records telemetry.',
                 group: 'STEP 1'
             },
             {
                 image: 'images/capture/02_main_menu.png',
                 title: 'Session Complete',
-                description: 'After the race, open the menu. CSVs and raw capture files are saved automatically to your telemetry logs folder.',
+                description: 'After the race, the "Latest Race: Charts & Analysis" quick action will be displayed. Use that to browse through a reel of selected charts that show exactly where and how you can improve your lap times.\nYou can also browse through all your sessions in the "Telemetry & Settings" menu.',
                 group: 'STEP 2'
             },
             {
-                image: 'images/capture/03_laps_csv.png',
-                title: 'Lap-by-Lap Data',
-                description: 'Every lap is recorded with lap times, gap behind, tyre compound and age, temperature windows, AI difficulty, position, weather, lap type, assists, damage, lockups, spins, flashback usage, DRS, traffic conditions, and more. Open in Excel or any spreadsheet viewer for quick review.',
-                group: 'STEP 3'
-            },
-            {
-                image: 'images/capture/04_turns_csv.png',
-                title: 'Turn-by-Turn Data',
-                description: 'Each turn of every lap: entry/apex/exit timings, distances, speeds, gears, and more. Race position at entry/exit, lockups and wheelspin by severity and axle, tyre temperatures, brake bias, differential, and spatial samples. The foundation for all analysis charts.',
-                group: 'STEP 4'
-            },
-            {
                 image: 'images/capture/05_generate_charts.png',
-                title: 'Generate Analysis Charts',
-                description: 'Select "Generate analysis charts" from the menu. Pick one or two sessions and the app produces a complete analysis reel in seconds. See <a href="?s=full-reel/1" class="drawer-link">demo</a>.\nSimilarly, select "Prepare LLM analysis request" to get a bundled zip file that you can directly drag & drop into an external LLM for analysis. See <a href="?s=llm/1" class="drawer-link">demo</a>.',
-                group: 'STEP 5'
+                title: 'Analysis Charts - Coaching Insights',
+                description: 'Select "Generate analysis charts" from the menu. Choose a session and get prioritized coaching insights instantly. The reel opens automatically.\nOptionally, select "Prepare LLM analysis request" to get a bundled ZIP file that you can drag & drop directly into an external LLM for analysis.',
+                group: 'STEP 3'
             }
         ]
     }
@@ -425,3 +512,15 @@ Object.keys(SCENARIOS).forEach(function (id) {
         slides.push(WELCOME_SLIDE);
     }
 });
+
+/**
+ * Stable entry points the app links to (Help menu). Each resolves to the
+ * slide that currently carries that content; the site build writes an
+ * app-link-N/ redirect page per entry. Never renumber or reuse an entry:
+ * shipped builds keep pointing at it. Add a new number for new content.
+ */
+const APP_LINKS = {
+    'app-link-1': 'supported-tracks/1',   // supported tracks
+    'app-link-2': 'install/7',            // in-game UDP telemetry settings
+    'app-link-3': 'supported-tracks/21'   // new in 0.3.0
+};

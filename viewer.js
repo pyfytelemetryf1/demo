@@ -771,13 +771,6 @@
         if (e.target.id === 'guide-back-to-top') {
             helpBody.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        const docLink = e.target.closest('a[href="csv-format/"], a[href="guide/"]');
-        if (docLink && isPlainLeftClick(e)) {
-            e.preventDefault();
-            registerEvent('click/' + docLink.getAttribute('href').slice(0, -1), docLink.textContent);
-            openHelp(docLink.getAttribute('href').slice(0, -1));
-            return;
-        }
         // Handle TOC anchor clicks - scroll within the panel
         const link = e.target.closest('a[href^="#"]');
         if (link) {

@@ -22,7 +22,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/1</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/1/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -33,7 +38,7 @@ First, time back now: execute closer to your best, consistently, </image:caption
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/2</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/2/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -44,7 +49,7 @@ Red is where you’re slower, green is where you’re faster. Focus on the named
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/3</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/3/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -55,7 +60,7 @@ A wide spread away from the reference means you’re leaving lap time on the </i
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/4</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/4/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -66,7 +71,7 @@ Late or scattered commitment is exit speed left on the table.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/5</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/5/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -77,7 +82,7 @@ The footnote names divergences worth correcting.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/6</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/6/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -88,7 +93,7 @@ The fastest lap is highlighted vs the dashed purple reference. See wh</image:cap
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/7</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/7/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -99,7 +104,7 @@ The fastest lap is highlighted vs the dashed purple reference. See whether </ima
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/8</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/8/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -109,7 +114,7 @@ The fastest lap is highlighted vs the dashed purple reference. See whether </ima
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/9</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/9/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -120,7 +125,7 @@ The straights where the reference spends more are the straights</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/10</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/10/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -131,7 +136,7 @@ Over-harvesting where the reference does not is speed scrubbed on entry.</image:
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/11</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/11/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -142,7 +147,7 @@ drag and drop the analysis ZIP into your pref</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/12</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/12/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -152,7 +157,7 @@ drag and drop the analysis ZIP into your pref</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/13</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/13/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -163,7 +168,7 @@ biggest opportunities (identified per turn/corner) to gain lap time or find extr
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/14</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/14/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -174,12 +179,17 @@ Shows where to find more speed </image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=highlights/15</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/highlights/15/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/1</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/1/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -190,7 +200,7 @@ Red is where you’re slower, green is where you’re faster. The footnote names
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/2</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/2/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -201,7 +211,7 @@ Execute closer to your best, consistently, in the three turns/corners named here
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/3</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/3/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -212,7 +222,7 @@ A wide spread away from the reference means you’re leaving lap time on the </i
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/4</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/4/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -223,7 +233,7 @@ Late or scattered commitment is exit speed left on the table.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/5</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/5/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -233,7 +243,7 @@ Late or scattered commitment is exit speed left on the table.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/6</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/6/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -244,7 +254,7 @@ The footnote names divergences worth correcting.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/7</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/7/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -255,7 +265,7 @@ The fastest lap is highlighted vs the dashed purple reference. See wh</image:cap
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/8</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/8/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -266,7 +276,7 @@ The fastest lap is highlighted vs the dashed purple reference. See whether </ima
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/9</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/9/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -276,7 +286,7 @@ The fastest lap is highlighted vs the dashed purple reference. See whether </ima
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/10</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/10/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -287,7 +297,7 @@ The footnote names divergences worth correcting.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/11</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/11/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -298,7 +308,7 @@ The fastest lap is highlighted vs the dashed purple reference. </image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/12</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/12/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -309,7 +319,7 @@ See where your minimum speed sits, and how much speed you carry out of each corn
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/13</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/13/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -320,7 +330,7 @@ The straights where the reference spends more are the straights</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/14</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/14/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -331,7 +341,7 @@ Over-harvesting where the reference does not is speed scrubbed on entry.</image:
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/15</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/15/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -342,7 +352,7 @@ biggest opportunities (identified per turn/corner) to gain lap time or find extr
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/16</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/16/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -353,7 +363,7 @@ Pick your strongest session as the baseline, or the one you </image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/17</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/17/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -363,7 +373,7 @@ Pick your strongest session as the baseline, or the one you </image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/18</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/18/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -374,7 +384,7 @@ See whether you’re extracting performance from each tyre compound you used.</i
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/19</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/19/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -385,7 +395,7 @@ Steeper than expected means you&#x27;re overdriving the tyre or not handling los
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/20</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/20/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -395,7 +405,7 @@ Steeper than expected means you&#x27;re overdriving the tyre or not handling los
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/21</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/21/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -405,7 +415,7 @@ Steeper than expected means you&#x27;re overdriving the tyre or not handling los
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/22</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/22/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -416,12 +426,17 @@ Shows where to find more speed </image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=full-reel/23</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/23/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/1</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/llm/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/llm/1/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -431,7 +446,7 @@ Shows where to find more speed </image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/2</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/llm/2/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -441,7 +456,7 @@ Shows where to find more speed </image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/3</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/llm/3/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -451,7 +466,7 @@ Shows where to find more speed </image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/4</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/llm/4/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -462,17 +477,22 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=llm/5</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/llm/5/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/1</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/1/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/2</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/2/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -482,7 +502,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/3</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/3/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -492,7 +512,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/4</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/4/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -502,7 +522,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/5</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/5/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -512,7 +532,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/6</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/6/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -522,7 +542,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/7</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/7/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -532,7 +552,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/8</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/8/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -542,7 +562,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/9</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/9/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -552,7 +572,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/10</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/10/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -562,7 +582,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/11</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/11/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -572,7 +592,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/12</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/12/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -582,7 +602,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/13</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/13/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -592,7 +612,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/14</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/14/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -602,7 +622,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/15</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/15/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -612,7 +632,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/16</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/16/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -622,7 +642,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/17</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/17/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -632,7 +652,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/18</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/18/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -642,7 +662,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/19</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/19/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -652,7 +672,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/20</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/20/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -662,17 +682,22 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/21</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/21/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=supported-tracks/22</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/22/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/1</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/1/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -683,7 +708,7 @@ No admin privileges required, no user accounts or in-app purchases, no data coll
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/2</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/2/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -693,7 +718,7 @@ No admin privileges required, no user accounts or in-app purchases, no data coll
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/3</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/3/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -704,7 +729,7 @@ An installation note points to &quot;Telemetry &amp; Settings &gt; Listener sett
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/4</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/4/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -715,7 +740,7 @@ It is recommended to keep &quot;Enable raw telemetry capture&quot; on.</image:ca
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/5</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/5/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -725,7 +750,7 @@ It is recommended to keep &quot;Enable raw telemetry capture&quot; on.</image:ca
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/6</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/6/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -735,7 +760,7 @@ It is recommended to keep &quot;Enable raw telemetry capture&quot; on.</image:ca
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/7</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/7/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -745,7 +770,7 @@ It is recommended to keep &quot;Enable raw telemetry capture&quot; on.</image:ca
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/8</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/8/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -756,7 +781,7 @@ If you use Simagic SimPro Manager, or other sim racing software, set its own UDP
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/9</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/9/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -767,7 +792,7 @@ enable [Advanced] Allow broadcast IP - this lets the app receive telemet</image:
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/10</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/10/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -778,12 +803,17 @@ All other settings remain the s</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=install/11</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/11/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/1</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/capture/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/capture/1/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -793,7 +823,7 @@ All other settings remain the s</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/2</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/capture/2/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -803,7 +833,7 @@ All other settings remain the s</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/3</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/capture/3/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -814,7 +844,7 @@ Optionally, select &quot;Prepare LLM analysis request&quot; to ge</image:caption
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/?s=capture/4</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/capture/4/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>

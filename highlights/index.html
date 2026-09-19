@@ -1,0 +1,360 @@
+<!-- Generated from templates/shell.html by the site build. Edit the template, not this file. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Features - PyFy Telemetry</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="canonical" href="https://pyfytelemetryf1.github.io/demo/highlights/">
+    <meta name="description" content="Find lap time, improve your technique.">
+    <meta property="og:title" content="Top Features - PyFy Telemetry">
+    <meta property="og:description" content="Find lap time, improve your technique.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pyfytelemetryf1.github.io/demo/highlights/">
+    <meta property="og:image" content="https://pyfytelemetryf1.github.io/demo/images/highlights/turn_time_delta.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PyFy Telemetry - F1 Performance Analysis",
+        "alternateName": ["PyFyTelemetry", "PyFyTelemetryF1", "PyFy Telemetry", "PyFy Telemetry F1"],
+        "url": "https://pyfytelemetryf1.github.io/demo/"
+    }
+    </script>
+</head>
+<body data-page="reel" data-reel="highlights">
+    <header class="site-header">
+        <button class="hamburger-btn" aria-label="Open menu" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <div class="header-content" id="header-home" style="cursor: pointer;">
+            <h1 class="site-title"><span class="brand">PyFy Telemetry:</span> F1 Performance Analysis</h1>
+            <p class="site-subtitle">interactive demo: find lap time, corner by corner</p>
+        </div>
+    </header>
+
+    <nav class="topic-strip" id="topic-strip" aria-label="Topics">
+        <a class="topic-chip" href="../highlights/1/" data-topic="highlights">Top Features</a>
+        <a class="topic-chip" href="../full-reel/1/" data-topic="full-reel">Single Race v. Reference</a>
+        <a class="topic-chip" href="../install/1/" data-topic="install">Quick Setup Guide</a>
+        <a class="topic-chip" href="../supported-tracks/1/" data-topic="supported-tracks">Supported Tracks</a>
+        <a class="topic-chip" href="#" data-topic="more" role="button">More</a>
+    </nav>
+
+    <div class="mobile-notice" id="mobile-notice" hidden>
+        <span>charts render best on a large screen. pinch to zoom.</span>
+        <button class="mobile-notice-close" aria-label="Dismiss">&times;</button>
+    </div>
+
+    <!-- Side drawer menu -->
+    <div class="drawer-overlay" id="drawer-overlay" hidden></div>
+    <nav class="drawer closed" id="drawer" aria-label="Demo scenarios">
+        <div class="drawer-header">
+            <span class="drawer-title">Walkthroughs</span>
+            <button class="drawer-close" aria-label="Close menu">&times;</button>
+        </div>
+        <ul class="drawer-menu">
+            <li>
+                <a class="drawer-item" href="../highlights/1/" data-scenario="highlights">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Top Features</span>
+                        <span class="drawer-item-desc">Find lap time, improve your technique.</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../full-reel/1/" data-scenario="full-reel">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="2" y1="9" x2="22" y2="9"></line><line x1="2" y1="15" x2="22" y2="15"></line></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Single Race vs Reference</span>
+                        <span class="drawer-item-desc">Compare your race vs. the built-in reference</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../llm/1/" data-scenario="llm">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">External AI Coaching (Optional)</span>
+                        <span class="drawer-item-desc">A plain-English debrief from your own AI/LLM</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../supported-tracks/1/" data-scenario="supported-tracks">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Supported Tracks</span>
+                        <span class="drawer-item-desc">19 tracks with per-corner analysis</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../install/1/" data-scenario="install">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Quick Setup</span>
+                        <span class="drawer-item-desc">How to install &amp; run on PC or Console</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../capture/1/" data-scenario="capture">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Capture Your First Session</span>
+                        <span class="drawer-item-desc">How to record, review &amp; analyze</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <div class="drawer-separator"></div>
+        <ul class="drawer-menu drawer-menu-secondary">
+            <li>
+                <a class="drawer-item" href="../sample-data/" id="drawer-csv-btn">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Browse Example Data</span>
+                        <span class="drawer-item-desc">See captured telemetry in detail.</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item drawer-help-btn" href="../guide/" id="drawer-help-btn">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><circle cx="12" cy="17" r=".5" fill="currentColor"></circle></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Complete User Guide</span>
+                        <span class="drawer-item-desc">Use the quick guides above, or read in detail.</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <div class="drawer-footer">
+            <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="drawer-link">Microsoft Store</a>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener" class="drawer-link">GitHub</a>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases/issues/new" target="_blank" rel="noopener" class="drawer-link drawer-link-sub">File an issue<span class="drawer-link-hint"> (GitHub login required)</span></a>
+        </div>
+    </nav>
+
+    <!-- Help panel (USAGE.md rendered) -->
+    <div class="help-overlay" id="help-overlay" hidden>
+        <div class="help-panel">
+            <div class="help-panel-header">
+                <h2>User Guide</h2>
+                <button class="help-close" aria-label="Close help">&times;</button>
+            </div>
+            <div class="help-panel-body" id="help-body">
+                <p class="help-loading">Loading usage guide...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSV spreadsheet viewer -->
+    <div class="csv-overlay" id="csv-overlay" hidden>
+        <div class="csv-panel">
+            <div class="csv-panel-header">
+                <h2>Example Telemetry Data</h2>
+                <button class="csv-close" aria-label="Close viewer">&times;</button>
+            </div>
+            <div class="csv-tabs" role="tablist">
+                <button class="csv-tab active" data-csv="abudhabi_laps" role="tab" aria-selected="true">Abu Dhabi (offline) Laps</button>
+                <button class="csv-tab" data-csv="abudhabi_turns" role="tab" aria-selected="false">Abu Dhabi (offline) Turns</button>
+                <button class="csv-tab" data-csv="baku_laps" role="tab" aria-selected="false">Baku (online) Laps</button>
+                <button class="csv-tab" data-csv="baku_turns" role="tab" aria-selected="false">Baku (online) Turns</button>
+            </div>
+            <div class="csv-table-wrap" id="csv-table-wrap">
+                <p class="csv-loading">Loading data...</p>
+            </div>
+            <div class="csv-caption" id="csv-caption">
+                <div class="csv-caption-top">
+                    <span class="csv-caption-label"></span>
+                    <span class="csv-caption-hint">Scroll horizontally to see more columns.</span>
+                </div>
+                <p class="csv-caption-text"></p>
+            </div>
+        </div>
+    </div>
+
+<main class="page-doc help-panel-body reel-page">
+<h1>Top Features</h1>
+<p class="reel-intro">Find lap time, improve your technique. <a href="../highlights/1/">Start the walkthrough</a>.</p>
+<ol class="slide-list">
+<li class="slide-list-item">
+<a href="../highlights/1/"><img src="../images/highlights/turn_time_delta.png" alt="Time Left on Table" loading="lazy"></a>
+<div><span class="slide-list-group">FIND LAP TIME / TURN ANALYSIS</span>
+<h2><a href="../highlights/1/">Time Left on Table</a></h2>
+<p>Four steps to faster lap times: get time back right now, find extra pace against a target reference, fix your technique, optimize ERS. First, time back now: execute closer to your best, consistently, in the top three turns/corners or complexes named here.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/2/"><img src="../images/highlights/turn_time_delta_reference.png" alt="Time Gained / Lost per Turn vs Reference" loading="lazy"></a>
+<div><span class="slide-list-group">FIND MORE PACE / TURN ANALYSIS</span>
+<h2><a href="../highlights/2/">Time Gained / Lost per Turn vs Reference</a></h2>
+<p>Then, find more pace: turn by turn against the track’s built-in reference. Red is where you’re slower, green is where you’re faster. Focus on the named corners that are worth the most.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/3/"><img src="../images/highlights/braking_consistency.png" alt="Braking Consistency" loading="lazy"></a>
+<div><span class="slide-list-group">TECHNIQUE / CONSISTENCY</span>
+<h2><a href="../highlights/3/">Braking Consistency</a></h2>
+<p>Your braking point at every priority corner, lap by lap, comparing your median (in orange) to the reference (dashed purple). A wide spread away from the reference means you’re leaving lap time on the table.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/4/"><img src="../images/highlights/throttle_consistency.png" alt="Throttle Consistency" loading="lazy"></a>
+<div><span class="slide-list-group">TECHNIQUE / CONSISTENCY</span>
+<h2><a href="../highlights/4/">Throttle Consistency</a></h2>
+<p>Where you commit to throttle on exit, lap by lap. The purple dash is the reference. Late or scattered commitment is exit speed left on the table.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/5/"><img src="../images/highlights/racing_line_t1.png" alt="Racing Line - T1" loading="lazy"></a>
+<div><span class="slide-list-group">TECHNIQUE / RACING LINE</span>
+<h2><a href="../highlights/5/">Racing Line - T1</a></h2>
+<p>Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference. The footnote names divergences worth correcting.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/6/"><img src="../images/highlights/brake_traces_gear.png" alt="Brake Traces &amp; Gear Overlay - T6" loading="lazy"></a>
+<div><span class="slide-list-group">TECHNIQUE / TRAIL BRAKING</span>
+<h2><a href="../highlights/6/">Brake Traces &amp; Gear Overlay - T6</a></h2>
+<p>Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Highest-yield turns are detected automatically. The fastest lap is highlighted vs the dashed purple reference. See whether you&#x27;re correctly trail braking to the apex.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/7/"><img src="../images/highlights/throttle_traces_t6.png" alt="Throttle Traces - T6" loading="lazy"></a>
+<div><span class="slide-list-group">TECHNIQUE / THROTTLE APPLICATION</span>
+<h2><a href="../highlights/7/">Throttle Traces - T6</a></h2>
+<p>Throttle application and modulation past the apex of a specific turn/corner. Highest-yield turns are detected automatically. The fastest lap is highlighted vs the dashed purple reference. See whether you&#x27;re getting back on throttle early enough.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/8/"><img src="../images/highlights/standing_start.png" alt="Standing Start Analysis at Lights Out" loading="lazy"></a>
+<div><span class="slide-list-group">TECHNIQUE / RACE START</span>
+<h2><a href="../highlights/8/">Standing Start Analysis at Lights Out</a></h2>
+<p>Reaction time, traction, throttle application and wheel spin off the line, two races side by side, plus places gained or lost into Turn 1.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/9/"><img src="../images/highlights/ers_deployment.png" alt="ERS Deployment Pattern" loading="lazy"></a>
+<div><span class="slide-list-group">ENERGY / ERS MANAGEMENT</span>
+<h2><a href="../highlights/9/">ERS Deployment Pattern</a></h2>
+<p>Finally, optimize ERS. How much battery you deploy on the run to each corner, lap by lap, against the reference pattern (dashed purple). The straights where the reference spends more are the straights where you leave time on the table.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/10/"><img src="../images/highlights/ers_harvesting.png" alt="ERS Harvesting Pattern" loading="lazy"></a>
+<div><span class="slide-list-group">ENERGY / ERS MANAGEMENT</span>
+<h2><a href="../highlights/10/">ERS Harvesting Pattern</a></h2>
+<p>The other half of ERS: battery recovered into each corner, lap by lap, against the reference (dashed purple). Over-harvesting where the reference does not is speed scrubbed on entry.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/11/"><img src="../images/highlights/llm_report.png" alt="External AI Coaching (Optional)" loading="lazy"></a>
+<div><span class="slide-list-group">EXTERNAL AI COACHING</span>
+<h2><a href="../highlights/11/">External AI Coaching (Optional)</a></h2>
+<p>The built-in chart analysis already tells you exactly what to fix and where to find pace. But for a plain-English debrief in the style of a Race Engineer, drag and drop the analysis ZIP into your preferred external LLM, or open your browser-based AI/LLM straight from the app’s menu.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/12/"><img src="../images/highlights/lap_times_progression.png" alt="Lap Times Progression" loading="lazy"></a>
+<div><span class="slide-list-group">RACE PACE</span>
+<h2><a href="../highlights/12/">Lap Times Progression</a></h2>
+<p>Every clean lap in order, with median vs the reference. Outlier laps are detected and annotated.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/13/"><img src="../images/highlights/scorecard.png" alt="Session Scorecard" loading="lazy"></a>
+<div><span class="slide-list-group">SESSION OVERVIEW</span>
+<h2><a href="../highlights/13/">Session Scorecard</a></h2>
+<p>The whole session on one card: context, race start, technique scores, consistency scores, plus the two biggest opportunities (identified per turn/corner) to gain lap time or find extra pace right now.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/14/"><img src="../images/highlights/fastest_lap_track_map.png" alt="Lap Heat Map vs Reference" loading="lazy"></a>
+<div><span class="slide-list-group">TRACK MAP</span>
+<h2><a href="../highlights/14/">Lap Heat Map vs Reference</a></h2>
+<p>Your fastest lap drawn on the circuit, comparing speed deltas vs. the reference through each turn. For example: T5 is faster in, slower out; the reverse should be true. Shows where to find more speed next, at a glance.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../highlights/15/"><img src="../images/text-slides/welcome.png" alt="PyFy Telemetry: F1 Performance Analysis" loading="lazy"></a>
+<div><span class="slide-list-group">WELCOME</span>
+<h2><a href="../highlights/15/">PyFy Telemetry: F1 Performance Analysis</a></h2>
+<p>Capture sim racing telemetry and turn it into practical, turn-by-turn/corner-by-corner insights you can use right away to gain lap time.</p></div>
+</li>
+</ol>
+</main>
+    <main class="viewer" hidden>
+        <div class="viewer-container">
+            <a class="nav-arrow nav-prev" href="#" aria-label="Previous slide" title="Previous (Left Arrow)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </a>
+
+            <div class="slide-area">
+                <div class="slide-content">
+                    <img class="slide-image" src="" alt="" draggable="false">
+                    <div class="slide-loading">Loading...</div>
+                </div>
+            </div>
+
+            <a class="nav-arrow nav-next" href="#" aria-label="Next slide" title="Next (Right Arrow)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <div class="caption-bar">
+            <div class="caption-content">
+                <div class="caption-left">
+                    <span class="caption-group"></span>
+                    <h2 class="caption-title"></h2>
+                    <p class="caption-description"></p>
+                    <p class="caption-disclaimer"></p>
+                </div>
+                <div class="caption-right">
+                    <a class="slide-counter" href="#"></a>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-links">
+            <span class="footer-ext-prefix">Get it free in the </span><a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="footer-ext-link">Microsoft Store</a>
+            <span class="footer-link-sep">&middot;</span>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener" class="footer-ext-link">GitHub</a>
+        </p>
+        <p class="footer-copyright">&copy; 2026 @pyfytelemetryf1. All rights reserved.</p>
+        <p class="footer-disclaimer">
+            * - This project is not affiliated with, endorsed by, or sponsored by Electronic Arts, Codemasters,
+            Formula One World Championship Limited, Liberty Media Corporation, F1 25 and its 2026 Season Pack, Simagic, or any related
+            trademarks or hardware manufacturers. All product names, trademarks, and registered trademarks
+            are the property of their respective owners.
+        </p>
+    </footer>
+
+    <script>window.SITE_ROOT = '../';</script>
+    <script src="../data-manifest.js"></script>
+    <script src="../scenarios.js"></script>
+    <script src="../viewer.js"></script>
+    <script data-goatcounter="https://pyfytelemetryf1.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

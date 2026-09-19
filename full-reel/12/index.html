@@ -1,0 +1,264 @@
+<!-- Generated from templates/shell.html by the site build. Edit the template, not this file. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Traces - T12+T13+T14 - PyFy Telemetry</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+    <link rel="canonical" href="https://pyfytelemetryf1.github.io/demo/full-reel/12/">
+    <meta name="description" content="Speed through the T12-T13-T14 complex, lap by lap, vs the dashed purple reference. See where your minimum speed sits, and how much speed you carry out of each corner.">
+    <meta property="og:title" content="Speed Traces - T12+T13+T14 - PyFy Telemetry">
+    <meta property="og:description" content="Speed through the T12-T13-T14 complex, lap by lap, vs the dashed purple reference. See where your minimum speed sits, and how much speed you carry out of each corner.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pyfytelemetryf1.github.io/demo/full-reel/12/">
+    <meta property="og:image" content="https://pyfytelemetryf1.github.io/demo/images/full-reel/12_technique_T12_T13_T14_speed_traces.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PyFy Telemetry - F1 Performance Analysis",
+        "alternateName": ["PyFyTelemetry", "PyFyTelemetryF1", "PyFy Telemetry", "PyFy Telemetry F1"],
+        "url": "https://pyfytelemetryf1.github.io/demo/"
+    }
+    </script>
+</head>
+<body data-slide="full-reel/12">
+    <header class="site-header">
+        <button class="hamburger-btn" aria-label="Open menu" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <div class="header-content" id="header-home" style="cursor: pointer;">
+            <h1 class="site-title"><span class="brand">PyFy Telemetry:</span> F1 Performance Analysis</h1>
+            <p class="site-subtitle">interactive demo: find lap time, corner by corner</p>
+        </div>
+    </header>
+
+    <nav class="topic-strip" id="topic-strip" aria-label="Topics">
+        <a class="topic-chip" href="../../highlights/1/" data-topic="highlights">Top Features</a>
+        <a class="topic-chip" href="../../full-reel/1/" data-topic="full-reel">Single Race v. Reference</a>
+        <a class="topic-chip" href="../../install/1/" data-topic="install">Quick Setup Guide</a>
+        <a class="topic-chip" href="../../supported-tracks/1/" data-topic="supported-tracks">Supported Tracks</a>
+        <a class="topic-chip" href="#" data-topic="more" role="button">More</a>
+    </nav>
+
+    <div class="mobile-notice" id="mobile-notice" hidden>
+        <span>charts render best on a large screen. pinch to zoom.</span>
+        <button class="mobile-notice-close" aria-label="Dismiss">&times;</button>
+    </div>
+
+    <!-- Side drawer menu -->
+    <div class="drawer-overlay" id="drawer-overlay" hidden></div>
+    <nav class="drawer closed" id="drawer" aria-label="Demo scenarios">
+        <div class="drawer-header">
+            <span class="drawer-title">Walkthroughs</span>
+            <button class="drawer-close" aria-label="Close menu">&times;</button>
+        </div>
+        <ul class="drawer-menu">
+            <li>
+                <a class="drawer-item" href="../../highlights/1/" data-scenario="highlights">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Top Features</span>
+                        <span class="drawer-item-desc">Find lap time, improve your technique.</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../../full-reel/1/" data-scenario="full-reel">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="2" y1="9" x2="22" y2="9"></line><line x1="2" y1="15" x2="22" y2="15"></line></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Single Race vs Reference</span>
+                        <span class="drawer-item-desc">Compare your race vs. the built-in reference</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../../llm/1/" data-scenario="llm">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">External AI Coaching (Optional)</span>
+                        <span class="drawer-item-desc">A plain-English debrief from your own AI/LLM</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../../supported-tracks/1/" data-scenario="supported-tracks">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Supported Tracks</span>
+                        <span class="drawer-item-desc">19 tracks with per-corner analysis</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../../install/1/" data-scenario="install">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Quick Setup</span>
+                        <span class="drawer-item-desc">How to install &amp; run on PC or Console</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item" href="../../capture/1/" data-scenario="capture">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Capture Your First Session</span>
+                        <span class="drawer-item-desc">How to record, review &amp; analyze</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <div class="drawer-separator"></div>
+        <ul class="drawer-menu drawer-menu-secondary">
+            <li>
+                <a class="drawer-item" href="../../sample-data/" id="drawer-csv-btn">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Browse Example Data</span>
+                        <span class="drawer-item-desc">See captured telemetry in detail.</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="drawer-item drawer-help-btn" href="../../guide/" id="drawer-help-btn">
+                    <span class="drawer-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><circle cx="12" cy="17" r=".5" fill="currentColor"></circle></svg>
+                    </span>
+                    <span class="drawer-item-text">
+                        <span class="drawer-item-label">Complete User Guide</span>
+                        <span class="drawer-item-desc">Use the quick guides above, or read in detail.</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <div class="drawer-footer">
+            <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="drawer-link">Microsoft Store</a>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener" class="drawer-link">GitHub</a>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases/issues/new" target="_blank" rel="noopener" class="drawer-link drawer-link-sub">File an issue<span class="drawer-link-hint"> (GitHub login required)</span></a>
+        </div>
+    </nav>
+
+    <!-- Help panel (USAGE.md rendered) -->
+    <div class="help-overlay" id="help-overlay" hidden>
+        <div class="help-panel">
+            <div class="help-panel-header">
+                <h2>User Guide</h2>
+                <button class="help-close" aria-label="Close help">&times;</button>
+            </div>
+            <div class="help-panel-body" id="help-body">
+                <p class="help-loading">Loading usage guide...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSV spreadsheet viewer -->
+    <div class="csv-overlay" id="csv-overlay" hidden>
+        <div class="csv-panel">
+            <div class="csv-panel-header">
+                <h2>Example Telemetry Data</h2>
+                <button class="csv-close" aria-label="Close viewer">&times;</button>
+            </div>
+            <div class="csv-tabs" role="tablist">
+                <button class="csv-tab active" data-csv="abudhabi_laps" role="tab" aria-selected="true">Abu Dhabi (offline) Laps</button>
+                <button class="csv-tab" data-csv="abudhabi_turns" role="tab" aria-selected="false">Abu Dhabi (offline) Turns</button>
+                <button class="csv-tab" data-csv="baku_laps" role="tab" aria-selected="false">Baku (online) Laps</button>
+                <button class="csv-tab" data-csv="baku_turns" role="tab" aria-selected="false">Baku (online) Turns</button>
+            </div>
+            <div class="csv-table-wrap" id="csv-table-wrap">
+                <p class="csv-loading">Loading data...</p>
+            </div>
+            <div class="csv-caption" id="csv-caption">
+                <div class="csv-caption-top">
+                    <span class="csv-caption-label"></span>
+                    <span class="csv-caption-hint">Scroll horizontally to see more columns.</span>
+                </div>
+                <p class="csv-caption-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <main class="viewer">
+        <div class="viewer-container">
+            <a class="nav-arrow nav-prev" href="../../full-reel/11/" aria-label="Previous slide" title="Previous (Left Arrow)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </a>
+
+            <div class="slide-area">
+                <div class="slide-content">
+                    <img class="slide-image" src="../../images/full-reel/12_technique_T12_T13_T14_speed_traces.png" alt="Speed Traces - T12+T13+T14" draggable="false">
+                    <div class="slide-loading">Loading...</div>
+                </div>
+            </div>
+
+            <a class="nav-arrow nav-next" href="../../full-reel/13/" aria-label="Next slide" title="Next (Right Arrow)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <div class="caption-bar">
+            <div class="caption-content">
+                <div class="caption-left">
+                    <span class="caption-group">TECHNIQUE / SPEED TRACES</span>
+                    <h2 class="caption-title">Speed Traces - T12+T13+T14</h2>
+                    <p class="caption-description">Speed through the T12-T13-T14 complex, lap by lap, vs the dashed purple reference.<br>See where your minimum speed sits, and how much speed you carry out of each corner.</p>
+                    <p class="caption-disclaimer"></p>
+                </div>
+                <div class="caption-right">
+                    <a class="slide-counter" href="../../full-reel/" title="All slides of this reel">12 / 23</a>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="site-footer">
+        <p class="footer-links">
+            <span class="footer-ext-prefix">Get it free in the </span><a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="footer-ext-link">Microsoft Store</a>
+            <span class="footer-link-sep">&middot;</span>
+            <a href="https://github.com/pyfytelemetryf1/pyfytelemetryf1-releases" target="_blank" rel="noopener" class="footer-ext-link">GitHub</a>
+        </p>
+        <p class="footer-copyright">&copy; 2026 @pyfytelemetryf1. All rights reserved.</p>
+        <p class="footer-disclaimer">
+            * - This project is not affiliated with, endorsed by, or sponsored by Electronic Arts, Codemasters,
+            Formula One World Championship Limited, Liberty Media Corporation, F1 25 and its 2026 Season Pack, Simagic, or any related
+            trademarks or hardware manufacturers. All product names, trademarks, and registered trademarks
+            are the property of their respective owners.
+        </p>
+    </footer>
+
+    <script>window.SITE_ROOT = '../../';</script>
+    <script src="../../data-manifest.js"></script>
+    <script src="../../scenarios.js"></script>
+    <script src="../../viewer.js"></script>
+    <script data-goatcounter="https://pyfytelemetryf1.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -17,7 +17,7 @@
 const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, only data you upload is sent to them. Their terms apply.';
 
 const WELCOME_SLIDE = {
-    markdown: '<p><strong>PyFy Telemetry F1</strong> is compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC).<br/>Capture sim racing telemetry and turn it into practical, corner-by-corner coaching insights you can use right away to find lap time.</p><p class="welcome-slide-beta">Now in Beta on Win 10/11: <a href="?s=supported-tracks/1" class="slide-link">supports 19 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu and a polished UX.</p><p class="welcome-slide-cta">Get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>, or see <a href="?s=highlights/1" class="slide-link">key features</a> in the <a href="#" class="slide-open-drawer">menu</a>, including a <a href="?s=install/1" class="slide-link">quick setup guide</a> (PC or Console).</p><p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
+    markdown: '<p><strong>PyFy Telemetry F1</strong> is compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC).<br/>Capture sim racing telemetry and turn it into practical, corner-by-corner coaching insights you can use right away to find lap time.</p><p class="welcome-slide-beta">Available on Windows 10/11. Per-turn analysis supported at <a href="?s=supported-tracks/1" class="slide-link">19 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu and a polished UX.</p><p class="welcome-slide-cta">Get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>, or see <a href="?s=highlights/1" class="slide-link">key features</a> in the <a href="#" class="slide-open-drawer">menu</a>, including a <a href="?s=install/1" class="slide-link">quick setup guide</a> (PC or Console).</p><p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
     title: 'PyFy Telemetry: F1 Performance Analysis',
     description: 'Capture sim racing telemetry and turn it into practical, turn-by-turn/corner-by-corner insights you can use right away to gain lap time.',
     group: 'WELCOME'
@@ -26,6 +26,8 @@ const WELCOME_SLIDE = {
 const SCENARIOS = {
     highlights: {
         title: 'Top Features',
+        description: 'Find lap time, improve your technique.',
+        intro: 'Find lap time, improve your technique.',
         slides: [
             {
                 image: 'images/highlights/turn_time_delta.png',
@@ -116,6 +118,8 @@ const SCENARIOS = {
     },
     'full-reel': {
         title: 'Single Race vs Reference',
+        description: 'Compare your race vs. the built-in reference',
+        intro: 'Compare your race vs. the built-in reference',
         slides: [
             {
                 image: 'images/full-reel/01_comparison_turn_time_delta.png',
@@ -253,6 +257,8 @@ const SCENARIOS = {
     },
     llm: {
         title: 'External AI Coaching (Optional)',
+        description: 'A plain-English debrief from your own AI/LLM',
+        intro: 'A plain-English debrief from your own AI/LLM',
         slides: [
             {
                 image: 'images/llm/abudhabi_01_priorities.png',
@@ -286,6 +292,8 @@ const SCENARIOS = {
     },
     'supported-tracks': {
         title: 'Supported Tracks',
+        description: '19 tracks with per-corner analysis',
+        intro: '19 tracks with per-corner analysis',
         slides: [
             {
                 markdown: '<p>PyFyTelemetry F1 currently supports detailed turn-level/corner-level analysis at <strong>19 tracks</strong>:</p><ul class="supported-tracks-list"><li><a href="?s=supported-tracks/2" class="slide-link"><strong>Madrid</strong></a> - Madring <strong>NEW</strong></li><li><a href="?s=supported-tracks/3" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li><li><a href="?s=supported-tracks/4" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li><li><a href="?s=supported-tracks/5" class="slide-link"><strong>Bahrain</strong></a> - Bahrain International Circuit</li><li><a href="?s=supported-tracks/6" class="slide-link"><strong>Azerbaijan</strong></a> - Baku City Circuit</li><li><a href="?s=supported-tracks/7" class="slide-link"><strong>Spain</strong></a> - Circuit de Barcelona-Catalunya</li><li><a href="?s=supported-tracks/8" class="slide-link"><strong>Hungary</strong></a> - Hungaroring</li><li><a href="?s=supported-tracks/9" class="slide-link"><strong>Qatar</strong></a> - Lusail International Circuit</li><li><a href="?s=supported-tracks/10" class="slide-link"><strong>Melbourne</strong></a> - Albert Park Circuit</li><li><a href="?s=supported-tracks/11" class="slide-link"><strong>Florida</strong></a> - Miami International Autodrome</li><li><a href="?s=supported-tracks/12" class="slide-link"><strong>Monte Carlo</strong></a> - Circuit de Monaco</li><li><a href="?s=supported-tracks/13" class="slide-link"><strong>Montreal</strong></a> - Circuit Gilles Villeneuve</li><li><a href="?s=supported-tracks/14" class="slide-link"><strong>Italy</strong></a> - Autodromo Nazionale di Monza</li><li><a href="?s=supported-tracks/15" class="slide-link"><strong>China</strong></a> - Shanghai International Circuit</li><li><a href="?s=supported-tracks/16" class="slide-link"><strong>Great Britain</strong></a> - Silverstone Circuit</li><li><a href="?s=supported-tracks/17" class="slide-link"><strong>Singapore</strong></a> - Marina Bay Street Circuit</li><li><a href="?s=supported-tracks/18" class="slide-link"><strong>Belgium</strong></a> - Circuit de Spa-Francorchamps</li><li><a href="?s=supported-tracks/19" class="slide-link"><strong>Japan</strong></a> - Suzuka International Racing Course</li><li><a href="?s=supported-tracks/20" class="slide-link"><strong>Netherlands</strong></a> - Circuit Zandvoort</li></ul>',
@@ -417,6 +425,8 @@ const SCENARIOS = {
     },
     install: {
         title: 'Quick Setup',
+        description: 'How to install & run on PC or Console',
+        intro: 'How to install & run on PC or Console',
         slides: [
             {
                 image: 'images/install/01_store_listing.png',
@@ -482,6 +492,8 @@ const SCENARIOS = {
     },
     capture: {
         title: 'Capture Your First Session',
+        description: 'How to record, review & analyze',
+        intro: 'How to record, review & analyze',
         slides: [
             {
                 image: 'images/capture/01_live_capture.png',
@@ -514,10 +526,9 @@ Object.keys(SCENARIOS).forEach(function (id) {
 });
 
 /**
- * Stable entry points the app links to (Help menu). Each resolves to the
- * slide that currently carries that content; the site build writes an
- * app-link-N/ redirect page per entry. Never renumber or reuse an entry:
- * shipped builds keep pointing at it. Add a new number for new content.
+ * Stable entry points from app links (Help menu). 
+ * one app-link-N/ redirect page per entry. Do not renumber or reuse app links, 
+ * shipped builds keep pointing at them. Add a new number for new content.
  */
 const APP_LINKS = {
     'app-link-1': 'supported-tracks/1',   // supported tracks

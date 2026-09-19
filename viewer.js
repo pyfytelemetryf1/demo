@@ -1059,12 +1059,22 @@
         return s + '/';
     }
 
+    // The query string minus the old 's' parameter: campaign tags stay on the URL.
+    function keptQuery() {
+        const query = new URLSearchParams(window.location.search);
+        query.delete('s');
+        const text = query.toString();
+        return text ? '?' + text : '';
+    }
+
     function updateURL() {
         const s = currentStateParam();
-        const target = s ? sitePath() + statePath(s) : HOST_PATH;
+        const parts = (s ? statePath(s) : '').split('#');
+        const path = s ? sitePath() + parts[0] : HOST_PATH;
+        const target = path + keptQuery() + (parts[1] ? '#' + parts[1] : '');
         if (window.location.pathname + window.location.search + window.location.hash !== target) {
             history.replaceState(history.state, '', target);
-            registerPageView(target);
+            registerPageView(path + (parts[1] ? '#' + parts[1] : ''));
         }
     }
 
@@ -1208,7 +1218,7 @@
     // then the page path of what is shown.
     const legacy = legacyState();
     if (PAGE) {
-        if (legacy && validState(legacy)) window.location.replace(sitePath() + statePath(legacy));
+        if (legacy && validState(legacy)) window.location.replace(sitePath() + statePath(legacy).replace('#', keptQuery() + '#') + (statePath(legacy).indexOf('#') === -1 ? keptQuery() : ''));
     } else if (SLIDE) {
         if (!(legacy && applyState(legacy))) applyState(SLIDE);
     }

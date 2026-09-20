@@ -1289,6 +1289,10 @@ body.drawer-open .caption-bar {
 @media (max-width: 600px) {
     .slide-list-item { grid-template-columns: 1fr; }
     .reel-cards { grid-template-columns: 1fr; }
+    .landing-welcome.collapsible { cursor: pointer; padding-bottom: 8px; }
+    .landing-welcome.collapsible:not(.expanded) p:nth-child(n+3) { display: none; }
+    .landing-welcome.collapsible:not(.expanded) p:nth-child(2) { max-height: 3.4em; overflow: hidden; margin-bottom: 0; }
+    .landing-welcome .landing-chevron { display: flex; align-items: center; justify-content: center; padding: 6px 0 0; }
 }
 
 /* === Keyboard focus indicators === */

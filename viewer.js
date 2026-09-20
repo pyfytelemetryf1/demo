@@ -136,6 +136,20 @@
         }
     });
 
+    // Landing intro card: on phones it shows its first paragraph, tap to expand/collapse
+    const landingWelcome = document.querySelector('.landing-welcome');
+    if (landingWelcome) {
+        const landingChevron = createChevron();
+        landingChevron.classList.add('landing-chevron');
+        landingWelcome.appendChild(landingChevron);
+        landingWelcome.classList.add('collapsible');
+        landingWelcome.addEventListener('click', function (e) {
+            if (e.target.closest('a')) return;
+            if (getComputedStyle(landingChevron).display === 'none') return;
+            toggleExpand(landingWelcome, landingChevron);
+        });
+    }
+
     function updateOverflowIndicators() {
         checkOverflow(captionLeft, captionChevron);
         checkOverflow(footerDisclaimer, footerChevron);

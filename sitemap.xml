@@ -33,8 +33,8 @@
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/turn_time_delta.png</image:loc>
       <image:title>Time Left on Table</image:title>
-      <image:caption>Four steps to faster lap times: get time back right now, find extra pace against a target reference, fix your technique, optimize ERS.
-First, time back now: execute closer to your best, consistently, </image:caption>
+      <image:caption>First, get back lap time right away: execute consistently closer to your best in the top three corners or complexes identified on this chart.
+Each bar represents the gap between your median and your b</image:caption>
     </image:image>
   </url>
   <url>
@@ -55,8 +55,8 @@ Red is where you’re slower, green is where you’re faster. Focus on the named
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/braking_consistency.png</image:loc>
       <image:title>Braking Consistency</image:title>
-      <image:caption>Your braking point at every priority corner, lap by lap, comparing your median (in orange) to the reference (dashed purple).
-A wide spread away from the reference means you’re leaving lap time on the </image:caption>
+      <image:caption>Next, fix your technique, starting with braking points at every priority corner, lap by lap. This chart compares your median (in orange) to the reference (dashed purple).
+Wide spreads away from the re</image:caption>
     </image:image>
   </url>
   <url>
@@ -77,7 +77,7 @@ Late or scattered commitment is exit speed left on the table.</image:caption>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/racing_line_t1.png</image:loc>
       <image:title>Racing Line - T1</image:title>
-      <image:caption>Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference.
+      <image:caption>Improve racing lines where needed. One line per lap for each priority corner, vs the purple dashed reference.
 The footnote names divergences worth correcting.</image:caption>
     </image:image>
   </url>
@@ -88,8 +88,8 @@ The footnote names divergences worth correcting.</image:caption>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/brake_traces_gear.png</image:loc>
       <image:title>Brake Traces &amp; Gear Overlay - T6</image:title>
-      <image:caption>Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Highest-yield turns are detected automatically.
-The fastest lap is highlighted vs the dashed purple reference. See wh</image:caption>
+      <image:caption>Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Priority turns are detected automatically.
+The fastest lap is highlighted vs the dashed purple reference. See whether</image:caption>
     </image:image>
   </url>
   <url>
@@ -99,8 +99,8 @@ The fastest lap is highlighted vs the dashed purple reference. See wh</image:cap
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/throttle_traces_t6.png</image:loc>
       <image:title>Throttle Traces - T6</image:title>
-      <image:caption>Throttle application and modulation past the apex of a specific turn/corner. Highest-yield turns are detected automatically.
-The fastest lap is highlighted vs the dashed purple reference. See whether </image:caption>
+      <image:caption>Throttle application and modulation past the apex of a specific turn/corner. Priority turns are detected automatically.
+The fastest lap is highlighted vs the dashed purple reference. See whether you&#x27;r</image:caption>
     </image:image>
   </url>
   <url>
@@ -217,8 +217,8 @@ Execute closer to your best, consistently, in the three turns/corners named here
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/03_technique_braking_point_consistency.png</image:loc>
       <image:title>Braking Point Consistency</image:title>
-      <image:caption>Your braking point at every priority corner, lap by lap, comparing your median (in orange) to the reference (dashed purple).
-A wide spread away from the reference means you’re leaving lap time on the </image:caption>
+      <image:caption>Next, fix your technique, starting with braking points at every priority corner, lap by lap. This chart compares your median (in orange) to the reference (dashed purple).
+Wide spreads away from the re</image:caption>
     </image:image>
   </url>
   <url>
@@ -249,7 +249,7 @@ Late or scattered commitment is exit speed left on the table.</image:caption>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/06_lines_T6_racing_line.png</image:loc>
       <image:title>Racing Line - T6</image:title>
-      <image:caption>Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference.
+      <image:caption>Improve racing lines where needed. One line per lap for each priority corner, vs the purple dashed reference.
 The footnote names divergences worth correcting.</image:caption>
     </image:image>
   </url>
@@ -260,8 +260,8 @@ The footnote names divergences worth correcting.</image:caption>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/07_technique_T6_brake_traces_gear_overlay.png</image:loc>
       <image:title>Brake Traces &amp; Gear Overlay - T6</image:title>
-      <image:caption>Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Highest-yield turns are detected automatically.
-The fastest lap is highlighted vs the dashed purple reference. See wh</image:caption>
+      <image:caption>Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Priority turns are detected automatically.
+The fastest lap is highlighted vs the dashed purple reference. See whether</image:caption>
     </image:image>
   </url>
   <url>
@@ -271,8 +271,8 @@ The fastest lap is highlighted vs the dashed purple reference. See wh</image:cap
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/08_technique_T6_throttle_traces.png</image:loc>
       <image:title>Throttle Traces - T6</image:title>
-      <image:caption>Throttle application and modulation past the apex of a specific turn/corner. Highest-yield turns are detected automatically.
-The fastest lap is highlighted vs the dashed purple reference. See whether </image:caption>
+      <image:caption>Throttle application and modulation past the apex of a specific turn/corner. Priority turns are detected automatically.
+The fastest lap is highlighted vs the dashed purple reference. See whether you&#x27;r</image:caption>
     </image:image>
   </url>
   <url>
@@ -292,7 +292,7 @@ The fastest lap is highlighted vs the dashed purple reference. See whether </ima
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/10_lines_T12_T13_T14_racing_line.png</image:loc>
       <image:title>Racing Line - T12+T13+T14</image:title>
-      <image:caption>Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference.
+      <image:caption>Improve racing lines where needed. One line per lap for each priority corner, vs the purple dashed reference.
 The footnote names divergences worth correcting.</image:caption>
     </image:image>
   </url>

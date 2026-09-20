@@ -32,7 +32,7 @@ const SCENARIOS = {
             {
                 image: 'images/highlights/turn_time_delta.png',
                 title: 'Time Left on Table',
-                description: 'Four steps to faster lap times: get time back right now, find extra pace against a target reference, fix your technique, optimize ERS.\nFirst, time back now: execute closer to your best, consistently, in the top three turns/corners or complexes named here.',
+                description: 'First, get back lap time right away: execute consistently closer to your best in the top three corners or complexes identified on this chart.\nEach bar represents the gap between your median and your best through the turn - pace you already have.',
                 group: 'FIND LAP TIME / TURN ANALYSIS'
             },
             {
@@ -44,7 +44,7 @@ const SCENARIOS = {
             {
                 image: 'images/highlights/braking_consistency.png',
                 title: 'Braking Consistency',
-                description: 'Your braking point at every priority corner, lap by lap, comparing your median (in orange) to the reference (dashed purple).\nA wide spread away from the reference means you’re leaving lap time on the table.',
+                description: 'Next, fix your technique, starting with braking points at every priority corner, lap by lap. This chart compares your median (in orange) to the reference (dashed purple).\nWide spreads away from the reference mean you’re leaving lap time on the table.',
                 group: 'TECHNIQUE / CONSISTENCY'
             },
             {
@@ -56,19 +56,19 @@ const SCENARIOS = {
             {
                 image: 'images/highlights/racing_line_t1.png',
                 title: 'Racing Line - T1',
-                description: 'Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
+                description: 'Improve racing lines where needed. One line per lap for each priority corner, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
                 group: 'TECHNIQUE / RACING LINE'
             },
             {
                 image: 'images/highlights/brake_traces_gear.png',
                 title: 'Brake Traces & Gear Overlay - T6',
-                description: 'Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Highest-yield turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re correctly trail braking to the apex.',
+                description: 'Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Priority turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re correctly trail braking to the apex.',
                 group: 'TECHNIQUE / TRAIL BRAKING'
             },
             {
                 image: 'images/highlights/throttle_traces_t6.png',
                 title: 'Throttle Traces - T6',
-                description: 'Throttle application and modulation past the apex of a specific turn/corner. Highest-yield turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re getting back on throttle early enough.',
+                description: 'Throttle application and modulation past the apex of a specific turn/corner. Priority turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re getting back on throttle early enough.',
                 group: 'TECHNIQUE / THROTTLE APPLICATION'
             },
             {
@@ -136,7 +136,7 @@ const SCENARIOS = {
             {
                 image: 'images/full-reel/03_technique_braking_point_consistency.png',
                 title: 'Braking Point Consistency',
-                description: 'Your braking point at every priority corner, lap by lap, comparing your median (in orange) to the reference (dashed purple).\nA wide spread away from the reference means you’re leaving lap time on the table.',
+                description: 'Next, fix your technique, starting with braking points at every priority corner, lap by lap. This chart compares your median (in orange) to the reference (dashed purple).\nWide spreads away from the reference mean you’re leaving lap time on the table.',
                 group: 'TECHNIQUE / CONSISTENCY'
             },
             {
@@ -154,19 +154,19 @@ const SCENARIOS = {
             {
                 image: 'images/full-reel/06_lines_T6_racing_line.png',
                 title: 'Racing Line - T6',
-                description: 'Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
+                description: 'Improve racing lines where needed. One line per lap for each priority corner, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
                 group: 'TECHNIQUE / RACING LINE'
             },
             {
                 image: 'images/full-reel/07_technique_T6_brake_traces_gear_overlay.png',
                 title: 'Brake Traces & Gear Overlay - T6',
-                description: 'Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Highest-yield turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re correctly trail braking to the apex.',
+                description: 'Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Priority turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re correctly trail braking to the apex.',
                 group: 'TECHNIQUE / TRAIL BRAKING'
             },
             {
                 image: 'images/full-reel/08_technique_T6_throttle_traces.png',
                 title: 'Throttle Traces - T6',
-                description: 'Throttle application and modulation past the apex of a specific turn/corner. Highest-yield turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re getting back on throttle early enough.',
+                description: 'Throttle application and modulation past the apex of a specific turn/corner. Priority turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re getting back on throttle early enough.',
                 group: 'TECHNIQUE / THROTTLE APPLICATION'
             },
             {
@@ -178,7 +178,7 @@ const SCENARIOS = {
             {
                 image: 'images/full-reel/10_lines_T12_T13_T14_racing_line.png',
                 title: 'Racing Line - T12+T13+T14',
-                description: 'Then, fix the technique, starting with racing lines. One line per lap for highest-yield corners, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
+                description: 'Improve racing lines where needed. One line per lap for each priority corner, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
                 group: 'TECHNIQUE / RACING LINE'
             },
             {

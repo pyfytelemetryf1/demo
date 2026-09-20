@@ -12,6 +12,11 @@
     var SLIDE = document.body.getAttribute('data-slide');
     // The page's own path; a page of its own returns to it when the viewer it hosts is left.
     var HOST_PATH = window.location.pathname;
+    var HOST_META = { title: document.title };
+    ['description', 'og:title', 'og:description'].forEach(function (name) {
+        const el = document.querySelector(name.indexOf(':') === -1 ? 'meta[name="' + name + '"]' : 'meta[property="' + name + '"]');
+        HOST_META[name] = el ? el.getAttribute('content') : null;
+    });
     var hosted = false;
     function siteRoot() { return window.SITE_ROOT || ''; }
     // The site's path on this host, '/demo/' when published; taken once, before the viewer
@@ -260,6 +265,7 @@
         document.querySelectorAll('main.page-doc').forEach(el => { el.hidden = false; });
         if (!helpOverlay.hidden) helpOverlay.hidden = true;
         if (!csvOverlay.hidden) csvOverlay.hidden = true;
+        updateMetaTags();
         updateTopicStrip();
     }
 
@@ -396,8 +402,8 @@
         captionChevron.classList.remove('flipped');
 
         // Update URL, canonical, meta tags, and sizing - defer sizing to next frame so caption bar has reflowed
-        updateURL();
         updateMetaTags();
+        updateURL();
         requestAnimationFrame(function () {
             sizeSlideImage();
             // Force reflow before checking overflow so maxHeight is applied
@@ -683,7 +689,7 @@
             || link.classList.contains('slide-counter')) return;
         var stateParam = linkState(link.getAttribute('href') || '');
         if (!stateParam) return;
-        registerEvent('click/link/' + stateParam, link.textContent);
+        registerEvent('click/link/' + stateParam, link.textContent.replace(/\s+/g, ' ').trim());
         if (isPlainLeftClick(e)) {
             e.preventDefault();
             applyState(stateParam);
@@ -729,15 +735,15 @@
             loadHelp(doc);
         }
         helpOverlay.hidden = false;
-        updateURL();
         updateMetaTags();
+        updateURL();
         updateTopicStrip();
     }
 
     function closeHelp() {
         helpOverlay.hidden = true;
-        updateURL();
         updateMetaTags();
+        updateURL(false);
         updateTopicStrip();
     }
 
@@ -964,8 +970,8 @@
             tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
         });
         if (!csvOverlay.hidden) {
-            updateURL();
             updateMetaTags();
+            updateURL();
         }
 
         if (csvCache[key]) {
@@ -1019,16 +1025,16 @@
     function openCSV() {
         csvOverlay.hidden = false;
         if (!csvCache[activeCsvKey]) loadCSV(activeCsvKey);
-        updateURL();
         updateMetaTags();
+        updateURL();
         updateTopicStrip();
         updateOverflowIndicators();
     }
 
     function closeCSV() {
         csvOverlay.hidden = true;
-        updateURL();
         updateMetaTags();
+        updateURL(false);
         updateTopicStrip();
     }
 
@@ -1081,21 +1087,27 @@
         return text ? '?' + text : '';
     }
 
-    function updateURL() {
+    function updateURL(counted) {
         const s = currentStateParam();
         const parts = (s ? statePath(s) : '').split('#');
         const path = s ? sitePath() + parts[0] : HOST_PATH;
         const target = path + keptQuery() + (parts[1] ? '#' + parts[1] : '');
         if (window.location.pathname + window.location.search + window.location.hash !== target) {
             history.replaceState(history.state, '', target);
-            registerPageView(path + (parts[1] ? '#' + parts[1] : ''));
+            if (counted !== false) registerPageView(path + (parts[1] ? '#' + parts[1] : ''));
         }
     }
 
     // The tab's title and description follow the slide; the canonical and og:url stay what
     // the page was served with.
     function updateMetaTags() {
-        if (PAGE && !hosted && helpOverlay.hidden && csvOverlay.hidden) return;
+        if (PAGE && !hosted && helpOverlay.hidden && csvOverlay.hidden) {
+            document.title = HOST_META.title;
+            ['description', 'og:title', 'og:description'].forEach(function (name) {
+                if (HOST_META[name] !== null) setMeta(name, HOST_META[name]);
+            });
+            return;
+        }
 
         // Overlays: generic titles, not slide-specific
         if (!helpOverlay.hidden) {

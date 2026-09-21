@@ -41,8 +41,8 @@
 
     <nav class="topic-strip" id="topic-strip" aria-label="Topics">
         <a class="topic-chip" href="../highlights/1/" data-topic="highlights">Top Features</a>
+        <a class="topic-chip" href="../install/1/" data-topic="install">PC / Console Setup</a>
         <a class="topic-chip" href="../full-reel/1/" data-topic="full-reel">Single Race v. Reference</a>
-        <a class="topic-chip" href="../install/1/" data-topic="install">Quick Setup Guide</a>
         <a class="topic-chip" href="../supported-tracks/1/" data-topic="supported-tracks">Supported Tracks</a>
         <a class="topic-chip" href="#" data-topic="more" role="button">More</a>
     </nav>
@@ -203,10 +203,10 @@
 <p class="reel-intro">How to install &amp; run on PC or Console. <a href="../install/1/">Start the walkthrough</a>.</p>
 <ol class="slide-list">
 <li class="slide-list-item">
-<a href="../install/1/"><img src="../images/install/01_store_listing.png" alt="Get the App - Directly from the Microsoft Store" loading="lazy"></a>
+<a href="../install/1/"><img src="../images/install/01_store_listing.png" alt="Install from the Microsoft Store" loading="lazy"></a>
 <div><span class="slide-list-group">STEP 1</span>
-<h2><a href="../install/1/">Get the App - Directly from the Microsoft Store</a></h2>
-<p>Search for &quot;PyFy Telemetry&quot; in the Store, or use the direct link at the bottom of this page. Click &quot;Get&quot; to download. No admin privileges required, no user accounts or in-app purchases, no data collected or transmitted: all information stays local.</p></div>
+<h2><a href="../install/1/">Install from the Microsoft Store</a></h2>
+<p>Get the app free from the Store, or open the Store on your Windows PC and search for &quot;PyFy Telemetry&quot;. Click &quot;Get&quot; to download. No account or cloud services, no ads or in-app purchases, no data collection.</p></div>
 </li>
 <li class="slide-list-item">
 <a href="../install/2/"><img src="../images/install/03_store_installed.png" alt="Installation Complete" loading="lazy"></a>
@@ -218,54 +218,60 @@
 <a href="../install/3/"><img src="../images/install/04_first_start.png" alt="First Start" loading="lazy"></a>
 <div><span class="slide-list-group">STEP 2</span>
 <h2><a href="../install/3/">First Start</a></h2>
-<p>On first launch, the app creates a default configuration and starts listening right away. An installation note points to &quot;Telemetry &amp; Settings &gt; Listener settings&quot;, where you can change ports and capture options or add a Desktop shortcut.</p></div>
+<p>On first launch, the app creates a default configuration and starts listening for in-game telemetry right away. Optional: change ports and capture options or add a Desktop shortcut in Listener settings.</p></div>
 </li>
 <li class="slide-list-item">
-<a href="../install/4/"><img src="../images/install/05_first_run_settings.png" alt="Listener Settings (Optional)" loading="lazy"></a>
-<div><span class="slide-list-group">STEP 2</span>
-<h2><a href="../install/4/">Listener Settings (Optional)</a></h2>
-<p>Defaults should work out-of-the-box. To change them, open &quot;Telemetry &amp; Settings &gt; Listener settings&quot; in the app. It is recommended to keep &quot;Enable raw telemetry capture&quot; on.</p></div>
-</li>
-<li class="slide-list-item">
-<a href="../install/5/"><img src="../images/install/06_app_ready.png" alt="Ready to Start" loading="lazy"></a>
+<a href="../install/4/"><img src="../images/install/07_f1_settings_menu.png" alt="F1 25 - Telemetry Settings" loading="lazy"></a>
 <div><span class="slide-list-group">STEP 3</span>
-<h2><a href="../install/5/">Ready to Start</a></h2>
-<p>The app is now listening for telemetry. The status bar shows network ports and recording/processing status.</p></div>
-</li>
-<li class="slide-list-item">
-<a href="../install/6/"><img src="../images/install/07_f1_settings_menu.png" alt="F1 25 - Telemetry Settings" loading="lazy"></a>
-<div><span class="slide-list-group">STEP 4</span>
-<h2><a href="../install/6/">F1 25 - Telemetry Settings</a></h2>
+<h2><a href="../install/4/">F1 25 - Telemetry Settings</a></h2>
 <p>Then, confirm/adjust your game settings. In F1 25, go to Settings and select &quot;Telemetry Settings&quot;.</p></div>
 </li>
 <li class="slide-list-item">
-<a href="../install/7/"><img src="../images/install/08_f1_udp_settings.png" alt="F1 25 - UDP Configuration" loading="lazy"></a>
+<a href="../install/5/"><img src="../images/install/08_f1_udp_settings.png" alt="F1 25 - UDP Telemetry Configuration" loading="lazy"></a>
+<div><span class="slide-list-group">STEP 3</span>
+<h2><a href="../install/5/">F1 25 - UDP Telemetry Configuration</a></h2>
+<p>Set UDP Telemetry to On, Send rate to 60Hz, and the UDP Port to match the app&#x27;s listen port (20774 by default). Set UDP Format to 2026 if you&#x27;ve purchased the DLC, or 2025 otherwise. IP Address remains the default (127.0.0.1).</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../install/6/"><img src="../images/install/06_app_ready.png" alt="Ready to Start" loading="lazy"></a>
 <div><span class="slide-list-group">STEP 4</span>
-<h2><a href="../install/7/">F1 25 - UDP Configuration</a></h2>
-<p>Set UDP Telemetry to On, IP Address to 127.0.0.1, Send rate to 60Hz, and the UDP Port to match the app&#x27;s listen port (20774 by default). Set UDP Format to 2026 if you&#x27;ve purchased the DLC, or 2025 otherwise.</p></div>
+<h2><a href="../install/6/">Ready to Start</a></h2>
+<p>That&#x27;s it, the one-time setup is complete. Start a new race or session in the F1 game to capture your first session: see demo. Optional: change ports in Listener settings.</p></div>
 </li>
 <li class="slide-list-item">
-<a href="../install/8/"><img src="../images/install/09_simpro_manager.png" alt="SimPro Manager (Optional)" loading="lazy"></a>
-<div><span class="slide-list-group">STEP 5</span>
-<h2><a href="../install/8/">SimPro Manager (Optional)</a></h2>
-<p>That&#x27;s it, the one-time setup is complete. You can start capturing your first session: see demo. If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app&#x27;s forwarding port (20775).</p></div>
+<a href="../install/7/"><img src="../images/install/09_simpro_manager.png" alt="SimPro Manager (Optional)" loading="lazy"></a>
+<div><span class="slide-list-group">OPTIONAL</span>
+<h2><a href="../install/7/">SimPro Manager (Optional)</a></h2>
+<p>If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app&#x27;s forwarding port (20775).</p></div>
 </li>
 <li class="slide-list-item">
-<a href="../install/9/"><img src="../images/install/10_console_app_settings.png" alt="Console Setup - App Settings" loading="lazy"></a>
+<a href="../install/8/"><img src="../images/install/05_first_run_settings.png" alt="Listener Settings (Optional)" loading="lazy"></a>
+<div><span class="slide-list-group">OPTIONAL</span>
+<h2><a href="../install/8/">Listener Settings (Optional)</a></h2>
+<p>Defaults should work out-of-the-box. To change them, open &quot;Telemetry &amp; Settings &gt; Listener settings&quot; in the app. It is recommended to keep &quot;Enable raw telemetry capture&quot; on.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../install/9/"><img src="../images/install/07_f1_settings_menu.png" alt="Console Setup - Install the App" loading="lazy"></a>
 <div><span class="slide-list-group">CONSOLE SETUP (Step 1)</span>
-<h2><a href="../install/9/">Console Setup - App Settings</a></h2>
-<p>Playing on console? Run the app on a separate Windows device (e.g. on a laptop). In &quot;Telemetry &amp; Settings &gt; Listener settings&quot;, enable [Advanced] Allow broadcast IP - this lets the app receive telemetry from your console. You&#x27;ll be prompted to allow a Windows Firewall exception.</p></div>
+<h2><a href="../install/9/">Console Setup - Install the App</a></h2>
+<p>Playing on console? First, install the app on a separate Windows device (e.g. on a laptop). See how in PC setup. Then, tweak the Listener settings to enable console support.</p></div>
 </li>
 <li class="slide-list-item">
-<a href="../install/10/"><img src="../images/install/11_console_f1_settings.png" alt="Console Setup - Game Settings" loading="lazy"></a>
+<a href="../install/10/"><img src="../images/install/10_console_app_settings.png" alt="Console Setup - App Settings" loading="lazy"></a>
 <div><span class="slide-list-group">CONSOLE SETUP (Step 2)</span>
-<h2><a href="../install/10/">Console Setup - Game Settings</a></h2>
-<p>In F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app. All other settings remain the same as the PC setup.</p></div>
+<h2><a href="../install/10/">Console Setup - App Settings</a></h2>
+<p>In &quot;Telemetry &amp; Settings &gt; Listener settings&quot;, enable [Advanced] Allow broadcast IP - this lets the app receive telemetry from your console. You&#x27;ll be prompted to allow a Windows Firewall exception.</p></div>
 </li>
 <li class="slide-list-item">
-<a href="../install/11/"><img src="../images/text-slides/welcome.png" alt="PyFy Telemetry: F1 Performance Analysis" loading="lazy"></a>
+<a href="../install/11/"><img src="../images/install/11_console_f1_settings.png" alt="Console Setup - Game Settings" loading="lazy"></a>
+<div><span class="slide-list-group">CONSOLE SETUP (Step 3)</span>
+<h2><a href="../install/11/">Console Setup - Game Settings</a></h2>
+<p>Finally, in F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app. All other settings remain the same as the PC setup.</p></div>
+</li>
+<li class="slide-list-item">
+<a href="../install/12/"><img src="../images/text-slides/welcome.png" alt="PyFy Telemetry: F1 Performance Analysis" loading="lazy"></a>
 <div><span class="slide-list-group">WELCOME</span>
-<h2><a href="../install/11/">PyFy Telemetry: F1 Performance Analysis</a></h2>
+<h2><a href="../install/12/">PyFy Telemetry: F1 Performance Analysis</a></h2>
 <p>Capture sim racing telemetry and turn it into practical, turn-by-turn/corner-by-corner insights you can use right away to gain lap time.</p></div>
 </li>
 </ol>

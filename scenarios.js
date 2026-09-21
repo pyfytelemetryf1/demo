@@ -430,8 +430,10 @@ const SCENARIOS = {
         slides: [
             {
                 image: 'images/install/01_store_listing.png',
-                title: 'Get the App - Directly from the Microsoft Store',
-                description: 'Search for "PyFy Telemetry" in the Store, or use the direct link at the bottom of this page. Click "Get" to download.\nNo admin privileges required, no user accounts or in-app purchases, no data collected or transmitted: all information stays local.',
+                link: 'https://apps.microsoft.com/detail/9P60JSFXGLG0',
+                callout: { text: 'Playing on Console instead? See here', state: 'install/9' },
+                title: 'Install from the Microsoft Store',
+                description: '<a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link caption-store-link">Get the app free from the Store</a>, or open the Store on your Windows PC and search for "PyFy Telemetry". Click "Get" to download.\nNo account or cloud services, no ads or in-app purchases, no data collection.',
                 group: 'STEP 1'
             },
             {
@@ -443,50 +445,56 @@ const SCENARIOS = {
             {
                 image: 'images/install/04_first_start.png',
                 title: 'First Start',
-                description: 'On first launch, the app creates a default configuration and starts listening right away.\nAn installation note points to "Telemetry & Settings > Listener settings", where you can change ports and capture options or add a Desktop shortcut.',
+                description: 'On first launch, the app creates a default configuration and starts listening for in-game telemetry right away.\nOptional: change ports and capture options or add a Desktop shortcut in <a href="?s=install/8" class="slide-link">Listener settings</a>.',
                 group: 'STEP 2'
-            },
-            {
-                image: 'images/install/05_first_run_settings.png',
-                title: 'Listener Settings (Optional)',
-                description: 'Defaults should work out-of-the-box. To change them, open "Telemetry & Settings > Listener settings" in the app.\nIt is recommended to keep "Enable raw telemetry capture" on.',
-                group: 'STEP 2'
-            },
-            {
-                image: 'images/install/06_app_ready.png',
-                title: 'Ready to Start',
-                description: 'The app is now listening for telemetry. The status bar shows network ports and recording/processing status.',
-                group: 'STEP 3'
             },
             {
                 image: 'images/install/07_f1_settings_menu.png',
                 title: 'F1 25 - Telemetry Settings',
                 description: 'Then, confirm/adjust your game settings. In F1 25, go to Settings and select "Telemetry Settings".',
-                group: 'STEP 4'
+                group: 'STEP 3'
             },
             {
                 image: 'images/install/08_f1_udp_settings.png',
-                title: 'F1 25 - UDP Configuration',
-                description: 'Set UDP Telemetry to On, IP Address to 127.0.0.1, Send rate to 60Hz, and the UDP Port to match the app\'s listen port (<strong>20774</strong> by default). Set UDP Format to <strong>2026</strong> if you\'ve purchased the DLC, or 2025 otherwise.',
+                title: 'F1 25 - UDP Telemetry Configuration',
+                description: 'Set UDP Telemetry to <strong>On</strong>, Send rate to <strong>60Hz</strong>, and the UDP Port to match the app\'s listen port (<strong>20774</strong> by default). Set UDP Format to <strong>2026</strong> if you\'ve purchased the DLC, or <strong>2025</strong> otherwise.\nIP Address remains the default (127.0.0.1).',
+                group: 'STEP 3'
+            },
+            {
+                image: 'images/install/06_app_ready.png',
+                title: 'Ready to Start',
+                description: 'That\'s it, the one-time setup is complete. Start a new race or session in the F1 game to capture your first session: see <a href="?s=capture/1" class="slide-link">demo</a>.\nOptional: change ports in <a href="?s=install/8" class="slide-link">Listener settings</a>.',
                 group: 'STEP 4'
             },
             {
                 image: 'images/install/09_simpro_manager.png',
                 title: 'SimPro Manager (Optional)',
-                description: 'That\'s it, the one-time setup is complete. You can start capturing your first session: see <a href="?s=capture/1" class="drawer-link">demo</a>.\nIf you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775).',
-                group: 'STEP 5'
+                description: 'If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app\'s forwarding port (20775).',
+                group: 'OPTIONAL'
+            },
+            {
+                image: 'images/install/05_first_run_settings.png',
+                title: 'Listener Settings (Optional)',
+                description: 'Defaults should work out-of-the-box. To change them, open "Telemetry & Settings > Listener settings" in the app.\nIt is recommended to keep "Enable raw telemetry capture" on.',
+                group: 'OPTIONAL'
+            },
+            {
+                image: 'images/install/07_f1_settings_menu.png',
+                title: 'Console Setup - Install the App',
+                description: 'Playing on console? First, install the app on a separate Windows device (e.g. on a laptop). See how in <a href="?s=install/1" class="slide-link">PC setup</a>.\nThen, tweak the <a href="?s=install/10" class="slide-link">Listener settings</a> to enable console support.',
+                group: 'CONSOLE SETUP (Step 1)'
             },
             {
                 image: 'images/install/10_console_app_settings.png',
                 title: 'Console Setup - App Settings',
-                description: 'Playing on console? Run the app on a separate Windows device (e.g. on a laptop). In "Telemetry & Settings > Listener settings",\nenable [Advanced] Allow broadcast IP - this lets the app receive telemetry from your console. You\'ll be prompted to allow a Windows Firewall exception.',
-                group: 'CONSOLE SETUP (Step 1)'
+                description: 'In "Telemetry & Settings > Listener settings", enable [Advanced] Allow broadcast IP - this lets the app receive telemetry from your console. You\'ll be prompted to allow a Windows Firewall exception.',
+                group: 'CONSOLE SETUP (Step 2)'
             },
             {
                 image: 'images/install/11_console_f1_settings.png',
                 title: 'Console Setup - Game Settings',
-                description: 'In F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app.\nAll other settings remain the same as the PC setup.',
-                group: 'CONSOLE SETUP (Step 2)'
+                description: 'Finally, in F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app.\nAll other settings remain the same as the PC setup.',
+                group: 'CONSOLE SETUP (Step 3)'
             }
         ]
     },
@@ -532,6 +540,6 @@ Object.keys(SCENARIOS).forEach(function (id) {
  */
 const APP_LINKS = {
     'app-link-1': 'supported-tracks/1',   // supported tracks
-    'app-link-2': 'install/7',            // in-game UDP telemetry settings
+    'app-link-2': 'install/5',            // in-game UDP telemetry settings
     'app-link-3': 'supported-tracks/21'   // new in 0.3.0
 };

@@ -702,9 +702,9 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     <priority>0.6</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/01_store_listing.png</image:loc>
-      <image:title>Get the App - Directly from the Microsoft Store</image:title>
-      <image:caption>Search for &quot;PyFy Telemetry&quot; in the Store, or use the direct link at the bottom of this page. Click &quot;Get&quot; to download.
-No admin privileges required, no user accounts or in-app purchases, no data collec</image:caption>
+      <image:title>Install from the Microsoft Store</image:title>
+      <image:caption>Get the app free from the Store, or open the Store on your Windows PC and search for &quot;PyFy Telemetry&quot;. Click &quot;Get&quot; to download.
+No account or cloud services, no ads or in-app purchases, no data collec</image:caption>
     </image:image>
   </url>
   <url>
@@ -724,12 +724,54 @@ No admin privileges required, no user accounts or in-app purchases, no data coll
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/04_first_start.png</image:loc>
       <image:title>First Start</image:title>
-      <image:caption>On first launch, the app creates a default configuration and starts listening right away.
-An installation note points to &quot;Telemetry &amp; Settings &gt; Listener settings&quot;, where you can change ports and capt</image:caption>
+      <image:caption>On first launch, the app creates a default configuration and starts listening for in-game telemetry right away.
+Optional: change ports and capture options or add a Desktop shortcut in Listener setting</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://pyfytelemetryf1.github.io/demo/install/4/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/07_f1_settings_menu.png</image:loc>
+      <image:title>F1 25 - Telemetry Settings</image:title>
+      <image:caption>Then, confirm/adjust your game settings. In F1 25, go to Settings and select &quot;Telemetry Settings&quot;.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/5/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/08_f1_udp_settings.png</image:loc>
+      <image:title>F1 25 - UDP Telemetry Configuration</image:title>
+      <image:caption>Set UDP Telemetry to On, Send rate to 60Hz, and the UDP Port to match the app&#x27;s listen port (20774 by default). Set UDP Format to 2026 if you&#x27;ve purchased the DLC, or 2025 otherwise.
+IP Address remain</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/6/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/06_app_ready.png</image:loc>
+      <image:title>Ready to Start</image:title>
+      <image:caption>That&#x27;s it, the one-time setup is complete. Start a new race or session in the F1 game to capture your first session: see demo.
+Optional: change ports in Listener settings.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/7/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/09_simpro_manager.png</image:loc>
+      <image:title>SimPro Manager (Optional)</image:title>
+      <image:caption>If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match the app&#x27;s forwarding port (20775).</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/8/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -740,55 +782,14 @@ It is recommended to keep &quot;Enable raw telemetry capture&quot; on.</image:ca
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/install/5/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/06_app_ready.png</image:loc>
-      <image:title>Ready to Start</image:title>
-      <image:caption>The app is now listening for telemetry. The status bar shows network ports and recording/processing status.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/install/6/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/07_f1_settings_menu.png</image:loc>
-      <image:title>F1 25 - Telemetry Settings</image:title>
-      <image:caption>Then, confirm/adjust your game settings. In F1 25, go to Settings and select &quot;Telemetry Settings&quot;.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/install/7/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/08_f1_udp_settings.png</image:loc>
-      <image:title>F1 25 - UDP Configuration</image:title>
-      <image:caption>Set UDP Telemetry to On, IP Address to 127.0.0.1, Send rate to 60Hz, and the UDP Port to match the app&#x27;s listen port (20774 by default). Set UDP Format to 2026 if you&#x27;ve purchased the DLC, or 2025 oth</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/install/8/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/09_simpro_manager.png</image:loc>
-      <image:title>SimPro Manager (Optional)</image:title>
-      <image:caption>That&#x27;s it, the one-time setup is complete. You can start capturing your first session: see demo.
-If you use Simagic SimPro Manager, or other sim racing software, set its own UDP Listen Port to match t</image:caption>
-    </image:image>
-  </url>
-  <url>
     <loc>https://pyfytelemetryf1.github.io/demo/install/9/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/10_console_app_settings.png</image:loc>
-      <image:title>Console Setup - App Settings</image:title>
-      <image:caption>Playing on console? Run the app on a separate Windows device (e.g. on a laptop). In &quot;Telemetry &amp; Settings &gt; Listener settings&quot;,
-enable [Advanced] Allow broadcast IP - this lets the app receive telemet</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/07_f1_settings_menu.png</image:loc>
+      <image:title>Console Setup - Install the App</image:title>
+      <image:caption>Playing on console? First, install the app on a separate Windows device (e.g. on a laptop). See how in PC setup.
+Then, tweak the Listener settings to enable console support.</image:caption>
     </image:image>
   </url>
   <url>
@@ -796,14 +797,24 @@ enable [Advanced] Allow broadcast IP - this lets the app receive telemet</image:
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/11_console_f1_settings.png</image:loc>
-      <image:title>Console Setup - Game Settings</image:title>
-      <image:caption>In F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app.
-All other settings remain the s</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/10_console_app_settings.png</image:loc>
+      <image:title>Console Setup - App Settings</image:title>
+      <image:caption>In &quot;Telemetry &amp; Settings &gt; Listener settings&quot;, enable [Advanced] Allow broadcast IP - this lets the app receive telemetry from your console. You&#x27;ll be prompted to allow a Windows Firewall exception.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://pyfytelemetryf1.github.io/demo/install/11/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/install/11_console_f1_settings.png</image:loc>
+      <image:title>Console Setup - Game Settings</image:title>
+      <image:caption>Finally, in F1 25 Telemetry Settings, set UDP Broadcast Mode to On. This broadcasts telemetry to all devices on your local network, including the Windows device running the app.
+All other settings rem</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/install/12/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>

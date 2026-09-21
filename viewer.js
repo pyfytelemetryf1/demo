@@ -25,6 +25,8 @@
     function sitePath() { return SITE_PATH; }
     var DRAWER_KEEP_OPEN_MIN = 2000;    // keep drawer open after scenario switch above this width
 
+    const CALLOUT_ARROW = '<span class="slide-callout-arrow" aria-hidden="true"></span>';
+
     // --- Analytics ---
     function registerEvent(path, title) {
         if (window.goatcounter && goatcounter.count) {
@@ -172,6 +174,13 @@
         }
     }
 
+    // A caption collapsing from its expanded height is measured again once it has settled
+    captionLeft.addEventListener('transitionend', function (e) {
+        if (e.target !== captionLeft || e.propertyName !== 'max-height' || captionLeft.classList.contains('expanded')) return;
+        updateOverflowIndicators();
+        sizeSlideImage();
+    });
+
     // --- Drawer ---
     let drawerOpen = false;
 
@@ -307,7 +316,7 @@
         const total = scenario.slides.length;
 
         // Clear existing placeholder/markdown/chevron and restore caption
-        const existing = slideContent.querySelectorAll('.slide-placeholder, .slide-markdown, .md-chevron');
+        const existing = slideContent.querySelectorAll('.slide-placeholder, .slide-markdown, .md-chevron, .slide-callout');
         existing.forEach(el => el.remove());
         slideContent.classList.remove('slide-content-column');
         captionBar.style.display = '';
@@ -324,6 +333,7 @@
             const mdDiv = document.createElement('div');
             mdDiv.className = 'slide-markdown';
             mdDiv.innerHTML = slide.markdown;
+            pathLinks(mdDiv);
             slideContent.classList.add('slide-content-column');
             slideContent.appendChild(mdDiv);
             // Chevron - sibling after markdown div
@@ -374,7 +384,17 @@
         captionGroup.textContent = slide.group || '';
         captionTitle.textContent = slide.title || '';
         captionDescription.innerHTML = slide.group === 'WELCOME' ? '' : (slide.description || '').replace(/\n/g, '<br>');
+        pathLinks(captionDescription);
         captionDisclaimer.textContent = slide.disclaimer || '';
+        slideImage.classList.toggle('linked', !!slide.link);
+        if (slide.callout && slide.image) {
+            const callout = document.createElement('a');
+            callout.className = 'slide-callout';
+            callout.href = SITE_PATH + statePath(slide.callout.state);
+            callout.innerHTML = '<span></span>' + CALLOUT_ARROW;
+            callout.firstChild.textContent = slide.callout.text;
+            slideContent.appendChild(callout);
+        }
 
         // Counter, linking to the reel's own page
         slideCounter.textContent = (currentSlideIndex + 1) + ' / ' + total;
@@ -689,7 +709,8 @@
             || link.classList.contains('slide-counter')) return;
         var stateParam = linkState(link.getAttribute('href') || '');
         if (!stateParam) return;
-        registerEvent('click/link/' + stateParam, link.textContent.replace(/\s+/g, ' ').trim());
+        if (link.classList.contains('slide-callout')) registerEvent('click/console-setup', 'Console setup (slide callout)');
+        else registerEvent('click/link/' + stateParam, link.textContent.replace(/\s+/g, ' ').trim());
         if (isPlainLeftClick(e)) {
             e.preventDefault();
             applyState(stateParam);
@@ -710,6 +731,16 @@
 
     // Prevent image dragging
     slideImage.addEventListener('dragstart', (e) => e.preventDefault());
+    // A slide with a link opens it from its image
+    slideImage.addEventListener('click', function () {
+        const slide = getCurrentSlide();
+        if (!slide || !slide.link) return;
+        registerEvent('click/store', 'Microsoft Store (slide image)');
+        window.open(slide.link, '_blank', 'noopener');
+    });
+    captionDescription.addEventListener('click', function (e) {
+        if (e.target.closest('.caption-store-link')) registerEvent('click/store', 'Microsoft Store (caption)');
+    });
 
     // --- Help Panel ---
     const drawerHelpBtn = document.getElementById('drawer-help-btn');
@@ -1073,6 +1104,13 @@
     }
 
     // The page a state lives at, relative to the site root.
+    // Links written as '?s=' states get the page path they name, as the built pages have.
+    function pathLinks(el) {
+        el.querySelectorAll('a[href^="?s="]').forEach(function (link) {
+            link.setAttribute('href', SITE_PATH + statePath(link.getAttribute('href').slice(3)));
+        });
+    }
+
     function statePath(s) {
         if (HELP_DOCS[s]) return HELP_DOCS[s].path;
         if (s.indexOf('data/') === 0) return 'sample-data/#' + s.slice(5);
@@ -1181,12 +1219,18 @@
     }
 
     // The state named by the old '?s=' query or '#reel/n' hash, if the URL carries one.
+    // Old links number the quick setup slides in their earlier order.
+    const OLD_INSTALL_SLIDES = { 4: 8, 5: 6, 6: 4, 7: 5, 8: 7 };
+
     function legacyState() {
         const s = new URLSearchParams(window.location.search).get('s');
-        if (s) return s;
         const hash = window.location.hash.slice(1);
-        if (!hash || hash.indexOf('/') === -1) return null;
-        return hash.indexOf('csv/') === 0 ? 'data/' + hash.slice(4) : hash;
+        let state = s || (hash && hash.indexOf('/') !== -1 ? hash : null);
+        if (!state) return null;
+        if (!s && state.indexOf('csv/') === 0) state = 'data/' + state.slice(4);
+        const parts = state.split('/');
+        if (parts[0] === 'install' && OLD_INSTALL_SLIDES[parts[1]]) state = 'install/' + OLD_INSTALL_SLIDES[parts[1]];
+        return state;
     }
 
     // The state named by the page path under the site root, if any.

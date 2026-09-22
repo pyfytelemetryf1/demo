@@ -28,17 +28,32 @@
     const CALLOUT_ARROW = '<span class="slide-callout-arrow" aria-hidden="true"></span>';
 
     // --- Analytics ---
+    window.goatcounter = window.goatcounter || {};
+    goatcounter.no_onload = true;
+    const pendingHits = [];
+    let viewCounted = false;
+
+    function sendHits() {
+        if (!goatcounter.count || document.visibilityState === 'hidden') return;
+        while (pendingHits.length) goatcounter.count(pendingHits.shift());
+    }
+
     function registerEvent(path, title) {
-        if (window.goatcounter && goatcounter.count) {
-            goatcounter.count({ path: path, title: title, event: true });
-        }
+        pendingHits.push({ path: path, title: title, event: true });
+        sendHits();
     }
 
     function registerPageView(path) {
-        if (window.goatcounter && goatcounter.count) {
-            goatcounter.count({ path: path });
-        }
+        viewCounted = true;
+        pendingHits.push({ path: path, title: document.title });
+        sendHits();
     }
+
+    document.addEventListener('visibilitychange', sendHits);
+    (function awaitCounter(tries) {
+        if (goatcounter.count) return sendHits();
+        if (tries > 0) setTimeout(function () { awaitCounter(tries - 1); }, 250);
+    })(240);
 
     // --- State ---
     let currentScenarioId = null;
@@ -1287,8 +1302,12 @@
     // A slide page opens its own slide, or whatever an old link on it asks for; the URL is
     // then the page path of what is shown.
     const legacy = legacyState();
+    let leaving = false;
     if (PAGE) {
-        if (legacy && validState(legacy)) window.location.replace(sitePath() + statePath(legacy).replace('#', keptQuery() + '#') + (statePath(legacy).indexOf('#') === -1 ? keptQuery() : ''));
+        if (legacy && validState(legacy)) {
+            leaving = true;
+            window.location.replace(sitePath() + statePath(legacy).replace('#', keptQuery() + '#') + (statePath(legacy).indexOf('#') === -1 ? keptQuery() : ''));
+        }
     } else if (SLIDE) {
         if (!(legacy && applyState(legacy))) applyState(SLIDE);
     }
@@ -1296,6 +1315,7 @@
         loadCSV(window.location.hash.slice(1));
         openCSV();
     }
+    if (!leaving && !viewCounted) registerPageView(window.location.pathname + window.location.hash);
 
     updateOverflowIndicators();
     updateTopicStrip();

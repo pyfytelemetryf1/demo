@@ -61,13 +61,13 @@ const SCENARIOS = {
             },
             {
                 image: 'images/highlights/brake_traces_gear.png',
-                title: 'Brake Traces & Gear Overlay - T6',
+                title: 'Brake Traces & Gear Overlay - T1',
                 description: 'Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Priority turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re correctly trail braking to the apex.',
                 group: 'TECHNIQUE / TRAIL BRAKING'
             },
             {
-                image: 'images/highlights/throttle_traces_t6.png',
-                title: 'Throttle Traces - T6',
+                image: 'images/highlights/throttle_traces_t1.png',
+                title: 'Throttle Traces - T1',
                 description: 'Throttle application and modulation past the apex of a specific turn/corner. Priority turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re getting back on throttle early enough.',
                 group: 'TECHNIQUE / THROTTLE APPLICATION'
             },
@@ -117,21 +117,21 @@ const SCENARIOS = {
         ]
     },
     'full-reel': {
-        title: 'Single Race vs Reference',
+        title: 'Race vs Reference',
         description: 'Compare your race vs. the built-in reference',
         intro: 'Compare your race vs. the built-in reference',
         slides: [
             {
-                image: 'images/full-reel/01_comparison_turn_time_delta.png',
+                image: 'images/full-reel/01_overview_lap_times_progression.png',
+                title: 'Clean Lap Times Progression',
+                description: 'Every clean lap in order, with median vs the reference. Outlier laps are detected and annotated.',
+                group: 'RACE PACE'
+            },
+            {
+                image: 'images/full-reel/02_comparison_turn_time_delta.png',
                 title: 'Time Gained / Lost per Turn vs Reference',
                 description: 'Find more pace: turn by turn against the track’s built-in reference.\nRed is where you’re slower, green is where you’re faster. The footnote names the corners worth the most.',
                 group: 'FIND MORE PACE / TURN ANALYSIS'
-            },
-            {
-                image: 'images/full-reel/02_turns_time_left_on_table.png',
-                title: 'Time Left on Table',
-                description: 'Get time back right now: the gap between your median and your best through each corner is pace you already have.\nExecute closer to your best, consistently, in the three turns/corners named here.',
-                group: 'FIND LAP TIME / TURN ANALYSIS'
             },
             {
                 image: 'images/full-reel/03_technique_braking_point_consistency.png',
@@ -152,27 +152,27 @@ const SCENARIOS = {
                 group: 'TECHNIQUE / RACE START'
             },
             {
-                image: 'images/full-reel/06_lines_T6_racing_line.png',
-                title: 'Racing Line - T6',
+                image: 'images/full-reel/06_lines_T5_racing_line.png',
+                title: 'Racing Line - T5',
                 description: 'Improve racing lines where needed. One line per lap for each priority corner, vs the purple dashed reference.\nThe footnote names divergences worth correcting.',
                 group: 'TECHNIQUE / RACING LINE'
             },
             {
-                image: 'images/full-reel/07_technique_T6_brake_traces_gear_overlay.png',
-                title: 'Brake Traces & Gear Overlay - T6',
+                image: 'images/full-reel/07_technique_T5_brake_traces_gear_overlay.png',
+                title: 'Brake Traces & Gear Overlay - T5',
                 description: 'Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Priority turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re correctly trail braking to the apex.',
                 group: 'TECHNIQUE / TRAIL BRAKING'
             },
             {
-                image: 'images/full-reel/08_technique_T6_throttle_traces.png',
-                title: 'Throttle Traces - T6',
+                image: 'images/full-reel/08_technique_T5_throttle_traces.png',
+                title: 'Throttle Traces - T5',
                 description: 'Throttle application and modulation past the apex of a specific turn/corner. Priority turns are detected automatically.\nThe fastest lap is highlighted vs the dashed purple reference. See whether you\'re getting back on throttle early enough.',
                 group: 'TECHNIQUE / THROTTLE APPLICATION'
             },
             {
-                image: 'images/full-reel/09_technique_T6_speed_traces.png',
-                title: 'Speed Traces - T6',
-                description: 'Entry, minimum and exit speed through T6, lap by lap, vs the dashed purple reference.',
+                image: 'images/full-reel/09_technique_T5_speed_traces.png',
+                title: 'Speed Traces - T5',
+                description: 'Entry, minimum and exit speed through T5, lap by lap, vs the dashed purple reference.',
                 group: 'TECHNIQUE / SPEED TRACES'
             },
             {
@@ -218,37 +218,31 @@ const SCENARIOS = {
                 group: 'PROGRESSION / RACE VS RACE'
             },
             {
-                image: 'images/full-reel/17_overview_lap_times_progression.png',
-                title: 'Clean Lap Times Progression',
-                description: 'Every clean lap in order, with median vs the reference. Outlier laps are detected and annotated.',
-                group: 'RACE PACE'
-            },
-            {
-                image: 'images/full-reel/18_overview_lap_times_per_stint.png',
+                image: 'images/full-reel/17_overview_lap_times_per_stint.png',
                 title: 'Clean Lap Times Per Stint',
                 description: 'Pace within each tyre stint: fastest, slowest and the trend.\nSee whether you’re extracting performance from each tyre compound you used.',
                 group: 'RACE PACE'
             },
             {
-                image: 'images/full-reel/19_overview_lap_times_vs_tyre_age.png',
+                image: 'images/full-reel/18_overview_lap_times_vs_tyre_age.png',
                 title: 'Tyre Degradation',
                 description: 'Added cost per lap as tyres age: fuel-normalized lap times per stint, with compound degradation in ms/lap.\nSteeper than expected means you\'re overdriving the tyre or not handling loss of grip efficiently.',
                 group: 'RACE PACE'
             },
             {
-                image: 'images/full-reel/20_overview_tyre_management.png',
+                image: 'images/full-reel/19_overview_tyre_management.png',
                 title: 'Tyre Management',
                 description: 'Tyre surface and carcass temperatures versus their optimal windows, lap by lap and stint by stint.',
                 group: 'TYRE MANAGEMENT'
             },
             {
-                image: 'images/full-reel/21_overview_fastest_lap_telemetry.png',
+                image: 'images/full-reel/20_overview_fastest_lap_telemetry.png',
                 title: 'Fastest Lap Telemetry',
                 description: 'Your fastest lap plotted at high resolution: brake, throttle, steering, lateral G, speed and gear with the turn zones marked.',
                 group: 'ADVANCED / FULL LAP TELEMETRY'
             },
             {
-                image: 'images/full-reel/22_overview_fastest_lap_track_map.png',
+                image: 'images/full-reel/21_overview_fastest_lap_track_map.png',
                 title: 'Lap Heat Map vs Reference',
                 description: 'Your fastest lap drawn on the circuit, comparing speed deltas vs. the reference through each turn. For example: T5 is faster in, slower out; the reverse should be true.\nShows where to find more speed next, at a glance.',
                 group: 'ADVANCED / FULL LAP TELEMETRY'

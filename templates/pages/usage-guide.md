@@ -84,8 +84,19 @@ The app identifies four categories of immediately actionable improvements:
 ### Single-session vs. comparison mode
 
 - **Single session (recommended)**: Analyzes one session against the coaching categories above (consistency, pace, race management, technique). Additionally compares your session data with established reference lap times, so you can see where you're behind, where you're ahead, and what needs changing. 
-- **Reference lap**: when available (depending on track and session type), overlays the track's shipped reference lap on your charts as guidance. Usually drawn as a purple dashed line labelled "Reference lap", its goal is to set an achievable target for race/quali pace for very short (5-lap) races in dry conditions on Soft tyres. You can then see an exact overlay of your data versus the reference, for example for lap times, time spent in each turn, braking points, brake modulation, throttle points, throttle modulation, gear shifts, racing lines, ERS deployment & harvesting, etc. 
+- **Reference lap**: when available (depending on track and session type), overlays the track's shipped reference lap on your charts as guidance. See [Reference laps](#reference-laps) below for details.
 - **Comparison** (two sessions on the same track): Adds cross-race delta charts showing exactly where you gained or lost time between sessions. Use this mode to track your own progression between sessions. 
+
+### Reference laps
+
+The app ships a reference lap for each supported track and session type (Qualifying and Race): a clean lap driven in dry conditions on Soft tyres with a light fuel load (1-4 laps' worth of fuel). It is drawn on your charts as a purple dashed line.
+
+The reference is meant to be an achievable but challenging target. Aim for a session's median lap to be at or below the reference, not for every lap to beat it. The `Time Gained/Lost per Turn` chart highlights the top 3 corners where your delta to the reference is largest; this is different from the `Time Left on Table` chart, which highlights the top 3 where you lose the most to your own best.
+
+The **Clean Lap Times Progression** and **Time Gained/Lost per Turn** charts adjust the reference's time to the fuel load and compound of your median lap, so the reference stays a fair target in longer races on Mediums or Hards.
+The technique, consistency and battery charts compare your braking points, brake modulation, gear shifts, throttle, racing lines, corner speeds, ERS deployment and harvesting with the reference's own data. However, the reference points on these charts are not adjusted for a heavy fuel load or other compounds. When you ran a different compound, these charts label the reference with "soft tyres" as a reminder.
+
+Always expect a gap to remain on a wet track, with a damaged car, or occasionally with assists on.
 
 ### Menu options explained
 
@@ -143,7 +154,7 @@ The ZIP contains:
 - **`llm_telemetry_analysis_request.md`** - the LLM telemetry analysis skill (the AI reads this first)
 - **`charts/`** - all generated chart PNGs plus a LLM-specific summary of the data and chart manifest
 - **`data/`** - laps and turns CSVs plus field/schema documentation
-- **`reference/`** - the reference lap's own telemetry, if available
+- **`reference/`** - the reference lap's own telemetry, if available (see [Reference laps](#reference-laps))
 
 ### Providing additional context
 
@@ -225,7 +236,7 @@ After saving, the app restarts automatically with the new settings.
 
 ## 10. Turn-level telemetry support
 
-The app includes turn-level analysis and reference data for 19 tracks: Abu Dhabi, Austria, Bahrain, Baku, Catalunya, Hungaroring, Losail, Madrid, Melbourne, Miami, Monaco, Montreal, Monza, Shanghai, Silverstone, Singapore, Spa, Suzuka and Zandvoort.
+The app includes turn-level analysis and reference data (see [Reference laps](#reference-laps)) for 19 tracks: Abu Dhabi, Austria, Bahrain, Baku, Catalunya, Hungaroring, Losail, Madrid, Melbourne, Miami, Monaco, Montreal, Monza, Shanghai, Silverstone, Singapore, Spa, Suzuka and Zandvoort.
 
 More tracks and refinements to existing tracks are added with each release. 
 
@@ -247,15 +258,17 @@ File naming follows the pattern: `{YYYY}_{MM}_{Mon}_{DD}_{Track}_{Session}` (e.g
 
 For complete CSV field documentation, see [CSV_OUTPUT_FORMAT.md](CSV_OUTPUT_FORMAT.md).
 
-## Appendix: Chart descriptions
+## 12. Coaching/Analysis Chart descriptions
 
-**Lap times progression.** Lap time vs lap number, compound-colored, with median line and range band. Metrics: fastest, median, slowest, range.
+**Scorecard.** At-a-glance session overview. Session context and stats, difficulty and assists, high-level outcomes, race start scores, aggregated technique scores, aggregated consistency scores, biggest opportunities to improve next.
 
-**Lap times per stint.** Box plots per stint showing median, spread, and compound. One chart per race.
+**Lap times progression.** Lap time vs lap number, with your median and the reference lap. The median is always a lap you drove, so it can be used as the target to improve on (with the reference as the goal). When a race has more than one stint, each stint is highlighted and labelled with its tyre compound. In-laps, out-laps and safety car laps are excluded. Metrics: fastest, median, slowest, range.
+
+**Lap times per stint.** One panel per stint showing lap times progression on each compound. Metrics: fastest, median, slowest per stint.
 
 **Lap times vs tyre age.** Fuel-normalized lap time against tyre age, one trendline per stint fitted to clean laps only. Shows the tyre degradation rate.
 
-**Fuel normalized pace.** Every lap corrected to the lightest fuel load seen across both races, using a fixed per-circuit rate. Metrics: fuel-adj. fastest/median/slowest, and the correction applied in ms/kg.
+**Fuel normalized pace.** Every lap corrected to the lightest fuel load seen across both races, using a known per-circuit rate. Metrics: fuel-adjusted fastest/median/slowest, and the correction applied in ms/kg.
 
 **Excluded lap times.** The laps excluded from the clean set and the reasons why: first lap, in-lap, out-lap, safety car, damage, invalid.
 
@@ -265,29 +278,25 @@ For complete CSV field documentation, see [CSV_OUTPUT_FORMAT.md](CSV_OUTPUT_FORM
 
 **Time Gained/Lost per Turn vs the reference (or vs another session).** Waterfall showing where the session lost or gained time against the reference lap (or against another baseline session), per turn. Sorted by biggest opportunities.
 
-**Braking consistency.** Braking point consistency: scatter of braking distances from entry point per turn (lap over lap) vs the reference (and compared to baseline session when using comparison mode). Wide spread means time is being left on the table.
+**Braking consistency.** Braking point consistency: scatter of braking distances from entry point per turn (lap over lap) vs the reference (and compared to baseline session when using comparison mode). Wide spread means time is being left on the table. Early braking points that cost at least ~50 ms/lap (estimated) are highlighted with an arrow and labelled with the estimated time lost per lap.
 
-**Throttle consistency.** Throttle committed consistency: scatter of throttle committed distance from turn apex (lap over lap) vs the reference (and compared to baseline session when using comparison mode). Wide spread means exit speed is being left on the table.
+**Throttle consistency.** Throttle committed consistency: scatter of throttle committed distance from turn apex (lap over lap) vs the reference (and compared to baseline session when using comparison mode). Wide spread means exit speed is being left on the table. Turns where committing to the throttle late costs at least ~50 ms/lap (estimated) are highlighted with an arrow and labelled with the estimated time lost per lap.
 
-**Brake traces with gear shifts overlay.** Brake pressure (20-point series) overlaid for all clean laps, with gear steps on a second axis. Look for: consistency of braking point, pressure modulation, trail-braking, and downshift timing relative to braking onset.
+**Brake traces with gear shifts overlay.** Brake pressure (20-point series) overlaid for all clean laps vs the reference (purple dashed line). The median brake trace and the trace for the fastest time-in-turn are highlighted separately. Gear shifts vs the reference in a companion panel. Look for: pressure modulation, trail-braking, brake release before the apex and near the reference point, downshift timing relative to braking onset.
 
-**Throttle traces.** Throttle application overlaid. Look for: throttle pickup point, hesitation (lifting), getting onto throttle too late past the apex vs the reference.
+**Throttle traces.** Throttle application overlaid for all clean laps vs the reference (purple dashed line). The median trace and the trace for the fastest time-in-turn are highlighted separately. Look for: throttle pickup point vs the reference, hesitation (lifting), getting onto throttle too late past the apex vs the reference.
 
-**Speed traces.** Speed through the turn overlaid. Look for: entry speed consistency, minimum speed (apex), exit speed.
+**Speed traces.** Speed through the turn overlaid, vs the reference. Median speed through the turn is highlighted separately. Look for: entry speed consistency, minimum speed (apex), exit speed vs the reference.
 
-**Racing line.** Spatial trajectory through a turn, all clean laps overlaid, drawn from the driver's view: the entry, marked (0), sits at the bottom heading up. Look for: line consistency between laps, apex hit rate, exit trajectory spread vs the reference.
+**Racing line.** Spatial trajectory through a turn, all clean laps overlaid, drawn from the driver's view: the entry, marked (0), sits at the bottom heading up. Look for: line consistency and proximity to the reference, exit trajectory spread.
 
-**ERS deployment pattern.** Battery deployed (%) per straight (turn-to-turn). Shows where energy is being spent. One per race.
+**ERS deployment pattern.** Battery deployed (%) per straight (turn-to-turn) vs the reference. Shows where energy is being spent and whether the pattern is close to optimal.
 
-**ERS harvesting pattern.** Battery recovered (%) per straight. The counterpart to deployment.
+**ERS harvesting pattern.** Battery recovered (%) per straight vs the reference. The counterpart to deployment. Shows where energy is harvested and whether the pattern is close to the reference.
 
 **Battery lifecycle.** Battery charge level (start/end) across laps. Shows drain/recovery balance over the race.
 
 **Tyre management.** Surface temperature window score, optimal window score, and carcass temperature score lap-over-lap.
-
-**Yaw rate.** Rotational velocity through the turn. High variance = inconsistent rotation/stability.
-
-**Longitudinal g.** Acceleration/deceleration forces. Shows braking intensity and traction utilization.
 
 **Fastest lap telemetry.** Brake and throttle, steering, lateral G, speed and gear plotted at high resolution over a full lap distance, with turn zone markers, for the fastest lap.
 
@@ -297,6 +306,8 @@ For complete CSV field documentation, see [CSV_OUTPUT_FORMAT.md](CSV_OUTPUT_FORM
 
 **Slowest lap track map.** The slowest lap drawn on the circuit, similarly to the fastest lap's track map.
 
-**Scorecard.** At a glance session overview. Session context and stats, difficulty and assists, high-level outcomes, race start scores, aggregated technique scores, aggregated consistency scores, biggest opportunities to improve next.
+**Yaw rate.** Rotational velocity through the turn. High variance = inconsistent rotation/stability.
+
+**Longitudinal g.** Acceleration/deceleration forces. Shows braking intensity and traction utilization.
 
 [F1 Telemetry CSV Output Format](CSV_OUTPUT_FORMAT.md)

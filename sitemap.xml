@@ -87,7 +87,7 @@ The footnote names divergences worth correcting.</image:caption>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/brake_traces_gear.png</image:loc>
-      <image:title>Brake Traces &amp; Gear Overlay - T6</image:title>
+      <image:title>Brake Traces &amp; Gear Overlay - T1</image:title>
       <image:caption>Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Priority turns are detected automatically.
 The fastest lap is highlighted vs the dashed purple reference. See whether</image:caption>
     </image:image>
@@ -97,8 +97,8 @@ The fastest lap is highlighted vs the dashed purple reference. See whether</imag
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/throttle_traces_t6.png</image:loc>
-      <image:title>Throttle Traces - T6</image:title>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/highlights/throttle_traces_t1.png</image:loc>
+      <image:title>Throttle Traces - T1</image:title>
       <image:caption>Throttle application and modulation past the apex of a specific turn/corner. Priority turns are detected automatically.
 The fastest lap is highlighted vs the dashed purple reference. See whether you&#x27;r</image:caption>
     </image:image>
@@ -193,10 +193,9 @@ Shows where to find more speed </image:caption>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/01_comparison_turn_time_delta.png</image:loc>
-      <image:title>Time Gained / Lost per Turn vs Reference</image:title>
-      <image:caption>Find more pace: turn by turn against the track’s built-in reference.
-Red is where you’re slower, green is where you’re faster. The footnote names the corners worth the most.</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/01_overview_lap_times_progression.png</image:loc>
+      <image:title>Clean Lap Times Progression</image:title>
+      <image:caption>Every clean lap in order, with median vs the reference. Outlier laps are detected and annotated.</image:caption>
     </image:image>
   </url>
   <url>
@@ -204,10 +203,10 @@ Red is where you’re slower, green is where you’re faster. The footnote names
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/02_turns_time_left_on_table.png</image:loc>
-      <image:title>Time Left on Table</image:title>
-      <image:caption>Get time back right now: the gap between your median and your best through each corner is pace you already have.
-Execute closer to your best, consistently, in the three turns/corners named here.</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/02_comparison_turn_time_delta.png</image:loc>
+      <image:title>Time Gained / Lost per Turn vs Reference</image:title>
+      <image:caption>Find more pace: turn by turn against the track’s built-in reference.
+Red is where you’re slower, green is where you’re faster. The footnote names the corners worth the most.</image:caption>
     </image:image>
   </url>
   <url>
@@ -247,8 +246,8 @@ Late or scattered commitment is exit speed left on the table.</image:caption>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/06_lines_T6_racing_line.png</image:loc>
-      <image:title>Racing Line - T6</image:title>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/06_lines_T5_racing_line.png</image:loc>
+      <image:title>Racing Line - T5</image:title>
       <image:caption>Improve racing lines where needed. One line per lap for each priority corner, vs the purple dashed reference.
 The footnote names divergences worth correcting.</image:caption>
     </image:image>
@@ -258,8 +257,8 @@ The footnote names divergences worth correcting.</image:caption>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/07_technique_T6_brake_traces_gear_overlay.png</image:loc>
-      <image:title>Brake Traces &amp; Gear Overlay - T6</image:title>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/07_technique_T5_brake_traces_gear_overlay.png</image:loc>
+      <image:title>Brake Traces &amp; Gear Overlay - T5</image:title>
       <image:caption>Brake pressure, pedal release, and gear downshifts through a specific turn/corner. Priority turns are detected automatically.
 The fastest lap is highlighted vs the dashed purple reference. See whether</image:caption>
     </image:image>
@@ -269,8 +268,8 @@ The fastest lap is highlighted vs the dashed purple reference. See whether</imag
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/08_technique_T6_throttle_traces.png</image:loc>
-      <image:title>Throttle Traces - T6</image:title>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/08_technique_T5_throttle_traces.png</image:loc>
+      <image:title>Throttle Traces - T5</image:title>
       <image:caption>Throttle application and modulation past the apex of a specific turn/corner. Priority turns are detected automatically.
 The fastest lap is highlighted vs the dashed purple reference. See whether you&#x27;r</image:caption>
     </image:image>
@@ -280,9 +279,9 @@ The fastest lap is highlighted vs the dashed purple reference. See whether you&#
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/09_technique_T6_speed_traces.png</image:loc>
-      <image:title>Speed Traces - T6</image:title>
-      <image:caption>Entry, minimum and exit speed through T6, lap by lap, vs the dashed purple reference.</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/09_technique_T5_speed_traces.png</image:loc>
+      <image:title>Speed Traces - T5</image:title>
+      <image:caption>Entry, minimum and exit speed through T5, lap by lap, vs the dashed purple reference.</image:caption>
     </image:image>
   </url>
   <url>
@@ -367,9 +366,10 @@ Pick your strongest session as the baseline, or the one you </image:caption>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/17_overview_lap_times_progression.png</image:loc>
-      <image:title>Clean Lap Times Progression</image:title>
-      <image:caption>Every clean lap in order, with median vs the reference. Outlier laps are detected and annotated.</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/17_overview_lap_times_per_stint.png</image:loc>
+      <image:title>Clean Lap Times Per Stint</image:title>
+      <image:caption>Pace within each tyre stint: fastest, slowest and the trend.
+See whether you’re extracting performance from each tyre compound you used.</image:caption>
     </image:image>
   </url>
   <url>
@@ -377,10 +377,10 @@ Pick your strongest session as the baseline, or the one you </image:caption>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/18_overview_lap_times_per_stint.png</image:loc>
-      <image:title>Clean Lap Times Per Stint</image:title>
-      <image:caption>Pace within each tyre stint: fastest, slowest and the trend.
-See whether you’re extracting performance from each tyre compound you used.</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/18_overview_lap_times_vs_tyre_age.png</image:loc>
+      <image:title>Tyre Degradation</image:title>
+      <image:caption>Added cost per lap as tyres age: fuel-normalized lap times per stint, with compound degradation in ms/lap.
+Steeper than expected means you&#x27;re overdriving the tyre or not handling loss of grip efficien</image:caption>
     </image:image>
   </url>
   <url>
@@ -388,10 +388,9 @@ See whether you’re extracting performance from each tyre compound you used.</i
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/19_overview_lap_times_vs_tyre_age.png</image:loc>
-      <image:title>Tyre Degradation</image:title>
-      <image:caption>Added cost per lap as tyres age: fuel-normalized lap times per stint, with compound degradation in ms/lap.
-Steeper than expected means you&#x27;re overdriving the tyre or not handling loss of grip efficien</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/19_overview_tyre_management.png</image:loc>
+      <image:title>Tyre Management</image:title>
+      <image:caption>Tyre surface and carcass temperatures versus their optimal windows, lap by lap and stint by stint.</image:caption>
     </image:image>
   </url>
   <url>
@@ -399,9 +398,9 @@ Steeper than expected means you&#x27;re overdriving the tyre or not handling los
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/20_overview_tyre_management.png</image:loc>
-      <image:title>Tyre Management</image:title>
-      <image:caption>Tyre surface and carcass temperatures versus their optimal windows, lap by lap and stint by stint.</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/20_overview_fastest_lap_telemetry.png</image:loc>
+      <image:title>Fastest Lap Telemetry</image:title>
+      <image:caption>Your fastest lap plotted at high resolution: brake, throttle, steering, lateral G, speed and gear with the turn zones marked.</image:caption>
     </image:image>
   </url>
   <url>
@@ -409,24 +408,14 @@ Steeper than expected means you&#x27;re overdriving the tyre or not handling los
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/21_overview_fastest_lap_telemetry.png</image:loc>
-      <image:title>Fastest Lap Telemetry</image:title>
-      <image:caption>Your fastest lap plotted at high resolution: brake, throttle, steering, lateral G, speed and gear with the turn zones marked.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/22/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/22_overview_fastest_lap_track_map.png</image:loc>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/full-reel/21_overview_fastest_lap_track_map.png</image:loc>
       <image:title>Lap Heat Map vs Reference</image:title>
       <image:caption>Your fastest lap drawn on the circuit, comparing speed deltas vs. the reference through each turn. For example: T5 is faster in, slower out; the reverse should be true.
 Shows where to find more speed </image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/23/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/full-reel/22/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>

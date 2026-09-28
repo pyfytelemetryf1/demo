@@ -1,6 +1,6 @@
 # F1 Telemetry CSV Output Format
 
-*Last updated: 2026-03-25T18:00:00Z - schema version: 0.3.0*
+*Last updated: 2026-09-27T21:19:16Z - schema version: 0.3.0*
 
 This document describes the CSV output format produced by the F1 Telemetry Logger.
 

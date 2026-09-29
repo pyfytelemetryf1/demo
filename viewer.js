@@ -275,6 +275,8 @@
     function enterViewer() {
         if (!PAGE || hosted) return;
         hosted = true;
+        // A slide shown here gets the slide page's layout, landscape included.
+        document.body.setAttribute('data-slide', '');
         document.querySelectorAll('main.page-doc').forEach(el => { el.hidden = true; });
         document.querySelector('main.viewer').hidden = false;
         history.pushState({ hosted: true }, '', window.location.href);
@@ -285,6 +287,7 @@
         if (!hosted) return;
         hosted = false;
         currentScenarioId = null;
+        document.body.removeAttribute('data-slide');
         document.querySelector('main.viewer').hidden = true;
         document.querySelectorAll('main.page-doc').forEach(el => { el.hidden = false; });
         if (!helpOverlay.hidden) helpOverlay.hidden = true;

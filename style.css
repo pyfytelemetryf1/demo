@@ -1382,7 +1382,7 @@ body[data-page] main.viewer[hidden] { display: none; }
 /* The landing and reel pages keep the viewer's frame: header, strip and footer stay put and
    the drawer spans between them; the page's own content scrolls inside. */
 html:has(body[data-page="landing"]), html:has(body[data-page="reel"]) { height: 100%; overflow: hidden; }
-body[data-page="landing"], body[data-page="reel"] { height: 100vh; min-height: 0; overflow: hidden; }
+body[data-page="landing"], body[data-page="reel"] { height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; }
 body[data-page="landing"] main.page-doc, body[data-page="reel"] main.page-doc { flex: 1; min-height: 0; overflow-y: auto; }
 
 /* === A phone on its side: the chart alone, the arrows and the counter in a band under it === */

@@ -194,6 +194,23 @@ Open a `_laps.csv` file in any spreadsheet app (Excel, Google Sheets) for a quic
 
 See [CSV_OUTPUT_FORMAT.md](CSV_OUTPUT_FORMAT.md) for the complete field reference.
 
+### Which laps are recorded
+
+When raw capture is enabled (the default), the app stores every telemetry packet the game sends, so regenerating a session with a newer version of the app can add bug fixes, corrections, and features to the rebuilt CSVs, charts, and optionally the external LLM analysis. 
+
+The laps CSV keeps a row for every lap you drive, including an incomplete lap which you didn't finish either because you retired, quit to the menu or closed the app. There are a few edge cases in which a lap is excluded:
+
+- a lap where you chose `Return to the garage` in the game menu (for example in Practice sessions)
+- a lap in which no sector was completed, unless the car was damaged, so an early crash is still captured for analysis purposes
+- the cool-down lap after a race's final lap
+- the part of a lap undone by a flashback that rewinds into the previous lap: the lap you drive again replaces it
+
+However, the turns CSV keeps corner data also for unfinished laps (including laps not stored in laps CSV), unless the specific track you are driving currently has no corner-level support (see [Turn-level telemetry support](#10-turn-level-telemetry-support)). There are a few edge cases in which a turn is excluded:
+
+- the corner you are in when the session ends or you quit
+- corners undone by a flashback: the ones you drive again replace them, marked `retried_with_flashback`
+- corners for a Practice or Time Trial lap where you chose `Restart lap` in the game menu
+
 ### The turns CSV
 
 The `_turns.csv` contains per-turn detail: braking points, apex speeds, throttle commitment, racing line coordinates, tyre temperatures, and more. This data is dense - it's most useful when consumed through the analysis charts rather than viewed directly.
@@ -236,7 +253,7 @@ After saving, the app restarts automatically with the new settings.
 
 ## 10. Turn-level telemetry support
 
-The app includes turn-level analysis and reference data (see [Reference laps](#reference-laps)) for 19 tracks: Abu Dhabi, Austria, Bahrain, Baku, Catalunya, Hungaroring, Losail, Madrid, Melbourne, Miami, Monaco, Montreal, Monza, Shanghai, Silverstone, Singapore, Spa, Suzuka and Zandvoort.
+The app includes turn-level analysis and reference data (see [Reference laps](#reference-laps)) for 22 tracks: Abu Dhabi, Austria (Red Bull Ring), Bahrain, Baku (Azerbaijan), Barcelona (Catalunya), Brazil (Interlagos), Hungary (Hungaroring), Madrid (Madring), Melbourne (Australia), Mexico, Miami, Monaco, Montreal (Canada), Monza (Italy), Qatar (Losail), Shanghai (China), Silverstone (Great Britain), Singapore, Spa (Belgium), Suzuka (Japan), United States (Texas, COTA) and Zandvoort (Netherlands).
 
 More tracks and refinements to existing tracks are added with each release. 
 

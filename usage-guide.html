@@ -23,6 +23,7 @@
 <li><a href="#6-generate-a-per-lap-telemetry-plot">6. Generate a Per-Lap Telemetry Plot</a></li>
 <li><a href="#7-review-your-telemetry-data">7. Review Your Telemetry Data</a></li>
 <li class="toc-sub"><a href="#what-to-look-for-in-the-laps-csv">What to look for in the laps CSV</a></li>
+<li class="toc-sub"><a href="#which-laps-are-recorded">Which laps are recorded</a></li>
 <li class="toc-sub"><a href="#the-turns-csv">The turns CSV</a></li>
 <li><a href="#8-regenerate-session-data">8. Regenerate Session Data</a></li>
 <li><a href="#9-changing-listener-settings">9. Changing Listener Settings</a></li>
@@ -181,6 +182,21 @@ The app will help as much as possible by opening two windows for you side-by-sid
 <li><strong>track_limits_violations</strong> - rule infringements</li>
 </ul>
 <p>See <a href="csv-format/">CSV_OUTPUT_FORMAT.md</a> for the complete field reference.</p>
+<h3 id="which-laps-are-recorded">Which laps are recorded</h3>
+<p>When raw capture is enabled (the default), the app stores every telemetry packet the game sends, so regenerating a session with a newer version of the app can add bug fixes, corrections, and features to the rebuilt CSVs, charts, and optionally the external LLM analysis. </p>
+<p>The laps CSV keeps a row for every lap you drive, including an incomplete lap which you didn't finish either because you retired, quit to the menu or closed the app. There are a few edge cases in which a lap is excluded:</p>
+<ul>
+<li>a lap where you chose <code>Return to the garage</code> in the game menu (for example in Practice sessions)</li>
+<li>a lap in which no sector was completed, unless the car was damaged, so an early crash is still captured for analysis purposes</li>
+<li>the cool-down lap after a race's final lap</li>
+<li>the part of a lap undone by a flashback that rewinds into the previous lap: the lap you drive again replaces it</li>
+</ul>
+<p>However, the turns CSV keeps corner data also for unfinished laps (including laps not stored in laps CSV), unless the specific track you are driving currently has no corner-level support (see <a href="#10-turn-level-telemetry-support">Turn-level telemetry support</a>). There are a few edge cases in which a turn is excluded:</p>
+<ul>
+<li>the corner you are in when the session ends or you quit</li>
+<li>corners undone by a flashback: the ones you drive again replace them, marked <code>retried_with_flashback</code></li>
+<li>corners for a Practice or Time Trial lap where you chose <code>Restart lap</code> in the game menu</li>
+</ul>
 <h3 id="the-turns-csv">The turns CSV</h3>
 <p>The <code>_turns.csv</code> contains per-turn detail: braking points, apex speeds, throttle commitment, racing line coordinates, tyre temperatures, and more. This data is dense - it's most useful when consumed through the analysis charts rather than viewed directly.</p>
 <p>A few fields worth checking directly:</p>
@@ -214,7 +230,7 @@ From the menu, select <strong>Regenerate session data with the latest features</
 </ul>
 <p>After saving, the app restarts automatically with the new settings.</p>
 <h2 id="10-turn-level-telemetry-support">10. Turn-level telemetry support</h2>
-<p>The app includes turn-level analysis and reference data (see <a href="#reference-laps">Reference laps</a>) for 19 tracks: Abu Dhabi, Austria, Bahrain, Baku, Catalunya, Hungaroring, Losail, Madrid, Melbourne, Miami, Monaco, Montreal, Monza, Shanghai, Silverstone, Singapore, Spa, Suzuka and Zandvoort.</p>
+<p>The app includes turn-level analysis and reference data (see <a href="#reference-laps">Reference laps</a>) for 22 tracks: Abu Dhabi, Austria (Red Bull Ring), Bahrain, Baku (Azerbaijan), Barcelona (Catalunya), Brazil (Interlagos), Hungary (Hungaroring), Madrid (Madring), Melbourne (Australia), Mexico, Miami, Monaco, Montreal (Canada), Monza (Italy), Qatar (Losail), Shanghai (China), Silverstone (Great Britain), Singapore, Spa (Belgium), Suzuka (Japan), United States (Texas, COTA) and Zandvoort (Netherlands).</p>
 <p>More tracks and refinements to existing tracks are added with each release. </p>
 <p>For tracks without that data, the app still records lap-level telemetry (lap times, tyre data, etc.) but turn-by-turn analysis is not available.</p>
 <h2 id="11-output-files-reference">11. Output Files Reference</h2>

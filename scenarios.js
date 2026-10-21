@@ -17,7 +17,7 @@
 const LLM_DISCLAIMER = 'LLM analysis uses a third-party service of your choice, only data you upload is sent to them. Their terms apply.';
 
 const WELCOME_SLIDE = {
-    markdown: '<p><strong>PyFy Telemetry F1</strong> is compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC).<br/>Capture sim racing telemetry and turn it into practical, corner-by-corner coaching insights you can use right away to find lap time.</p><p class="welcome-slide-beta">Available on Windows 10/11. Per-turn analysis supported at <a href="?s=supported-tracks/1" class="slide-link">19 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu and a polished UX.</p><p class="welcome-slide-cta">Get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>, or see <a href="?s=highlights/1" class="slide-link">key features</a> in the <a href="#" class="slide-open-drawer">menu</a>, including a <a href="?s=install/1" class="slide-link">quick setup guide</a> (PC or Console).</p><p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
+    markdown: '<p><strong>PyFy Telemetry F1</strong> is compatible with EA Sports F1 25*, including the 2026 Season Pack (F1 26* DLC).<br/>Capture sim racing telemetry and turn it into practical, corner-by-corner coaching insights you can use right away to find lap time.</p><p class="welcome-slide-beta">Available on Windows 10/11. Per-turn analysis supported at <a href="?s=supported-tracks/1" class="slide-link">22 tracks</a>, more added regularly!<br/>Keyboard-friendly CLI with a built-in menu and a polished UX.</p><p class="welcome-slide-cta">Get the app, free in the <a href="https://apps.microsoft.com/detail/9P60JSFXGLG0" target="_blank" rel="noopener" class="slide-link welcome-store-link">Microsoft Store</a>, or see <a href="?s=highlights/1" class="slide-link">key features</a> in the <a href="#" class="slide-open-drawer">menu</a>, including a <a href="?s=install/1" class="slide-link">quick setup guide</a> (PC or Console).</p><p class="welcome-slide-fine-print">(no ads or in-app purchases, no account or cloud services, no data collection)</p>',
     title: 'PyFy Telemetry: F1 Performance Analysis',
     description: 'Capture sim racing telemetry and turn it into practical, turn-by-turn/corner-by-corner insights you can use right away to gain lap time.',
     group: 'WELCOME'
@@ -286,31 +286,55 @@ const SCENARIOS = {
     },
     'supported-tracks': {
         title: 'Supported Tracks',
-        description: '19 tracks with per-corner analysis',
-        intro: '19 tracks with per-corner analysis',
+        description: '22 tracks with per-corner analysis',
+        intro: '22 tracks with per-corner analysis',
         slides: [
             {
-                markdown: '<p>PyFyTelemetry F1 currently supports detailed turn-level/corner-level analysis at <strong>19 tracks</strong>:</p><ul class="supported-tracks-list"><li><a href="?s=supported-tracks/2" class="slide-link"><strong>Madrid</strong></a> - Madring <strong>NEW</strong></li><li><a href="?s=supported-tracks/3" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li><li><a href="?s=supported-tracks/4" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li><li><a href="?s=supported-tracks/5" class="slide-link"><strong>Bahrain</strong></a> - Bahrain International Circuit</li><li><a href="?s=supported-tracks/6" class="slide-link"><strong>Azerbaijan</strong></a> - Baku City Circuit</li><li><a href="?s=supported-tracks/7" class="slide-link"><strong>Spain</strong></a> - Circuit de Barcelona-Catalunya</li><li><a href="?s=supported-tracks/8" class="slide-link"><strong>Hungary</strong></a> - Hungaroring</li><li><a href="?s=supported-tracks/9" class="slide-link"><strong>Qatar</strong></a> - Lusail International Circuit</li><li><a href="?s=supported-tracks/10" class="slide-link"><strong>Melbourne</strong></a> - Albert Park Circuit</li><li><a href="?s=supported-tracks/11" class="slide-link"><strong>Florida</strong></a> - Miami International Autodrome</li><li><a href="?s=supported-tracks/12" class="slide-link"><strong>Monte Carlo</strong></a> - Circuit de Monaco</li><li><a href="?s=supported-tracks/13" class="slide-link"><strong>Montreal</strong></a> - Circuit Gilles Villeneuve</li><li><a href="?s=supported-tracks/14" class="slide-link"><strong>Italy</strong></a> - Autodromo Nazionale di Monza</li><li><a href="?s=supported-tracks/15" class="slide-link"><strong>China</strong></a> - Shanghai International Circuit</li><li><a href="?s=supported-tracks/16" class="slide-link"><strong>Great Britain</strong></a> - Silverstone Circuit</li><li><a href="?s=supported-tracks/17" class="slide-link"><strong>Singapore</strong></a> - Marina Bay Street Circuit</li><li><a href="?s=supported-tracks/18" class="slide-link"><strong>Belgium</strong></a> - Circuit de Spa-Francorchamps</li><li><a href="?s=supported-tracks/19" class="slide-link"><strong>Japan</strong></a> - Suzuka International Racing Course</li><li><a href="?s=supported-tracks/20" class="slide-link"><strong>Netherlands</strong></a> - Circuit Zandvoort</li></ul>',
+                markdown: '<p>PyFyTelemetry F1 currently supports detailed turn-level/corner-level analysis at <strong>22 tracks</strong>:</p><ul class="supported-tracks-list"><li><a href="?s=supported-tracks/2" class="slide-link"><strong>United States</strong></a> (Texas) - Circuit of the Americas (COTA) <strong>NEW</strong></li><li><a href="?s=supported-tracks/3" class="slide-link"><strong>Mexico</strong></a> - Autódromo Hermanos Rodríguez <strong>NEW</strong></li><li><a href="?s=supported-tracks/4" class="slide-link"><strong>Brazil</strong></a> (Interlagos) - Autódromo José Carlos Pace <strong>NEW</strong></li><li><a href="?s=supported-tracks/5" class="slide-link"><strong>Madrid</strong></a> - Circuito de Madring <strong>NEW</strong></li><li><a href="?s=supported-tracks/6" class="slide-link"><strong>Melbourne</strong></a> (Australia) - Albert Park Circuit</li><li><a href="?s=supported-tracks/7" class="slide-link"><strong>Shanghai</strong></a> (China) - Shanghai International Circuit</li><li><a href="?s=supported-tracks/8" class="slide-link"><strong>Suzuka</strong></a> (Japan) - Suzuka International Racing Course</li><li><a href="?s=supported-tracks/9" class="slide-link"><strong>Bahrain</strong></a> - Bahrain International Circuit</li><li><a href="?s=supported-tracks/10" class="slide-link"><strong>Miami</strong></a> - Miami International Autodrome</li><li><a href="?s=supported-tracks/11" class="slide-link"><strong>Monaco</strong></a> - Circuit de Monaco</li><li><a href="?s=supported-tracks/12" class="slide-link"><strong>Barcelona</strong></a> (Catalunya) - Circuit de Barcelona-Catalunya</li><li><a href="?s=supported-tracks/13" class="slide-link"><strong>Montreal</strong></a> (Canada) - Circuit Gilles Villeneuve</li><li><a href="?s=supported-tracks/14" class="slide-link"><strong>Austria</strong></a> - Red Bull Ring</li><li><a href="?s=supported-tracks/15" class="slide-link"><strong>Silverstone</strong></a> (Great Britain) - Silverstone Circuit</li><li><a href="?s=supported-tracks/16" class="slide-link"><strong>Spa</strong></a> (Belgium) - Circuit de Spa-Francorchamps</li><li><a href="?s=supported-tracks/17" class="slide-link"><strong>Hungary</strong></a> - Hungaroring</li><li><a href="?s=supported-tracks/18" class="slide-link"><strong>Zandvoort</strong></a> (Netherlands) - Circuit Zandvoort</li><li><a href="?s=supported-tracks/19" class="slide-link"><strong>Monza</strong></a> (Italy) - Autodromo Nazionale di Monza</li><li><a href="?s=supported-tracks/20" class="slide-link"><strong>Baku</strong></a> (Azerbaijan) - Baku City Circuit</li><li><a href="?s=supported-tracks/21" class="slide-link"><strong>Singapore</strong></a> - Marina Bay Street Circuit</li><li><a href="?s=supported-tracks/22" class="slide-link"><strong>Qatar</strong></a> (Losail) - Lusail International Circuit</li><li><a href="?s=supported-tracks/23" class="slide-link"><strong>Abu Dhabi</strong></a> - Yas Marina Circuit</li></ul>',
                 title: 'Supported Tracks',
                 description: '',
                 group: 'OVERVIEW'
             },
             {
+                image: 'images/tracks/Texas.png',
+                title: 'United States (Texas) - NEW',
+                description: 'Circuit of the Americas (COTA)',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Mexico.png',
+                title: 'Mexico - NEW',
+                description: 'Autódromo Hermanos Rodríguez',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Brazil.png',
+                title: 'Brazil (Interlagos) - NEW',
+                description: 'Autódromo José Carlos Pace',
+                group: 'TRACK MAP'
+            },
+            {
                 image: 'images/tracks/Madrid.png',
-                title: 'Madrid - NEW in 0.3.0',
-                description: 'Madring',
+                title: 'Madrid - NEW',
+                description: 'Circuito de Madring',
                 group: 'TRACK MAP'
             },
             {
-                image: 'images/tracks/AbuDhabi.png',
-                title: 'Abu Dhabi',
-                description: 'Yas Marina Circuit',
+                image: 'images/tracks/Melbourne.png',
+                title: 'Melbourne (Australia)',
+                description: 'Albert Park Circuit',
                 group: 'TRACK MAP'
             },
             {
-                image: 'images/tracks/Austria.png',
-                title: 'Austria',
-                description: 'Red Bull Ring',
+                image: 'images/tracks/Shanghai.png',
+                title: 'Shanghai (China)',
+                description: 'Shanghai International Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Suzuka.png',
+                title: 'Suzuka (Japan)',
+                description: 'Suzuka International Racing Course',
                 group: 'TRACK MAP'
             },
             {
@@ -320,15 +344,45 @@ const SCENARIOS = {
                 group: 'TRACK MAP'
             },
             {
-                image: 'images/tracks/Baku.png',
-                title: 'Azerbaijan',
-                description: 'Baku City Circuit',
+                image: 'images/tracks/Miami.png',
+                title: 'Miami',
+                description: 'Miami International Autodrome',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Monaco.png',
+                title: 'Monaco',
+                description: 'Circuit de Monaco',
                 group: 'TRACK MAP'
             },
             {
                 image: 'images/tracks/Catalunya.png',
-                title: 'Spain',
+                title: 'Barcelona (Catalunya)',
                 description: 'Circuit de Barcelona-Catalunya',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Montreal.png',
+                title: 'Montreal (Canada)',
+                description: 'Circuit Gilles Villeneuve',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Austria.png',
+                title: 'Austria',
+                description: 'Red Bull Ring',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Silverstone.png',
+                title: 'Silverstone (Great Britain)',
+                description: 'Silverstone Circuit',
+                group: 'TRACK MAP'
+            },
+            {
+                image: 'images/tracks/Spa.png',
+                title: 'Spa (Belgium)',
+                description: 'Circuit de Spa-Francorchamps',
                 group: 'TRACK MAP'
             },
             {
@@ -338,51 +392,21 @@ const SCENARIOS = {
                 group: 'TRACK MAP'
             },
             {
-                image: 'images/tracks/Losail.png',
-                title: 'Qatar',
-                description: 'Lusail International Circuit',
-                group: 'TRACK MAP'
-            },
-            {
-                image: 'images/tracks/Melbourne.png',
-                title: 'Melbourne',
-                description: 'Albert Park Circuit',
-                group: 'TRACK MAP'
-            },
-            {
-                image: 'images/tracks/Miami.png',
-                title: 'Florida',
-                description: 'Miami International Autodrome',
-                group: 'TRACK MAP'
-            },
-            {
-                image: 'images/tracks/Monaco.png',
-                title: 'Monte Carlo',
-                description: 'Circuit de Monaco',
-                group: 'TRACK MAP'
-            },
-            {
-                image: 'images/tracks/Montreal.png',
-                title: 'Montreal',
-                description: 'Circuit Gilles Villeneuve',
+                image: 'images/tracks/Zandvoort.png',
+                title: 'Zandvoort (Netherlands)',
+                description: 'Circuit Zandvoort',
                 group: 'TRACK MAP'
             },
             {
                 image: 'images/tracks/Monza.png',
-                title: 'Italy',
+                title: 'Monza (Italy)',
                 description: 'Autodromo Nazionale di Monza',
                 group: 'TRACK MAP'
             },
             {
-                image: 'images/tracks/Shanghai.png',
-                title: 'China',
-                description: 'Shanghai International Circuit',
-                group: 'TRACK MAP'
-            },
-            {
-                image: 'images/tracks/Silverstone.png',
-                title: 'Great Britain',
-                description: 'Silverstone Circuit',
+                image: 'images/tracks/Baku.png',
+                title: 'Baku (Azerbaijan)',
+                description: 'Baku City Circuit',
                 group: 'TRACK MAP'
             },
             {
@@ -392,25 +416,19 @@ const SCENARIOS = {
                 group: 'TRACK MAP'
             },
             {
-                image: 'images/tracks/Spa.png',
-                title: 'Belgium',
-                description: 'Circuit de Spa-Francorchamps',
+                image: 'images/tracks/Losail.png',
+                title: 'Qatar (Losail)',
+                description: 'Lusail International Circuit',
                 group: 'TRACK MAP'
             },
             {
-                image: 'images/tracks/Suzuka.png',
-                title: 'Japan',
-                description: 'Suzuka International Racing Course',
+                image: 'images/tracks/AbuDhabi.png',
+                title: 'Abu Dhabi',
+                description: 'Yas Marina Circuit',
                 group: 'TRACK MAP'
             },
             {
-                image: 'images/tracks/Zandvoort.png',
-                title: 'Netherlands',
-                description: 'Circuit Zandvoort',
-                group: 'TRACK MAP'
-            },
-            {
-                markdown: '<p><strong>PyFy Telemetry F1 versions 0.3.x</strong> add multiple new features:</p><ul class="whats-new-list"><li><strong>0.3.1:</strong> Reference laps adjusted to your fuel load and tyre compound</li><li><strong>0.3.1:</strong> Improved built-in Qualifying & Race reference laps for all tracks</li><li><strong>0.3.1:</strong> Braking point and throttle consistency charts show time lost directly on the chart</li><li>2026-regulations support: S-Mode (Active Aero), Boost/Overtake mode, 24-car grids, etc.</li><li>2026 UDP telemetry format (in addition to 2025)</li><li>Madrid as the newest 2026 track (19 tracks supported in total)</li><li>Built-in reference laps for Race & Qualifying on relevant charts to aim for an achievable, challenging target</li><li>Circuit mini-map on each chart to more easily orient where on track a finding applies</li><li>Online races support (coaches pace reproducibility and racecraft) in addition to offline races</li><li>UX of CLI menus: turn-key app starts, one keypress analysis, charts open as a reel with set defaults, etc.</li><li>Performance boost for chart rendering and analysis</li><li>Battery harvesting chart and analysis against reference</li><li>Racing-line analysis directly on the chart</li><li>Scorecard redesigned for high-level overview and opportunities/coaching insights</li></ul>',
+                markdown: '<p><strong>PyFy Telemetry F1 versions 0.3.x</strong> add multiple new features:</p><ul class="whats-new-list"><li><strong>0.3.2:</strong> Added support for United States (COTA), Mexico and Brazil (Interlagos) - 22 tracks supported in total</li><li><strong>0.3.1:</strong> Reference laps adjusted to your fuel load and tyre compound</li><li><strong>0.3.1:</strong> Improved built-in Qualifying & Race reference laps for all tracks</li><li><strong>0.3.1:</strong> Braking point and throttle consistency charts show time lost directly on the chart</li><li>2026-regulations support: S-Mode (Active Aero), Boost/Overtake mode, 24-car grids, etc.</li><li>2026 UDP telemetry format (in addition to 2025)</li><li>Madrid as the newest 2026 track</li><li>Built-in reference laps for Race & Qualifying on relevant charts to aim for an achievable, challenging target</li><li>Circuit mini-map on each chart to more easily orient where on track a finding applies</li><li>Online races support (coaches pace reproducibility and racecraft) in addition to offline races</li><li>UX of CLI menus: turn-key app starts, one keypress analysis, charts open as a reel with set defaults, etc.</li><li>Performance boost for chart rendering and analysis</li><li>Battery harvesting chart and analysis against reference</li><li>Racing-line analysis directly on the chart</li><li>Scorecard redesigned for high-level overview and opportunities/coaching insights</li></ul>',
                 title: 'New in 0.3.0 / 0.3.1',
                 description: 'PyFyTelemetryF1 0.3.0 and 0.3.1 add new key features: support for 2026 regulations and 2026 UDP telemetry format, support for Madrid, built-in reference laps and circuit minimap on every relevant chart, online race analysis, redesigned scorecard, significant performance boost, and more.',
                 group: 'NEW IN 0.3.x'
@@ -535,5 +553,5 @@ Object.keys(SCENARIOS).forEach(function (id) {
 const APP_LINKS = {
     'app-link-1': 'supported-tracks/1',   // supported tracks
     'app-link-2': 'install/5',            // in-game UDP telemetry settings
-    'app-link-3': 'supported-tracks/21'   // new in 0.3.0
+    'app-link-3': 'supported-tracks/24'   // new in 0.3.x
 };

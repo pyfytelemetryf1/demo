@@ -352,9 +352,9 @@ System performance metrics for debugging latency issues. Sampled every ~5 second
 | `timestamp` | string | ISO 8601 timestamp |
 | `version` | string | App version that produced this row (e.g., `0.2.7`) |
 | `packet_id` | int | F1 25 packet type ID |
-| `socket_read_ms` | float | Time to read from socket (ms) |
+| `socket_read_ms` | float | Not measured: always 0 |
 | `forward_ms` | float | Time to forward packet (ms) |
-| `capture_write_ms` | float | Time to write raw bin capture (ms, 0 if capture off) |
+| `capture_write_ms` | float | Time to write the packet to the raw bin capture, part of `forward_ms` (ms, 0 if capture off) |
 | `processing_ms` | float | Total processing time (ms) |
 | `laps_processing_ms` | float | Lap-related processing time (ms) |
 | `turns_processing_ms` | float | Turn-related processing time (ms) |

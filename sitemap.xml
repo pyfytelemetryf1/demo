@@ -485,9 +485,9 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Texas.png</image:loc>
-      <image:title>United States (Texas) - NEW</image:title>
-      <image:caption>Circuit of the Americas (COTA)</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/LasVegas.png</image:loc>
+      <image:title>Las Vegas - NEW</image:title>
+      <image:caption>Las Vegas Strip Circuit</image:caption>
     </image:image>
   </url>
   <url>
@@ -495,33 +495,13 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Mexico.png</image:loc>
-      <image:title>Mexico - NEW</image:title>
-      <image:caption>Autódromo Hermanos Rodríguez</image:caption>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Imola.png</image:loc>
+      <image:title>Imola (Emilia-Romagna) - NEW</image:title>
+      <image:caption>Autodromo Internazionale Enzo e Dino Ferrari</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/4/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Brazil.png</image:loc>
-      <image:title>Brazil (Interlagos) - NEW</image:title>
-      <image:caption>Autódromo José Carlos Pace</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/5/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Madrid.png</image:loc>
-      <image:title>Madrid - NEW</image:title>
-      <image:caption>Circuito de Madring</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/6/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -531,7 +511,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/7/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/5/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -541,7 +521,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/8/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/6/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -551,7 +531,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/9/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/7/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -561,7 +541,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/10/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/8/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -571,7 +551,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/11/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/9/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -581,7 +561,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/12/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/10/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -591,7 +571,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/13/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/11/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -601,7 +581,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/14/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/12/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -611,7 +591,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/15/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/13/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -621,7 +601,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/16/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/14/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -631,7 +611,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/17/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/15/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -641,7 +621,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/18/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/16/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -651,7 +631,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/19/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/17/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -661,7 +641,17 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/20/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/18/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Madrid.png</image:loc>
+      <image:title>Madrid</image:title>
+      <image:caption>Circuito de Madring</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/19/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -671,7 +661,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/21/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/20/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -681,7 +671,37 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/21/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Texas.png</image:loc>
+      <image:title>United States (COTA)</image:title>
+      <image:caption>Circuit of the Americas</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/22/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Mexico.png</image:loc>
+      <image:title>Mexico</image:title>
+      <image:caption>Autódromo Hermanos Rodríguez</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/23/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://pyfytelemetryf1.github.io/demo/images/tracks/Brazil.png</image:loc>
+      <image:title>Brazil (Interlagos)</image:title>
+      <image:caption>Autódromo José Carlos Pace</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/24/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -691,7 +711,7 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/23/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/25/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <image:image>
@@ -701,12 +721,12 @@ For online races, assess racecraft in wheel-to-wheel action, avoiding incidents,
     </image:image>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/24/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/26/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/25/</loc>
+    <loc>https://pyfytelemetryf1.github.io/demo/supported-tracks/27/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>

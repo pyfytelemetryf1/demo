@@ -198,6 +198,8 @@ See [CSV_OUTPUT_FORMAT.md](CSV_OUTPUT_FORMAT.md) for the complete field referenc
 
 When raw capture is enabled (the default), the app stores every telemetry packet the game sends, so regenerating a session with a newer version of the app can add bug fixes, corrections, and features to the rebuilt CSVs, charts, and optionally the external LLM analysis. 
 
+Starting in 0.3.3, raw captures for new sessions are stored in a much more efficient format, saving about 3-4x the previously required disk space from versions 0.1.0 - 0.3.2 (for example, a 5-lap race that required ~200 MB of disk space should now only require ~60 MB). Captures recorded by older versions of the app can be converted to the latest format using **Compress older captures** in the main menu (it will only appear while there are still older raw capture files on disk that have not yet been converted).
+
 The laps CSV keeps a row for every lap you drive, including an incomplete lap which you didn't finish either because you retired, quit to the menu or closed the app. There are a few edge cases in which a lap is excluded:
 
 - a lap where you chose `Return to the garage` in the game menu (for example in Practice sessions)
@@ -253,7 +255,7 @@ After saving, the app restarts automatically with the new settings.
 
 ## 10. Turn-level telemetry support
 
-The app includes turn-level analysis and reference data (see [Reference laps](#reference-laps)) for 22 tracks: Abu Dhabi, Austria (Red Bull Ring), Bahrain, Baku (Azerbaijan), Barcelona (Catalunya), Brazil (Interlagos), Hungary (Hungaroring), Madrid (Madring), Melbourne (Australia), Mexico, Miami, Monaco, Montreal (Canada), Monza (Italy), Qatar (Losail), Shanghai (China), Silverstone (Great Britain), Singapore, Spa (Belgium), Suzuka (Japan), United States (Texas, COTA) and Zandvoort (Netherlands).
+The app includes turn-level analysis and reference data (see [Reference laps](#reference-laps)) for 24 tracks: Abu Dhabi, Austria (Red Bull Ring), Bahrain, Baku (Azerbaijan), Barcelona (Catalunya), Brazil (Interlagos), Hungary (Hungaroring), Imola (Emilia-Romagna), Las Vegas, Madrid (Madring), Melbourne (Australia), Mexico, Miami, Monaco, Montreal (Canada), Monza (Italy), Qatar (Losail), Shanghai (China), Silverstone (Great Britain), Singapore, Spa (Belgium), Suzuka (Japan), United States (Texas, COTA) and Zandvoort (Netherlands).
 
 More tracks and refinements to existing tracks are added with each release. 
 
